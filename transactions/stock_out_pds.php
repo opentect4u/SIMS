@@ -10,7 +10,7 @@
 			$dono		=	$_POST["do_no"];
 			$prodslno	=	$_POST["prod_sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
-			$transtype	=	"I";
+			$transtype	=	"O";
 			$qtybag		=	$_POST['qty_bag'];
 			$qtyqnt		=	$_POST['qty_qnt'];	
 			$qtykg		=	$_POST['qty_kg'];

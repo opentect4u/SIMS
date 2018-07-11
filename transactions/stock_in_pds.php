@@ -15,8 +15,7 @@
 			$qtyqnt		=	$_POST['qty_qnt'];	
 			$qtykg		=	$_POST['qty_kg'];
 			$qtygm		=	$_POST['qty_gm'];	
-			$shtkg		=	$_POST['sht_kg'];
-			$shtgm		=	$_POST['sht_gm'];
+
 			$remarks	=	$_POST['remarks'];
 			$transcd	=	1;
                         $user_id=$_SESSION["user_id"];
@@ -33,12 +32,12 @@
 								     qty_qnt,
 								     qty_kg,
 								     qty_gm,
-								     sht_kg,
-								     sht_gm,
 								     remarks,
 								     approval_status,			
 								     created_by,
-								     created_dt)
+								     created_dt,
+								     sht_kg,
+								     sht_gm)
 							      values('$transdt',
 								     '$transcd',
 								     '$dono',
@@ -49,12 +48,12 @@
 								     '$qtyqnt',
 								     '$qtykg',
 								     '$qtygm',
-								     '$shtkg',
-								     '$shtgm',
 								     '$remarks',
 								     'U',									     
 								     '$user_id',
-								     '$time')";
+								     '$time',
+							     	      0,
+							      	      0)";
 
                           $result=mysqli_query($db_connect,$sql);
                         }
@@ -63,7 +62,7 @@
 ?>
 <html>
 	<head>
-		<title>Synergic Inventory Management System</title>
+		<title>Synergic Inventory Management System-Add Stock</title>
 		<link rel="stylesheet" href="../css/master.css">
 	</head>
 	<body>
@@ -112,21 +111,9 @@
                                 <td><input type="text" name="qty_gm" size="150" style="width:400px"></td>        
 			</tr>
 
-			<tr> 
-                                <td><div class="alignlabel"><label for="sht_kg">Short Kg:</label></div></td>
-                                <td><input type="text" name="sht_kg" size="150" style="width:400px"></td>
-			</tr>
-
-			<tr> 
-				<td><div class="alignlabel"><label for="sht_gm">Short Gm:</label></div></td>
-                                <td><input type="text" name="sht_gm" size="150" style="width:400px"></td>
-                        </tr>
-
-
 			<tr>    
                                 <td><div class="alignlabel"><label for-"remarks">Remarks:</label></div></td>
-                                <td><textarea rows="5" cols="50" name="remarks" size="150" style="width:400px">Enter Remarks If Any..</textarea></td>        
-                        </tr>
+				<td><textarea rows="5" cols="50" name="remarks" size="150" style="width:400px">Enter Remarks If Any..</textarea></td>        		     </tr>
 
 			<tr>
 				<td><input type="submit" name="submit" value="Save"></td>
