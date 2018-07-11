@@ -64,7 +64,17 @@
 		<i class="fa fa-angle-down pull-right"></i>
 	     </button>
 		<div class="content">
-			<p>Set Transaction Menu here </p>
+			<div><a class="abtn green" href="../transactions/stock_in_pds.php">
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In</a>
+                                <br><br>
+			</div>
+		
+			<div><a class="abtn green" href="../transactions/stock_out_pds.php">
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out</a>
+                                <br><br>
+                        </div>
+
+	
 		</div>
 	</div>
 	<div>
