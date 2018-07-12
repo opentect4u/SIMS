@@ -7,6 +7,9 @@
 
         $errMsg = '';
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+
+            //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
+
 			$transdt	=	$_POST["trans_dt"];
 			$dono		=	$_POST["do_no"];
 			$prodslno	=	$_POST["prod_sl_no"];
@@ -22,44 +25,57 @@
                         $user_id=$_SESSION["user_id"];
 			$time=date("Y-m-d h:i:s");
 
-			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) != 0 && !is_null($dono)) {
-				$sql="insert into td_stock_trans_pds(trans_dt,
-								     trans_cd,
-								     do_no,
-								     prod_sl_no,
-								     prod_desc,
-								     trans_type,
-								     qty_bag,
-								     qty_qnt,
-								     qty_kg,
-								     qty_gm,
-								     remarks,
-								     approval_status,			
-								     created_by,
-								     created_dt,
-								     sht_kg,
-								     sht_gm)
-							  values('$transdt',
-								     '$transcd',
-								     '$dono',
-								     '$prodslno',
-								     '$proddesc',
-								     '$transtype',
-							     	     '$qtybag',
-								     '$qtyqnt',
-								     '$qtykg',
-								     '$qtygm',
-								     '$remarks',
-								     'U',									     
-								     '$user_id',
-								     '$time',
-							     	      0,
-							      	      0)";
+
+			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($dono)) {
+			    $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
+                                                      WHERE trans_dt = '$transdt'";
+
+			    $result = mysqli_query($db_connect, $sql);
+
+			    if (mysqli_num_rows($result) > 0) {
+			        $data = mysqli_fetch_assoc($result);
+                    $transcd += $data['trans_cd'];
+                }
+
+
+			    $sql="insert into td_stock_trans_pds (trans_dt,
+                                                     trans_cd,
+                                                     do_no,
+                                                     prod_sl_no,
+                                                     prod_desc,
+                                                     trans_type,
+                                                     qty_bag,
+                                                     qty_qnt,
+                                                     qty_kg,
+                                                     qty_gm,
+                                                     remarks,
+                                                     approval_status,			
+                                                     created_by,
+                                                     created_dt,
+                                                     sht_kg,
+                                                     sht_gm)
+                                              values('$transdt',
+                                                     '$transcd',
+                                                     '$dono',
+                                                     '$prodslno',
+                                                     '$proddesc',
+                                                     '$transtype',
+                                                      $qtybag,
+                                                      $qtyqnt,
+                                                      $qtykg,
+                                                      $qtygm,
+                                                     '$remarks',
+                                                     'U',									     
+                                                     '$user_id',
+                                                     '$time',
+                                                          0,
+                                                          0)";
 
                           $result=mysqli_query($db_connect,$sql);
+
             }
             else{
-			    $errMsg = "Invalid Input";
+			    echo "<script>alert('Please Insert Valid Unit');</script>";
             }
 
         }
@@ -92,15 +108,11 @@
 
                 if (do_no.length < 1) {
                     e.preventDefault();
-                    $('#do_no').after('<span class="error">Invalid Input</span>');
+                    $('#do_no').after('<span class="error">Invalid DO No</span>');
                 }
-                if (prod_sl_no.length < 1) {
+                if (prod_sl_no == 0) {
                     e.preventDefault();
-                    $('#prod_sl_no').after('<span class="error">Invalid Input</span>');
-                }
-                if (prod_desc.length < 1) {
-                    e.preventDefault();
-                    $('#prod_desc').after('<span class="error">Invalid Input</span>');
+                    $('#prod_sl_no').after('<span class="error">Please select a valid serial</span>');
                 }
             });
 
@@ -129,7 +141,7 @@
                     <td><div class="alignlabel"><label for="prod_sl_no"><strong style="color: red;">*</strong>Product Code:</label></div></td>
                     <td>
                         <select name="prod_sl_no" id="prod_sl_no" style="width:400px;">
-                            <option>Select</option>
+                            <option value="0">Select</option>
                             <?php
                             while($data = mysqli_fetch_assoc($result)) { ?>
                                 <option value="<?php echo $data['sl_no'];?>"
@@ -151,26 +163,26 @@
                 <tr>
 
                     <td><div class="alignlabel"><label for="qty_bag">Bag/Tin:</label></div></td>
-                    <td><input type="text" name="qty_bag" size="150" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
+                    <td><input type="text" name="qty_bag" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
                 </tr>
 
                 <tr>
 
                     <td><div class="alignlabel"><label for="qty_qnt">Quantity:</label></div></td>
-                    <td><input type="text" name="qty_qnt" size="150" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
+                    <td><input type="text" name="qty_qnt" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
                 </tr>
 
                 <tr>
 
                     <td><div class="alignlabel"><label for="qty_kg">Kg:</label></div></td>
-                    <td><input type="text" name="qty_kg" size="150" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
+                    <td><input type="text" name="qty_kg" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
 
                 </tr>
 
                 <tr>
 
                     <td><div class="alignlabel"><label for="qty_gm">Gm:</label></div></td>
-                    <td><input type="text" name="qty_gm" size="150" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
+                    <td><input type="text" name="qty_gm" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
 
                 </tr>
 
