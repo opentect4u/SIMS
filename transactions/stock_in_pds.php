@@ -75,7 +75,7 @@
 
             }
             else{
-			    echo "<script>alert('Please Insert Valid Unit');</script>";
+			    echo "<script>alert('Please Insert Valid Unit, Transaction Failed');</script>";
             }
 
         }
