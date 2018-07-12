@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/transactions/stock_in_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/stock_in_pds.php" afterDir="false" />
-    </list>
+    <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,10 +99,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="45" />
-    <option name="y" value="47" />
-    <option name="width" value="969" />
-    <option name="height" value="701" />
+    <option name="x" value="603" />
+    <option name="y" value="24" />
+    <option name="width" value="763" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -126,11 +124,6 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="masters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="transactions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -143,7 +136,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/demo" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Test/claim" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -172,18 +165,17 @@
       <workItem from="1531204033583" duration="22490000" />
       <workItem from="1531372544342" duration="100000" />
       <workItem from="1531372655452" duration="11971000" />
-      <workItem from="1531393028030" duration="5411000" />
+      <workItem from="1531393028030" duration="6755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39972000" />
+    <option name="totallyTimeSpent" value="41316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22693531" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22693531" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -192,7 +184,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295082" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3295082" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24974722" />

@@ -54,7 +54,13 @@
 			<div><a class="abtn green" href="../masters/dealer_master.php">
                                 <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Dealer</a>
                                 <br><br>
+			</div>
+
+			<div><a class="abtn green" href="../masters/allot_scale.php">
+                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Scale</a>
+                                <br><br>
                         </div>
+
 
 		</div>
 	</div>	
