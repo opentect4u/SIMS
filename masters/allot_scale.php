@@ -11,9 +11,15 @@
 			$prodcatg	=	$_POST['prod_catg'];
 			$perunit	=	$_POST['unit_type'];	
 			$unitval	=	$_POST['unit_val'];
-			
-                        $user_id=$_SESSION["user_id"];
-			$time=date("Y-m-d h:i:s");
+			$user_id    = $_SESSION["user_id"];
+
+			$time = date("Y-m-d h:i:s");
+
+			if($unitval <= 0){
+			   echo "<script>alert('Value(Kg) can\'t be less then or equals to zero');</script>";
+
+                $effectdt = null;
+            }
 
 			if(!is_null($effectdt)) {
 
@@ -37,7 +43,7 @@
                         }
 
 	}
-	$select_catg="Select prod_catg from m_prod_catg";
+	$select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
 	$select_prd="Select prod_desc from m_products";
@@ -99,6 +105,12 @@
                 }
             });
 
+            $('#prod_catg').change(function () {
+
+                $('#per_unit').val($(this).find(':selected').attr('data-val'));
+
+            });
+
 
         });
     </script>
@@ -132,7 +144,7 @@
                 <option value="0">Select</option>
                 <?php
                         while($row=mysqli_fetch_assoc($prdcatg)){
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"]."</option>") ;
+                        echo ("<option value='".$row["prod_catg"]."' data-val='".$row['per_unit']."'>".$row["prod_catg"]."</option>") ;
                         }
                 ?>
                     </select>
@@ -141,12 +153,12 @@
 
 			<tr>    
                 <td><div class="alignlabel"><label for="per_unit"><strong style="color: red;">*</strong>Unit Type:</label></div></td>
-                <td><input type="text" name="unit_type" id="per_unit" size="150" style="width:400px"></td>
+                <td><input type="text" name="unit_type" id="per_unit" size="150" style="width:400px" readonly></td>
 			</tr>
 
 			<tr>    
                 <td><div class="alignlabel"><label for="unit_val"><strong style="color: red;">*</strong>Value(Kg):</label></div></td>
-                <td><input type="text" name="unit_val" id="unit_val" size="150" style="width:400px"></td>
+                <td><input type="text" name="unit_val" id="unit_val" value="0.00" size="150" style="width:400px"></td>
 			</tr>
 
 			<tr>
