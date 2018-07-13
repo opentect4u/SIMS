@@ -130,7 +130,7 @@
             <table>
                 <tr>
                     <td><div class="alignlabel"><label for="trans_dt">Date:</label></div></td>
-                    <td><input type="date"name="trans_dt" readonly value="<?php echo date("Y-m-d") ?>" size="50" style="width:150px"</td>
+                    <td><input type="date" name="trans_dt" readonly value="<?php echo date("Y-m-d") ?>" size="50" style="width:150px"</td>
                 </tr>
                 <tr>
                     <td><div class="alignlabel"><label for="do_no"><strong style="color: red;">*</strong>Do No.:</label></div></td>
