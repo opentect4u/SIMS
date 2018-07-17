@@ -28,8 +28,14 @@
 			if(!is_null($prodtype) && isset($user_id)) {
 			  $sql="insert into m_prod_type(prod_type,created_by,created_dt)
 		   				 values('$prodtype','$user_id','$time')";
-			  $result=mysqli_query($db_connect,$sql);				  
+			  $result=mysqli_query($db_connect,$sql);
 			}
+			
+			if($result){
+				$_SESSION['ins_flag'] = true;
+				Header("Location:prod_type_view.php");
+			}
+
 	}
 
     function test_input($data) {

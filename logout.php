@@ -12,7 +12,7 @@
 
 
 	if(session_destroy()){
-		header("Location:../estock/index.php");
+		header("Location:../SIMS/index.php");
 	  }
 ?>
 

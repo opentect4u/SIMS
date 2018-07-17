@@ -40,7 +40,12 @@
 							     	      )";
 
                           $result=mysqli_query($db_connect,$sql);
-                        }
+			}
+
+			if($result){
+				$_SESSION['ins_flag']=true;
+				Header("Location:allot_scale_view.php");
+			}
 
 	}
 	$select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
@@ -127,7 +132,7 @@
 			<tr>    
                 <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
                 <td><select name="prod_desc" id="prod_desc" style="width:400px">
-                            <option value="0">Select</option>
+                            <option value="`0">Select</option>
                             <?php
                                     while($row=mysqli_fetch_assoc($prddesc)){
                                     echo ("<option value='".$row["prod_desc"]."'>".$row["prod_desc"]."</option>") ;

@@ -21,9 +21,12 @@
 			  $sql="insert into m_prod_catg(prod_catg,per_unit,created_by,created_dt)
 		   				 values('$prodcatg','$produnit','$user_id','$time')";
 			  $result=mysqli_query($db_connect,$sql);				  
-			}	
-			
-	}
+			}
+			if($result){
+				$_SESSION['ins_flag']=true;
+				Header("Location:prod_catg_view.php");
+			}				
+		}
 
 ?>
 <html>

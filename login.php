@@ -32,9 +32,10 @@
 				if($pwd){
  					  $_SESSION['user_id']   = $login_data['user_id'];
 					  $_SESSION['user_type'] = $login_data['user_type'];
+					  $_SESSION['ins_flag']=false;
 					  $user_id=$_SESSION['user_id'];
 					  $time = date("Y-m-d h:i:s");
-					  $terminalname= gethostname();
+					  $terminalname=$_SERVER['REMOTE_ADDR'];
 
 					  $audit="insert into t_audit_trail(login_dt,user_id,terminal_name)
 				                  values('$time','$user_id','$terminalname')";
@@ -50,7 +51,7 @@
 				
 				mysqli_close($sql);
 
-                                header("Location:post/dashboard.php");
+              		        header("Location:post/dashboard.php");
 				}	
                         }
                         else{

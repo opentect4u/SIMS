@@ -46,7 +46,11 @@
              values('$delcd','$delname','$deladr','$delreg','$deldist','$user_id','$time')";
 
               $result=mysqli_query($db_connect,$sql);
-            }
+	    }
+			if($result){
+				$_SESSION['ins_flag']=true;
+				Header("Location:dealer_master_view.php");
+			}
                         
         }
 

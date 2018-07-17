@@ -20,7 +20,13 @@
                           $sql="insert into m_prod_qty(prod_qty,created_by,created_dt)
                                                  values('$prodqty','$user_id','$time')";
                           $result=mysqli_query($db_connect,$sql);                                 
+			} 
+
+		  	if($result){
+                             $_SESSION['ins_flag']=true;
+                             Header("Location:prod_qty_view.php");
                         }       
+	
                         
         }
 

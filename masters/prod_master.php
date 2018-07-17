@@ -44,7 +44,8 @@
         if (empty($_POST["short_factor"])) {
             $srt_fctrErr = "Invalid Input";
         }else {
-            $srt_fctr = test_input($_POST["short_factor"]);
+		$srt_fctr = test_input($_POST["short_factor"]);
+
         }
 
         //==============================
@@ -55,14 +56,19 @@
 
         if ($prodtype == "NON PDS") {
             $prodcatg = "NON";
-            $srt_fctr = 0;
-        }
+	}
 
         if(!is_null($prodtype)&&!is_null($proddesc)) {
           $sql="insert into m_products(prod_type,prod_catg,prod_desc,short_flag,short_factor,created_by,created_dt)
                      values('$prodtype','$prodcatg','$proddesc','$srt_flag','$srt_fctr','$user_id','$time')";
           $result=mysqli_query($db_connect,$sql);
-        }
+	}
+		if($result){
+                             $_SESSION['ins_flag']=true;
+                             Header("Location:prod_master_view.php");
+                        }
+
+
 	}
 
     function test_input($data) {
