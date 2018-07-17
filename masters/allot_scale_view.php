@@ -3,7 +3,7 @@
 	error_reporting(E_ALL);
 
 	require("../db/db_connect.php");
-	require("/session.php");
+	require("../session.php");
 
 	$prodtypeErr= "";
 

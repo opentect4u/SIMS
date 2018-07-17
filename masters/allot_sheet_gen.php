@@ -116,7 +116,105 @@ $select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
 
     });
 </script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $.ajax({
+            url:"../fetch/allot_scale_dtls.php",
+            type:"post"
+        }).done( function ( result ) {
+            console.log(result);
+        });
+
+    // Row add....
+
+        $('#addRow').click(function () {
+            $('#intro').append('<tr>\n' +
+                '            <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>\n' +
+                '            <td><input type="text" name="dealer_name" class="dealer_name" size="50" style="width:75px" readonly/></td>\n' +
+                '            <td><input type="text" name="region" class="region" style="width:75px" readonly></td>\n' +
+                '\n' +
+                '            <td><input type="number" name="ayy[]" class="aay" style="width:75px"/></td>\n' +
+                '            <td><input type="text" name="ayy_rice[]" class="ayy_rice" style="width:75px"></td>\n' +
+                '            <td><input type="text" name="ayy_atta[]" class="ayy_atta" style="width:75px" /></td>\n' +
+                '            <td><input type="text" name="ayy_sugar[]" class="ayy_sugar" style="width:75px" /></td>\n' +
+                '\n' +
+                '            <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>\n' +
+                '            <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>\n' +
+                '            <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>\n' +
+                '\n' +
+                '            <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>\n' +
+                '            <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"></td>\n' +
+                '            <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>\n' +
+                '            <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>\n' +
+                '\n' +
+                '            <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>\n' +
+                '            <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>\n' +
+                '            <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>\n' +
+                '\n' +
+                '            <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>\n' +
+                '            <td><input type="text" name="rksy2_rice[]" id="rksy2_rice" style="width:75px"></td>\n' +
+                '            <td><input type="text" name="rksy2_atta[]" id="rksy2_atta" style="width:75px" /></td>\n' +
+                '\n' +
+                '        </tr>');
+        });
+
+
+    // Dealers details fetch and show....
+
+        $('#intro').on('change', '.mr_no', function () {
+
+            var mr_no = $(this).val(),
+                index_no = $('.mr_no').index(this);
+
+            $.ajax({
+                url:"../fetch/dealers_dtls.php",
+                data:  { mr_no: mr_no },
+                dataType:'json',
+                type: 'POST'
+            }).done( function(result) {
+
+                console.log(index_no);
+
+                $('.dealer_name').eq(index_no).val(result.del_name);
+
+                $('.region').eq(index_no).val(result.del_reg);
+
+            });
+
+        });
+
+
+    // For unit calculation, data fetching and store in an array....
+
+        $('#intro').on('change', '.aay', function(){
+
+            var ayy_data = $(this).val(),
+                index_no = $('.ayy').index(this);
+
+            $.ajax({
+                url:"",
+
+                data:{
+
+                },
+                dataType:"json"
+            }).done(function ( result ) {
+
+            });
+
+        });
+
+    });
+
+
+
+</script>
+
 <body>
+<button id="addRow">Click</button>
 <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
     <table>
@@ -129,107 +227,62 @@ $select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
 
     <br>
 
-    <table>
+    <table id="intro">
 
         <tr>
             <th>MR No</th>
             <th>Dealer Name</th>
             <th>Region</th>
-            <th>Category</th>
-            <th>Set Unit</th>
+
+            <th>AAY<br>Family</th>
             <th>Rice</th>
-            <th>Atta</th>
-            <th>Category</th>
-            <th>Set Unit</th>
+            <th>Wheat/<br>Atta</th>
+            <th>Sugar</th>
+
+            <th>PHH<br>Head</th>
             <th>Rice</th>
-            <th>Atta</th>
-            <th>Category</th>
-            <th>Set Unit</th>
+            <th>Wheat/<br>Atta</th>
+
+            <th>SPHH<br>Head</th>
             <th>Rice</th>
-            <th>Atta</th>
-            <th>Category</th>
-            <th>Set Unit</th>
+            <th>Wheat/<br>Atta</th>
+            <th>Sugar</th>
+
+            <th>RKSY-I<br>Head</th>
             <th>Rice</th>
-            <th>Atta</th>
-            <th>Category</th>
-            <th>Set Unit</th>
+            <th>Wheat/<br>Atta</th>
+
+            <th>RKSY-II<br>Head</th>
             <th>Rice</th>
-            <th>Atta</th>
+            <th>Wheat/<br>Atta</th>
         </tr>
 
         <tr>
-            <td><input type="text" name="mr_no[]" id="mr_no" style="width:50px" /></td>
-            <td><input type="text" name="dealer_name" id="dealer_name" size="50" style="width:100px" readonly/></td>
-            <td><input type="text" name="region" id="region" style="width:100px" readonly></td>
-            <td><select name="prod_catg1[]" id="prod_catg1" style="width: 100px;">
-                    <option value="0">Select</option>
-                    <?php
-                    $prdcatg=mysqli_query($db_connect,$select_catg);
-                    while($row=mysqli_fetch_assoc($prdcatg)) {
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"].' '.$row["per_unit"]."</option>") ;
-                    }
-                    ?>
-                </select></td>
-            <td><input type="text" name="per_unit1[]" id="per_unit1" style="width:50px"></td>
+            <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>
+            <td><input type="text" name="dealer_name" class="dealer_name" size="50" style="width:75px" readonly/></td>
+            <td><input type="text" name="region" class="region" style="width:75px" readonly></td>
 
-            <td><input type="text" name="rice1[]" id="rice1" style="width:100px" /></td>
-            <td><input type="text" name="atta1[]" id="atta1" style="width:100px" /></td>
-            <td><select name="prod_catg2[]" id="prod_catg2" style="width: 100px;" >
-                    <option value="0">Select</option>
-                    <?php
-                    unset($prdcatg);
-                    $prdcatg=mysqli_query($db_connect,$select_catg);
-                    while($row=mysqli_fetch_assoc($prdcatg)) {
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"].' '.$row["per_unit"]."</option>") ;
-                    }
-                    ?>
-                </select></td>
-            <td><input type="text" name="per_unit2[]" id="per_unit2" style="width:50px"></td>
+            <td><input type="number" name="ayy[]" class="aay" style="width:75px"/></td>
+            <td><input type="text" name="ayy_rice[]" class="ayy_rice" style="width:75px"></td>
+            <td><input type="text" name="ayy_atta[]" class="ayy_atta" style="width:75px" /></td>
+            <td><input type="text" name="ayy_sugar[]" class="ayy_sugar" style="width:75px" /></td>
 
-            <td><input type="text" name="rice2[]" id="rice2" style="width:100px" /></td>
-            <td><input type="text" name="atta2[]" id="atta2" style="width:100px" /></td>
-            <td><select name="prod_catg3[]" id="prod_catg" style="width: 100px;">
-                    <option value="0">Select</option>
-                    <?php
-                    unset($prdcatg);
-                    $prdcatg=mysqli_query($db_connect,$select_catg);
-                    while($row=mysqli_fetch_assoc($prdcatg)) {
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"].' '.$row["per_unit"]."</option>") ;
-                    }
-                    ?>
-                </select></td>
-            <td><input type="text" name="per_unit3[]" id="per_unit3" style="width:50px"></td>
+            <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>
+            <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>
+            <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>
 
-            <td><input type="text" name="rice3[]" id="rice3" style="width:100px" /></td>
-            <td><input type="text" name="atta3[]" id="atta3" style="width:100px" /></td>
-            <td><select name="prod_catg4[]" id="prod_catg" style="width: 100px;">
-                    <option value="0">Select</option>
-                    <?php
-                    unset($prdcatg);
-                    $prdcatg=mysqli_query($db_connect,$select_catg);
-                    while($row=mysqli_fetch_assoc($prdcatg)) {
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"].' '.$row["per_unit"]."</option>") ;
-                    }
-                    ?>
-                </select></td>
-            <td><input type="text" name="per_unit4[]" id="per_unit4" style="width:50px"></td>
+            <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>
+            <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"></td>
+            <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>
+            <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>
 
-            <td><input type="text" name="rice4[]" id="rice4" style="width:100px" /></td>
-            <td><input type="text" name="atta4[]" id="atta4" style="width:100px" /></td>
-            <td><select name="prod_catg5[]" id="prod_catg" style="width: 100px;">
-                    <option value="0">Select</option>
-                    <?php
-                    unset($prdcatg);
-                    $prdcatg=mysqli_query($db_connect,$select_catg);
-                    while($row=mysqli_fetch_assoc($prdcatg)) {
-                        echo ("<option value='".$row["prod_catg"]."'>".$row["prod_catg"].' '.$row["per_unit"]."</option>") ;
-                    }
-                    ?>
-                </select></td>
-            <td><input type="text" name="per_unit5[]" id="per_unit5" style="width:50px"></td>
+            <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>
+            <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>
+            <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>
 
-            <td><input type="text" name="rice5[]" id="rice5" style="width:100px" /></td>
-            <td><input type="text" name="atta5[]" id="atta5" style="width:100px" /></td>
+            <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>
+            <td><input type="text" name="rksy2_rice[]" class="rksy2_rice" style="width:75px"></td>
+            <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>
 
         </tr>
 
