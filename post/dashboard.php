@@ -1,4 +1,8 @@
 <?php   
+
+	ini_set("display_errors","1");
+	error_reporting(E_ALL);
+	
 	require ("../db/db_connect.php");
 	require("../session.php");
 	require("nav.php");
@@ -7,6 +11,8 @@
 	echo "<hr class='hr'>";
 	require("menu.php");
 	
+	$prodtypeErr = "";
+
 ?>
 
 <html>
