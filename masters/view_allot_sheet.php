@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     $(document).ready(function(){
 
-        // Declaring global_var to store allotment scale input....
+    // Declaring global_var to store allotment scale input....
 
         var global_var;
 
@@ -193,7 +193,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-        // Row add....
+
+    // Allotment sheet genaration
+
+    // Row add....
 
         $('#addRow').click(function () {
             $('#intro').append('<tr>\n' +
@@ -227,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-        // Dealers details fetch and show....
+    // Dealers details fetch and show....
 
         $('#intro').on('change', '.mr_no', function () {
 
@@ -250,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-        // AAY unit-value setup....
+    // AAY unit-value setup....
 
         $('#intro').on('change', '.aay', function(){
 
@@ -263,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-        // PHH unit-value setup....
+    // PHH unit-value setup....
 
         $('#intro').on('change', '.phh', function(){
 
@@ -275,7 +278,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-        // SPHH unit-value setup....
+    // SPHH unit-value setup....
 
         $('#intro').on('change', '.sphh', function(){
 
@@ -288,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-        // RKSY-I unit-value setup....
+    // RKSY-I unit-value setup....
 
         $('#intro').on('change', '.rksy1', function(){
 
@@ -300,7 +303,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-        // RKSY-II unit-value setup....
+    // RKSY-II unit-value setup....
 
         $('#intro').on('change', '.rksy2', function(){
 
@@ -311,6 +314,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $('.rksy2_atta').eq(rksy2_index_no).val((rksy2_data * global_var.unit_val[8] / 100).toFixed(2));
 
         });
+
+
+    //Resetting columns to 0.00....
 
         $('#undoAayRice').click(function(){
             $('.aay_rice').val('0.00');
