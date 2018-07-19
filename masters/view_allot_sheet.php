@@ -194,7 +194,24 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    // Allotment sheet genaration
+    // Allotment sheet generation
+
+        $('#memoNo').change( function () {
+
+            var memo_no = $(this).val();
+
+            $.ajax({
+
+                url: "../fetch/allot_sheet_dtls.php",
+                data: {
+                    memo_no: memo_no
+                },
+                dataType: "json",
+                type: "GET"
+            }).done(function (result) {
+                console.log(result);
+            });
+        });
 
     // Row add....
 

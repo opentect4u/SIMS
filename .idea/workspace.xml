@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetch/allot_scale_dtls.php" beforeDir="false" afterPath="$PROJECT_DIR$/fetch/allot_scale_dtls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/masters/view_allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/view_allot_sheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/menu.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,10 +33,9 @@
       <file leaf-file-name="view_allot_sheet.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/masters/view_allot_sheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="196" column="33" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+            <state relative-caret-position="-615">
+              <caret line="124" column="39" lean-forward="true" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
               <folding>
-                <element signature="e#7935#10546#0#HTML" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
@@ -55,22 +56,25 @@
                 <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-                <element signature="e#10653#11122#0#HTML" />
-                <element signature="e#11215#11635#0#HTML" />
-                <element signature="e#11727#12043#0#HTML" />
-                <element signature="e#12137#12571#0#HTML" />
-                <element signature="e#12668#13002#0#HTML" />
-                <element signature="e#13100#13434#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/post/menu.php">
+      <file leaf-file-name="allot_scale_dtls.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fetch/allot_scale_dtls.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
+            <state relative-caret-position="510">
+              <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="allot_sheet_dtls.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -103,8 +107,11 @@
         <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
         <option value="$PROJECT_DIR$/masters/allot_scale.php" />
         <option value="$PROJECT_DIR$/masters/prod_catg_view.php" />
-        <option value="$PROJECT_DIR$/masters/view_allot_sheet.php" />
         <option value="$PROJECT_DIR$/post/menu.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/df26bdf2-0470-46e9-a5e7-3799072a8a84/console.sql" />
+        <option value="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" />
+        <option value="$PROJECT_DIR$/masters/view_allot_sheet.php" />
+        <option value="$PROJECT_DIR$/fetch/allot_scale_dtls.php" />
       </list>
     </option>
   </component>
@@ -138,6 +145,11 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
+              <item name="fetch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -149,7 +161,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;DDL Data Source" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -182,21 +195,23 @@
       <workItem from="1531393028030" duration="7266000" />
       <workItem from="1531459266251" duration="2728000" />
       <workItem from="1531464658164" duration="1765000" />
-      <workItem from="1531973701368" duration="4486000" />
+      <workItem from="1531973701368" duration="5640000" />
+      <workItem from="1531980759100" duration="667000" />
+      <workItem from="1531981834220" duration="724000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52435000" />
+    <option name="totallyTimeSpent" value="54980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24284199" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25344646" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3295082" />
       <window_info anchor="right" id="Database" order="3" weight="0.32979852" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -211,6 +226,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.3295082" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
     </layout>
     <layout-to-restore>
@@ -242,34 +258,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/db_connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" selection-start-line="48" selection-end-line="63" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/masters/dealer_master.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/db_connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -549,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fetch/allot_scale_dtls.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -567,28 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,12 +558,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/post/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df26bdf2-0470-46e9-a5e7-3799072a8a84/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df26bdf2-0470-46e9-a5e7-3799072a8a84/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/masters/view_allot_sheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="196" column="33" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+        <state relative-caret-position="-615">
+          <caret line="124" column="39" lean-forward="true" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
           <folding>
-            <element signature="e#7935#10546#0#HTML" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
@@ -625,20 +607,17 @@
             <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-            <element signature="e#10653#11122#0#HTML" />
-            <element signature="e#11215#11635#0#HTML" />
-            <element signature="e#11727#12043#0#HTML" />
-            <element signature="e#12137#12571#0#HTML" />
-            <element signature="e#12668#13002#0#HTML" />
-            <element signature="e#13100#13434#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post/menu.php">
+    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fetch/allot_scale_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="103" column="72" selection-start-line="103" selection-start-column="72" selection-end-line="103" selection-end-column="72" />
+        <state relative-caret-position="510">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
         </state>
       </provider>
     </entry>
