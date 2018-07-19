@@ -39,60 +39,65 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $rksy2_rice   =   $_POST['rksy2_rice'];
     $rksy2_atta   =   $_POST['rksy2_atta'];
 
+    $sql = "DELETE FROM td_allotment_sheet WHERE memo_no = '$memoNo'";
+
+    mysqli_query($db_connect, $sql);
+
+    unset($sql);
 
     for ($i = 0; $i < count($mrNo); $i++) {
 
         $sql = "INSERT INTO td_allotment_sheet ( memo_no,
-                                                     alt_month,
-                                                     alt_year,
-                                                     gen_date,
-                                                     mr_no,
-                                                     delr_name,
-                                                     delr_region,
-                                                     aay_family,
-                                                     aay_rice,
-                                                     aay_wheat,
-                                                     aay_sugar,
-                                                     phh_head,
-                                                     phh_rice,
-                                                     phh_wheat,
-                                                     sphh_head,
-                                                     sphh_rice,
-                                                     sphh_wheat,
-                                                     sphh_sugar,
-                                                     rksy1_head,
-                                                     rksy1_rice,
-                                                     rhsy1_wheat,
-                                                     rksy2_head,
-                                                     rksy2_rice,
-                                                     rksy2_wheat,
-                                                     created_by,
-                                                     created_dt ) VALUES ( '$memoNo',
-                                                                            $alt_month,
-                                                                            $alt_year,
-                                                                            '$date',
-                                                                            $mrNo[$i],
-                                                                            '$dealer_name[$i]',
-                                                                            '$region[$i]',
-                                                                            $aay_unit[$i],
-                                                                            $aay_rice[$i],
-                                                                            $aay_atta[$i],
-                                                                            $aay_sugar[$i],
-                                                                            $phh_unit[$i],
-                                                                            $phh_rice[$i],
-                                                                            $phh_atta[$i],
-                                                                            $sphh_unit[$i],
-                                                                            $sphh_rice[$i],
-                                                                            $sphh_atta[$i],
-                                                                            $sphh_sugar[$i],
-                                                                            $rksy1_unit[$i],
-                                                                            $rksy1_rice[$i],
-                                                                            $rksy1_atta[$i],
-                                                                            $rksy2_unit[$i],
-                                                                            $rksy2_rice[$i],
-                                                                            $rksy2_atta[$i],
-                                                                            '$user_name',
-                                                                            '$sysDate')";
+                                                 alt_month,
+                                                 alt_year,
+                                                 gen_date,
+                                                 mr_no,
+                                                 delr_name,
+                                                 delr_region,
+                                                 aay_family,
+                                                 aay_rice,
+                                                 aay_wheat,
+                                                 aay_sugar,
+                                                 phh_head,
+                                                 phh_rice,
+                                                 phh_wheat,
+                                                 sphh_head,
+                                                 sphh_rice,
+                                                 sphh_wheat,
+                                                 sphh_sugar,
+                                                 rksy1_head,
+                                                 rksy1_rice,
+                                                 rhsy1_wheat,
+                                                 rksy2_head,
+                                                 rksy2_rice,
+                                                 rksy2_wheat,
+                                                 created_by,
+                                                 created_dt ) VALUES ( '$memoNo',
+                                                                        $alt_month,
+                                                                        $alt_year,
+                                                                        '$date',
+                                                                        $mrNo[$i],
+                                                                        '$dealer_name[$i]',
+                                                                        '$region[$i]',
+                                                                        $aay_unit[$i],
+                                                                        $aay_rice[$i],
+                                                                        $aay_atta[$i],
+                                                                        $aay_sugar[$i],
+                                                                        $phh_unit[$i],
+                                                                        $phh_rice[$i],
+                                                                        $phh_atta[$i],
+                                                                        $sphh_unit[$i],
+                                                                        $sphh_rice[$i],
+                                                                        $sphh_atta[$i],
+                                                                        $sphh_sugar[$i],
+                                                                        $rksy1_unit[$i],
+                                                                        $rksy1_rice[$i],
+                                                                        $rksy1_atta[$i],
+                                                                        $rksy2_unit[$i],
+                                                                        $rksy2_rice[$i],
+                                                                        $rksy2_atta[$i],
+                                                                        '$user_name',
+                                                                        '$sysDate')";
         mysqli_query($db_connect, $sql);
     }
 
@@ -178,7 +183,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
 <script>
 
-    $(document).ready(function(){
+    $(document).ready(function() {
+
+        $('.hideFirst').hide();
 
     // Declaring global_var to store allotment scale input....
 
@@ -209,15 +216,61 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 dataType: "json",
                 type: "GET"
             }).done(function (result) {
-                console.log(result);
+
+                if(result) {
+                    $('.hideFirst').show();
+
+                    $('#effective_dt').val(result.gen_date[1]);
+
+                    for (var i = 0; i < result.mr_no.length; i++) {
+
+                        tableRow();
+
+                        $('.mr_no').eq(i).val(result.mr_no[i]);
+                        $('.dealer_name').eq(i).val(result.delr_name[i]);
+                        $('.region').eq(i).val(result.delr_region[i]);
+
+                        $('.aay').eq(i).val(result.aay_family[i]);
+                        $('.aay_rice').eq(i).val(result.aay_rice[i]);
+                        $('.aay_atta').eq(i).val(result.aay_wheat[i]);
+                        $('.aay_sugar').eq(i).val(result.aay_sugar[i]);
+
+                        $('.phh').eq(i).val(result.phh_head[i]);
+                        $('.phh_rice').eq(i).val(result.phh_rice[i]);
+                        $('.phh_atta').eq(i).val(result.phh_wheat[i]);
+
+                        $('.sphh').eq(i).val(result.sphh_head[i]);
+                        $('.sphh_rice').eq(i).val(result.sphh_rice[i]);
+                        $('.sphh_atta').eq(i).val(result.sphh_wheat[i]);
+                        $('.sphh_sugar').eq(i).val(result.sphh_sugar[i]);
+
+                        $('.rksy1').eq(i).val(result.rksy1_head[i]);
+                        $('.rksy1_rice').eq(i).val(result.rksy1_rice[i]);
+                        $('.rksy1_atta').eq(i).val(result.rksy2_head[i]);
+
+                        $('.rksy2').eq(i).val(result.rksy2_head[i]);
+                        $('.rksy2_rice').eq(i).val(result.rksy2_rice[i]);
+                        $('.rksy2_atta').eq(i).val(result.rksy2_wheat[i]);
+                    }
+                }
+                else{
+                    alert('Please refress the page!');
+                }
+
             });
         });
 
     // Row add....
 
         $('#addRow').click(function () {
+
+            tableRow();
+
+        });
+
+        function tableRow() {
             $('#intro').append('<tr>\n' +
-                '            <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>\n' +
+                '            <td style="text-align:right"><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>\n' +
                 '            <td><input type="text" name="dealer_name[]" class="dealer_name" size="50" style="width:75px" readonly/></td>\n' +
                 '            <td><input type="text" name="region[]" class="region" style="width:75px" readonly></td>\n' +
                 '\n' +
@@ -244,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 '            <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>\n' +
                 '\n' +
                 '        </tr>');
-        });
+        }
 
 
     // Dealers details fetch and show....
@@ -402,11 +455,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     <br>
 
-    <button type="button" id="addRow">Click</button>
+    <button type="button" id="addRow" class="hideFirst">Click</button>
 
     <table id="intro">
 
-        <tr>
+        <tr class="hideFirst">
 
             <th>MR No</th>
             <th>Dealer Name</th>
@@ -436,39 +489,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         </tr>
 
-        <tr>
-
-            <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>
-            <td><input type="text" name="dealer_name[]" class="dealer_name" size="50" style="width:75px" readonly/></td>
-            <td><input type="text" name="region[]" class="region" style="width:75px" readonly/></td>
-
-            <td><input type="number" name="aay[]" class="aay" style="width:75px"/></td>
-            <td><input type="text" name="aay_rice[]" class="aay_rice" style="width:75px"></td>
-            <td><input type="text" name="aay_atta[]" class="aay_atta" style="width:75px" /></td>
-            <td><input type="text" name="aay_sugar[]" class="aay_sugar" style="width:75px" /></td>
-
-            <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>
-            <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>
-            <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>
-
-            <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>
-            <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"/></td>
-            <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>
-            <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>
-
-            <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>
-            <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>
-            <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>
-
-            <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>
-            <td><input type="text" name="rksy2_rice[]" class="rksy2_rice" style="width:75px"/></td>
-            <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>
-
-        </tr>
-
     </table>
 
-    <input type="submit" value="Submit" />
+    <input type="submit" class="hideFirst" value="Modify" />
 
 </form>
 
