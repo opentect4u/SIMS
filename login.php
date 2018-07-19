@@ -33,6 +33,14 @@
  					  $_SESSION['user_id']   = $login_data['user_id'];
 					  $_SESSION['user_type'] = $login_data['user_type'];
 					  $_SESSION['ins_flag']=false;
+					  $_SESSION['prod_type_edit']=false;
+					  $_SESSION['prod_catg_edit']=false;
+					  $_SESSION['prod_qty_edit']=false;
+					  $_SESSION['prod_edit']=false;
+				 	  $_SESSION['dealer_master'] = false;
+					  $_SESSION['allot_scale']=false;
+
+
 					  $user_id=$_SESSION['user_id'];
 					  $time = date("Y-m-d h:i:s");
 					  $terminalname=$_SERVER['REMOTE_ADDR'];
@@ -71,34 +79,52 @@
 	}                        
 ?>
 
-<html>
-<head>
-        <title>Synergic Inventory Management System</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<link rel="stylesheet" href="./css/login.css">
-<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<link href="./css/login.css" rel="stylesheet" id="bootstrap-css">
+<script src="./js/login.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!--Include the above in your HEAD tag ---------->
 
-<body background="./img/ration.jpg" style="background-repeat: no-repeat; background-size: 100% auto; ">
-	<h1 class="heading">Synergic Inventory Management System</h1>	
-
-	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-	
-	<div class="container">
-	  <div>
-	    <label for="uname"><b>Username</b></label>
-	  </div>
-	  <div>
-	    <input type="text" placeholder="Enter Username" class="lginput" id="uname" name="user_id" autofocus required/>
-	  </div>
-	  <div>
-	    <label for="psw"><b>Password</b></label>
-	  </div>
-          <div>
-	    <input type="password" placeholder="Enter Password" class="lginput" id="psw" name="user_pwd" required/>
-	  </div>
-	    <button type="submit">Login</button>
-	</div>
-        </form>
-</body>
-</html>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                </div>
+            </div>
+	    <div class="wrap">
+		<h1 class="head-title">Synergic Inventory Management System</h1>
+                <p class="form-title">Sign In</p>
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST"  class="login">
+                <input type="text" placeholder="Username" name="user_id"  autofocus required />
+                <input type="password" placeholder="Password" name="user_pwd" required/>
+                <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+                <!--<div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" />
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                       	    <div class="col-md-6 forgot-pass-content">
+                            <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+		       </div>
+                    </div>
+		</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="posted-by">Developed By: <a href="http://www.Synergicsoftek.in" target=_blank>Synergic Softek Solutions Pvt.Ltd.</a></div>
+</div>
 
