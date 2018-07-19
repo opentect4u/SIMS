@@ -24,7 +24,17 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="prod_catg_view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/masters/prod_catg_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -51,6 +61,7 @@
         <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
         <option value="$PROJECT_DIR$/masters/allot_scale.php" />
         <option value="$PROJECT_DIR$/post/menu.php" />
+        <option value="$PROJECT_DIR$/masters/prod_catg_view.php" />
       </list>
     </option>
   </component>
@@ -80,6 +91,11 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
+              <item name="masters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -123,17 +139,18 @@
       <workItem from="1531393028030" duration="7266000" />
       <workItem from="1531459266251" duration="2728000" />
       <workItem from="1531464658164" duration="1765000" />
-      <workItem from="1531973701368" duration="1768000" />
+      <workItem from="1531973701368" duration="2227000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49717000" />
+    <option name="totallyTimeSpent" value="50176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24284199" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24284199" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -142,7 +159,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32786885" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32786885" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24974722" />
@@ -182,13 +199,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="155" selection-start-line="69" selection-start-column="102" selection-end-line="69" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/prod_master.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2190">
@@ -550,6 +560,13 @@
             <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/prod_catg_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
