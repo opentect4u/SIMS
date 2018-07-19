@@ -11,7 +11,7 @@
 			$prodcatg	=	$_POST['prod_catg'];
 			$perunit	=	$_POST['unit_type'];	
 			$unitval	=	$_POST['unit_val'];
-			$user_id    = $_SESSION["user_id"];
+			$user_id    	= 	$_SESSION["user_id"];
 
 			$time = date("Y-m-d h:i:s");
 
@@ -51,7 +51,8 @@
 	$select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
-	$select_prd="Select prod_desc from m_products";
+	/*$select_prd="Select prod_desc from m_products";*/
+	$select_prd="select concat(prod_desc,'---',prod_catg)prod_desc from m_products";
 	$prddesc=mysqli_query($db_connect,$select_prd);
 
 

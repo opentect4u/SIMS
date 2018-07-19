@@ -7,42 +7,42 @@ require("../session.php");
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
-        $user_name    =   $_SESSION['user_id'];
-        $sysDate      =   date('Y-m-d');
-        $memoNo	      =	  $_POST["memoNo"];
-        $date	      =	  $_POST["effective_dt"];
-        $alt_month    =   substr($date,5,2);
-        $alt_year     =   substr($date,0,4);
-        $mrNo         =   $_POST['mr_no'];
-        $dealer_name  =   $_POST['dealer_name'];
-        $region       =   $_POST['region'];
+    $user_name    =   $_SESSION['user_id'];
+    $sysDate      =   date('Y-m-d');
+    $memoNo	      =	  $_POST["memoNo"];
+    $date	      =	  $_POST["effective_dt"];
+    $alt_month    =   substr($date,5,2);
+    $alt_year     =   substr($date,0,4);
+    $mrNo         =   $_POST['mr_no'];
+    $dealer_name  =   $_POST['dealer_name'];
+    $region       =   $_POST['region'];
 
-        $aay_unit     =   $_POST["aay"];
-        $aay_rice     =   $_POST['aay_rice'];
-        $aay_atta     =   $_POST['aay_atta'];
-        $aay_sugar    =   $_POST['aay_sugar'];
+    $aay_unit     =   $_POST["aay"];
+    $aay_rice     =   $_POST['aay_rice'];
+    $aay_atta     =   $_POST['aay_atta'];
+    $aay_sugar    =   $_POST['aay_sugar'];
 
-        $phh_unit     =   $_POST['phh'];
-        $phh_rice     =   $_POST['phh_rice'];
-        $phh_atta     =   $_POST['phh_atta'];
+    $phh_unit     =   $_POST['phh'];
+    $phh_rice     =   $_POST['phh_rice'];
+    $phh_atta     =   $_POST['phh_atta'];
 
-        $sphh_unit    =   $_POST['sphh'];
-        $sphh_rice    =   $_POST['sphh_rice'];
-        $sphh_atta    =   $_POST['sphh_atta'];
-        $sphh_sugar   =   $_POST['sphh_sugar'];
+    $sphh_unit    =   $_POST['sphh'];
+    $sphh_rice    =   $_POST['sphh_rice'];
+    $sphh_atta    =   $_POST['sphh_atta'];
+    $sphh_sugar   =   $_POST['sphh_sugar'];
 
-        $rksy1_unit   =   $_POST['rksy1'];
-        $rksy1_rice   =   $_POST['rksy1_rice'];
-        $rksy1_atta   =   $_POST['rksy1_atta'];
+    $rksy1_unit   =   $_POST['rksy1'];
+    $rksy1_rice   =   $_POST['rksy1_rice'];
+    $rksy1_atta   =   $_POST['rksy1_atta'];
 
-        $rksy2_unit   =   $_POST['rksy2'];
-        $rksy2_rice   =   $_POST['rksy2_rice'];
-        $rksy2_atta   =   $_POST['rksy2_atta'];
+    $rksy2_unit   =   $_POST['rksy2'];
+    $rksy2_rice   =   $_POST['rksy2_rice'];
+    $rksy2_atta   =   $_POST['rksy2_atta'];
 
 
-        for ($i = 0; $i < count($mrNo); $i++) {
+    for ($i = 0; $i < count($mrNo); $i++) {
 
-            $sql = "INSERT INTO td_allotment_sheet ( memo_no,
+        $sql = "INSERT INTO td_allotment_sheet ( memo_no,
                                                      alt_month,
                                                      alt_year,
                                                      gen_date,
@@ -93,10 +93,16 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                             $rksy2_atta[$i],
                                                                             '$user_name',
                                                                             '$sysDate')";
-            mysqli_query($db_connect, $sql);
-        }
+        mysqli_query($db_connect, $sql);
+    }
 
- }
+}
+
+
+    $sql = "SELECT DISTINCT memo_no FROM td_allotment_sheet
+                                    WHERE approval_status = 'U' ";
+
+    $result = mysqli_query($db_connect, $sql);
 
 ?>
 <html>
@@ -187,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // Row add....
+        // Row add....
 
         $('#addRow').click(function () {
             $('#intro').append('<tr>\n' +
@@ -221,7 +227,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    // Dealers details fetch and show....
+        // Dealers details fetch and show....
 
         $('#intro').on('change', '.mr_no', function () {
 
@@ -244,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    // AAY unit-value setup....
+        // AAY unit-value setup....
 
         $('#intro').on('change', '.aay', function(){
 
@@ -257,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // PHH unit-value setup....
+        // PHH unit-value setup....
 
         $('#intro').on('change', '.phh', function(){
 
@@ -350,90 +356,98 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 <body>
 
 
-    <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-        <div>
-            <label for="memo_no">Memo No:</label>
-            <input type="text" name="memoNo" id="memoNo" size="75" style="width:150px"/>.
-        </div>
+    <div>
+        <label for="memo_no">Memo No:</label>
+        <select type="text" name="memoNo" id="memoNo" style="width:150px" >
+            <option>Select</option>
+            <?php
+               while ($data = mysqli_fetch_assoc($result)) {?>
+                   <option value="<?php echo $data['memo_no']; ?>"><?php echo $data['memo_no']; ?></option>
+            <?php
+               }
+            ?>
+        </select>
 
-        <div>
-            <label for="memo_no">Allotement Date:</label>
-            <input type="date" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" style="width:150px"/>.
-        </div>
+    </div>
 
-        <br>
+    <div>
+        <label for="memo_no">Allotement Date:</label>
+        <input type="date" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" style="width:150px"/>.
+    </div>
 
-        <button type="button" id="addRow">Click</button>
+    <br>
 
-        <table id="intro">
+    <button type="button" id="addRow">Click</button>
 
-            <tr>
+    <table id="intro">
 
-                <th>MR No</th>
-                <th>Dealer Name</th>
-                <th>Region</th>
+        <tr>
 
-                <th>AAY<br>Family</th>
-                <th>Rice <input type="button" id="undoAayRice" value="Undo"/></th>
-                <th>Wheat/<br>Atta <input type="button" id="undoAayAtta" value="Undo"/></th>
-                <th>Sugar <input type="button" id="undoAaySugar" value="Undo"/></th>
+            <th>MR No</th>
+            <th>Dealer Name</th>
+            <th>Region</th>
 
-                <th>PHH<br>Head</th>
-                <th>Rice <input type="button" id="undoPhhRice" value="Undo"/></th>
-                <th>Wheat/<br>Atta <input type="button" id="undoPhhAtta" value="Undo"/></th>
+            <th>AAY<br>Family</th>
+            <th>Rice <input type="button" id="undoAayRice" value="Undo"/></th>
+            <th>Wheat/<br>Atta <input type="button" id="undoAayAtta" value="Undo"/></th>
+            <th>Sugar <input type="button" id="undoAaySugar" value="Undo"/></th>
 
-                <th>SPHH<br>Head</th>
-                <th>Rice <input type="button" id="undoSphhRice" value="Undo"/></th>
-                <th>Wheat/<br>Atta <input type="button" id="undoSphhAtta" value="Undo"/></th>
-                <th>Sugar <input type="button" id="undoSphhSugar" value="Undo"/></th>
+            <th>PHH<br>Head</th>
+            <th>Rice <input type="button" id="undoPhhRice" value="Undo"/></th>
+            <th>Wheat/<br>Atta <input type="button" id="undoPhhAtta" value="Undo"/></th>
 
-                <th>RKSY-I<br>Head</th>
-                <th>Rice <input type="button" id="undoRksy1Rice" value="Undo"/></th>
-                <th>Wheat/<br>Atta <input type="button" id="undoRksy1Atta" value="Undo"/></th>
+            <th>SPHH<br>Head</th>
+            <th>Rice <input type="button" id="undoSphhRice" value="Undo"/></th>
+            <th>Wheat/<br>Atta <input type="button" id="undoSphhAtta" value="Undo"/></th>
+            <th>Sugar <input type="button" id="undoSphhSugar" value="Undo"/></th>
 
-                <th>RKSY-II<br>Head</th>
-                <th>Rice <input type="button" id="undoRksy2Rice" value="Undo"/></th>
-                <th>Wheat/<br>Atta <input type="button" id="undoRksy2Atta" value="Undo"/></th>
+            <th>RKSY-I<br>Head</th>
+            <th>Rice <input type="button" id="undoRksy1Rice" value="Undo"/></th>
+            <th>Wheat/<br>Atta <input type="button" id="undoRksy1Atta" value="Undo"/></th>
 
-            </tr>
+            <th>RKSY-II<br>Head</th>
+            <th>Rice <input type="button" id="undoRksy2Rice" value="Undo"/></th>
+            <th>Wheat/<br>Atta <input type="button" id="undoRksy2Atta" value="Undo"/></th>
 
-            <tr>
+        </tr>
 
-                <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>
-                <td><input type="text" name="dealer_name[]" class="dealer_name" size="50" style="width:75px" readonly/></td>
-                <td><input type="text" name="region[]" class="region" style="width:75px" readonly/></td>
+        <tr>
 
-                <td><input type="number" name="aay[]" class="aay" style="width:75px"/></td>
-                <td><input type="text" name="aay_rice[]" class="aay_rice" style="width:75px"></td>
-                <td><input type="text" name="aay_atta[]" class="aay_atta" style="width:75px" /></td>
-                <td><input type="text" name="aay_sugar[]" class="aay_sugar" style="width:75px" /></td>
+            <td><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>
+            <td><input type="text" name="dealer_name[]" class="dealer_name" size="50" style="width:75px" readonly/></td>
+            <td><input type="text" name="region[]" class="region" style="width:75px" readonly/></td>
 
-                <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>
-                <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>
-                <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>
+            <td><input type="number" name="aay[]" class="aay" style="width:75px"/></td>
+            <td><input type="text" name="aay_rice[]" class="aay_rice" style="width:75px"></td>
+            <td><input type="text" name="aay_atta[]" class="aay_atta" style="width:75px" /></td>
+            <td><input type="text" name="aay_sugar[]" class="aay_sugar" style="width:75px" /></td>
 
-                <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>
-                <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"/></td>
-                <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>
-                <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>
+            <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>
+            <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>
+            <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>
 
-                <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>
-                <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>
-                <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>
+            <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>
+            <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"/></td>
+            <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>
+            <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>
 
-                <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>
-                <td><input type="text" name="rksy2_rice[]" class="rksy2_rice" style="width:75px"/></td>
-                <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>
+            <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>
+            <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>
+            <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>
 
-            </tr>
+            <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>
+            <td><input type="text" name="rksy2_rice[]" class="rksy2_rice" style="width:75px"/></td>
+            <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>
 
-        </table>
+        </tr>
 
+    </table>
 
-        <input type="submit" value="Submit" />
+    <input type="submit" value="Submit" />
 
-    </form>
+</form>
 
 </body>
 </html>
