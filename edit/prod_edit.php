@@ -9,17 +9,14 @@
 
 	if($_SERVER['REQUEST_METHOD']=="GET"){
 		$slno=$_GET['sl_no'];
-		$rtv="select sl_no,prod_type,prod_catg,prod_desc,short_flag,short_factor from m_products where sl_no=".$slno;
+		$rtv="select sl_no,prod_type,prod_desc from m_products where sl_no=".$slno;
 		$result=mysqli_query($db_connect,$rtv);
 		if($result){
 			if(mysqli_num_rows($result) > 0){
 				$rtv_data=mysqli_fetch_assoc($result);
 				$slno=$rtv_data['sl_no'];
-				$prodcatg=$rtv_data['prod_catg'];
 				$prodtype=$rtv_data['prod_type'];
 			  	$proddesc=$rtv_data['prod_desc'];
-				$prodsflg=$rtv_data['short_flag'];
-			  	$prodsftr=$rtv_data['short_factor'];
 
 			}
 		}
@@ -28,18 +25,13 @@
 
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 	  $proddesc = null;
-	  $prodsflg = null;
-	  $prodsftr = 0;	
 	
 	  if (empty($_POST["prod_desc"])) {
 	     $prodtypeErr = "Invalid Input";
 	     }else{
 		   $proddesc = test_input($_POST["prod_desc"]);
 		   $slno=test_input($_POST["sl_no"]);
-		   $prodsflg=test_input($_POST['short_flag']);
-		   $prodsftr=test_input($_POST['short_factor']);
 		   $prodtype=test_input($_POST['prod_type']);
-		   $prodcatg=test_input($_POST['prod_catg']);	
 
 	     	  } 
 
@@ -51,8 +43,6 @@
 
 
 		$sql="update m_products set prod_desc="."'".$proddesc."'".
-					   ",short_flag="."'".$prodsflg."'".	
-					   ",short_factor="."'".$prodsftr."'".
 				           ",modified_by="."'".$user_id."'".
 					   ",modified_dt="."'".$time."'".	
 		     "where sl_no = ".$slno;
@@ -97,26 +87,7 @@ function test_input($data) {
 	    <tr>			
                 <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product Name:</label></div></td>
 		<td><input type="text" id="prod_desc" name="prod_desc" size="150" style="width:400px"value="<?php echo $proddesc; ?>"></td>
-            </tr>	
-
-	    <tr>			
-                <td><div class="alignlabel"><label for="prod_catg"><strong style="color: red;">*</strong>Category:</label></div></td>
-		<td><input type="text" id="prod_catg" name="prod_catg" size="150" style="width:400px"value="<?php echo $prodcatg; ?>" readonly></td>
-            </tr>
-	
-	    <tr>			
-                <td><div class="alignlabel"><label for="short_flag"><strong style="color: red;">*</strong>Shortage Flag:</label></div></td>
-		<td><select name="short_flag" id="short_flag" style="width:400px">
-                          	<option value="Y" <?php echo $prodsflg == "Y"?'selected':'';?> >Yes</option>
-                          	<option value="N"  <?php echo $prodsflg == "N"?'selected':'';?> >No</option>
-                     </select>
-                 </td>
-            </tr>
-
-	    <tr>			
-                <td><div class="alignlabel"><label for="short_factor"><strong style="color: red;">*</strong>Shortage Factor:</label></div></td>
-		<td><input type="text"id="short_factor"name="short_factor" size="150" style="width:400px"value="<?php echo $prodsftr;?>"></td>
-            </tr>		
+            </tr> 		
   
             <tr>
                 <td><input type="submit" name="submit" value="Update"></td>
