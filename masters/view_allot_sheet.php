@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     $user_name    =   $_SESSION['user_id'];
     $sysDate      =   date('Y-m-d');
-    $memoNo	      =	  $_POST["memoNo"];
-    $date	      =	  $_POST["effective_dt"];
+    $memoNo       =   $_POST["memoNo"];
+    $date         =   $_POST["effective_dt"];
     $alt_month    =   substr($date,5,2);
     $alt_year     =   substr($date,0,4);
     $mrNo         =   $_POST['mr_no'];
@@ -104,10 +104,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 }
 
 
-    $sql = "SELECT DISTINCT memo_no FROM td_allotment_sheet
+$sql = "SELECT DISTINCT memo_no FROM td_allotment_sheet
                                     WHERE approval_status = 'U' ";
 
-    $result = mysqli_query($db_connect, $sql);
+$result = mysqli_query($db_connect, $sql);
 
 ?>
 <html>
@@ -187,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         $('.hideFirst').hide();
 
-    // Declaring global_var to store allotment scale input....
+        // Declaring global_var to store allotment scale input....
 
         var global_var;
 
@@ -201,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    // Allotment sheet generation
+        // Allotment sheet generation
 
         $('#memoNo').change( function () {
 
@@ -260,7 +260,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             });
         });
 
-    // Row add....
+        // Row add....
 
         $('#addRow').click(function () {
 
@@ -300,7 +300,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         }
 
 
-    // Dealers details fetch and show....
+        // Dealers details fetch and show....
 
         $('#intro').on('change', '.mr_no', function () {
 
@@ -323,7 +323,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    // AAY unit-value setup....
+        // AAY unit-value setup....
 
         $('#intro').on('change', '.aay', function(){
 
@@ -336,7 +336,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // PHH unit-value setup....
+        // PHH unit-value setup....
 
         $('#intro').on('change', '.phh', function(){
 
@@ -348,7 +348,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // SPHH unit-value setup....
+        // SPHH unit-value setup....
 
         $('#intro').on('change', '.sphh', function(){
 
@@ -361,7 +361,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // RKSY-I unit-value setup....
+        // RKSY-I unit-value setup....
 
         $('#intro').on('change', '.rksy1', function(){
 
@@ -373,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         });
 
-    // RKSY-II unit-value setup....
+        // RKSY-II unit-value setup....
 
         $('#intro').on('change', '.rksy2', function(){
 
@@ -386,7 +386,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
 
-    //Resetting columns to 0.00....
+        //Resetting columns to 0.00....
 
         $('#undoAayRice').click(function(){
             $('.aay_rice').val('0.00');
@@ -439,10 +439,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         <select type="text" name="memoNo" id="memoNo" style="width:150px" >
             <option>Select</option>
             <?php
-               while ($data = mysqli_fetch_assoc($result)) {?>
-                   <option value="<?php echo $data['memo_no']; ?>"><?php echo $data['memo_no']; ?></option>
-            <?php
-               }
+            while ($data = mysqli_fetch_assoc($result)) {?>
+                <option value="<?php echo $data['memo_no']; ?>"><?php echo $data['memo_no']; ?></option>
+                <?php
+            }
             ?>
         </select>
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" beforeDir="false" afterPath="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetch/dealers_dtls.php" beforeDir="false" afterPath="$PROJECT_DIR$/fetch/dealers_dtls.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/masters/view_allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/view_allot_sheet.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,26 +29,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="allot_sheet_dtls.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="view_allot_sheet.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/masters/view_allot_sheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="207" column="40" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
+            <state relative-caret-position="149">
+              <caret line="224" column="67" lean-forward="true" selection-start-line="224" selection-start-column="67" selection-end-line="224" selection-end-column="67" />
               <folding>
-                <element signature="n#script#0;n#html#0;n#!!top" />
-                <element signature="e#5911#7531#0#HTML" />
-                <element signature="e#8044#8225#0#HTML" />
-                <element signature="e#8254#10865#0#HTML" />
-                <element signature="e#8371#8395#0#HTML" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -69,24 +56,16 @@
                 <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-                <element signature="e#10968#11437#0#HTML" />
-                <element signature="e#12034#12350#0#HTML" />
-                <element signature="e#12440#12874#0#HTML" />
-                <element signature="e#12967#13301#0#HTML" />
-                <element signature="e#13395#13729#0#HTML" />
-                <element signature="e#13813#13864#0#HTML" />
-                <element signature="e#13909#13960#0#HTML" />
-                <element signature="e#14006#14058#0#HTML" />
-                <element signature="e#14103#14154#0#HTML" />
-                <element signature="e#14199#14250#0#HTML" />
-                <element signature="e#14296#14348#0#HTML" />
-                <element signature="e#14394#14446#0#HTML" />
-                <element signature="e#14493#14546#0#HTML" />
-                <element signature="e#14593#14646#0#HTML" />
-                <element signature="e#14693#14746#0#HTML" />
-                <element signature="e#14793#14846#0#HTML" />
-                <element signature="e#14893#14946#0#HTML" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dealers_dtls.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -124,6 +103,7 @@
         <option value="$PROJECT_DIR$/fetch/allot_scale_dtls.php" />
         <option value="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" />
         <option value="$PROJECT_DIR$/masters/view_allot_sheet.php" />
+        <option value="$PROJECT_DIR$/fetch/dealers_dtls.php" />
       </list>
     </option>
   </component>
@@ -147,6 +127,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,16 +140,10 @@
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="fetch" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,18 +184,18 @@
       <workItem from="1531464658164" duration="1765000" />
       <workItem from="1531973701368" duration="5640000" />
       <workItem from="1531980759100" duration="667000" />
-      <workItem from="1531981834220" duration="13851000" />
+      <workItem from="1531981834220" duration="17039000" />
+      <workItem from="1532060980972" duration="248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68107000" />
+    <option name="totallyTimeSpent" value="71543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25344646" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25874868" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3295082" />
@@ -229,7 +204,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32786885" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32786885" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24974722" />
@@ -245,19 +220,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24974722" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24469161" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -594,26 +569,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/masters/view_allot_sheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="207" column="40" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
+        <state relative-caret-position="149">
+          <caret line="224" column="67" lean-forward="true" selection-start-line="224" selection-start-column="67" selection-end-line="224" selection-end-column="67" />
           <folding>
-            <element signature="n#script#0;n#html#0;n#!!top" />
-            <element signature="e#5911#7531#0#HTML" />
-            <element signature="e#8044#8225#0#HTML" />
-            <element signature="e#8254#10865#0#HTML" />
-            <element signature="e#8371#8395#0#HTML" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
@@ -635,23 +609,6 @@
             <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-            <element signature="e#10968#11437#0#HTML" />
-            <element signature="e#12034#12350#0#HTML" />
-            <element signature="e#12440#12874#0#HTML" />
-            <element signature="e#12967#13301#0#HTML" />
-            <element signature="e#13395#13729#0#HTML" />
-            <element signature="e#13813#13864#0#HTML" />
-            <element signature="e#13909#13960#0#HTML" />
-            <element signature="e#14006#14058#0#HTML" />
-            <element signature="e#14103#14154#0#HTML" />
-            <element signature="e#14199#14250#0#HTML" />
-            <element signature="e#14296#14348#0#HTML" />
-            <element signature="e#14394#14446#0#HTML" />
-            <element signature="e#14493#14546#0#HTML" />
-            <element signature="e#14593#14646#0#HTML" />
-            <element signature="e#14693#14746#0#HTML" />
-            <element signature="e#14793#14846#0#HTML" />
-            <element signature="e#14893#14946#0#HTML" />
           </folding>
         </state>
       </provider>
