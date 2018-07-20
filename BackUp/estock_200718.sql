@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 19, 2018 at 05:58 PM
+-- Generation Time: Jul 20, 2018 at 06:02 PM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
@@ -138,10 +138,7 @@ INSERT INTO `m_params` (`paran_no`, `param_name`, `param_value`, `edit_flag`) VA
 CREATE TABLE `m_products` (
   `sl_no` int(11) NOT NULL,
   `prod_type` varchar(20) NOT NULL,
-  `prod_catg` varchar(50) NOT NULL,
   `prod_desc` varchar(150) NOT NULL,
-  `short_flag` varchar(1) NOT NULL,
-  `short_factor` decimal(10,4) DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `created_dt` datetime DEFAULT NULL,
   `modified_by` varchar(50) DEFAULT NULL,
@@ -152,19 +149,10 @@ CREATE TABLE `m_products` (
 -- Dumping data for table `m_products`
 --
 
-INSERT INTO `m_products` (`sl_no`, `prod_type`, `prod_catg`, `prod_desc`, `short_flag`, `short_factor`, `created_by`, `created_dt`, `modified_by`, `modified_dt`) VALUES
-(1, 'PDS', 'AAY', 'RICE', 'N', '0.0000', 'pk', '2018-07-13 03:53:08', 'sss', '2018-07-18 03:42:57'),
-(2, 'PDS', 'AAY', 'Wheat/Atta', 'N', '0.0000', 'pk', '2018-07-13 03:54:46', NULL, NULL),
-(3, 'PDS', 'AAY', 'Sugar', 'Y', '0.0010', 'pk', '2018-07-13 05:10:42', NULL, NULL),
-(4, 'PDS', 'PHH', 'Rice', 'Y', '0.0030', 'pk', '2018-07-13 05:12:26', NULL, NULL),
-(5, 'PDS', 'PHH', 'WHEAT', 'N', '0.0000', 'pk', '2018-07-13 05:12:36', 'sss', '2018-07-18 03:43:17'),
-(6, 'PDS', 'SPHH', 'Rice', 'Y', '0.0030', 'pk', '2018-07-13 05:13:14', NULL, NULL),
-(7, 'PDS', 'SPHH', 'Wheat/Atta', 'N', '0.0000', 'pk', '2018-07-13 05:13:27', NULL, NULL),
-(8, 'PDS', 'SPHH', 'Sugar', 'Y', '0.0010', 'pk', '2018-07-13 05:13:51', NULL, NULL),
-(9, 'PDS', 'RKSY-I', 'Rice', 'Y', '0.0030', 'pk', '2018-07-13 05:14:15', NULL, NULL),
-(10, 'PDS', 'RKSY-I', 'Wheat/Atta', 'N', '0.0000', 'pk', '2018-07-13 05:14:41', NULL, NULL),
-(11, 'PDS', 'RKSY-II', 'Rice', 'Y', '0.0030', 'pk', '2018-07-13 05:14:32', NULL, NULL),
-(12, 'PDS', 'RKSY-II', 'Wheat/Atta', 'N', '0.0000', 'pk', '2018-07-13 05:14:49', NULL, NULL);
+INSERT INTO `m_products` (`sl_no`, `prod_type`, `prod_desc`, `created_by`, `created_dt`, `modified_by`, `modified_dt`) VALUES
+(13, 'PDS', 'WHEAT/ATTA', 'pk', '2018-07-20 12:14:45', 'pk', '2018-07-20 12:15:14'),
+(14, 'PDS', 'Rice', 'pk', '2018-07-20 12:14:57', NULL, NULL),
+(15, 'PDS', 'Sugar', 'pk', '2018-07-20 12:15:06', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -263,6 +251,32 @@ CREATE TABLE `m_rate_master` (
   `modified_by` varchar(50) DEFAULT NULL,
   `modified_dt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `m_shortage`
+--
+
+CREATE TABLE `m_shortage` (
+  `effective_dt` date NOT NULL,
+  `prod_desc` varchar(100) NOT NULL,
+  `prod_type` varchar(20) NOT NULL,
+  `prod_catg` varchar(20) NOT NULL,
+  `short_flag` varchar(1) NOT NULL,
+  `short_factor` decimal(10,6) NOT NULL DEFAULT '0.000000',
+  `created_by` varchar(50) DEFAULT NULL,
+  `created_dt` datetime DEFAULT NULL,
+  `modified_by` varchar(50) DEFAULT NULL,
+  `modified_dt` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `m_shortage`
+--
+
+INSERT INTO `m_shortage` (`effective_dt`, `prod_desc`, `prod_type`, `prod_catg`, `short_flag`, `short_factor`, `created_by`, `created_dt`, `modified_by`, `modified_dt`) VALUES
+('2018-07-20', 'WHEAT/ATTA', 'PDS', 'AAY', 'Y', '0.003000', 'sss', '2018-07-20 04:59:25', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -515,7 +529,14 @@ INSERT INTO `t_audit_trail` (`sl_no`, `login_dt`, `user_id`, `terminal_name`, `l
 (178, '2018-07-19 03:24:53', 'pk', '127.0.0.1', '2018-07-19 03:25:00'),
 (179, '2018-07-19 03:26:45', 'pk', '127.0.0.1', '2018-07-19 03:26:47'),
 (180, '2018-07-19 03:29:21', 'pk', '192.168.1.34', '2018-07-19 03:29:56'),
-(181, '2018-07-19 03:31:49', 'sss', '127.0.0.1', NULL);
+(181, '2018-07-19 03:31:49', 'sss', '127.0.0.1', NULL),
+(182, '2018-07-19 06:11:30', 'sss', '127.0.0.1', NULL),
+(183, '2018-07-19 06:28:10', 'sss', '127.0.0.1', '2018-07-19 06:30:43'),
+(184, '2018-07-20 11:53:43', 'pk', '127.0.0.1', NULL),
+(185, '2018-07-20 02:49:34', 'sss', '127.0.0.1', NULL),
+(186, '2018-07-20 04:41:06', 'sss', '127.0.0.1', NULL),
+(187, '2018-07-20 04:59:10', 'sss', '127.0.0.1', NULL),
+(188, '2018-07-20 05:51:20', 'sss', '127.0.0.1', NULL);
 
 --
 -- Indexes for dumped tables
@@ -576,6 +597,12 @@ ALTER TABLE `m_rate_master`
   ADD PRIMARY KEY (`effective_dt`,`prod_desc`,`prod_type`,`prod_catg`);
 
 --
+-- Indexes for table `m_shortage`
+--
+ALTER TABLE `m_shortage`
+  ADD PRIMARY KEY (`effective_dt`,`prod_desc`,`prod_catg`);
+
+--
 -- Indexes for table `td_allotment_sheet`
 --
 ALTER TABLE `td_allotment_sheet`
@@ -605,7 +632,7 @@ ALTER TABLE `m_params`
 -- AUTO_INCREMENT for table `m_products`
 --
 ALTER TABLE `m_products`
-  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sl_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `m_prod_catg`
 --
@@ -625,7 +652,7 @@ ALTER TABLE `m_prod_type`
 -- AUTO_INCREMENT for table `t_audit_trail`
 --
 ALTER TABLE `t_audit_trail`
-  MODIFY `sl_no` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `sl_no` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
