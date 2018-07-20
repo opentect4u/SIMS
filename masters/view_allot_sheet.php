@@ -218,6 +218,7 @@ $result = mysqli_query($db_connect, $sql);
             }).done(function (result) {
 
                 if(result) {
+
                     $('.hideFirst').show();
 
                     $('#effective_dt').val(result.gen_date[1]);
