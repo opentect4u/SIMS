@@ -52,7 +52,7 @@
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
 	/*$select_prd="Select prod_desc from m_products";*/
-	$select_prd="select concat(prod_desc,'---',prod_catg)prod_desc from m_products";
+	$select_prd="select sl_no,prod_desc from m_products";
 	$prddesc=mysqli_query($db_connect,$select_prd);
 
 
@@ -133,7 +133,7 @@
 			<tr>    
                 <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
                 <td><select name="prod_desc" id="prod_desc" style="width:400px">
-                            <option value="`0">Select</option>
+                            <option value="0">Select</option>
                             <?php
                                     while($row=mysqli_fetch_assoc($prddesc)){
                                     echo ("<option value='".$row["prod_desc"]."'>".$row["prod_desc"]."</option>") ;
