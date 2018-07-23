@@ -11,8 +11,6 @@
 		$proddesc=$_GET['prod_desc'];
 		$eftdt=$_GET['effective_dt'];
 	
-		echo $proddesc;
-		echo $eftdt;
 
 		$rtv="select effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale where prod_desc='$proddesc'
 											           and  effective_dt='$eftdt'";	
@@ -47,10 +45,6 @@
 
 		
  	     if(!is_null($unitval) && isset($user_id)) {
-
-		echo $unitval;
-		echo $eftdt;
-		echo $proddesc;
 
 		$sql="update m_allot_scale set unit_val='$unitval'
 		     where effective_dt ='$eftdt'

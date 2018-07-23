@@ -235,8 +235,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 type: 'POST'
             }).done( function(result) {
 
-                console.log(result);
-
                 $('.dealer_name').eq(index_no).val(result.del_name);
 
                 $('.region').eq(index_no).val(result.del_reg);

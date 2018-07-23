@@ -8,7 +8,7 @@
         $prodtypeErr= "";
 
         if($_SESSION['ins_flag']==true){
-                echo "<script>alert('Shortage Parameters Successfully Added')</script>";
+                echo "<script>alert('New Product Successfully Added')</script>";
                 $_SESSION['ins_flag']=false;
         }
  
@@ -17,39 +17,39 @@
 		$_SESSION['prod_edit']=false;
 	}			
 	
-	$rtv="select effective_dt,prod_desc,prod_type,prod_catg,short_flag,short_factor from m_shortage";
+	$rtv="select sl_no,prod_type,prod_desc from m_products";
 	$result=mysqli_query($db_connect,$rtv);	
 
 ?>
 <html>
 <head>
-	<title>Synergic Inventory Management System-View Shortage Parameters</title>
+	<title>Synergic Inventory Management System-View Products</title>
 <head>
 <body>
 	
 	<table border="1">
 		<tr>
-                	<th>Effective Date</th>
-			<th>Product Description</th>
-			<th>Product Category</th>
-			<th>Shortage Factor</th>   
+                	<th>Sl.No.</th>
+			<th>Product Type</th>
+			<th>Product Description</th>   
+                        <th>Options</th>    
                 </tr>
 
 		<?php
 			if($result){
                 		if(mysqli_num_rows($result) > 0){
                         		while($rtv_data=mysqli_fetch_assoc($result)){
-                                		$eftdt=$rtv_data['effective_dt'];
+                                		$slno=$rtv_data['sl_no'];
+						$prodtype=$rtv_data['prod_type'];
 						$proddesc=$rtv_data['prod_desc'];
-						$prodcatg=$rtv_data['prod_catg'];
-						$shtftr=$rtv_data['short_factor'];
+						
 						
 		?>
 						<tr>
-						    <td><?php echo $eftdt; ?></td>
-						    <td><?php echo $proddesc; ?></td>
-						    <td><?php echo $prodcatg; ?></td>
-						    <td><?php echo $shtftr; ?></td>		
+						    <td><?php echo $slno; ?></td>
+						    <td><?php echo $prodtype; ?></td>
+						    <td><?php echo $proddesc; ?></td>	
+						    <td><a href="../edit/prod_edit.php?sl_no=<?php echo $slno; ?>" >Edit</td>
 						</tr>
 		<?php
                                 		}

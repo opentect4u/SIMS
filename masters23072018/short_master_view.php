@@ -33,6 +33,7 @@
 			<th>Product Description</th>
 			<th>Product Category</th>
 			<th>Shortage Factor</th>   
+                        <th>Options</th>    
                 </tr>
 
 		<?php
@@ -50,6 +51,7 @@
 						    <td><?php echo $proddesc; ?></td>
 						    <td><?php echo $prodcatg; ?></td>
 						    <td><?php echo $shtftr; ?></td>		
+						    <td><a href="../edit/short_master_edit.php?sl_no=<?php echo $slno; ?>" >Edit</td>
 						</tr>
 		<?php
                                 		}
