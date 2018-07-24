@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
-                        <a href="#" class="alink one">
+                        <a href="../masters/rate_master.php" class="alink one">
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
                                 <div class="form-row">
                                     <i class="fa fa-inr fa-4x" aria-hidden="true"></i>
@@ -140,7 +140,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
-                        <a href="#" class="alink one">
+                        <a href="../masters/allot_sheet_gen.php" class="alink one">
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
                                 <div class="form-row">
 
