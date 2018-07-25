@@ -66,18 +66,9 @@
             }
 
 
-            .manue {
-                border-radius: 20px;
-                margin-top: 4px;
-                margin-bottom: 5px;
-                width: 78%;
-                border-style: outset;
-                border-color: #606c58;
-
-            }
-
         </style>
     </head>
+
     <body class="body">
 
     <?php
@@ -246,8 +237,9 @@
             document.getElementById("loutbtn").onclick = function() {
                 location.href = "../logout.php";
             }
+
             document.getElementById("dashbtn").onclick = function() {
-                location.href = "dashboard.php";
+                location.href = "http://localhost/SIMS/post/dashboard.php";
             }
         </script>
 

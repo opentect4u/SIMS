@@ -23,13 +23,17 @@ table {
 	table input {
 		width:100%; /* simply scale inputs to table cell size */
 	}
-		td.input-group input {
+
+	td.input-group input {
 			width:auto; /* but not for radios or checks */ 
 		}
-.alignlabel{display: inline-block;
-  	    width: 140px;
-  	    text-align: right;
-	    color: black;
+
+.alignlabel{
+
+	display: inline-block;
+	width: 140px;
+	text-align: right;
+	color: black;
 }
 
 .error {
@@ -40,3 +44,5 @@ table {
 label.error {
 	display: inline;
 }
+
+

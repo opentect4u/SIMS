@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/css/form_design.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/master.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/master.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/prod_catg.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_catg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/prod_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_type.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/post/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/nav.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,38 +34,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/post/menu.php">
+      <file leaf-file-name="prod_type.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" column="83" selection-start-line="65" selection-start-column="75" selection-end-line="65" selection-end-column="83" />
+            <state relative-caret-position="74">
+              <caret line="87" column="36" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/post/dashboard.php">
+      <file leaf-file-name="form_design.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/form_design.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="142" column="36" selection-start-line="142" selection-start-column="36" selection-end-line="142" selection-end-column="36" />
+            <state relative-caret-position="2163">
+              <caret line="209" column="8" lean-forward="true" selection-start-line="209" selection-start-column="8" selection-end-line="209" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/dashboard.css">
+      <file leaf-file-name="prod_catg.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/masters/prod_catg.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="3" selection-end-line="86" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rate_master_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/masters/rate_master_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+            <state relative-caret-position="93">
+              <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -80,6 +77,19 @@
       <find>e2e88f</find>
       <find>active</find>
       <find>mr_no</find>
+      <find>validate-form</find>
+      <find>validate-input</find>
+      <find>alert-validate</find>
+      <find>showValidate</find>
+      <find>container-contact1</find>
+      <find>content</find>
+      <find>elegantshadow</find>
+      <find>contact1-form-title</find>
+      <find>border-style</find>
+      <find>contact1-form-btn</find>
+      <find>head-title</find>
+      <find>input1</find>
+      <find>focus</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -92,13 +102,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/masters/prod_qty.php" />
-        <option value="$PROJECT_DIR$/masters/prod_catg.php" />
         <option value="$PROJECT_DIR$/db/db_connect.php" />
         <option value="$PROJECT_DIR$/get_param_val.php" />
         <option value="$PROJECT_DIR$/masters/prod_master.php" />
         <option value="$PROJECT_DIR$/masters/dealer_master.php" />
-        <option value="$PROJECT_DIR$/masters/prod_type.php" />
-        <option value="$PROJECT_DIR$/css/master.css" />
         <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
         <option value="$PROJECT_DIR$/masters/allot_scale.php" />
         <option value="$PROJECT_DIR$/masters/prod_catg_view.php" />
@@ -118,12 +125,17 @@
         <option value="$PROJECT_DIR$/vendor/bootstrap/js/common.js" />
         <option value="$PROJECT_DIR$/css1/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/post/home.php" />
-        <option value="$PROJECT_DIR$/post/nav.php" />
         <option value="$PROJECT_DIR$/fetch/dealers_dtls.php" />
         <option value="$PROJECT_DIR$/masters/allot_sheet_gen.php" />
-        <option value="$PROJECT_DIR$/css/dashboard.css" />
         <option value="$PROJECT_DIR$/post/menu.php" />
+        <option value="$PROJECT_DIR$/css/master.css" />
+        <option value="$PROJECT_DIR$/post/nav.php" />
         <option value="$PROJECT_DIR$/post/dashboard.php" />
+        <option value="$PROJECT_DIR$/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/js/select_tag.js" />
+        <option value="$PROJECT_DIR$/masters/prod_type.php" />
+        <option value="$PROJECT_DIR$/css/form_design.css" />
+        <option value="$PROJECT_DIR$/masters/prod_catg.php" />
       </list>
     </option>
   </component>
@@ -147,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,23 +170,17 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="masters" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,18 +225,19 @@
       <workItem from="1532060980972" duration="22012000" />
       <workItem from="1532319728742" duration="11032000" />
       <workItem from="1532330825102" duration="18409000" />
-      <workItem from="1532409412405" duration="661000" />
+      <workItem from="1532409412405" duration="27434000" />
+      <workItem from="1532496067717" duration="26513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123409000" />
+    <option name="totallyTimeSpent" value="176695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27677625" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28313893" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3295082" />
@@ -258,34 +266,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="155" selection-start-line="69" selection-start-column="102" selection-end-line="69" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/masters/prod_master.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="146" column="62" lean-forward="true" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="81" selection-start-line="77" selection-start-column="81" selection-end-line="77" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/db_connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
@@ -363,13 +343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="155" selection-start-line="69" selection-start-column="102" selection-end-line="69" selection-end-column="155" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/db_connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -381,13 +354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="100" column="106" lean-forward="true" selection-start-line="100" selection-start-column="68" selection-end-line="100" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/masters/prod_catg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="61" column="105" lean-forward="true" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="105" />
         </state>
       </provider>
     </entry>
@@ -449,13 +415,6 @@
     <entry file="file://$PROJECT_DIR$/vendor/bootstrap/js/jquery.dataTables.js" />
     <entry file="file://$PROJECT_DIR$/vendor/bootstrap/js/jquery-1.9.1.min.js" />
     <entry file="file://$PROJECT_DIR$/post/home.php" />
-    <entry file="file://$PROJECT_DIR$/css/master.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fetch/allot_scale_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -470,22 +429,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/post/user.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post/nav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/masters/allot_sheet_gen.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -508,24 +453,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
+    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="3" selection-end-line="86" selection-end-column="19" />
+        <state relative-caret-position="225">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/master.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/post/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="83" selection-start-line="65" selection-start-column="75" selection-end-line="65" selection-end-column="83" />
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="107" selection-start-line="2" selection-start-column="107" selection-end-line="2" selection-end-column="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/post/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="142" column="36" selection-start-line="142" selection-start-column="36" selection-end-line="142" selection-end-column="36" />
+          <caret line="242" column="13" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="242" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/select_tag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="87" column="36" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/form_design.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2163">
+          <caret line="209" column="8" lean-forward="true" selection-start-line="209" selection-start-column="8" selection-end-line="209" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/prod_catg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
         </state>
       </provider>
     </entry>
