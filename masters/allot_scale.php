@@ -148,6 +148,7 @@
             }
 
         });
+
     </script>
 
     <script>
@@ -297,6 +298,6 @@
 
         <script src="../js/collapsible.js"></script>
 
-
 	</body>
+
 </html>

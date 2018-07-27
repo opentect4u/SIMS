@@ -166,7 +166,9 @@ function test_input($data) {
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <span class="contact1-form-title">
+
                                   Edit Allotment Sheet
+                                    
                                 </span>
 
                             <div class="wrap-input1 validate-input">

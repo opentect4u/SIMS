@@ -98,11 +98,11 @@
 
                 <hr class='hr' style="margin-top: 15px;">
 
-                <div><a class="abtn green" href="../masters/allot_sheet_gen.php">
+                <div><a class="abtn green" href="../masters/allot_sheet.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
                     <br><br>
                 </div>
-                <div><a class="abtn green" href="../masters/view_allot_sheet.php">
+                <div><a class="abtn green" href="../masters/allot_sheet_view.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
                 </div>
 
@@ -118,11 +118,16 @@
                     <a class="abtn green" href="../masters/rate_master_view.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Rate</a>
                 </div>
+
                 <br>
+
             </div>
 
         </div>
+
     </div>
+
+
     <div>
         <button class="collapsible">
             <i class="fa fa-cube fa-fw" aria-hidden="true"></i>Transaction

@@ -88,12 +88,17 @@
                         <?php
 
                         if($result){
+
                             if(mysqli_num_rows($result) > 0){
+
                                 while($rtv_data=mysqli_fetch_assoc($result)){
+
                                     $eftdt=$rtv_data['effective_dt'];
                                     $proddesc=$rtv_data['prod_desc'];
                                     $prodcatg=$rtv_data['prod_catg'];
+
                                     ?>
+
                                     <tr>
                                         <td><?php echo $eftdt; ?></td>
                                         <td><?php echo $proddesc; ?></td>

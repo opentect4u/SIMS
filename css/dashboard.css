@@ -88,6 +88,7 @@ margin: 0;
     float: left;
     margin-left:50px;
 }
+
 .anav {   
     display: block;   	
     color: white; 
@@ -96,6 +97,7 @@ margin: 0;
     font-family: "Times New Roman", Times, serif;
     font-size:17px;
 }
+
 .hr {
    display: block;
    width: 100%;

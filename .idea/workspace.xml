@@ -2,32 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/js/collapsible.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/form_design.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/form_design.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit/allot_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/allot_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/dealer_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/dealer_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/prod_catg_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/prod_catg_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/prod_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/prod_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/prod_qty_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/prod_qty_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/prod_type_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/prod_type_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/masters/allot_scale.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_scale.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/masters/allot_scale_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_scale_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/dealer_master.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/dealer_master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/dealer_master_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/dealer_master_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_catg.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_catg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_catg_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_catg_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_master.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_master_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_master_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_qty.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_qty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_qty_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_qty_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/prod_type_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/prod_type_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/short_master.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/short_master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/short_master_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/short_master_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transactions/stock_in_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/stock_in_pds.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/allot_sheet_gen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/rate_master.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/rate_master.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/view_allot_sheet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/post/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/menu.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,26 +38,17 @@
       <file leaf-file-name="allot_scale.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="141" column="13" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="141" selection-end-column="13" />
+            <state relative-caret-position="393">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dealer_edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/edit/dealer_edit.php">
+      <file leaf-file-name="rate_master.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/masters/rate_master.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="141" column="13" lean-forward="true" selection-start-line="93" selection-start-column="4" selection-end-line="141" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allot_edit.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/edit/allot_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="168" column="54" selection-start-line="168" selection-start-column="54" selection-end-line="168" selection-end-column="54" />
+            <state relative-caret-position="424">
+              <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
             </state>
           </provider>
         </entry>
@@ -83,9 +57,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bootstrap.min.js</find>
-      <find>margin-left</find>
-      <find>style=&quot;border: 3px solid green&quot;</find>
       <find>green</find>
       <find>collapsible</find>
       <find>abtn</find>
@@ -113,6 +84,9 @@
       <find>prod_name</find>
       <find>defaultHide</find>
       <find>effective_dt</find>
+      <find>anav</find>
+      <find>prod_rate</find>
+      <find>per_unit</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -145,16 +119,13 @@
         <option value="$PROJECT_DIR$/post/home.php" />
         <option value="$PROJECT_DIR$/fetch/dealers_dtls.php" />
         <option value="$PROJECT_DIR$/masters/allot_sheet_gen.php" />
-        <option value="$PROJECT_DIR$/post/menu.php" />
         <option value="$PROJECT_DIR$/css/master.css" />
         <option value="$PROJECT_DIR$/post/nav.php" />
-        <option value="$PROJECT_DIR$/css/dashboard.css" />
         <option value="$PROJECT_DIR$/js/select_tag.js" />
         <option value="$PROJECT_DIR$/js/collapsible.js" />
         <option value="$PROJECT_DIR$/post/dashboard.php" />
         <option value="$PROJECT_DIR$/masters/prod_catg.php" />
         <option value="$PROJECT_DIR$/edit/prod_catg_edit.php" />
-        <option value="$PROJECT_DIR$/css/form_design.css" />
         <option value="$PROJECT_DIR$/edit/prod_type_edit.php" />
         <option value="$PROJECT_DIR$/masters/prod_qty.php" />
         <option value="$PROJECT_DIR$/edit/prod_qty_edit.php" />
@@ -169,10 +140,15 @@
         <option value="$PROJECT_DIR$/masters/dealer_master_view.php" />
         <option value="$PROJECT_DIR$/edit/prod_edit.php" />
         <option value="$PROJECT_DIR$/masters/prod_type.php" />
-        <option value="$PROJECT_DIR$/masters/allot_scale.php" />
-        <option value="$PROJECT_DIR$/masters/allot_scale_view.php" />
         <option value="$PROJECT_DIR$/edit/dealer_edit.php" />
         <option value="$PROJECT_DIR$/edit/allot_edit.php" />
+        <option value="$PROJECT_DIR$/post/menu.php" />
+        <option value="$PROJECT_DIR$/masters/allot_scale_view.php" />
+        <option value="$PROJECT_DIR$/css/form_design.css" />
+        <option value="$PROJECT_DIR$/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/masters/allot_sheet.php" />
+        <option value="$PROJECT_DIR$/masters/allot_scale.php" />
+        <option value="$PROJECT_DIR$/masters/rate_master.php" />
       </list>
     </option>
   </component>
@@ -212,17 +188,7 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="edit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="masters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -275,12 +241,12 @@
       <workItem from="1532409412405" duration="27434000" />
       <workItem from="1532496067717" duration="26866000" />
       <workItem from="1532580907196" duration="27165000" />
-      <workItem from="1532667088526" duration="5869000" />
+      <workItem from="1532667088526" duration="25677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210082000" />
+    <option name="totallyTimeSpent" value="229890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
@@ -315,14 +281,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/masters/view_allot_sheet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="219" column="28" selection-start-line="219" selection-start-column="28" selection-end-line="219" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.js" />
     <entry file="file://$PROJECT_DIR$/css1/font-awesome.css" />
     <entry file="file://$PROJECT_DIR$/css1/theme.css" />
     <entry file="file://$PROJECT_DIR$/vendor/jquery.flot.js" />
@@ -373,22 +331,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -398,24 +342,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/select_tag.js" />
-    <entry file="file://$PROJECT_DIR$/post/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/collapsible.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/master.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -430,13 +360,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="84" column="48" lean-forward="true" selection-start-line="84" selection-start-column="48" selection-end-line="84" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/form_design.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="328" column="25" lean-forward="true" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -545,13 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/allot_scale_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/dealer_master_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -559,10 +475,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
+    <entry file="file://$PROJECT_DIR$/edit/allot_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="141" column="13" lean-forward="true" selection-start-line="83" selection-start-column="4" selection-end-line="141" selection-end-column="13" />
+        <state relative-caret-position="199">
+          <caret line="170" column="36" selection-start-line="170" selection-start-column="36" selection-end-line="170" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -573,10 +489,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit/allot_edit.php">
+    <entry file="file://$PROJECT_DIR$/fetch/dealers_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="168" column="54" selection-start-line="168" selection-start-column="54" selection-end-line="168" selection-end-column="54" />
+        <state relative-caret-position="225">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/post/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="110" column="21" lean-forward="true" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/allot_scale_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/master.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="97" column="16" selection-start-line="97" selection-start-column="14" selection-end-line="97" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/allot_sheet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="483" column="138" lean-forward="true" selection-start-line="483" selection-start-column="138" selection-end-line="483" selection-end-column="138" />
+          <folding>
+            <element signature="e#123#5430#0#PHP" />
+            <element signature="n#script#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#11;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#12;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#13;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#15;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#16;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#18;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#button#0;n#th#19;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/form_design.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="6" selection-start-line="71" selection-end-line="71" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/rate_master.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="329" lean-forward="true" selection-start-line="329" selection-end-line="329" />
         </state>
       </provider>
     </entry>
