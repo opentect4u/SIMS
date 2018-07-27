@@ -6,6 +6,7 @@
 	require("../session.php");
 
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+
 			$effectdt	=	$_POST["effective_dt"];
 			$proddesc	=	$_POST["prod_desc"];
 			$prodcatg	=	$_POST['prod_catg'];
@@ -15,13 +16,13 @@
 
 			$time = date("Y-m-d h:i:s");
 
-			if($unitval <= 0){
+			if($unitval < 0){
 			   echo "<script>alert('Value(Kg) can\'t be less then or equals to zero');</script>";
 
                 $effectdt = null;
             }
 
-			if(!is_null($effectdt)) {
+			elseif(!is_null($effectdt)) {
 
 				$sql="insert into m_allot_scale(effective_dt,
 								     prod_desc,
@@ -40,6 +41,7 @@
 							     	      )";
 
                           $result=mysqli_query($db_connect,$sql);
+
 			}
 
 			if($result){
@@ -58,47 +60,102 @@
 
 ?>
 <html>
+
 	<head>
+
 		<title>Synergic Inventory Management System-Add Stock</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="../css/master.css">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
+
     <script>
+
         $(document).ready(function() {
-            $('.defaultHide').hide();
+
+            var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
+            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
+            var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
+
 
             $('#form').submit(function(e) {
-                //e.preventDefault();
-                var prod_desc = $('#prod_desc').val(),
-                    prod_catg = $('#prod_catg').val(),
-                    per_unit = $('#per_unit').val(),
-                    unit_val = $('#unit_val').val();
 
-                $(".error").remove();
+                var check = true;
 
+                if($(effective_dt).val().trim() == '') {
 
-                if (prod_desc == 0) {
-                    e.preventDefault();
-                    $('#prod_desc').after('<span class="error">Invalid Input</span>');
+                    showValidate(effective_dt);
+
+                    check=false;
+
                 }
 
-                if (prod_catg == 0) {
-                    e.preventDefault();
-                    $('#prod_catg').after('<span class="error">Invalid Input</span>');
+                if($(prod_desc).val() == '0') {
+
+                    showValidate(prod_desc);
+
+                    check=false;
+
                 }
 
-                if(per_unit.length < 1) {
-                    e.preventDefault();
-                    $('#per_unit').after('<span class="error">Invalid Input</span>');
+                if($(prod_catg).val() == '0') {
+
+                    showValidate(prod_catg);
+
+                    check=false;
                 }
 
-                if(unit_val.length < 1) {
-                    e.preventDefault();
-                    $('#unit_val').after('<span class="error">Invalid Input</span>');
-                }
+                return check;
+
             });
 
+
+
+            $('.validate-form .input1').each(function(){
+                $(this).focus(function(){
+                    hideValidate(this);
+                });
+            });
+
+
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                //console.log($(input).parent());
+
+                $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function hideValidate(input) {
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
+
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function() {
+
             $('#effective_dt').on("change", function() {
+
                 var today = new Date();
 
                 var to_date = $('#effective_dt').val().split("-");
@@ -113,63 +170,133 @@
 
             $('#prod_catg').change(function () {
 
-                $('#per_unit').val($(this).find(':selected').attr('data-val'));
+                $('#unit_type').val($(this).find(':selected').attr('data-val'));
 
             });
 
 
         });
     </script>
-	<body>
-		<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-		<table>
+    <body class="body">
 
-			<tr>
-				<td><div class="alignlabel"><label for="effective_dt"><strong style="color: red;">*</strong>Effective Date:</label></div></td>
-				<td><input type="date" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" size="50" style="width:150px"</td>
-			</tr>
+        <?php require '../post/nav.php'; ?>
 
-			<tr>    
-                <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
-                <td><select name="prod_desc" id="prod_desc" style="width:400px">
-                            <option value="0">Select</option>
-                            <?php
-                                    while($row=mysqli_fetch_assoc($prddesc)){
-                                    echo ("<option value='".$row["prod_desc"]."'>".$row["prod_desc"]."</option>") ;
-                                    }
-                            ?>
-                    </select>
-                </td>
-        
-			</tr>
 
-			<tr>    
-                <td><div class="alignlabel"><label for="prod_catg"><strong style="color: red;">*</strong>Category:</label></div></td>
-                <td><select name="prod_catg" id="prod_catg" style="width:400px">
-                <option value="0">Select</option>
-                <?php
-                        while($row=mysqli_fetch_assoc($prdcatg)){
-                        echo ("<option value='".$row["prod_catg"]."' data-val='".$row['per_unit']."'>".$row["prod_catg"]."</option>") ;
-                        }
-                ?>
-                    </select>
-                </td>
-			</tr>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-			<tr>    
-                <td><div class="alignlabel"><label for="per_unit"><strong style="color: red;">*</strong>Unit Type:</label></div></td>
-                <td><input type="text" name="unit_type" id="per_unit" size="150" style="width:400px" readonly></td>
-			</tr>
+        <hr class='hr'>
 
-			<tr>    
-                <td><div class="alignlabel"><label for="unit_val"><strong style="color: red;">*</strong>Value(Kg):</label></div></td>
-                <td><input type="text" name="unit_val" id="unit_val" value="0.00" size="150" style="width:400px"></td>
-			</tr>
+        <div class="container" style="margin-left: 10px">
 
-			<tr>
-				<td><input type="submit" name="submit" value="Save"></td>
-			</tr>
-		</table>
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <?php require("../post/menu.php"); ?>
+
+                </div>
+
+                <div class="col-lg-8 col-md-6">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                            <span class="contact1-form-title">
+
+                               Allotment Scale Setup
+
+                            </span>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                                <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
+                                <span class="shadow-input1"></span>
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+
+                                <select class="input1" name="prod_desc" id="prod_desc">
+
+                                    <option value="0">Select Product</option>
+
+                                    <?php
+
+                                        while($row=mysqli_fetch_assoc($prddesc)){
+
+                                            echo ("<option value='".$row["prod_desc"]."'>".$row["prod_desc"]."</option>") ;
+
+                                        }
+                                    ?>
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Product category is required">
+
+                                <select class="input1" name="prod_catg" id="prod_catg">
+
+                                    <option value="0">Select Category</option>
+
+                                    <?php
+
+                                        while($row=mysqli_fetch_assoc($prdcatg)){
+
+                                            echo ("<option value='".$row["prod_catg"]."' data-val='".$row['per_unit']."'>".$row["prod_catg"]."</option>") ;
+
+                                        }
+
+                                    ?>
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" >
+
+                                <input type="text" class="input1" name="unit_type" id="unit_type" readonly />
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required">
+
+                                <input type="text" class="input1" name="unit_val" id="unit_val" value="0.00" />
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                    <span>
+
+                                        Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
+
 	</body>
 </html>

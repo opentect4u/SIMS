@@ -72,44 +72,176 @@ function test_input($data) {
 
 ?>
 <html>
-<head>
-	<title>Synergic Inventory Management System-Edit Product Category</title>
-</head>
-<body>
-	<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <table>
-	    <tr>
-		<td><div class="alignlabel"><label for="effective_dt">Effective Date:</label></div></td>
-		<td><input type="date" name="effective_dt" size="150" style="width:400px" value="<?php echo $eftdt; ?>" readonly></td>
-	    </tr>
 
-	    <tr>
-		<td><div class="alignlabel"><label for="prod_desc">Product:</label></div></td>
-		<td><input type="text" name="prod_desc" size="150" style="width:400px" value="<?php echo $proddesc; ?>" readonly></td>
-	    </tr>	
+    <head>
 
-	    <tr>			
-                <td><div class="alignlabel"><label for="prod_catg"><strong style="color: red;">*</strong>Category:</label></div></td>
-		<td><input type="text" id="prod_catg" name="prod_catg" size="150" style="width:400px"value="<?php echo $prodcatg; ?>"readonly></td>
-            </tr>
+        <title>Synergic Inventory Management System-Edit Product Category</title>
 
-	    
-	    <tr>			
-                <td><div class="alignlabel"><label for="per_unit"><strong style="color: red;">*</strong>Unit:</label></div></td>
-		<td><input type="text" id="per_unit" name="per_unit" size="150" style="width:400px"value="<?php echo $perunit; ?>" readonly ></td>
-            </tr>		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	    <tr>			
-                <td><div class="alignlabel"><label for="unit_val"><strong style="color: red;">*</strong>Value:</label></div></td>
-		<td><input type="text" id="unit_val" name="unit_val" size="150" style="width:400px"value="<?php echo $unitval; ?>"></td>
-            </tr>		
-		
-            <tr>
-                <td><input type="submit" name="submit" value="Update"></td>
-            </tr>
-        </table>
-    </form>
-</body>
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+
+    <script>
+
+        $(document).ready(function() {
+
+            var unit_val = $('.validate-input input[name = "unit_val"]');
+
+
+            $('#form').submit(function(e) {
+
+                var check = true;
+
+                if($(unit_val).val().trim() == '') {
+
+                    showValidate(unit_val);
+                    check=false;
+                }
+
+                return check;
+
+            });
+
+
+            $('.validate-form .input1').each(function() {
+
+                $(this).focus(function() {
+
+                    hideValidate(this);
+
+                });
+
+            });
+
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-validate');
+            }
+
+            function hideValidate(input) {
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
+
+        });
+    </script>
+
+
+    <body class="body">
+
+        <?php require '../post/nav.php'; ?>
+
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+
+        <hr class='hr'>
+
+        <div class="container" style="margin-left: 10px">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-2">
+
+                    <?php require("../post/menu.php"); ?>
+
+                </div>
+
+                <div class="col-lg-8 col-md-10">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                                <span class="contact1-form-title">
+                                  Edit Allotment Sheet
+                                </span>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="date" class="input1" name="effective_dt" value="<?php echo $eftdt; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="prod_desc" value="<?php echo $proddesc; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" id="prod_catg" name="prod_catg" value="<?php echo $prodcatg; ?>"readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" id="per_unit" name="per_unit" value="<?php echo $perunit; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required">
+
+                                <input type="text" class="input1" id="unit_val" name="unit_val" value="<?php echo $unitval; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                    <span>
+
+                                        Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
+    </body>
 </html>
 
 

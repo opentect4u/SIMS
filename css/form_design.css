@@ -138,7 +138,7 @@ select.input1 {
     padding: 0 30px;
 
 
-    background: #e6e6e6 url("http://192.168.1.248/SIMS/img/arrow.png") no-repeat;
+    background: #e6e6e6 url("http://localhost/SIMS/img/arrow.png") no-repeat;
     background-position: 350px 18px;
 }
 

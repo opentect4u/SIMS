@@ -60,32 +60,36 @@
 
 ?>
 <html>
-<head>
+
+ <head>
+
 	<title>Synergic Inventory Management System-Add Product Type</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
     <link rel="stylesheet" type="text/css" href="../css/form_design.css">
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="../css/master.css">
-
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
-<script>
+ <script>
 
     $(document).ready(function() {
 
         var name = $('.validate-input input[name = "prod_type"]');
-        var check = true;
+
 
         $('#form').submit(function(e) {
+            var check = true;
 
             if($(name).val().trim() == '') {
 
@@ -116,10 +120,11 @@
         }
 
     });
-</script>
+ </script>
 
-<body class="body">
-<?php require '../post/nav.php'; ?>
+ <body class="body">
+
+    <?php require '../post/nav.php'; ?>
 
 
     <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
@@ -135,7 +140,7 @@
                 <div class="container-contact1">
                     <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <span class="contact1-form-title">
-                           Products Type
+                           Product Type
                         </span>
 
                         <div class="wrap-input1 validate-input" data-validate="Product type is required">
@@ -150,40 +155,14 @@
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                 </span>
                             </button>
-                </div>
-            </form>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-<script type="text/javascript">
-
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-
-    document.getElementById("loutbtn").onclick = function() {
-        location.href = "../logout.php";
-    }
-    document.getElementById("dashbtn").onclick = function() {
-        location.href = "http://localhost/SIMS/post/dashboard.php";
-    }
-</script>
+<script src="../js/collapsible.js"></script>
 
 </body>
 

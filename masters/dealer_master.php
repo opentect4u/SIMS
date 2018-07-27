@@ -63,77 +63,173 @@
         }
 
 ?>
+
 <html>
-<head>
+
+    <head>
+
         <title>Synergic Inventory Management System-Add Dealer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/master.css">
-</head>
-<script>
-    $(document).ready(function() {
 
-        $('#form').submit(function(e) {
-            //e.preventDefault();
-            var del_cd = $('#del_cd').val(),
-                del_name = $('#del_name').val(),
-                del_reg = $('#del_reg').val();
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-            $(".error").remove();
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
 
-            if (del_cd == 0) {
-                e.preventDefault();
-                $('#del_cd').after('<span class="error">Invalid Input</span>');
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <script>
+
+        $(document).ready(function() {
+
+            var del_cd = $('.validate-input input[name = "del_cd"]');
+            var del_name = $('.validate-input input[name = "del_name"]');
+            var del_reg = $('.validate-input input[name = "del_reg"]');
+
+            $('#form').submit(function(e) {
+
+                var check = true;
+
+                if($(del_cd).val().trim() == '') {
+
+                    showValidate(del_cd);
+
+                    check=false;
+                }
+
+                if($(del_name).val().trim() == '') {
+
+                    showValidate(del_name);
+                    check=false;
+                }
+
+                if($(del_reg).val().trim() == '') {
+
+                    showValidate(del_reg);
+                    check=false;
+                }
+
+                return check;
+            });
+
+            $('.validate-form .input1').each(function() {
+
+                $(this).focus(function() {
+                    hideValidate(this);
+                });
+
+            });
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-validate');
             }
-            if (del_name == 0) {
-                e.preventDefault();
-                $('#del_name').after('<span class="error">Invalid Input</span>');
-            }
-            if (del_reg == 0) {
-                e.preventDefault();
-                $('#del_reg').after('<span class="error">Invalid Input</span>');
-            }
 
+            function hideValidate(input) {
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
 
         });
+    </script>
 
-    });
-</script>
-<body>
-        <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            <table>
-                <tr>
-                    <td><div class="alignlabel"><label for="del_cd"><strong style="color: red;">*</strong>Dealer Code:</label></div></td>
-                    <td><input type ="text" name="del_cd" id="del_cd" size="150" style="width:400px"><span class="error"><?php echo $delcdErr;?></span></td>
-                </tr>
 
-                <tr>
-                    <td><div class="alignlabel"><label for="del_name"><strong style="color: red;">*</strong>Name:</label></div></td>
-                    <td><input type ="text" name="del_name" id="del_name" size="150" style="width:400px"><span class="error"><?php echo $delnameErr;?></td>
-                </tr>
+    <body class="body">
 
-                <tr>
-                    <td><div class="alignlabel"><label for="del_adr">Address:</label></div></td>
-                    <td><textarea rows ="5" cols="50" name="del_adr" size="150" style="width:400px">Enter Address Here..</textarea></td>
-                </tr>
+        <?php require '../post/nav.php'; ?>
 
-                <tr>
-                    <td><div class="alignlabel"><label for="del_reg"><strong style="color: red;">*</strong>Region:</label></div></td>
-                    <td><input type ="text" name="del_reg" id="del_reg" size="150" style="width:400px"><span class="error"><?php echo $delregErr;?></td>
-                </tr>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-                <tr>
-                    <?php require '../get_param_val.php';
-                    ?>
-                    <td><div class="alignlabel"><label for="del_dist">District:</label></div></td>
-                    <td><input type ="text" name="del_dist" value="<?php echo f_getParam(4, $db_connect); ?>" readonly size="150" style="width:400px"></td>
-                </tr>
+        <hr class='hr'>
 
-                <tr>
-                    <td><input type="submit" name="submit" value="save"></td>
-                </tr>
-            </table>
-        </form>
-</body>
+        <div class="container" style="margin-left: 10px">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <?php require("../post/menu.php"); ?>
+
+                </div>
+
+                <div class="col-lg-8 col-md-6">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                                <span class="contact1-form-title">
+                                  Dealer Details
+                                </span>
+
+                            <div class="wrap-input1 validate-input" data-validate="Dealer code required">
+
+                                <input type ="text" class="input1" name="del_cd" id="del_cd" placeholder="Dealer Code" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Dealer name required">
+
+                                <input type ="text" class="input1" name="del_name" id="del_name" placeholder="Dealer Name" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Product address required">
+
+                                <textarea class="input1" rows ="5" cols="50" name="del_adr" >Enter Address Here..</textarea>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Region required">
+
+                                <input type ="text" class="input1" name="del_reg" id="del_reg" placeholder="Region" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Product type required">
+
+                                <?php require '../get_param_val.php'; ?>
+
+                                <input type ="text" class="input1" name="del_dist" value="<?php echo f_getParam(4, $db_connect); ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+                                <button class="contact1-form-btn">
+                                        <span>
+                                            Save
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                        </span>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
+    </body>
 </html>
 
 

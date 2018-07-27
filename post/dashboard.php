@@ -11,6 +11,7 @@
 ?>
 
 <html>
+
     <head>
         <title>Synergic Inventory Management System</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -72,9 +73,11 @@
     <body class="body">
 
     <?php
-        require("nav.php");
-        echo"<br><br>";
+
+        require("./nav.php");
+
         echo "<h1 class='elegantshadow'>Laxmi Narayan Stores</h1>";
+
         echo "<hr class='hr'>";?>
 
         <div class="container" style="margin-left: 10px">
@@ -217,32 +220,9 @@
             </div>
         </div>
 
-
-        <script type="text/javascript">
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            }
-
-            document.getElementById("loutbtn").onclick = function() {
-                location.href = "../logout.php";
-            }
-
-            document.getElementById("dashbtn").onclick = function() {
-                location.href = "http://localhost/SIMS/post/dashboard.php";
-            }
-        </script>
+    <script src="../js/collapsible.js"></script>
 
     </body>
+
 </html>
 

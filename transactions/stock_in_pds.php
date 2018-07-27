@@ -12,14 +12,15 @@
 
 			$transdt	=	$_POST["trans_dt"];
 			$dono		=	$_POST["do_no"];
-			$prodslno	=	$_POST["prod_sl_no"];
+			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
 			$transtype	=	"I";
 			$qtybag		=	$_POST['qty_bag'];
 			$qtyqnt		=	$_POST['qty_qnt'];	
 			$qtykg		=	$_POST['qty_kg'];
 			$qtygm		=	$_POST['qty_gm'];	
-
+			$prodtype	=	$_POST['prod_type'];
+			$prodcatg	=	$_POST['prod_catg'];	
 			$remarks	=	$_POST['remarks'];
 			$transcd	=	1;
                         $user_id=$_SESSION["user_id"];
@@ -34,15 +35,17 @@
 
 			    if (mysqli_num_rows($result) > 0) {
 			        $data = mysqli_fetch_assoc($result);
-                    $transcd += $data['trans_cd'];
-                }
+                    		$transcd += $data['trans_cd'];
+                		}
 
 
 			    $sql="insert into td_stock_trans_pds (trans_dt,
                                                      trans_cd,
                                                      do_no,
                                                      prod_sl_no,
-                                                     prod_desc,
+						     prod_desc,
+						     prod_type,
+						     prod_catg,
                                                      trans_type,
                                                      qty_bag,
                                                      qty_qnt,
@@ -58,7 +61,9 @@
                                                      '$transcd',
                                                      '$dono',
                                                      '$prodslno',
-                                                     '$proddesc',
+						     '$proddesc',
+						     '$prodtype',
+						     '$prodcatg',
                                                      '$transtype',
                                                       $qtybag,
                                                       $qtyqnt,
@@ -71,7 +76,13 @@
                                                           0,
                                                           0)";
 
-                          $result=mysqli_query($db_connect,$sql);
+			    $result=mysqli_query($db_connect,$sql);
+
+			    if($result){
+				$_SESSION['ins_flag']=true;    
+			    	Header("Location:view_stock_in_pds.php");
+			    }	
+
 
             }
             else{
@@ -81,13 +92,14 @@
         }
 
         unset($sql);
-        $sql = "SELECT sl_no,
-                       prod_type,
-                       prod_catg,
-                       prod_desc FROM m_products
-                                 ORDER BY sl_no";
+        $prod_sql = "SELECT sl_no,prod_type,prod_desc FROM m_products ORDER BY sl_no";
 
-	    $result = mysqli_query($db_connect, $sql)
+	$prod_result = mysqli_query($db_connect, $prod_sql);
+
+
+	$catg_sql	="Select prod_catg from m_prod_catg";
+	$result_catg	= mysqli_query($db_connect,$catg_sql);	
+		
 
 ?>
 <html>
@@ -97,7 +109,7 @@
         <link rel="stylesheet" href="../css/master.css">
     </head>
     <script>
-        $(document).ready(function() {
+        /*$(document).ready(function() {
 
             $('#form').submit(function(e) {
                 var do_no = $('#do_no').val(),
@@ -122,6 +134,15 @@
 
             });
 
+	});*/
+
+	$(document).ready(function() {
+                $('#prod_desc').change(function () {
+
+		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
+		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
+
+            });
         });
 
     </script>
@@ -133,34 +154,45 @@
                     <td><input type="date" name="trans_dt" readonly value="<?php echo date("Y-m-d") ?>" size="50" style="width:150px"</td>
                 </tr>
                 <tr>
-                    <td><div class="alignlabel"><label for="do_no"><strong style="color: red;">*</strong>Do No.:</label></div></td>
+                    <td><div class="alignlabel"><label for="do_no"><strong style="color: red;">*</strong>DO No.:</label></div></td>
                     <td><input type="text" name="do_no" id="do_no" size="50" style="width:150px"></td>
+		</tr>
+
+		<tr>
+                    <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
+		    <td><select name="prod_desc" id="prod_desc" style="width:400px;">
+			<option value="0">Select</option>
+			<?php
+				while($row=mysqli_fetch_assoc($prod_result)){
+					echo("<option value=".$row['prod_desc']." data-val=".$row['prod_type']." prod-cd=".$row['sl_no'].">".$row['prod_desc']."</option>");	 			     }
+			 ?>
+
+		 	</td>
+		</tr>
+
+		<tr>
+		    <td><div class="alignlabel"><label for="prod_catg"><strong style="color:red">*</strong>Category:</label></div></td>
+		    <td><select name="prod_catg" id="prod_catg" style="width:400px;">
+			<option value="0">Select</option>
+			<?php
+				while($data=mysqli_fetch_assoc($result_catg)){
+			        echo ("<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>"); 
+			     }
+			 ?>	
+		     </select></td> 			
+		</tr>
+
+		<tr>
+                    <td><div class="alignlabel"><label for="prod_type">Type:</label></div></td>
+                    <td><input type="text" name="prod_type" id="prod_type" size="150" style="width:400px" readonly></td>
+		</tr>                
+		<tr>
+         
+                    <td><div class="alignlabel"><label for="sl_no">Product Code:</label></div></td>
+                    <td><input type="text" name="sl_no" id="sl_no" size="150" style="width:400px;" readonly></td>
                 </tr>
 
-                <tr>
-                    <td><div class="alignlabel"><label for="prod_sl_no"><strong style="color: red;">*</strong>Product Code:</label></div></td>
-                    <td>
-                        <select name="prod_sl_no" id="prod_sl_no" style="width:400px;">
-                            <option value="0">Select</option>
-                            <?php
-                            while($data = mysqli_fetch_assoc($result)) { ?>
-                                <option value="<?php echo $data['sl_no'];?>"
-                                        data-id="<?php echo $data['prod_catg'].' '.$data['prod_desc'].' '.$data['prod_type'];?>">
-                                    <?php echo $data['sl_no'].' '.$data['prod_catg'].' '.$data['prod_desc'].' '.$data['prod_type'];?>
-                                </option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Description:</label></div></td>
-                    <td><input type="text" name="prod_desc" id="prod_desc" size="150" style="width:400px" readonly></td>
-                </tr>
-
-                <tr>
+               <tr>
 
                     <td><div class="alignlabel"><label for="qty_bag">Bag/Tin:</label></div></td>
                     <td><input type="text" name="qty_bag" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
@@ -168,7 +200,7 @@
 
                 <tr>
 
-                    <td><div class="alignlabel"><label for="qty_qnt">Quantity:</label></div></td>
+                    <td><div class="alignlabel"><label for="qty_qnt">Quintal:</label></div></td>
                     <td><input type="text" name="qty_qnt" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
                 </tr>
 

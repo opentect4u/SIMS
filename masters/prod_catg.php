@@ -26,15 +26,14 @@
 
 ?>
 <html>
-<head>
+
+    <head>
 	<title>Synergic Inventory Management System-Add Category</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
     <link rel="stylesheet" type="text/css" href="../css/form_design.css">
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="../css/master.css">
-
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -43,9 +42,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
-
-<script>
+    <script>
     $(document).ready(function() {
 
         var name = $('.validate-input input[name = "prod_catg"]');
@@ -94,9 +91,9 @@
     });
 </script>
 
-<body class="body">
-<?php require '../post/nav.php'; ?>
+    <body class="body">
 
+<?php require '../post/nav.php'; ?>
 
 <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 <hr class='hr'>
@@ -125,6 +122,7 @@
                             <option value="Family">Family</option>
                             <option value="Head">Head</option>
                         </select>
+                        <span class="shadow-input1"></span>
                     </div>
 
                     <div class="container-contact1-form-btn">
@@ -141,36 +139,9 @@
     </div>
 </div>
 
-
-
-
-<script type="text/javascript">
-
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-
-    document.getElementById("loutbtn").onclick = function() {
-        location.href = "../logout.php";
-    }
-    document.getElementById("dashbtn").onclick = function() {
-        location.href = "http://localhost/SIMS/post/dashboard.php";
-    }
-</script>
+<script src="../js/collapsible.js"></script>
 
 </body>
-
 
 <html>	 
 				  	

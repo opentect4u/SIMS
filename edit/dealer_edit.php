@@ -73,50 +73,189 @@ function test_input($data) {
 
 ?>
 <html>
-<head>
-	<title>Synergic Inventory Management System-Edit Product Category</title>
-</head>
-<body>
-	<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-        <table>
-	    <tr>
-		<td><div class="alignlabel"><label for="sl_no">Sl.No.:</label></div></td>
-		<td><input type="text" name="sl_no" size="150" style="width:400px" value="<?php echo $slno; ?>" readonly></td>
-	    </tr>
 
-	    <tr>
-		<td><div class="alignlabel"><label for="del_cd">Dealer Code:</label></div></td>
-		<td><input type="text" name="del_cd" size="150" style="width:400px" value="<?php echo $delcd; ?>" readonly></td>
-	    </tr>	
+    <head>
 
-	    <tr>			
-                <td><div class="alignlabel"><label for="del_name"><strong style="color: red;">*</strong>Name:</label></div></td>
-		<td><input type="text" id="del_name" name="del_name" size="150" style="width:400px"value="<?php echo $delname; ?>" ></td>
-            </tr>
+        <title>Synergic Inventory Management System-Edit Product Category</title>
 
-	     <tr>	
-                <td><div class="alignlabel"><label for="del_adr"><strong style="color: red;">*</strong>Address:</label></div></td>
-		<td><textarea rows ="5" cols="50" id="del_adr" name="del_adr" size="150" style="width:400px">
-		     <?php echo $deladr; ?>
-		    </textarea></td>
-            </tr>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	    <tr>			
-                <td><div class="alignlabel"><label for="del_reg"><strong style="color: red;">*</strong>Region:</label></div></td>
-		<td><input type="text" id="del_reg" name="del_reg" size="150" style="width:400px"value="<?php echo $delreg; ?>" ></td>
-            </tr>		
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
 
-	    <tr>			
-                <td><div class="alignlabel"><label for="del_dist"><strong style="color: red;">*</strong>District:</label></div></td>
-		<td><input type="text" id="del_dist" name="del_dist" size="150" style="width:400px"value="<?php echo $deldist; ?>" readonly ></td>
-            </tr>		
-		
-            <tr>
-                <td><input type="submit" name="submit" value="Update"></td>
-            </tr>
-        </table>
-    </form>
-</body>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <script>
+
+        $(document).ready(function() {
+
+            var del_name = $('.validate-input input[name = "del_name"]');
+            var del_reg = $('.validate-input input[name = "del_reg"]');
+
+            $('#form').submit(function(e) {
+
+                var check = true;
+
+                if($(del_name).val().trim() == '') {
+
+                    showValidate(del_name);
+                    check=false;
+                }
+
+                if($(del_reg).val().trim() == '') {
+
+                    showValidate(del_reg);
+                    check=false;
+                }
+
+                return check;
+            });
+
+            $('.validate-form .input1').each(function() {
+
+                $(this).focus(function() {
+                    hideValidate(this);
+                });
+
+            });
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-validate');
+            }
+
+            function hideValidate(input) {
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
+
+        });
+    </script>
+
+    <body class="body">
+
+        <?php require '../post/nav.php'; ?>
+
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+
+        <hr class='hr'>
+
+        <div class="container" style="margin-left: 10px">
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-2">
+
+                    <?php require("../post/menu.php"); ?>
+
+                </div>
+
+                <div class="col-lg-8 col-md-10">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                                <span class="contact1-form-title">
+                                  Dealer Details
+                                </span>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="sl_no" value="<?php echo $slno; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="del_cd" value="<?php echo $delcd; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Dealer Name required">
+
+                                <input type="text" class="input1" id="del_name" name="del_name" value="<?php echo $delname; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <textarea class="input1" rows ="5" cols="50" id="del_adr" name="del_adr">
+
+                                    <?php echo $deladr; ?>
+
+                                </textarea>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Region is required">
+
+                                <input type="text" class="input1" id="del_reg" name="del_reg" value="<?php echo $delreg; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input" data-validate="Dealer code required">
+
+                                <input type="text" class="input1" id="del_dist" name="del_dist" value="<?php echo $deldist; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                        <span>
+
+                                            Save
+
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                        </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
+    </body>
 </html>
 
 
