@@ -72,7 +72,6 @@
 
         <title>Synergic Inventory Management System-Edit Product</title>
 
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <link rel="stylesheet" type="text/css" href="../css/form_design.css">
@@ -182,17 +181,27 @@
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
-                                        <span>
-                                            Save
-                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                                        </span>
+
+                                    <span>
+
+                                        Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                    </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
         </div>
 

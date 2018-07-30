@@ -50,7 +50,9 @@
         <hr class='hr'>
 
         <div class="container" style="margin-left: 10px">
+
             <div class="row">
+
                 <div class="col-lg-4 col-md-6">
 
                     <?php require("../post/menu.php"); ?>
@@ -62,7 +64,9 @@
                     <div class="container-contact1">
 
                             <span class="contact1-form-title" style="text-align: center;">
+
                              List of Products
+
                             </span>
 
                         <table class="table table-bordered table-hover">
@@ -79,16 +83,22 @@
                             </thead>
 
                             <tbody>
+
                             <?php
+
                                 if($result){
+
                                     if(mysqli_num_rows($result) > 0){
+
                                         while($rtv_data=mysqli_fetch_assoc($result)){
+
                                             $slno=$rtv_data['sl_no'];
                                             $prodtype=$rtv_data['prod_type'];
                                             $proddesc=$rtv_data['prod_desc'];
 
 
                                             ?>
+
                                             <tr>
                                                 <td style="text-align: center;"><?php echo $slno; ?></td>
                                                 <td style="text-align: center;"><?php echo $prodtype; ?></td>
@@ -113,5 +123,6 @@
         <script src="../js/collapsible.js"></script>
 
     </body>
+
 </html>
 

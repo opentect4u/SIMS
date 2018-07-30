@@ -116,46 +116,18 @@
                         </tbody>
 
                     </table>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="../js/collapsible.js"></script>
 
     </body>
 
-		<tr>
-                	<th>Effective Date</th>
-			<th>Product</th>
-			<th>Category</th>
-                        <th>Options</th>    
-                </tr>
-
-		<?php
-			if($result){
-                		if(mysqli_num_rows($result) > 0){
-                        		while($rtv_data=mysqli_fetch_assoc($result)){
-                                		$eftdt=$rtv_data['effective_dt'];
-						$proddesc=$rtv_data['prod_desc'];
-					        $prodcatg=$rtv_data['prod_catg'];					
-		?>
-						<tr>
-						    <td><?php echo $eftdt; ?></td>
-						    <td><?php echo $proddesc; ?></td>
-						    <td><?php echo $prodcatg; ?></td>	
-						    <td>
-							<a href="../edit/allot_edit.php?prod_desc=<?php echo $proddesc; ?>&effective_dt=<?php 
-													echo $eftdt; ?>  " >Edit</td>
-						</tr>
-		<?php
-                                		}
-                			}
-        		}
-		?>
-
-        </table>
-   
-</body>
 </html>
 

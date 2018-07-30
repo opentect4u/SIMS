@@ -81,13 +81,130 @@
 ?>
 <html>
 	<head>
+
 		<title>Synergic Inventory Management System-Add Product Rate</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="../css/master.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
 
-    <body>
-	<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+
+    <body class="body">
+
+    <?php require '../post/nav.php'; ?>
+
+    <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+
+    <hr class='hr'>
+
+    <div class="container" style="margin-left: 10px">
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6">
+
+                <?php require("../post/menu.php"); ?>
+
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+
+                <div class="container-contact1">
+
+                    <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                            <span class="contact1-form-title">
+                              Edit Rate
+                            </span>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo $eftdt; ?>" readonly />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $prdesc; ?>" readonly />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $protype; ?>" readonly />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $prdcatg; ?>" readonly />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="text" class="input1" name="prod_unit" id="prod_unit" value="<?php echo $perunit; ?>" readonly />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="wrap-input1 validate-input">
+
+                            <input type="text" class="input1" name="prod_rate" id="prod_rate" value="<?php echo $prorate; ?>" />
+
+                            <span class="shadow-input1"></span>
+
+                        </div>
+
+                        <div class="container-contact1-form-btn">
+
+                            <button class="contact1-form-btn">
+
+                                    <span>
+
+                                        Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                    </span>
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../js/collapsible.js"></script>
+
+
+
+                        <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
 	<table>
 

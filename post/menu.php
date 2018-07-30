@@ -98,16 +98,6 @@
 
                 <hr class='hr' style="margin-top: 15px;">
 
-                <div><a class="abtn green" href="../masters/allot_sheet.php">
-                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
-                    <br><br>
-                </div>
-                <div><a class="abtn green" href="../masters/allot_sheet_view.php">
-                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
-                </div>
-
-                <hr class='hr' style="margin-top: 15px;">
-
                 <div>
                     <a class="abtn green" href="../masters/rate_master.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Product Rate</a>
@@ -142,7 +132,7 @@
 
                 <hr class='hr' style="margin-top: 15px;">
 
-                <div><a class="abtn green" href="../masters/allot_sheet_gen.php">
+                <div><a class="abtn green" href="../masters/allot_sheet.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
                     <br><br>
                 </div>
@@ -152,17 +142,39 @@
 
                 <hr class='hr' style="margin-top: 15px;">
 
-                <div><a class="abtn green" href="../transactions/stock_out_pds.php">
+                <div>
+                    <a class="abtn green" href="../transactions/stock_out_pds.php">
+
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out</a>
+
                     <br><br>
+
                 </div>
+
+                <div>
+
+                    <a class="abtn green" href="../transactions/view_stock_in_pds.php">
+
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve Stock Transactions</a>
+
+                    <br><br>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
+
     <div>
+
         <button class="collapsible">
+
             <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>Reports
+
             <i class="fa fa-angle-down pull-right"></i>
+
         </button>
 
         <div class="content">

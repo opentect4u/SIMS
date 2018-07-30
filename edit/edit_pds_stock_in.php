@@ -94,12 +94,26 @@
 
 	
 ?>
+
 <html>
+
 	<head>
+
 		<title>Synergic Inventory Management System-Add Stock</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="../css/master.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
+
     <script>
         /*$(document).ready(function() {
 
@@ -138,79 +152,166 @@
 	});*/
 
     </script>
-	<body>
-		<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            <table>
-                <tr>
-                    <td><div class="alignlabel"><label for="trans_dt">Date:</label></div></td>
-                    <td><input type="date" name="trans_dt" readonly value="<?php echo date($transdt); ?>" size="50" style="width:150px"</td>
-		</tr>
 
-		<tr>
-		    <td><div class="alignlabel"><label for="trans_cd">Transaction No.:</label></div></td>
-		    <td><input type="text" name="trans_cd" readonly value="<?php echo date($transcd); ?>" size="50" style="width:150px"</td>	
-		</tr>
 
-                <tr>
-                    <td><div class="alignlabel"><label for="do_no">DO No.:</label></div></td>
-		    <td><input type="text" name="do_no" id="do_no" value="<?php echo $dono; ?>" size="50" style="width:150px" readonly ></td>
-		</tr>
+    <body class="body">
 
-		<tr>
-                    <td><div class="alignlabel"><label for="prod_desc">Product:</label></div></td>
-		    <td><input type="text" name="prod_desc" id="prod_desc" value="<?php echo $pdesc; ?>" size="150" style="width:400px"readonly></td>
-		</tr>
+        <?php require '../post/nav.php'; ?>
 
-		<tr>
-		    <td><div class="alignlabel"><label for="prod_catg">Category:</label></div></td>
-		    <td><input type="text" name="prod_catg" id="prod_catg" value="<?php echo $pcatg; ?>" size="150" style="width:400px"readonly></td>		     </tr>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-		<tr>
-                    <td><div class="alignlabel"><label for="prod_type">Type:</label></div></td>
-		    <td><input type="text" name="prod_type" id="prod_type" value="<?php echo $ptype;?>"size="150" style="width:400px" readonly></td>
-		</tr>                
-		<tr>
-         
-                    <td><div class="alignlabel"><label for="sl_no">Product Code:</label></div></td>
-		    <td><input type="text" name="sl_no" value="<?php echo $pslno; ?>" id="sl_no" size="150" style="width:400px;" readonly></td>
-                </tr>
+        <hr class='hr'>
 
-               <tr>
+        <div class="container" style="margin-left: 10px">
 
-                    <td><div class="alignlabel"><label for="qty_bag">Bag/Tin:</label></div></td>
-		    <td><input type="text" name="qty_bag" size="150" value="<?php echo $pbag; ?>" style="width:400px"></td>
-                </tr>
+            <div class="row">
 
-                <tr>
+                <div class="col-lg-4 col-md-2">
 
-                    <td><div class="alignlabel"><label for="qty_qnt">Quintal:</label></div></td>
-                    <td><input type="text" name="qty_qnt" size="150" value="<?php echo $pqnt; ?>" style="width:400px"></td>
-                </tr>
+                    <?php require("../post/menu.php"); ?>
 
-                <tr>
+                </div>
 
-                    <td><div class="alignlabel"><label for="qty_kg">Kg:</label></div></td>
-                    <td><input type="text" name="qty_kg" size="150" value="<?php echo $pkg; ?>" style="width:400px"></td>
+                <div class="col-lg-8 col-md-10">
 
-                </tr>
+                    <div class="container-contact1">
 
-                <tr>
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-                    <td><div class="alignlabel"><label for="qty_gm">Gm:</label></div></td>
-                    <td><input type="text" name="qty_gm" size="150" value="<?php echo $pgm; ?>" style="width:400px"></td>
+                                <span class="contact1-form-title">
+                                  Dealer Details
+                                </span>
 
-                </tr>
+                            <div class="wrap-input1 validate-input">
 
-                <tr>
+                                <input type="date" class="input1" name="trans_dt" readonly value="<?php echo date($transdt); ?>" />
 
-                    <td><div class="alignlabel"><label for-"remarks">Remarks:</label></div></td>
-		    <td><textarea rows="5" cols="50" name="remarks" size="150" style="width:400px"><?php echo $rkms; ?></textarea></td>	
+                                <span class="shadow-input1"></span>
 
-                </tr>
-                <tr>
-                    <td><input type="submit" name="submit" value="Update"></td>
-                </tr>
-            </table>
-        </form>
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="trans_cd" readonly value="<?php echo date($transcd); ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" name="do_no" class="input1" id="do_no" value="<?php echo $dono; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $pdesc; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $pcatg; ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $ptype;?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="sl_no" value="<?php echo $pslno; ?>" id="sl_no" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="qty_bag" value="<?php echo $pbag; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="qty_qnt" value="<?php echo $pqnt; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="qty_kg" size="150" value="<?php echo $pkg; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="qty_gm" value="<?php echo $pgm; ?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+
+                            <div class="wrap-input1 validate-input">
+
+                                <textarea class="input1" name="remarks" ><?php echo $rkms; ?></textarea>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                    <span>
+
+                                        Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
 	</body>
+
 </html>

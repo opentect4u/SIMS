@@ -136,6 +136,7 @@ iframe {
     border-style: groove;
     margin-top: 35px;
     margin-left: 75px;
+
 }
 
 .contact1-form {
@@ -194,6 +195,7 @@ select.input1 {
 
     background: #e6e6e6 url("http://localhost/SIMS/img/arrow.png") no-repeat;
     background-position: 350px 18px;
+
 }
 
 
@@ -209,19 +211,25 @@ textarea.input1 {
 
     min-height: 150px;
     border-radius: 25px;
-    padding: 12px 30px;
+    padding: 10px 30px;
+
 }
 
 textarea.input1 + .shadow-input1 {
+
     border-radius: 25px;
+
 }
 
 /*---------------------------------------------*/
+
 .wrap-input1 {
+
     position: relative;
     width: 100%;
     z-index: 1;
     margin-bottom: 20px;
+
 }
 
 .input1 {

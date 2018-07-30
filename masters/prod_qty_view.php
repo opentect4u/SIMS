@@ -109,17 +109,6 @@
 
         <script src="../js/collapsible.js"></script>
 
-        <table border="1">
-            <tr>
-                        <th>Sl.No.</th>
-                <th>Unit Type</th>
-                            <th>Options</th>
-                    </tr>
-
-
-
-            </table>
-
     </body>
 </html>
 

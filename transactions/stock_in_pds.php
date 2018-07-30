@@ -103,131 +103,292 @@
 
 ?>
 <html>
+
 	<head>
+
 		<title>Synergic Inventory Management System-Add Stock</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="../css/master.css">
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
+
     <script>
-        /*$(document).ready(function() {
+
+        $(document).ready(function() {
+
+            var    do_no            =    $('.validate-input input[name = "do_no"]');
+            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
+            var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
+
 
             $('#form').submit(function(e) {
-                var do_no = $('#do_no').val(),
-                    prod_sl_no = $('#prod_sl_no').val(),
-                    prod_desc = $('#prod_desc').val();
 
-                $(".error").remove();
+                var check = true;
 
-                if (do_no.length < 1) {
-                    e.preventDefault();
-                    $('#do_no').after('<span class="error">Invalid DO No</span>');
+                if($(do_no).val().trim() == '') {
+
+                    showValidate(do_no);
+
+                    check=false;
+
                 }
-                if (prod_sl_no == 0) {
-                    e.preventDefault();
-                    $('#prod_sl_no').after('<span class="error">Please select a valid serial</span>');
+
+                if($(prod_desc).val() == '0') {
+
+                    showValidate(prod_desc);
+
+                    check=false;
+
                 }
-            });
 
-            $('#prod_sl_no').change( function () {
+                if($(prod_catg).val() == '0') {
 
-                $('#prod_desc').val($(this).find(':selected').attr('data-id'));
+                    showValidate(prod_catg);
 
-            });
+                    check=false;
+                }
 
-	});*/
-
-	$(document).ready(function() {
-                $('#prod_desc').change(function () {
-
-		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
-		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
+                return check;
 
             });
+
+
+
+            $('.validate-form .input1').each(function(){
+
+                $(this).focus(function(){
+
+                    hideValidate(this);
+
+                });
+
+            });
+
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                //console.log($(input).parent());
+
+                $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function hideValidate(input) {
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
+
         });
 
     </script>
-	<body>
-		<form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            <table>
-                <tr>
-                    <td><div class="alignlabel"><label for="trans_dt">Date:</label></div></td>
-                    <td><input type="date" name="trans_dt" readonly value="<?php echo date("Y-m-d") ?>" size="50" style="width:150px"</td>
-                </tr>
-                <tr>
-                    <td><div class="alignlabel"><label for="do_no"><strong style="color: red;">*</strong>DO No.:</label></div></td>
-                    <td><input type="text" name="do_no" id="do_no" size="50" style="width:150px"></td>
-		</tr>
 
-		<tr>
-                    <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
-		    <td><select name="prod_desc" id="prod_desc" style="width:400px;">
-			<option value="0">Select</option>
-			<?php
-				while($row=mysqli_fetch_assoc($prod_result)){
-					echo("<option value=".$row['prod_desc']." data-val=".$row['prod_type']." prod-cd=".$row['sl_no'].">".$row['prod_desc']."</option>");	 			     }
-			 ?>
+    <script>
 
-		 	</td>
-		</tr>
+	$(document).ready(function() {
 
-		<tr>
-		    <td><div class="alignlabel"><label for="prod_catg"><strong style="color:red">*</strong>Category:</label></div></td>
-		    <td><select name="prod_catg" id="prod_catg" style="width:400px;">
-			<option value="0">Select</option>
-			<?php
-				while($data=mysqli_fetch_assoc($result_catg)){
-			        echo ("<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>"); 
-			     }
-			 ?>	
-		     </select></td> 			
-		</tr>
+        $('#prod_desc').change(function () {
 
-		<tr>
-                    <td><div class="alignlabel"><label for="prod_type">Type:</label></div></td>
-                    <td><input type="text" name="prod_type" id="prod_type" size="150" style="width:400px" readonly></td>
-		</tr>                
-		<tr>
-         
-                    <td><div class="alignlabel"><label for="sl_no">Product Code:</label></div></td>
-                    <td><input type="text" name="sl_no" id="sl_no" size="150" style="width:400px;" readonly></td>
-                </tr>
+		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
 
-               <tr>
+		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
 
-                    <td><div class="alignlabel"><label for="qty_bag">Bag/Tin:</label></div></td>
-                    <td><input type="text" name="qty_bag" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
-                </tr>
+        });
+    });
 
-                <tr>
+    </script>
 
-                    <td><div class="alignlabel"><label for="qty_qnt">Quintal:</label></div></td>
-                    <td><input type="text" name="qty_qnt" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
-                </tr>
+    <body class="body">
 
-                <tr>
+        <?php require '../post/nav.php'; ?>
 
-                    <td><div class="alignlabel"><label for="qty_kg">Kg:</label></div></td>
-                    <td><input type="text" name="qty_kg" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
 
-                </tr>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-                <tr>
+        <hr class='hr'>
 
-                    <td><div class="alignlabel"><label for="qty_gm">Gm:</label></div></td>
-                    <td><input type="text" name="qty_gm" size="150" value="0.00" style="width:400px"><span class="error"><?php echo $errMsg;?></span></td>
+        <div class="container" style="margin-left: 10px">
 
-                </tr>
+            <div class="row">
 
-                <tr>
+                <div class="col-lg-4 col-md-6">
 
-                    <td><div class="alignlabel"><label for-"remarks">Remarks:</label></div></td>
-                    <td><textarea rows="5" cols="50" name="remarks" size="150" style="width:400px">Enter Remarks If Any..</textarea></td>
+                    <?php require("../post/menu.php"); ?>
 
-                </tr>
-                <tr>
-                    <td><input type="submit" name="submit" value="Save"></td>
-                </tr>
-            </table>
-        </form>
+                </div>
+
+                <div class="col-lg-8 col-md-6">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                                <span class="contact1-form-title">
+
+                                   Stock In Setup
+
+                                </span>
+
+                            <div class="wrap-input1 validate-input" >
+
+                                <input type="date" class="input1" name="trans_dt" value="<?php echo date("Y-m-d") ?>" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="DO No is required">
+
+                                <input type="text" class="input1" name="do_no" id="do_no" placeholder="DO Number" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+
+                                <select class="input1" name="prod_desc" id="prod_desc">
+
+                                    <option value="0">Select Product</option>
+
+                                    <?php
+
+                                        while($row=mysqli_fetch_assoc($prod_result)){
+
+                                            echo("<option value='".$row['prod_desc']."' data-val='".$row['prod_type']."' prod-cd='".$row['sl_no']."'>".$row['prod_desc']."</option>");
+
+                                        }
+
+                                    ?>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Category is required">
+
+                                <select class="input1" name="prod_catg" id="prod_catg" >
+
+                                    <option value="0">Select Category</option>
+
+                                    <?php
+
+                                        while($data=mysqli_fetch_assoc($result_catg)) {
+
+                                            echo ("<option value='".$data['prod_catg']."'>".$data['prod_catg']."</option>");
+
+                                        }
+
+                                    ?>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="sl_no" id="sl_no" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="qty_bag" size="150" value="0.00" placeholder="Bag" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="qty_qnt" size="150" value="0.00" placeholder="Quintal" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="qty_kg" size="150" value="0.00" placeholder="Kg" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <input type="text" class="input1" name="qty_gm" size="150" value="0.00" placeholder="Gram" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+
+                                <textarea class="input1" name="remarks" >Enter Remarks If Any..
+
+                                </textarea>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                        <span>
+
+                                            Save
+
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                        </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="../js/collapsible.js"></script>
+
 	</body>
+
 </html>
