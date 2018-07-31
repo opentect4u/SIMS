@@ -119,13 +119,20 @@
 
 
     <div>
+
         <button class="collapsible">
+
             <i class="fa fa-cube fa-fw" aria-hidden="true"></i>Transaction
+
             <i class="fa fa-angle-down pull-right"></i>
+
         </button>
+
         <div class="content">
+
             <div class="manue">
                 <br>
+
                 <div><a class="abtn green" href="../transactions/stock_in_pds.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In</a>
                 </div>
@@ -136,6 +143,7 @@
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
                     <br><br>
                 </div>
+
                 <div><a class="abtn green" href="../masters/view_allot_sheet.php">
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
                 </div>
@@ -143,6 +151,7 @@
                 <hr class='hr' style="margin-top: 15px;">
 
                 <div>
+
                     <a class="abtn green" href="../transactions/stock_out_pds.php">
 
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out</a>
@@ -178,22 +187,45 @@
         </button>
 
         <div class="content">
+
             <div class="manue">
-                <p>Set Menu here</p>
+
+                <br>
+
+                <div><a class="abtn green" href="../report/stock_reg_ip.php">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock Register</a>
+                </div>
+
+                <br>
+
             </div>
+
         </div>
+
     </div>
+
     <div>
+
         <button class="collapsible">
+
             <i class="fa fa-user fa-fw" aria-hidden="true"></i>User
+
             <i class="fa fa-angle-down pull-right"></i></button>
+
         <div class="content">
+
             <div><a href="user.php">Add User</a></div>
+
         </div>
+
     </div>
+
     <div>
+
         <button id="loutbtn" class="collapsible">
+
             <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</button>
+
     </div>
 
 </div>

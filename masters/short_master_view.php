@@ -68,7 +68,7 @@
                          List of Sortage Parameter
                         </span>
 
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" style="width: 100%">
 
                         <thead style="background-color: #212529; color: #fff;">
                             <tr>

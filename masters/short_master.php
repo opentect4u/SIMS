@@ -152,6 +152,14 @@
 
                     $('#short_factor').prop("readonly", true);
 
+                    $('#short_factor').val('0.00');
+
+                }
+
+                else {
+
+                    $('#short_factor').prop("readonly", false);
+
                 }
             });
         });
@@ -160,183 +168,126 @@
 
     <body class="body">
 
-    <?php require '../post/nav.php'; ?>
+        <?php require '../post/nav.php'; ?>
 
-    <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-    <hr class='hr'>
+        <hr class='hr'>
 
-    <div class="container" style="margin-left: 10px">
+        <div class="container" style="margin-left: 10px">
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6">
 
-                <?php require("../post/menu.php"); ?>
+                    <?php require("../post/menu.php"); ?>
 
-            </div>
+                </div>
 
-            <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6">
 
-                <div class="container-contact1">
+                    <div class="container-contact1">
 
-                    <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-                            <span class="contact1-form-title">
-                              Sortage Factor
-                            </span>
-
-                        <div class="wrap-input1 validate-input" data-validate="Date required">
-
-                            <input type="date" id="effective_dt" name="effective_dt" class="input1" effective_dt" value="<?php echo date("Y-m-d");?>" />
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="wrap-input1 validate-input" data-validate="Product name is required">
-
-                            <select name="prod_desc" id="prod_desc" class="input1">
-
-                                <option value="0">Select Product</option>
-                                <?php
-
-                                    while($data=mysqli_fetch_assoc($prodesc)){
-                                        echo "<option value='".$data['prod_desc']."' data-val='".$data['prod_type']."'>".$data['prod_desc']."</option>";
-                                    }
-                                ?>
-                            </select>
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="wrap-input1 validate-input">
-
-                            <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="wrap-input1 validate-input" data-validate="Category is required">
-
-                            <select id="prod_catg" name="prod_catg" class="input1">
-
-                                <option value="0">Select Category</option>
-
-                                <?php
-
-                                    while($data=mysqli_fetch_assoc($prodcatg)){
-
-                                        echo "<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>";
-
-                                    }
-
-                                ?>
-
-                            </select>
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="wrap-input1 validate-input" data-validate="Flag is required">
-
-                            <select id="short_flag" name="short_flag" class="input1">
-
-                                <option Value="0">Select Shortage Flag</option>
-                                <option value="Y">Yes</option>
-                                <option value="N">No</option>
-
-                            </select>
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="wrap-input1 validate-input" data-validate="Product type required">
-
-                            <input type="text" class="input1" id="short_factor" name="short_factor" placeholder="0.0000" />
-
-                            <span class="shadow-input1"></span>
-
-                        </div>
-
-                        <div class="container-contact1-form-btn">
-                            <button class="contact1-form-btn">
-                                <span>
-                                    Save
-                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                <span class="contact1-form-title">
+                                  Sortage Factor
                                 </span>
-                            </button>
-                        </div>
 
-                    </form>
+                            <div class="wrap-input1 validate-input" data-validate="Date required">
+
+                                <input type="date" id="effective_dt" name="effective_dt" class="input1" effective_dt" value="<?php echo date("Y-m-d");?>" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+
+                                <select name="prod_desc" id="prod_desc" class="input1">
+
+                                    <option value="0">Select Product</option>
+                                    <?php
+
+                                        while($data=mysqli_fetch_assoc($prodesc)){
+                                            echo "<option value='".$data['prod_desc']."' data-val='".$data['prod_type']."'>".$data['prod_desc']."</option>";
+                                        }
+                                    ?>
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input">
+
+                                <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Category is required">
+
+                                <select id="prod_catg" name="prod_catg" class="input1">
+
+                                    <option value="0">Select Category</option>
+
+                                    <?php
+
+                                        while($data=mysqli_fetch_assoc($prodcatg)){
+
+                                            echo "<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>";
+
+                                        }
+
+                                    ?>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Flag is required">
+
+                                <select id="short_flag" name="short_flag" class="input1">
+
+                                    <option Value="0">Select Shortage Flag</option>
+                                    <option value="Y">Yes</option>
+                                    <option value="N">No</option>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Product type required">
+
+                                <input type="text" class="input1" id="short_factor" name="short_factor" placeholder="0.0000" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+                                <button class="contact1-form-btn">
+                                    <span>
+                                        Save
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="../js/collapsible.js"></script>
-	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
-		 
-	<table>
+        <script src="../js/collapsible.js"></script>
 
-		<tr>
-		    <td><div class="aligntable"><label for="effective_date"><strong style="color:red;">*</strong>Effective Date:</label></div></td>
-		    <td><input type=date name="effective_dt" value="<?php echo date("Y-m-d");?>" size="50" style="width:150px"></td>
-		</tr>
+    </body>
 
-		<tr>
-		    <td><div class="aligntable"><label for="prod_desc"><strong style="color:red;">*</strong>Product:</label></div></td>	
-		    <td><select name="prod_desc" id="prod_desc" style="width:400px;">
-			<option value="0">Select</option>
-			<?php
-				while($data=mysqli_fetch_assoc($prodesc)){
-				   echo "<option value='".$data['prod_desc']."' data-val='".$data['prod_type']."'>".$data['prod_desc']."</option>";
-				}
-			?>
-			</select>	
-		    </td>		
-		</tr>
-
-		<tr>
-		    <td><div class="aligntable"><label for="prod_type">Product Type:</label></div></td>	
-		    <td><input type="text" name="prod_type" id="prod_type" style="width:400px" size="150" readonly></td>
-		</tr>
-
-		<tr>
-		    <td><div class="aligntable"><label for="prod_catg"><strong style="color:red;">*</strong>Category:</label></div></td>
-		    <td><select name="prod_catg" style="width:400px;">	
-		    <option value="0">Select</option> 	
-		    <?php
-			while($data=mysqli_fetch_assoc($prodcatg)){
-			echo "<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>";
-			}
-		    ?>		
-		    </select></td>
-		</tr>
-		
-		<tr>
-		    <td><div class="aligntable"><label for="short_flag"><strong style="color:red;">*</strong>Shortage Flag:</label></div></td>	
-		    <td><select name="short_flag" style="width:400px;">
-			<option Value='0'>Select</option>
-			<option value="Y">Yes</option>
-			<option value='N'>No</option>
-			</select></td>
-		</tr>
-
-		<tr>
-		    <td><div class="aligntable"><label for="short_falctor"><strong style="color:red">*</strong>Shortage Factor:</lable></div></td>
-		    <td><input type="text" name="short_factor" placeholder="0.0000" style="width:150px">	
-		</tr>
-
-		<tr>
-		    <td><input type="submit" name="submit" value="Save"> 
-		</tr>
-		
-	</table>
-	</form>
-</body>
 </html>	
