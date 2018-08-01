@@ -250,6 +250,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                     data:  { mr_no: mr_no },
                     dataType:'json',
                     type: 'POST'
+
                 }).done( function(result) {
 
                     console.log(result);
@@ -365,7 +366,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         });
 
     </script>
-
 
     <style>
 

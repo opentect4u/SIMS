@@ -92,7 +92,7 @@ margin: 0;
 .anav {   
     display: block;   	
     color: white; 
-    padding: 5px; 6px;
+    padding: 5px 6px;
     text-decoration: none;
     font-family: "Times New Roman", Times, serif;
     font-size:17px;
@@ -156,7 +156,6 @@ h1 {
     color: #131313;
 //background-color: #d9e5d0;
     letter-spacing: .20em;
-    color: ;
     text-shadow:
             1px -1px 0 #767676,
             -1px 2px 1px #737272,
@@ -169,4 +168,15 @@ h1 {
             -8px 16px 1px #8b8a89,
             -9px 18px 1px #8f8e8d
 
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #021103;
+    color: white;
+    text-align: center;
 }

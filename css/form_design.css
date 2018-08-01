@@ -5,15 +5,6 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 
-p {
-
-    font-family: Montserrat-Regular;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 0px;
-
-}
 
 ul, li {
 
@@ -499,7 +490,65 @@ textarea.input1 + .shadow-input1 {
     }
 }
 
-a {
+.alert-date::before {
+    content: attr(date-validate);
+    position: absolute;
+    max-width: 70%;
+    background-color: white;
+    border: 1px solid #00c834;
+    border-radius: 13px;
+    padding: 4px 25px 4px 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 8px;
+    pointer-events: none;
+
+    font-family: Montserrat-Medium;
+    color: #00c834;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+
+    visibility: visible;
+    opacity: 1;
+
+    -webkit-transition: opacity 0.4s;
+    -o-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;
+}
+
+.alert-date::after {
+    display: block;
+    position: absolute;
+    color: #2a8424;
+    font-size: 15px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 13px;
+}
+
+.alert-date:hover:before {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .alert-date::before {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+a{
     text-decoration :none;
     color: #021103;
 }

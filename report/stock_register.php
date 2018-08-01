@@ -10,12 +10,12 @@
 	$start_dt   = '2018-07-24';
 	$end_dt     = '2018-07-27';*/
 
-	$rep_data['start_dt']           = [];
+	    $rep_data['start_dt']           = [];
         $rep_data['bag_opn_bal']        = [];
         $rep_data['qnt_opn_bal']        = [];
         $rep_data['kg_opn_bal']         = [];
         $rep_data['gm_opn_bal']         = [];
-	$rep_data['do_no']         	= [];
+	    $rep_data['do_no']         	    = [];
         $rep_data['qty_bag']            = [];
         $rep_data['qty_qnt']            = [];
         $rep_data['qty_kg']             = [];
@@ -23,7 +23,7 @@
         $rep_data['bag_bal']            = [];
         $rep_data['qnt_bal']            = [];
         $rep_data['kg_bal']             = [];
-	$rep_data['gm_bal']             = [];
+	    $rep_data['gm_bal']             = [];
 
 	if ($_SERVER['REQUEST_METHOD']=="POST"){
 		$prod_no = $_POST['sl_no'];
@@ -197,62 +197,100 @@
 	//var_dump ($rep_data['start_dt']);
 ?>
 <html>
-<head>
-	<title>Synergic Inventory Management System - Stock Register</title>
-</head>
-	<body>
-		
-		<h1 align ="center"><u><?php echo $header ?></u></h1>
-	
 
-		<table border="1">
-			<tr>	
-			<th>Date</th>
-			<th>Opening Stock(Bag/Tin)</th>
-			<th>Opening Stock(Quintal)</th>
-			<th>Opening Stock(Kg)</th>
-			<th>Opening Stock(Gm)</th>
-			<th>Do No.</th>
-			<th>Received(Bag/Tin)</th>
-			<th>Received(Quintal)</th>
-			<th>Received(Kg)</th>
-			<th>Received(gm)</th>
-			<th>Closing Stock(Bag/Tin)</th>
-                        <th>Closing Stock(Quintal)</th>
-                        <th>Closing Stock(Kg)</th>
-			<th>Closing Stock(Gm)</th>
-			</tr>
+    <head>
 
-<?php
-	
-	for($i=0; $i < count($rep_data['start_dt']); $i++) {?>
-		
-		<tr>
-			<td><?php echo date('d/m/Y',strtotime($rep_data['start_dt'][$i])); ?></td>
-			<td><?php echo $rep_data['bag_opn_bal'][$i];?></td>
-			<td><?php echo $rep_data['qnt_opn_bal'][$i];?></td>
-			<td><?php echo $rep_data['kg_opn_bal'][$i];?></td> 
-			<td><?php echo $rep_data['gm_opn_bal'][$i];?></td>
-			<td><?php echo $rep_data['do_no'][$i];?></td>	
-			<td><?php echo $rep_data['qty_bag'][$i];?></td>
-			<td><?php echo $rep_data['qty_qnt'][$i];?></td>	
-			<td><?php echo $rep_data['qty_kg'][$i];?></td>
-			<td><?php echo $rep_data['qty_gm'][$i];?></td>
-			<td><?php echo $rep_data['bag_bal'][$i];?></td>
-			<td><?php echo $rep_data['qnt_bal'][$i];?></td>
-			<td><?php echo $rep_data['kg_bal'][$i];?></td>
-			<td><?php echo $rep_data['gm_bal'][$i];?></td>
-			</tr>
-<?php
+        <title>Synergic Inventory Management System - Stock Register</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-?>
-			
+        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
 
-		</table>
-<?php
-require("footer.html");
-?>
+    </head>
+
+    <body class="body">
+
+        <?php require '../post/nav.php'; ?>
+
+        <h2 align ="center"><u><?php echo $header ?></u></h2>
+
+        <hr class='hr'>
+
+        <div class="container" style="margin-left: 0">
+
+            <div class="col-lg-12 col-md-12">
+
+                <div class="container-contact2"  style="margin-left: 0">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead style="background-color: #212529; color: #fff;">
+
+                        <tr>
+
+                            <th>Date</th>
+                            <th>Opening Stock(Bag/Tin)</th>
+                            <th>Opening Stock(Quintal)</th>
+                            <th>Opening Stock(Kg)</th>
+                            <th>Opening Stock(Gm)</th>
+                            <th>Do No.</th>
+                            <th>Received(Bag/Tin)</th>
+                            <th>Received(Quintal)</th>
+                            <th>Received(Kg)</th>
+                            <th>Received(gm)</th>
+                            <th>Closing Stock(Bag/Tin)</th>
+                            <th>Closing Stock(Quintal)</th>
+                            <th>Closing Stock(Kg)</th>
+                            <th>Closing Stock(Gm)</th>
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <?php
+
+                            for($i=0; $i < count($rep_data['start_dt']); $i++) {?>
+
+                                <tr>
+                                    <td><?php echo date('d/m/Y',strtotime($rep_data['start_dt'][$i])); ?></td>
+                                    <td><?php echo $rep_data['bag_opn_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['qnt_opn_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['kg_opn_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['gm_opn_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['do_no'][$i];?></td>
+                                    <td><?php echo $rep_data['qty_bag'][$i];?></td>
+                                    <td><?php echo $rep_data['qty_qnt'][$i];?></td>
+                                    <td><?php echo $rep_data['qty_kg'][$i];?></td>
+                                    <td><?php echo $rep_data['qty_gm'][$i];?></td>
+                                    <td><?php echo $rep_data['bag_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['qnt_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['kg_bal'][$i];?></td>
+                                    <td><?php echo $rep_data['gm_bal'][$i];?></td>
+                                </tr>
+                                <?php
+
+                            }
+
+                        ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <?php
+
+            require("footer.html");
+        ?>
+
 	</body>
 </html>
