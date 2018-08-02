@@ -401,7 +401,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
                         <div class="container-contact1">
 
-                            <div class="contact1-form validate-form">
+                            <div class="contact1-form">
 
                                 <div class="wrap-input1 validate-input" data-validate="Date is required">
 
@@ -428,7 +428,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                     </div>
 
 
-                    <div class="row" >
+                    <div class="row">
 
                         <div class="col-lg-12 col-md-6">
 
@@ -554,7 +554,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                     </div>
 
                 </form>
-
 
             </div>
 

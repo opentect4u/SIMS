@@ -201,6 +201,7 @@
     <head>
 
         <title>Synergic Inventory Management System - Stock Register</title>
+
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -208,50 +209,85 @@
         <link rel="stylesheet" type="text/css" href="../css/form_design.css">
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
 
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
 
     <body class="body">
 
         <?php require '../post/nav.php'; ?>
 
-        <h2 align ="center"><u><?php echo $header ?></u></h2>
+
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
         <hr class='hr'>
 
-        <div class="container" style="margin-left: 0">
+        <div class="container" style="margin-left: 10px">
 
-            <div class="col-lg-12 col-md-12">
+            <div class="row">
 
-                <div class="container-contact2"  style="margin-left: 0">
+                <div class="col-lg-4 col-md-6">
 
-                    <table class="table table-bordered table-hover">
+                    <?php require("../post/menu.php"); ?>
 
-                        <thead style="background-color: #212529; color: #fff;">
+                </div>
 
-                        <tr>
+                <div class="col-lg-8 col-lg-6">
 
-                            <th>Date</th>
-                            <th>Opening Stock(Bag/Tin)</th>
-                            <th>Opening Stock(Quintal)</th>
-                            <th>Opening Stock(Kg)</th>
-                            <th>Opening Stock(Gm)</th>
-                            <th>Do No.</th>
-                            <th>Received(Bag/Tin)</th>
-                            <th>Received(Quintal)</th>
-                            <th>Received(Kg)</th>
-                            <th>Received(gm)</th>
-                            <th>Closing Stock(Bag/Tin)</th>
-                            <th>Closing Stock(Quintal)</th>
-                            <th>Closing Stock(Kg)</th>
-                            <th>Closing Stock(Gm)</th>
+                    <div class="container-contact1">
 
-                        </tr>
+                        <div class="contact1-form">
 
-                        </thead>
+                            <span class="contact1-form-title">
+                            <h2 align ="center"><u><?php echo $header ?></u></h2>
 
-                        <tbody>
+                        </div>
 
-                        <?php
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-8 col-md-6">
+
+                    <div class="container-contact2" style="margin-left: 0">
+
+
+                        <table class="table table-bordered table-hover">
+
+                            <thead style="background-color: #212529; color: #fff;">
+
+                            <tr>
+
+                                <th>Date</th>
+                                <th>Opening<br>Stock<br>(Bag/Tin)</th>
+                                <th>Opening<br>Stock<br>(Quintal)</th>
+                                <th>Opening<br>Stock<br>(Kg)</th>
+                                <th>Opening<br>Stock<br>(Gm)</th>
+                                <th>Do<br>No.</th>
+                                <th>Received<br>(Bag/Tin)</th>
+                                <th>Received<br>(Quintal)</th>
+                                <th>Received<br>(Kg)</th>
+                                <th>Received<br>(gm)</th>
+                                <th>Closing<br>Stock<br>(Bag/Tin)</th>
+                                <th>Closing<br>Stock<br>(Quintal)</th>
+                                <th>Closing<br>Stock<br>(Kg)</th>
+                                <th>Closing<br>Stock<br>(Gm)</th>
+
+                            </tr>
+
+                            </thead>
+
+                            <tbody style="text-align: right;">
+
+                            <?php
 
                             for($i=0; $i < count($rep_data['start_dt']); $i++) {?>
 
@@ -275,22 +311,29 @@
 
                             }
 
-                        ?>
+                            ?>
 
-                        </tbody>
+                            </tbody>
 
-                    </table>
+                        </table>
+
+                    </div>
 
                 </div>
 
             </div>
 
+
         </div>
 
-        <?php
+    <?php
 
-            require("footer.html");
-        ?>
+        require("footer.html");
 
-	</body>
+    ?>
+
+        <script src="../js/collapsible.js"></script>
+
+    </body>
+
 </html>

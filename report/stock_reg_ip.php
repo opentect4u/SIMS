@@ -182,7 +182,7 @@
 
                     <div class="container-contact1">
 
-                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <form class="contact1-form validate-form" id="form" action="stock_register.php" method="POST">
 
                                 <span class="contact1-form-title">
 
