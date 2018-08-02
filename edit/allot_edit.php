@@ -8,17 +8,23 @@
 	$prodtypeErr = "";
 
 	if($_SERVER['REQUEST_METHOD']=="GET"){
+	    $sl_no  =   $_GET['sl_no'];
 		$proddesc=$_GET['prod_desc'];
 		$eftdt=$_GET['effective_dt'];
 	
 
-		$rtv="select effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale where prod_desc='$proddesc'
-											           and  effective_dt='$eftdt'";	
+		$rtv="select sl_no,effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale where prod_desc='$proddesc'
+											           and  effective_dt='$eftdt'
+											           AND  sl_no = $sl_no";
 
 		$result=mysqli_query($db_connect,$rtv);
-		if($result){
+
+		if($result) {
+
 			if(mysqli_num_rows($result) > 0){
+
 				$rtv_data=mysqli_fetch_assoc($result);
+                $sl_no  =   $rtv_data['sl_no'];
 				$prodcatg=$rtv_data['prod_catg'];
 				$perunit=$rtv_data['per_unit'];
 				$unitval=$rtv_data['unit_val'];	
@@ -29,17 +35,26 @@
 	}
 
 	if($_SERVER['REQUEST_METHOD']=="POST"){
+
 	  $unitval = 0;
 	  
 	  if (empty($_POST["unit_val"])) {
+
 	     $prodtypeErr = "Invalid Input";
-	     }else{
+
+	     }
+
+	     else {
+
+	       $sl_no    = test_input($_POST['sl_no']);
 		   $unitval  = test_input($_POST["unit_val"]);
 		   $eftdt    = test_input($_POST["effective_dt"]);
 		   $proddesc = test_input($_POST["prod_desc"]);
 		   $prodcatg = test_input($_POST['prod_catg']);	
 		   $perunit  = test_input($_POST['per_unit']);
-	     	  } 
+
+	     }
+
 	     $user_id=$_SESSION["user_id"];
 	     $time=date("Y-m-d h:i:s");
 
@@ -47,8 +62,9 @@
  	     if(!is_null($unitval) && isset($user_id)) {
 
 		$sql="update m_allot_scale set unit_val='$unitval'
-		     where effective_dt ='$eftdt'
-		     and   prod_desc ='$proddesc'";
+                                   where effective_dt ='$eftdt'
+                                   and   prod_desc ='$proddesc'
+                                   AND sl_no = $sl_no";
 
 		 
 		      	
@@ -62,11 +78,11 @@
 
 	}
 
-function test_input($data) {
-			$data = trim($data);
-			$data = strtoupper($data);
-			return $data;
-			}
+    function test_input($data) {
+
+        $data = trim($data);
+        return $data;
+	}
 
 
 
@@ -170,6 +186,8 @@ function test_input($data) {
                                   Edit Allotment Sheet
                                     
                                 </span>
+
+                            <input type="hidden" name="sl_no" value="<?php echo $sl_no;?>" />
 
                             <div class="wrap-input1 validate-input">
 

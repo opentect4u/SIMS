@@ -57,11 +57,10 @@
 
 	}
 
-function test_input($data) {
+        function test_input($data) {
 			$data = trim($data);
-			$data = strtoupper($data);
 			return $data;
-			}
+		}
 
 
 
@@ -179,8 +178,8 @@ function test_input($data) {
                             <select class="input1" name="per_unit" id="per_unit" >
 
                                 <option value="0">Select</option>
-                                <option value="Family" <?php echo $produnit == "Family"?'selected':'';?> >Family</option>
-                                <option value="Head" <?php echo $produnit == "Head"?'selected':'';?> >Head</option>
+                                <option value="Family" <?php echo ($produnit == "Family")?'selected':'';?> >Family</option>
+                                <option value="Head" <?php echo ($produnit == "Head")?'selected':'';?> >Head</option>
 
                             </select>
                             <span class="shadow-input1"></span>

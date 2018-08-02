@@ -236,14 +236,13 @@
 
                 </div>
 
-                <div class="col-lg-8 col-lg-6">
+                <div class="col-lg-8 col-md-6">
 
-                    <div class="container-contact1">
+                    <div class="container-contact1" style="margin-top: 100px;">
 
                         <div class="contact1-form">
 
-                            <span class="contact1-form-title">
-                            <h2 align ="center"><u><?php echo $header ?></u></h2>
+                            <h3 style="text-align: center"><b><?php echo $header; ?></b></h3>
 
                         </div>
 

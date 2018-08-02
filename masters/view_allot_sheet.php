@@ -39,6 +39,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $rksy2_rice   =   $_POST['rksy2_rice'];
     $rksy2_atta   =   $_POST['rksy2_atta'];
 
+
+
+
     $sql = "DELETE FROM td_allotment_sheet WHERE memo_no = '$memoNo'";
 
     mysqli_query($db_connect, $sql);
@@ -98,8 +101,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                         $rksy2_atta[$i],
                                                                         '$user_name',
                                                                         '$sysDate')";
+
         mysqli_query($db_connect, $sql);
     }
+
+    echo "<script>alert('Allotment Sheet Updated');</script>";
 
 }
 
@@ -136,6 +142,7 @@ $result = mysqli_query($db_connect, $sql);
 
     <script>
         $(document).ready(function() {
+
             $('.defaultHide').hide();
 
             $('#form').submit(function(e) {
@@ -259,7 +266,7 @@ $result = mysqli_query($db_connect, $sql);
 
                             $('.rksy1').eq(i).val(result.rksy1_head[i]);
                             $('.rksy1_rice').eq(i).val(result.rksy1_rice[i]);
-                            $('.rksy1_atta').eq(i).val(result.rksy2_head[i]);
+                            $('.rksy1_atta').eq(i).val(result.rksy2_wheat[i]);
 
                             $('.rksy2').eq(i).val(result.rksy2_head[i]);
                             $('.rksy2_rice').eq(i).val(result.rksy2_rice[i]);
@@ -282,32 +289,33 @@ $result = mysqli_query($db_connect, $sql);
             });
 
             function tableRow() {
+
                 $('#intro').append('<tr>\n' +
-                    '            <td style="text-align:right"><input type="text" name="mr_no[]" class="mr_no" style="width:50px" /></td>\n' +
-                    '            <td><input type="text" name="dealer_name[]" class="dealer_name" size="50" style="width:75px" readonly/></td>\n' +
-                    '            <td><input type="text" name="region[]" class="region" style="width:75px" readonly></td>\n' +
+                    '            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:50px" /></td>\n' +
+                    '            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly/></td>\n' +
+                    '            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly></td>\n' +
                     '\n' +
-                    '            <td><input type="number" name="aay[]" class="aay" style="width:75px"/></td>\n' +
-                    '            <td><input type="text" name="aay_rice[]" class="aay_rice" style="width:75px"></td>\n' +
-                    '            <td><input type="text" name="aay_atta[]" class="aay_atta" style="width:75px" /></td>\n' +
-                    '            <td><input type="text" name="aay_sugar[]" class="aay_sugar" style="width:75px" /></td>\n' +
+                    '            <td><input type="number" name="aay[]" class="input2 aay" style="width:75px"/></td>\n' +
+                    '            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:75px"></td>\n' +
+                    '            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:75px" /></td>\n' +
+                    '            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:75px" /></td>\n' +
                     '\n' +
-                    '            <td><input type="number" name="phh[]" class="phh" style="width:75px"/></td>\n' +
-                    '            <td><input type="text" name="phh_rice[]" class="phh_rice" style="width:75px" /></td>\n' +
-                    '            <td><input type="text" name="phh_atta[]" class="phh_atta" style="width:75px" /></td>\n' +
+                    '            <td><input type="number" name="phh[]" class="input2 phh" style="width:75px"/></td>\n' +
+                    '            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:75px" /></td>\n' +
+                    '            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:75px" /></td>\n' +
                     '\n' +
-                    '            <td><input type="number" name="sphh[]" class="sphh" style="width:75px"/></td>\n' +
-                    '            <td><input type="text" name="sphh_rice[]" class="sphh_rice" style="width:75px"></td>\n' +
-                    '            <td><input type="text" name="sphh_atta[]" class="sphh_atta" style="width:75px" /></td>\n' +
-                    '            <td><input type="text" name="sphh_sugar[]" class="sphh_sugar" style="width:75px" /></td>\n' +
+                    '            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:75px"/></td>\n' +
+                    '            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:75px"></td>\n' +
+                    '            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:75px" /></td>\n' +
+                    '            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:75px" /></td>\n' +
                     '\n' +
-                    '            <td><input type="number" name="rksy1[]" class="rksy1" style="width:75px"/></td>\n' +
-                    '            <td><input type="text" name="rksy1_rice[]" class="rksy1_rice" style="width:75px" /></td>\n' +
-                    '            <td><input type="text" name="rksy1_atta[]" class="rksy1_atta" style="width:75px" /></td>\n' +
+                    '            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:75px"/></td>\n' +
+                    '            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:75px" /></td>\n' +
+                    '            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:75px" /></td>\n' +
                     '\n' +
-                    '            <td><input type="number" name="rksy2[]" class="rksy2" style="width:75px"/></td>\n' +
-                    '            <td><input type="text" name="rksy2_rice[]" class="rksy2_rice" style="width:75px"></td>\n' +
-                    '            <td><input type="text" name="rksy2_atta[]" class="rksy2_atta" style="width:75px" /></td>\n' +
+                    '            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:75px"/></td>\n' +
+                    '            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:75px"></td>\n' +
+                    '            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:75px" /></td>\n' +
                     '\n' +
                     '        </tr>');
             }
@@ -573,6 +581,9 @@ $result = mysqli_query($db_connect, $sql);
 
                                     </thead>
 
+                                    <tbody style="text-align: right;">
+
+                                    </tbody>
 
                                 </table>
 

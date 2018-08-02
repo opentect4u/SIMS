@@ -43,9 +43,9 @@
                                                      trans_cd,
                                                      do_no,
                                                      prod_sl_no,
-						     prod_desc,
-						     prod_type,
-						     prod_catg,
+                                                     prod_desc,
+                                                     prod_type,
+                                                     prod_catg,
                                                      trans_type,
                                                      qty_bag,
                                                      qty_qnt,
@@ -57,13 +57,14 @@
                                                      created_dt,
                                                      sht_kg,
                                                      sht_gm)
+                                                     
                                               values('$transdt',
                                                      '$transcd',
                                                      '$dono',
                                                      '$prodslno',
-						     '$proddesc',
-						     '$prodtype',
-						     '$prodcatg',
+                                                     '$proddesc',
+                                                     '$prodtype',
+                                                     '$prodcatg',
                                                      '$transtype',
                                                       $qtybag,
                                                       $qtyqnt,
@@ -132,6 +133,10 @@
             var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
 
+            var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
+            var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
+            var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
+            var    qty_gm          =    $('.validate-input input[name = "qty_gm"]');
 
             $('#form').submit(function(e) {
 
@@ -166,7 +171,10 @@
 
 
 
-            $('.validate-form .input1').each(function(){
+            $('.validate-form .input1').each(function(index){
+
+                console.log($.type(this));
+                console.log(index);
 
                 $(this).focus(function(){
 
@@ -175,6 +183,12 @@
                 });
 
             });
+
+
+            showData(qty_bag);
+            showData(qty_qnt);
+            showData(qty_kg);
+            showData(qty_gm);
 
 
             function showValidate(input) {
@@ -187,10 +201,23 @@
 
             }
 
-            function hideValidate(input) {
+            function showData(input) {
+
                 var thisAlert = $(input).parent();
 
+                $(thisAlert).addClass('alert-data');
+
+            }
+
+            function hideValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                console.log(thisAlert);
+
                 $(thisAlert).removeClass('alert-validate');
+
+                $(thisAlert).removeClass('alert-data');
             }
 
         });
@@ -303,7 +330,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" >
 
                                 <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
 
@@ -311,7 +338,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" >
 
                                 <input type="text" class="input1" name="sl_no" id="sl_no" readonly />
 
@@ -319,33 +346,33 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" data-alert="Bag" >
 
-                                <input type="text" class="input1" name="qty_bag" size="150" value="0.00" placeholder="Bag" />
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
-
-                                <input type="text" class="input1" name="qty_qnt" size="150" value="0.00" placeholder="Quintal" />
+                                <input type="text" class="input1" name="qty_bag" value="0.00" placeholder="Bag" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" data-alert="Quintal" >
 
-                                <input type="text" class="input1" name="qty_kg" size="150" value="0.00" placeholder="Kg" />
+                                <input type="text" class="input1" id="qty_qnt" name="qty_qnt" value="0.00" placeholder="Quintal" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" data-alert="Kg">
 
-                                <input type="text" class="input1" name="qty_gm" size="150" value="0.00" placeholder="Gram" />
+                                <input type="text" class="input1" id="qty_kg" name="qty_kg" value="0.00" placeholder="Kg" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Grm">
+
+                                <input type="text" class="input1" id="qty_gm" name="qty_gm" value="0.00" placeholder="Gram" />
 
                                 <span class="shadow-input1"></span>
 

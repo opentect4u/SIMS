@@ -95,9 +95,9 @@
 
             });
 
-            showDate(start_dt);
+            showData(start_dt);
 
-            showDate(end_dt);
+            showData(end_dt);
 
 
             $('.validate-form .input1').each(function() {
@@ -122,13 +122,11 @@
 
             }
 
-            function showDate(input) {
+            function showData(input) {
 
                 var thisAlert = $(input).parent();
 
-                //console.log($(input).parent());
-
-                $(thisAlert).addClass('alert-date');
+                $(thisAlert).addClass('alert-data');
 
             }
 
@@ -138,7 +136,7 @@
 
                 $(thisAlert).removeClass('alert-validate');
 
-                $(thisAlert).removeClass('alert-date');
+                $(thisAlert).removeClass('alert-data');
             }
 
         });
@@ -242,7 +240,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Start Date is required" date-validate="Start Date">
+                            <div class="wrap-input1 validate-input" data-validate="Start Date is required" data-alert="Start Date">
 
                                 <input type="date" class="input1" name="start_dt" id="start_dt" value="<?php echo date("Y-m-d");?>" />
 
@@ -250,7 +248,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="End Date is required" date-validate="End Date">
+                            <div class="wrap-input1 validate-input" data-validate="End Date is required" data-alert="End Date">
 
                                 <input type=date class="input1" name="end_dt" id="end_dt" value="<?php echo date("Y-m-d");?>" />
 

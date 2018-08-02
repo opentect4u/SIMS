@@ -17,8 +17,7 @@ require '../db/db_connect.php';
     $sql = "SELECT prod_catg,
                    prod_desc,
                    unit_val FROM m_allot_scale WHERE effective_dt = '$effective_dt'
-                                                   GROUP BY prod_catg, prod_desc
-                                                   ORDER BY prod_catg";
+                                               ORDER BY prod_catg";
 
 
     $data = mysqli_query($db_connect, $sql);

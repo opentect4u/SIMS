@@ -490,8 +490,8 @@ textarea.input1 + .shadow-input1 {
     }
 }
 
-.alert-date::before {
-    content: attr(date-validate);
+.alert-data::before {
+    content: attr(data-alert);
     position: absolute;
     max-width: 70%;
     background-color: white;
@@ -508,7 +508,7 @@ textarea.input1 + .shadow-input1 {
     pointer-events: none;
 
     font-family: Montserrat-Medium;
-    color: #00c834;
+    color: #1e8a3a;
     font-size: 13px;
     line-height: 1.4;
     text-align: left;
@@ -522,7 +522,7 @@ textarea.input1 + .shadow-input1 {
     transition: opacity 0.4s;
 }
 
-.alert-date::after {
+.alert-data::after {
     display: block;
     position: absolute;
     color: #2a8424;
@@ -536,13 +536,13 @@ textarea.input1 + .shadow-input1 {
     right: 13px;
 }
 
-.alert-date:hover:before {
+.alert-data:hover:before {
     visibility: visible;
     opacity: 1;
 }
 
 @media (max-width: 992px) {
-    .alert-date::before {
+    .alert-data::before {
         visibility: visible;
         opacity: 1;
     }

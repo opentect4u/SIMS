@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $rksy2_atta   =   $_POST['rksy2_atta'];
 
 
+
+
         for ($i = 0; $i < count($mrNo); $i++) {
 
             $sql = "INSERT INTO td_allotment_sheet ( memo_no,
@@ -93,8 +95,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                             $rksy2_atta[$i],
                                                                             '$user_name',
                                                                             '$sysDate')";
+
             mysqli_query($db_connect, $sql);
         }
+
+        echo "<script>alert('Allotment Sheet Created');</script>";
 
  }
 
@@ -193,8 +198,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             var global_var;
 
             $.ajax({
+
                 url:"../fetch/allot_scale_dtls.php",
-                type:"post"
+
+                type:"get"
+
             }).done( function ( result ) {
 
                 global_var = JSON.parse(result);
@@ -370,6 +378,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     <style>
 
         .inline {
+
             display: inline;
         }
 
@@ -491,7 +500,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
                                     </thead>
 
-                                    <tbody>
+                                    <tbody style="text-align: right;">
 
                                     <tr>
 

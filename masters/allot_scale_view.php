@@ -17,7 +17,7 @@
 		$_SESSION['allot_scale']=false;
 	}			
 	
-	$rtv="select effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale order by prod_catg";
+	$rtv="select sl_no,effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale order by prod_catg";
 	$result=mysqli_query($db_connect,$rtv);	
 
 ?>
@@ -78,6 +78,7 @@
                                     <th>Effective Date</th>
                                     <th>Product</th>
                                     <th>Category</th>
+                                    <th>Scale</th>
                                     <th>Options</th>
                                 </tr>
 
@@ -93,21 +94,26 @@
 
                                         while($rtv_data=mysqli_fetch_assoc($result)){
 
+                                            $sl_no=$rtv_data['sl_no'];
                                             $eftdt=$rtv_data['effective_dt'];
                                             $proddesc=$rtv_data['prod_desc'];
                                             $prodcatg=$rtv_data['prod_catg'];
+                                            $unit_val=$rtv_data['unit_val'];
 
                                             ?>
 
                                             <tr>
+
                                                 <td><?php echo $eftdt; ?></td>
                                                 <td><?php echo $proddesc; ?></td>
                                                 <td><?php echo $prodcatg; ?></td>
+                                                <td><?php echo $unit_val; ?></td>
                                                 <td>
-                                                    <a href="../edit/allot_edit.php?prod_desc=<?php echo $proddesc; ?>&effective_dt=<?php
+                                                    <a href="../edit/allot_edit.php?sl_no=<?php echo $sl_no;?>&prod_desc=<?php echo $proddesc; ?>&effective_dt=<?php
                                                     echo $eftdt; ?>  " >
                                                         <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
                                             </tr>
+
                                             <?php
                                         }
                                     }

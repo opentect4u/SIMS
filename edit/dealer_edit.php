@@ -63,11 +63,12 @@
 
 	}
 
-function test_input($data) {
+    function test_input($data) {
+
 			$data = trim($data);
-			$data = strtoupper($data);
 			return $data;
-			}
+
+	}
 
 
 
