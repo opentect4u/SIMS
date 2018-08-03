@@ -68,6 +68,7 @@
 
 
         </style>
+
     </head>
 
     <body class="body">
@@ -81,143 +82,247 @@
         echo "<hr class='hr'>";?>
 
         <div class="container" style="margin-left: 10px">
+
             <div class="row">
+
                 <div class="col-lg-4 col-md-12">
+
                     <?php require("menu.php"); ?>
+
                 </div>
 
                 <div class="col-lg-8 col-md-12" style="margin-top: 10px;">
+
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../masters/prod_master.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
+
                                     <i class="fa fa-product-hunt fa-4x" aria-hidden="true"></i>
+
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">Product</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../masters/dealer_master.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-users fa-4x" aria-hidden="true"></i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">Dealer</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../masters/rate_master.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
+
                                     <i class="fa fa-inr fa-4x" aria-hidden="true"></i>
+
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 38%">
+
                                 <div class="form-row">
+
                                     <p "margin-left: 8%">Rate</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../masters/allot_sheet_gen.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-file-text fa-4x" aria-hidden="true">
+
                                     </i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 25%">
+
                                 <div class="form-row">
+
                                     <p>Allotment Sheet</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../transactions/stock_in_pds.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">Stock In</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../transactions/stock_out_pds.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-minus-circle fa-4x" aria-hidden="true"></i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">Stock Out</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="user.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-user fa-4x" aria-hidden="true"></i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">User</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
+
                         <a href="../logout.php" class="alink one">
+
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
+
                                 <div class="form-row">
 
                                     <i class="fa fa-sign-out fa-4x" aria-hidden="true"></i>
 
                                 </div>
+
                             </div>
+
                             <div class="form-group" style="margin-left: 35%">
+
                                 <div class="form-row">
+
                                     <p style="margin-left: 8%">Log Out</p>
+
                                 </div>
+
                             </div>
+
                         </a>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
     <script src="../js/collapsible.js"></script>

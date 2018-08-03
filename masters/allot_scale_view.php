@@ -75,11 +75,17 @@
                             <thead style="background-color: #212529; color: #fff;">
 
                                 <tr>
+
                                     <th>Effective Date</th>
+
                                     <th>Product</th>
+
                                     <th>Category</th>
+
                                     <th>Scale</th>
+
                                     <th>Options</th>
+
                                 </tr>
 
                             </thead>
