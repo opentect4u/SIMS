@@ -175,9 +175,10 @@
 
             });
 
-
         });
+
     </script>
+
 
     <body class="body">
 
@@ -266,7 +267,7 @@
 
                             <div class="wrap-input1 validate-input" data-validate="Unit is required">
 
-                                <input type="text" class="input1" name="unit_val" id="unit_val" value="0.00" />
+                                <input type="text" class="input1" name="unit_val" id="unit_val" value="0.00" placeholder="Scale" />
 
                             </div>
 

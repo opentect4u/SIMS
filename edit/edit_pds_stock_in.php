@@ -49,48 +49,51 @@
            
 
       if($_SERVER['REQUEST_METHOD']=="POST"){
-	$prod_bag	=	0;
-	$prod_qnt	=	0;
-	$prod_kg	=	0;
-	$prod_gm	=	0;
+
+        $prod_bag	=	0;
+        $prod_qnt	=	0;
+        $prod_kg	=	0;
+        $prod_gm	=	0;
 
 
-	$transdt	=	test_input($_POST['trans_dt']);      
-      	$prod_bag	=	test_input($_POST['qty_bag']);
-	$prod_qnt	=	test_input($_POST['qty_qnt']);
-	$prod_kg 	=	test_input($_POST['qty_kg']);
-	$prod_gm 	=	test_input($_POST['qty_gm']);
-	$transcd	=	test_input($_POST['trans_cd']);
-	$remarks	=	test_input($_POST['remarks']);
-       
+        $transdt	=	test_input($_POST['trans_dt']);
+        $prod_bag	=	test_input($_POST['qty_bag']);
+        $prod_qnt	=	test_input($_POST['qty_qnt']);
+        $prod_kg 	=	test_input($_POST['qty_kg']);
+        $prod_gm 	=	test_input($_POST['qty_gm']);
+        $transcd	=	test_input($_POST['trans_cd']);
+        $remarks	=	test_input($_POST['remarks']);
+
         $user	=	$_SESSION['user_id'];
         $time	=	date("Y-m-d h:i:s");
 
-	if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
-		$update="Update td_stock_trans_pds
-			 set qty_bag = '$prod_bag',
-			     qty_qnt = '$prod_qnt',
-			     qty_kg  = '$prod_kg',
-			     qty_gm  = '$prod_gm',
-			     remarks = '$remarks',
-			     modified_by = '$user',
-			     modified_dt = '$time'
-			  where trans_dt = '$transdt'
-			  and   trans_cd = '$transcd'";
+        if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
+            $update="Update td_stock_trans_pds
+                 set qty_bag = '$prod_bag',
+                     qty_qnt = '$prod_qnt',
+                     qty_kg  = '$prod_kg',
+                     qty_gm  = '$prod_gm',
+                     remarks = '$remarks',
+                     modified_by = '$user',
+                     modified_dt = '$time'
+                  where trans_dt = '$transdt'
+                  and   trans_cd = '$transcd'";
 
-		$result	= mysqli_query($db_connect,$update);	
-		} 
-		if($result){
-			$_SESSION['edit_in']="true";
-			Header("Location:../transactions/view_stock_in_pds.php");		
-		}
+            $result	= mysqli_query($db_connect,$update);
+            }
+            if($result){
+                $_SESSION['edit_in']="true";
+                Header("Location:../transactions/view_stock_in_pds.php");
+            }
       }
 
 	function test_input($data) {
-                        $data = trim($data);
-                        $data = strtoupper($data);
-                        return $data;
-                        }
+
+        $data = trim($data);
+
+        return $data;
+
+    }
 
 	
 ?>
@@ -115,41 +118,45 @@
     </head>
 
     <script>
-        /*$(document).ready(function() {
 
-            $('#form').submit(function(e) {
-                var do_no = $('#do_no').val(),
-                    prod_sl_no = $('#prod_sl_no').val(),
-                    prod_desc = $('#prod_desc').val();
+        $(document).ready( function() {
+            var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
+            var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
+            var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
+            var    qty_gm           =    $('.validate-input input[name = "qty_gm"]');
 
-                $(".error").remove();
+            $('.validate-form .input1').each( function() {
 
-                if (do_no.length < 1) {
-                    e.preventDefault();
-                    $('#do_no').after('<span class="error">Invalid DO No</span>');
-                }
-                if (prod_sl_no == 0) {
-                    e.preventDefault();
-                    $('#prod_sl_no').after('<span class="error">Please select a valid serial</span>');
-                }
-            });
+                $(this).focus(function(){
 
-            $('#prod_sl_no').change( function () {
+                    hideValidate(this);
 
-                $('#prod_desc').val($(this).find(':selected').attr('data-id'));
+                });
 
             });
 
-	});*/
 
-	/*$(document).ready(function() {
-                $('#prod_desc').change(function () {
+            showData(qty_bag);
+            showData(qty_qnt);
+            showData(qty_kg);
+            showData(qty_gm);
 
-		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
-		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
+            function showData(input) {
 
-            });
-	});*/
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
+
+            function hideValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+            }
+
+        });
 
     </script>
 
@@ -241,16 +248,16 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Bag/Tin" >
 
-                                <input type="text" class="input1" name="qty_bag" value="<?php echo $pbag; ?>" />
+                                <input type="text" class="input1" id="qty_bag" name="qty_bag" value="<?php echo $pbag; ?>" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Quint" >
 
                                 <input type="text" class="input1" name="qty_qnt" value="<?php echo $pqnt; ?>" />
 
@@ -259,7 +266,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Kgs." >
 
                                 <input type="text" class="input1" name="qty_kg" size="150" value="<?php echo $pkg; ?>" />
 
@@ -267,7 +274,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Grs." >
 
                                 <input type="text" class="input1" name="qty_gm" value="<?php echo $pgm; ?>" />
 

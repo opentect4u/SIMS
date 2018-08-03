@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/form_design.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/form_design.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/allot_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/allot_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/dealer_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/dealer_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edit/prod_catg_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/prod_catg_edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetch/allot_scale_dtls.php" beforeDir="false" afterPath="$PROJECT_DIR$/fetch/allot_scale_dtls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/allot_scale_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_scale_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_sheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/view_allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/view_allot_sheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/stock_reg_ip.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/stock_reg_ip.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/stock_register.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/stock_register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit/edit_pds_stock_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/edit_pds_stock_in.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edit/rate_edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit/rate_edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/masters/allot_scale.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_scale.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions/stock_in_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/stock_in_pds.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,29 +31,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="stock_reg_ip.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/report/stock_reg_ip.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="138" column="55" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_in_pds.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stock_in_pds.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="350" column="65" selection-start-line="350" selection-start-column="65" selection-end-line="350" selection-end-column="65" />
+            <state relative-caret-position="78">
+              <caret line="343" column="87" selection-start-line="343" selection-start-column="87" selection-end-line="343" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_design.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/form_design.css">
+      <file leaf-file-name="edit_pds_stock_in.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/edit/edit_pds_stock_in.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="493" column="18" lean-forward="true" selection-start-line="493" selection-start-column="18" selection-end-line="493" selection-end-column="28" />
+            <state relative-caret-position="454">
+              <caret line="276" column="84" selection-start-line="276" selection-start-column="84" selection-end-line="276" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -133,17 +116,14 @@
         <option value="$PROJECT_DIR$/masters/prod_catg_view.php" />
         <option value="$PROJECT_DIR$/masters/dealer_master_view.php" />
         <option value="$PROJECT_DIR$/masters/prod_type.php" />
-        <option value="$PROJECT_DIR$/masters/allot_scale.php" />
         <option value="$PROJECT_DIR$/masters/rate_master.php" />
         <option value="$PROJECT_DIR$/masters/prod_qty_view.php" />
         <option value="$PROJECT_DIR$/edit/prod_edit.php" />
-        <option value="$PROJECT_DIR$/edit/rate_edit.php" />
         <option value="$PROJECT_DIR$/masters/rate_master_view.php" />
         <option value="$PROJECT_DIR$/transactions/stock_out_pds.php" />
         <option value="$PROJECT_DIR$/post/nav.php" />
         <option value="$PROJECT_DIR$/transactions/view_stock_in_pds.php" />
         <option value="$PROJECT_DIR$/masters/prod_master_view.php" />
-        <option value="$PROJECT_DIR$/edit/edit_pds_stock_in.php" />
         <option value="$PROJECT_DIR$/masters/short_master_view.php" />
         <option value="$PROJECT_DIR$/masters/short_master.php" />
         <option value="$PROJECT_DIR$/session.php" />
@@ -161,7 +141,10 @@
         <option value="$PROJECT_DIR$/edit/dealer_edit.php" />
         <option value="$PROJECT_DIR$/css/form_design.css" />
         <option value="$PROJECT_DIR$/report/stock_reg_ip.php" />
+        <option value="$PROJECT_DIR$/edit/rate_edit.php" />
+        <option value="$PROJECT_DIR$/masters/allot_scale.php" />
         <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
+        <option value="$PROJECT_DIR$/edit/edit_pds_stock_in.php" />
       </list>
     </option>
   </component>
@@ -185,7 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,7 +178,17 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
+              <item name="edit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
               <item name="fetch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
+              <item name="masters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
@@ -207,6 +199,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -258,18 +251,19 @@
       <workItem from="1532924480433" duration="21452000" />
       <workItem from="1533025266458" duration="4746000" />
       <workItem from="1533102769842" duration="7719000" />
-      <workItem from="1533198079426" duration="12676000" />
+      <workItem from="1533198079426" duration="13012000" />
+      <workItem from="1533271521514" duration="3663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283416000" />
+    <option name="totallyTimeSpent" value="287415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.3202545" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.32767764" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3295082" />
@@ -430,13 +424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit/rate_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/rate_master_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1323">
@@ -538,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="85" column="38" lean-forward="true" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/allot_scale_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -556,10 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="237" lean-forward="true" selection-start-line="237" selection-end-line="237" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -574,30 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="101" column="66" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#button#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -605,30 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="107" column="48" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,13 +574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edit/edit_pds_stock_in.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1504">
-          <caret line="216" column="29" lean-forward="true" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit/dealer_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -662,22 +583,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/form_design.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="7395">
           <caret line="493" column="18" lean-forward="true" selection-start-line="493" selection-start-column="18" selection-end-line="493" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="269" column="127" selection-start-line="269" selection-start-column="127" selection-end-line="269" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit/rate_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/report/stock_reg_ip.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="138" column="55" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="55" />
+        <state relative-caret-position="225">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="350" column="65" selection-start-line="350" selection-start-column="65" selection-end-line="350" selection-end-column="65" />
+        <state relative-caret-position="78">
+          <caret line="343" column="87" selection-start-line="343" selection-start-column="87" selection-end-line="343" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit/edit_pds_stock_in.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="276" column="84" selection-start-line="276" selection-start-column="84" selection-end-line="276" selection-end-column="84" />
         </state>
       </provider>
     </entry>

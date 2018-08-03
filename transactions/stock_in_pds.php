@@ -93,13 +93,15 @@
         }
 
         unset($sql);
+
         $prod_sql = "SELECT sl_no,prod_type,prod_desc FROM m_products ORDER BY sl_no";
 
-	$prod_result = mysqli_query($db_connect, $prod_sql);
+        $prod_result = mysqli_query($db_connect, $prod_sql);
 
 
-	$catg_sql	="Select prod_catg from m_prod_catg";
-	$result_catg	= mysqli_query($db_connect,$catg_sql);	
+        $catg_sql	="Select prod_catg from m_prod_catg";
+
+        $result_catg	= mysqli_query($db_connect,$catg_sql);
 		
 
 ?>
@@ -136,7 +138,7 @@
             var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
             var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
             var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
-            var    qty_gm          =    $('.validate-input input[name = "qty_gm"]');
+            var    qty_gm           =    $('.validate-input input[name = "qty_gm"]');
 
             $('#form').submit(function(e) {
 
@@ -171,10 +173,7 @@
 
 
 
-            $('.validate-form .input1').each(function(index){
-
-                console.log($.type(this));
-                console.log(index);
+            $('.validate-form .input1').each( function() {
 
                 $(this).focus(function(){
 
@@ -195,8 +194,6 @@
 
                 var thisAlert = $(input).parent();
 
-                //console.log($(input).parent());
-
                 $(thisAlert).addClass('alert-validate');
 
             }
@@ -212,8 +209,6 @@
             function hideValidate(input) {
 
                 var thisAlert = $(input).parent();
-
-                console.log(thisAlert);
 
                 $(thisAlert).removeClass('alert-validate');
 
@@ -346,7 +341,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-alert="Bag" >
+                            <div class="wrap-input1 validate-input" data-alert="Bag/Tin" >
 
                                 <input type="text" class="input1" name="qty_bag" value="0.00" placeholder="Bag" />
 
@@ -354,7 +349,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-alert="Quintal" >
+                            <div class="wrap-input1 validate-input" data-alert="Quint" >
 
                                 <input type="text" class="input1" id="qty_qnt" name="qty_qnt" value="0.00" placeholder="Quintal" />
 
@@ -362,7 +357,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-alert="Kg">
+                            <div class="wrap-input1 validate-input" data-alert="Kgs.">
 
                                 <input type="text" class="input1" id="qty_kg" name="qty_kg" value="0.00" placeholder="Kg" />
 
@@ -370,7 +365,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-alert="Grm">
+                            <div class="wrap-input1 validate-input" data-alert="Grs.">
 
                                 <input type="text" class="input1" id="qty_gm" name="qty_gm" value="0.00" placeholder="Gram" />
 

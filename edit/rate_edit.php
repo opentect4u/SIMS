@@ -101,145 +101,106 @@
 
     <body class="body">
 
-    <?php require '../post/nav.php'; ?>
+        <?php require '../post/nav.php'; ?>
 
-    <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-    <hr class='hr'>
+        <hr class='hr'>
 
-    <div class="container" style="margin-left: 10px">
+        <div class="container" style="margin-left: 10px">
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6">
 
-                <?php require("../post/menu.php"); ?>
+                    <?php require("../post/menu.php"); ?>
 
-            </div>
+                </div>
 
-            <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6">
 
-                <div class="container-contact1">
+                    <div class="container-contact1">
 
-                    <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-                            <span class="contact1-form-title">
-                              Edit Rate
-                            </span>
+                                <span class="contact1-form-title">
+                                  Edit Rate
+                                </span>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo $eftdt; ?>" readonly />
+                                <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo $eftdt; ?>" readonly />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $prdesc; ?>" readonly />
+                                <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $prdesc; ?>" readonly />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $protype; ?>" readonly />
+                                <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $protype; ?>" readonly />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $prdcatg; ?>" readonly />
+                                <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $prdcatg; ?>" readonly />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="text" class="input1" name="prod_unit" id="prod_unit" value="<?php echo $perunit; ?>" readonly />
+                                <input type="text" class="input1" name="prod_unit" id="prod_unit" value="<?php echo $perunit; ?>" readonly />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input">
 
-                            <input type="text" class="input1" name="prod_rate" id="prod_rate" value="<?php echo $prorate; ?>" />
+                                <input type="text" class="input1" name="prod_rate" id="prod_rate" value="<?php echo $prorate; ?>" />
 
-                            <span class="shadow-input1"></span>
+                                <span class="shadow-input1"></span>
 
-                        </div>
+                            </div>
 
-                        <div class="container-contact1-form-btn">
+                            <div class="container-contact1-form-btn">
 
-                            <button class="contact1-form-btn">
+                                <button class="contact1-form-btn">
 
-                                    <span>
+                                        <span>
 
-                                        Save
+                                            Save
 
-                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 
-                                    </span>
+                                        </span>
 
-                            </button>
+                                </button>
 
-                        </div>
+                            </div>
 
-                    </form>
+                        </form>
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
-    </div>
 
-    <script src="../js/collapsible.js"></script>
+        <script src="../js/collapsible.js"></script>
 
-
-
-                        <form id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-
-	<table>
-
-	  <tr>
-	      <td><div class="alignlabel"><label for="effective_dt"><strong style="color: red;">*</strong>Effective Date:</label></div></td>
-	      <td><input type="date" name="effective_dt" id="effective_dt" value="<?php echo $eftdt; ?>" size="50" style="width:150px" readonly></td>
-	  </tr>
-	  <tr>    
-	      <td><div class="alignlabel"><label for="prod_desc"><strong style="color: red;">*</strong>Product:</label></div></td>
-	      <td><input type="text" name="prod_desc" id="prod_desc" value="<?php echo $prdesc; ?>"style="width:400px" readonly></td>	
-	   </tr>
-
-	   <tr>
-                <td><div class="aligntable"><label for="prod_type">Product Type:</label></div></td>
-		<td><input type="text" name="prod_type" id="prod_type" value="<?php echo $protype; ?>" style="width:400px" size="150" readonly></td>
-           </tr>
-	
-
-	   <tr>    
-              <td><div class="alignlabel"><label for="prod_catg"><strong style="color: red;">*</strong>Category:</label></div></td>
-              <td><input type="text" name="prod_catg" id="prod_catg" value="<?php echo $prdcatg; ?>"style="width:400px" readonly></td>
-
-	    <tr>    
-                <td><div class="alignlabel"><label for="per_unit"><strong style="color: red;">*</strong>Unit Type:</label></div></td>
-		<td><input type="text" name="prod_unit" id="prod_unit" value="<?php echo $perunit; ?>"style="width:400px" readonly ></td>
-	   </tr>
-
-	   <tr>    
-                <td><div class="alignlabel"><label for="prod_rate"><strong style="color: red;">*</strong>Rate:</label></div></td>
-		<td><input type="text" name="prod_rate" id="prod_rate" value="<?php echo $prorate; ?>" size="150" style="width:400px"></td>
-	   </tr>
-
-	   <tr>
-		<td><input type="submit" name="submit" value="Save"></td>
-	   </tr>
-    </table>
-</body>
+    </body>
 </html>
