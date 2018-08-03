@@ -179,7 +179,7 @@
 
                     <div class="col-lg-3 col-md-4 col-xs-6 coll">
 
-                        <a href="../masters/allot_sheet_gen.php" class="alink one">
+                        <a href="../masters/allot_sheet.php" class="alink one">
 
                             <div class="form-group" style="margin-left: 40%; margin-top: 10px">
 
