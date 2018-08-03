@@ -87,9 +87,9 @@
 
         $(document).ready(function() {
 
-            var del_cd = $('.validate-input input[name = "del_cd"]');
-            var del_name = $('.validate-input input[name = "del_name"]');
-            var del_reg = $('.validate-input input[name = "del_reg"]');
+            var del_cd      =   $('.validate-input input[name = "del_cd"]');
+            var del_name    =   $('.validate-input input[name = "del_name"]');
+            var del_reg     =   $('.validate-input input[name = "del_reg"]');
 
             $('#form').submit(function(e) {
 

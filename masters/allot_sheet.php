@@ -128,6 +128,53 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     </head>
 
+    <script>
+
+        $(document).ready(function() {
+
+            var memoNo   =   $('.validate-input input[name = "memoNo"]');
+
+            $('#form').submit(function(e) {
+
+                var check = true;
+
+                if($(memoNo).val().trim() == '') {
+
+                    showValidate(memoNo);
+
+                    check=false;
+                }
+
+                return check;
+
+            });
+
+            $('.validate-form .input1').each(function() {
+
+                $(this).focus(function() {
+
+                    hideValidate(this);
+
+                });
+
+            });
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-validate');
+            }
+
+            function hideValidate(input) {
+                
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+            }
+
+        });
+    </script>
 
     <script>
 
@@ -412,7 +459,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
                             <div class="contact1-form">
 
-                                <div class="wrap-input1 validate-input" data-validate="Date is required">
+                                <div class="wrap-input1 validate-input" data-validate="Memo No is required">
 
                                     <input type="text" class="input1" name="memoNo" id="memoNo" placeholder="Memo No" />
 
