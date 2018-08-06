@@ -35,7 +35,7 @@
 
     <head>
 
-        <title>Synergic Inventory Management System-Product Unit</title>
+        <title>Synergic Inventory Management System-Product Scale</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -114,11 +114,11 @@
 
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                                 <span class="contact1-form-title">
-                                  Unit Type
+                                  Scale Type
                                 </span>
 
                             <div class="wrap-input1 validate-input" data-validate="Unit is required">
-                                <input type="text" class="input1" id="prod_qty" name="prod_qty" placeholder="Product Unit Type" />
+                                <input type="text" class="input1" id="prod_qty" name="prod_qty" placeholder="Scale Type" />
                                 <span class="shadow-input1"></span>
                             </div>
 

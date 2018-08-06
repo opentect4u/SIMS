@@ -64,7 +64,7 @@
 
     <head>
 
-        <title>Synergic Inventory Management System-Edit Product Category</title>
+        <title>Synergic Inventory Management System-Edit Product Scale</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -144,7 +144,7 @@
                     <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                         <span class="contact1-form-title">
-                         Edit Unit Type
+                         Edit Scale Type
                         </span>
 
                         <div class="wrap-input1 validate-input">
@@ -152,7 +152,7 @@
                             <span class="shadow-input1"></span>
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Unit is required">
+                        <div class="wrap-input1 validate-input" data-validate="Scale is required">
                             <input type="text" class="input1" id="prod_qty" name="prod_qty" value="<?php echo $prodqty; ?>" />
                             <span class="shadow-input1"></span>
                         </div>

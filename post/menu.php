@@ -37,13 +37,13 @@
 
                     <div>
                         <a class="abtn green" href="../masters/prod_qty.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Unit</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Scale</a>
                         <br><br>
                     </div>
 
                     <div>
                         <a class="abtn green" href="../masters/prod_qty_view.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Unit</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Scale</a>
                     </div>
 
                     <hr class='hr' style="margin-top: 15px;">

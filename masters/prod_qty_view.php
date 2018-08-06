@@ -8,12 +8,12 @@
         $prodtypeErr= "";
 
         if($_SESSION['ins_flag']==true){
-                echo "<script>alert('Product Unit Successfully Added')</script>";
+                echo "<script>alert('Product Scale Successfully Added')</script>";
                 $_SESSION['ins_flag']=false;
         }
 
 	if($_SESSION['prod_qty_edit'] == true){
-		echo"<script>alert('Product unit Successfully Updated')</script>";
+		echo"<script>alert('Product Scale Successfully Updated')</script>";
 		$_SESSION['prod_qty_edit']=false;
 	}			
 	
@@ -62,7 +62,7 @@
                     <div class="container-contact1">
 
                         <span class="contact1-form-title" style="text-align: center;">
-                         List of Product Unit
+                         List of Product Scale
                         </span>
 
                         <table class="table table-bordered table-hover">
@@ -71,7 +71,7 @@
 
                                 <tr>
                                     <th>Sl.No.</th>
-                                    <th>Unit Type</th>
+                                    <th>Scale Type</th>
                                     <th>Options</th>
                                 </tr>
 
@@ -89,7 +89,9 @@
                                                 <tr>
                                                     <td style="text-align: center;"><?php echo $slno; ?></td>
                                                     <td style="text-align: center;"><?php echo $prodqty; ?></td>
-                                                    <td style="text-align: center;"><a href="../edit/prod_qty_edit.php?sl_no=<?php echo $slno; ?>"
+                        </td>
+                        </td>
+                                                    <td style="text-align: center;"><a href="../edit/prhttps://github.com/opentect4u/SIMS.gitod_qty_edit.php?sl_no=<?php echo $slno; ?>"
                                                         <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
                                                 </tr>
 

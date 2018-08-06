@@ -41,7 +41,8 @@
 	}
 
 
-	$select="Select prod_desc,prod_type from m_products";
+	$select="Select prod_desc,prod_type from m_products 
+		 where prod_type = 'PDS'";
 	$prodesc=mysqli_query($db_connect,$select);
 
 	$select_catg = "Select prod_catg from m_prod_catg";
