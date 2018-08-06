@@ -17,7 +17,8 @@
 		$_SESSION['prod_edit']=false;
 	}			
 	
-	$rtv="select effective_dt,prod_desc,prod_type,prod_catg,short_flag,short_factor from m_shortage";
+	$rtv="select effective_dt,prod_desc,prod_type,prod_catg,short_flag,short_factor from m_shortage
+	      order by effective_dt,prod_desc,prod_catg";
 	$result=mysqli_query($db_connect,$rtv);	
 
 ?>
@@ -97,7 +98,7 @@
 
                             ?>
                                         <tr>
-                                            <td style="text-align: center;"><?php echo $eftdt; ?></td>
+                                            <td style="text-align: center;"><?php echo date('d/m/Y',strtotime($eftdt)); ?></td>
                                             <td style="text-align: center;"><?php echo $proddesc; ?></td>
                                             <td style="text-align: center;"><?php echo $prodcatg; ?></td>
                                             <td style="text-align: center;"><?php echo $shtftr; ?></td>

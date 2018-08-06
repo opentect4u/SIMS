@@ -17,7 +17,8 @@
 		$_SESSION['allot_scale']=false;
 	}			
 	
-	$rtv="select sl_no,effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale order by prod_catg";
+	$rtv="select sl_no,effective_dt,prod_desc,prod_catg,per_unit,unit_val from m_allot_scale 
+		order by effective_dt,prod_desc,prod_catg";
 	$result=mysqli_query($db_connect,$rtv);	
 
 ?>
@@ -110,7 +111,7 @@
 
                                             <tr>
 
-                                                <td><?php echo $eftdt; ?></td>
+                                                <td><?php echo date('d/m/Y',strtotime($eftdt)); ?></td>
                                                 <td><?php echo $proddesc; ?></td>
                                                 <td><?php echo $prodcatg; ?></td>
                                                 <td><?php echo $unit_val; ?></td>

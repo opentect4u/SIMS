@@ -108,7 +108,7 @@
             <div class="container-contact1">
                 <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <span class="contact1-form-title">
-                           Product Category And It's Unit
+                           Product Category
                         </span>
 
                     <div class="wrap-input1 validate-input" data-validate="Category is required">

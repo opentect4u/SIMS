@@ -17,7 +17,8 @@
 		$_SESSION['rate_edit']=false;
 	}
 
-	$rtv="Select effective_dt,prod_desc,prod_catg,prod_rate from m_rate_master order by effective_dt";
+	$rtv="Select effective_dt,prod_desc,prod_catg,prod_rate from m_rate_master 
+	      order by effective_dt,prod_desc,prod_catg";
 	$rtv_rate=mysqli_query($db_connect,$rtv);
 ?>
 

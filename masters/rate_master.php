@@ -205,7 +205,7 @@
 
                                 <span class="contact1-form-title">
 
-                                   Allotment Scale Setup
+                                   PDS Product Rate
 
                                 </span>
 
