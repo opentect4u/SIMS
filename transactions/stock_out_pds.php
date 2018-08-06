@@ -5,70 +5,111 @@
 	require("../db/db_connect.php");
 	require("../session.php");
 
+        $errMsg = '';
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+
+            //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
+
 			$transdt	=	$_POST["trans_dt"];
-			$dono		=	$_POST["do_no"];
-			$prodslno	=	$_POST["prod_sl_no"];
+			$allotno	=	$_POST["do_no"];
+			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
 			$transtype	=	"O";
 			$qtybag		=	$_POST['qty_bag'];
 			$qtyqnt		=	$_POST['qty_qnt'];	
 			$qtykg		=	$_POST['qty_kg'];
 			$qtygm		=	$_POST['qty_gm'];	
-			$shtkg		=	$_POST['sht_kg'];
-			$shtgm		=	$_POST['sht_gm'];
+			$prodtype	=	$_POST['prod_type'];
+			$prodcatg	=	$_POST['prod_catg'];	
 			$remarks	=	$_POST['remarks'];
 			$transcd	=	1;
-			$user_id    =   $_SESSION["user_id"];
-
+                        $user_id=$_SESSION["user_id"];
 			$time=date("Y-m-d h:i:s");
 
-                        if(!is_null($dono)) {
-				$sql="insert into td_stock_trans_pds(trans_dt,
-								     trans_cd,
-								     do_no,
-								     prod_sl_no,
-								     prod_desc,
-								     trans_type,
-								     qty_bag,
-								     qty_qnt,
-								     qty_kg,
-								     qty_gm,
-								     sht_kg,
-								     sht_gm,
-								     remarks,
-								     approval_status,			
-								     created_by,
-								     created_dt)
-							      values('$transdt',
-								     '$transcd',
-								     '$dono',
-								     '$prodslno',
-								     '$proddesc',
-								     '$transtype',
-							     	     '$qtybag',
-								     '$qtyqnt',
-								     '$qtykg',
-								     '$qtygm',
-								     '$shtkg',
-								     '$shtgm',
-								     '$remarks',
-								     'U',									     
-								     '$user_id',
-								     '$time')";
 
-                          $result=mysqli_query($db_connect,$sql);
-                        }
+			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($dono)) {
+			    $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
+                                                      WHERE trans_dt = '$transdt'";
+
+			    $result = mysqli_query($db_connect, $sql);
+
+			    if (mysqli_num_rows($result) > 0) {
+			        $data = mysqli_fetch_assoc($result);
+                    		$transcd += $data['trans_cd'];
+                		}
+
+
+			    $sql="insert into td_stock_trans_pds (trans_dt,
+                                                     trans_cd,
+                                                     allot_no,
+                                                     prod_sl_no,
+                                                     prod_desc,
+                                                     prod_type,
+                                                     prod_catg,
+                                                     trans_type,
+                                                     qty_bag,
+                                                     qty_qnt,
+                                                     qty_kg,
+                                                     qty_gm,
+                                                     remarks,
+                                                     approval_status,			
+                                                     created_by,
+                                                     created_dt,
+                                                     sht_kg,
+                                                     sht_gm)
+                                                     
+                                              values('$transdt',
+                                                     '$transcd',
+                                                     '$allotno',
+                                                     '$prodslno',
+                                                     '$proddesc',
+                                                     '$prodtype',
+                                                     '$prodcatg',
+                                                     '$transtype',
+                                                      $qtybag,
+                                                      $qtyqnt,
+                                                      $qtykg,
+                                                      $qtygm,
+                                                     '$remarks',
+                                                     'U',									     
+                                                     '$user_id',
+                                                     '$time',
+                                                          0,
+                                                          0)";
+
+			    $result=mysqli_query($db_connect,$sql);
+
+			    if($result){
+				$_SESSION['ins_flag']=true;    
+			    	Header("Location:view_stock_in_pds.php");
+			    }	
+
+
+            }
+            else{
+			    echo "<script>alert('Please Insert Valid Unit, Transaction Failed');</script>";
+            }
 
         }
 
-?>
+        unset($sql);
 
+        $prod_sql = "SELECT sl_no,prod_type,prod_desc FROM m_products ORDER BY sl_no";
+
+        $prod_result = mysqli_query($db_connect, $prod_sql);
+
+
+        $catg_sql	="Select prod_catg from m_prod_catg";
+
+        $result_catg	= mysqli_query($db_connect,$catg_sql);
+		
+
+?>
 <html>
 
 	<head>
 
-		<title>Synergic Inventory Management System</title>
+		<title>Synergic Inventory Management System-Stock Out</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -91,9 +132,13 @@
         $(document).ready(function() {
 
             var    do_no            =    $('.validate-input input[name = "do_no"]');
-            var    prod_sl_no       =    $('.validate-input input[name = "prod_sl_no"]');
-            var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
+            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
+            var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
 
+            var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
+            var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
+            var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
+            var    qty_gm           =    $('.validate-input input[name = "qty_gm"]');
 
             $('#form').submit(function(e) {
 
@@ -103,21 +148,21 @@
 
                     showValidate(do_no);
 
-                    check = false;
+                    check=false;
 
                 }
 
-                if($(prod_sl_no).val() == '') {
-
-                    showValidate(prod_sl_no);
-
-                    check = false;
-
-                }
-
-                if($(prod_desc).val() == '') {
+                if($(prod_desc).val() == '0') {
 
                     showValidate(prod_desc);
+
+                    check=false;
+
+                }
+
+                if($(prod_catg).val() == '0') {
+
+                    showValidate(prod_catg);
 
                     check=false;
                 }
@@ -128,7 +173,7 @@
 
 
 
-            $('.validate-form .input1').each(function(){
+            $('.validate-form .input1').each( function() {
 
                 $(this).focus(function(){
 
@@ -139,14 +184,25 @@
             });
 
 
+            showData(qty_bag);
+            showData(qty_qnt);
+            showData(qty_kg);
+            showData(qty_gm);
+
 
             function showValidate(input) {
 
                 var thisAlert = $(input).parent();
 
-                //console.log($(input).parent());
-
                 $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
 
             }
 
@@ -155,9 +211,26 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+                $(thisAlert).removeClass('alert-data');
             }
 
         });
+
+    </script>
+
+    <script>
+
+	$(document).ready(function() {
+
+        $('#prod_desc').change(function () {
+
+		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
+
+		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
+
+        });
+    });
 
     </script>
 
@@ -188,77 +261,65 @@
 
                                 <span class="contact1-form-title">
 
-                                   Stock Out Setup
+                                   Stock Out
 
                                 </span>
 
                             <div class="wrap-input1 validate-input" >
 
-                                <input type="date" class="input1" name="trans_dt" readonly value="<?php echo date("Y-m-d") ?>" />
+                                <input type="date" class="input1" name="trans_dt" value="<?php echo date("Y-m-d") ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="DO No is required" >
+                            <div class="wrap-input1 validate-input" data-validate="Allotment Memo No. is required">
 
-                                <input type="text" class="input1" id="do_no" name="do_no"  placeholder="DO No."/>
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-validate="Product serial no is required">
-
-                                <input type="text" class="input1" id="prod_sl_no" name="prod_sl_no" placeholder="Product Code" />
+                                <input type="text" class="input1" name="do_no" id="do_no" placeholder="Allotment Number" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product Name is required" >
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
 
-                                <input type="text" class="input1" id="prod_desc" name="prod_desc" placeholder="Product Name" />
+                                <select class="input1" name="prod_desc" id="prod_desc">
 
-                                <span class="shadow-input1"></span>
+                                    <option value="0">Select Product</option>
 
-                            </div>
+                                    <?php
 
-                            <div class="wrap-input1 validate-input" >
+                                        while($row=mysqli_fetch_assoc($prod_result)){
 
-                                <input type="text" class="input1" name="qty_bag" placeholder="Bag/ Tin" />
+                                            echo("<option value='".$row['prod_desc']."' data-val='".$row['prod_type']."' prod-cd='".$row['sl_no']."'>".$row['prod_desc']."</option>");
 
-                                <span class="shadow-input1"></span>
+                                        }
 
-                            </div>
+                                    ?>
 
-                            <div class="wrap-input1 validate-input" >
-
-                                <input type="text" class="input1" name="qty_qnt" placeholder="Quintal" />
+                                </select>
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" >
+                            <div class="wrap-input1 validate-input" data-validate="Category is required">
 
-                                <input type="text" class="input1" name="qty_kg" placeholder="Kg" />
+                                <select class="input1" name="prod_catg" id="prod_catg" >
 
-                                <span class="shadow-input1"></span>
+                                    <option value="0">Select Category</option>
 
-                            </div>
+                                    <?php
 
-                            <div class="wrap-input1 validate-input" >
+                                        while($data=mysqli_fetch_assoc($result_catg)) {
 
-                                <input type="text" class="input1" name="qty_gm" placeholder="Grm" />
+                                            echo ("<option value='".$data['prod_catg']."'>".$data['prod_catg']."</option>");
 
-                                <span class="shadow-input1"></span>
+                                        }
 
-                            </div>
+                                    ?>
 
-                            <div class="wrap-input1 validate-input" >
-
-                                <input type="text" class="input1" name="sht_kg" placeholder="Short Kg" />
+                                </select>
 
                                 <span class="shadow-input1"></span>
 
@@ -266,13 +327,53 @@
 
                             <div class="wrap-input1 validate-input" >
 
-                                <input type="text" class="input1" name="sht_gm" placeholder="Short grm" />
+                                <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
                             <div class="wrap-input1 validate-input" >
+
+                                <input type="text" class="input1" name="sl_no" id="sl_no" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Bag/Tin" >
+
+                                <input type="text" class="input1" name="qty_bag" value="0.00" placeholder="Bag" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Quint" >
+
+                                <input type="text" class="input1" id="qty_qnt" name="qty_qnt" value="0.00" placeholder="Quintal" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Kgs.">
+
+                                <input type="text" class="input1" id="qty_kg" name="qty_kg" value="0.00" placeholder="Kg" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Grs.">
+
+                                <input type="text" class="input1" id="qty_gm" name="qty_gm" value="0.00" placeholder="Gram" />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Date is required">
 
                                 <textarea class="input1" name="remarks" >Enter Remarks If Any..
 
@@ -286,13 +387,13 @@
 
                                 <button class="contact1-form-btn">
 
-                                            <span>
+                                        <span>
 
-                                                Save
+                                            Save
 
-                                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 
-                                            </span>
+                                        </span>
 
                                 </button>
 

@@ -261,7 +261,7 @@
 
                                 <span class="contact1-form-title">
 
-                                   Stock In Setup
+                                   Stock In
 
                                 </span>
 

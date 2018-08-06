@@ -54,7 +54,7 @@
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
 	/*$select_prd="Select prod_desc from m_products";*/
-	$select_prd="select sl_no,prod_desc from m_products";
+	$select_prd="select sl_no,prod_desc from m_products where prod_type ='PDS'";
 	$prddesc=mysqli_query($db_connect,$select_prd);
 
 
