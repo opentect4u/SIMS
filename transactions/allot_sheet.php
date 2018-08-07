@@ -304,9 +304,9 @@ $pattern .= substr(date('Y'), 2, 2);
 
         $('#addRow').click(function () {
 
-            $('#intro').append('<tr>\n' +
+            $('#intro').prepend('<tr>\n' +
                 '\n' +
-                '                                    <td><input type="text" name="mr_no[]" class="input2 mr_no" /></td>\n' +
+                '                                    <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>\n' +
                 '                                    <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>\n' +
                 '                                    <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>\n' +
                 '\n' +
@@ -915,7 +915,7 @@ $pattern .= substr(date('Y'), 2, 2);
 
                             <tr>
 
-                                <td><input type="text" name="mr_no[]" class="input2 mr_no" /></td>
+                                <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>
                                 <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>
                                 <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>
 

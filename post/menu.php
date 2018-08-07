@@ -139,12 +139,12 @@
 
                     <hr class='hr' style="margin-top: 15px;">
 
-                    <div><a class="abtn green" href="../masters/allot_sheet.php">
+                    <div><a class="abtn green" href="../transactions/allot_sheet.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
                         <br><br>
                     </div>
 
-                    <div><a class="abtn green" href="../masters/allot_sheet_view.php">
+                    <div><a class="abtn green" href="../transactions/allot_sheet_view.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
                     </div>
 
