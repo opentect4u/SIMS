@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" beforeDir="false" afterPath="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_sheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/allot_sheet_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/allot_sheet_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transactions/allot_sheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/allot_sheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transactions/allot_sheet_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/allot_sheet_view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,13 +28,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="allot_sheet_view.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/masters/allot_sheet_view.php">
+    <leaf>
+      <file leaf-file-name="allot_sheet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transactions/allot_sheet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="1145" column="7" selection-start-line="1145" selection-start-column="7" selection-end-line="1145" selection-end-column="7" />
+            <state relative-caret-position="421">
+              <caret line="875" column="50" lean-forward="true" selection-start-line="875" selection-start-column="16" selection-end-line="875" selection-end-column="50" />
               <folding>
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -65,21 +65,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allot_sheet_dtls.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
+      <file leaf-file-name="allot_sheet_view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transactions/allot_sheet_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allot_sheet.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/masters/allot_sheet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="1057" lean-forward="true" selection-start-line="1057" selection-end-line="1057" />
+            <state relative-caret-position="392">
+              <caret line="1186" column="130" selection-start-line="1186" selection-start-column="130" selection-end-line="1186" selection-end-column="130" />
               <folding>
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#20;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#21;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#22;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#23;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#24;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -113,7 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mr_no</find>
       <find>validate-form</find>
       <find>validate-input</find>
       <find>showValidate</find>
@@ -143,6 +159,7 @@
       <find>$header</find>
       <find>user_pwd</find>
       <find>Allo</find>
+      <find>rksy1_atta</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -154,8 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/bootstrap/js/common.js" />
-        <option value="$PROJECT_DIR$/css1/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/post/home.php" />
         <option value="$PROJECT_DIR$/fetch/dealers_dtls.php" />
         <option value="$PROJECT_DIR$/masters/allot_sheet_gen.php" />
@@ -190,7 +205,6 @@
         <option value="$PROJECT_DIR$/masters/view_allot_sheet.php" />
         <option value="$PROJECT_DIR$/edit/prod_catg_edit.php" />
         <option value="$PROJECT_DIR$/edit/dealer_edit.php" />
-        <option value="$PROJECT_DIR$/css/form_design.css" />
         <option value="$PROJECT_DIR$/report/stock_reg_ip.php" />
         <option value="$PROJECT_DIR$/edit/rate_edit.php" />
         <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
@@ -205,6 +219,9 @@
         <option value="$PROJECT_DIR$/fetch/allot_sheet_dtls.php" />
         <option value="$PROJECT_DIR$/masters/allot_sheet.php" />
         <option value="$PROJECT_DIR$/masters/allot_sheet_view.php" />
+        <option value="$PROJECT_DIR$/css/form_design.css" />
+        <option value="$PROJECT_DIR$/transactions/allot_sheet.php" />
+        <option value="$PROJECT_DIR$/transactions/allot_sheet_view.php" />
       </list>
     </option>
   </component>
@@ -228,7 +245,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,17 +255,13 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="fetch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="masters" type="462c0819:PsiDirectoryNode" />
+              <item name="transactions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,18 +315,19 @@
       <workItem from="1533102769842" duration="7719000" />
       <workItem from="1533198079426" duration="13012000" />
       <workItem from="1533271521514" duration="19072000" />
-      <workItem from="1533633157495" duration="253000" />
+      <workItem from="1533633157495" duration="4680000" />
+      <workItem from="1533703385794" duration="2448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303170000" />
+    <option name="totallyTimeSpent" value="310045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.2598091" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.26511136" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.3295082" />
@@ -323,7 +336,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.3085896" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3262295" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3262295" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24974722" />
@@ -343,8 +356,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/post/home.php" />
-    <entry file="file://$PROJECT_DIR$/masters/allot_sheet_gen.php" />
     <entry file="file://$PROJECT_DIR$/logout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -566,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/form_design.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7395">
-          <caret line="493" column="18" lean-forward="true" selection-start-line="493" selection-start-column="18" selection-end-line="493" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edit/rate_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -657,18 +661,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/form_design.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="569" column="1" selection-start-line="569" selection-start-column="1" selection-end-line="569" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fetch/allot_sheet_dtls.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="468">
           <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/allot_sheet.php">
+    <entry file="file://$PROJECT_DIR$/masters/allot_sheet.php" />
+    <entry file="file://$PROJECT_DIR$/masters/allot_sheet_view.php" />
+    <entry file="file://$PROJECT_DIR$/transactions/allot_sheet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="1057" lean-forward="true" selection-start-line="1057" selection-end-line="1057" />
+        <state relative-caret-position="421">
+          <caret line="875" column="50" lean-forward="true" selection-start-line="875" selection-start-column="16" selection-end-line="875" selection-end-column="50" />
           <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -697,11 +711,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/masters/allot_sheet_view.php">
+    <entry file="file://$PROJECT_DIR$/transactions/allot_sheet_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="1145" column="7" selection-start-line="1145" selection-start-column="7" selection-end-line="1145" selection-end-column="7" />
+        <state relative-caret-position="392">
+          <caret line="1186" column="130" selection-start-line="1186" selection-start-column="130" selection-end-line="1186" selection-end-column="130" />
           <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#5;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#6;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#7;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#8;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#9;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#10;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#11;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#12;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#13;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#14;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#15;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#16;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#17;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#18;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#19;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#20;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#21;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#22;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#23;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#24;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#3;n#tr#0;n#!!top" expanded="true" />

@@ -905,40 +905,139 @@ $result = mysqli_query($db_connect, $sql);
         //Resetting columns to 0.00....
 
         $('#undoAayRice').click(function(){
+
             $('.aay_rice').val('0.00');
+
+            $('#aay_rice_total').val('0.00');
+
         });
+
+        $('#undoAayWheat').click(function(){
+
+            $('.aay_wheat').val('0.00');
+
+            $('#aay_wheat_total').val('0.00');
+
+        });
+
         $('#undoAayAtta').click(function(){
+
             $('.aay_atta').val('0.00');
+
+            $('#aay_atta_total').val('0.00');
+
         });
+
         $('#undoAaySugar').click(function(){
+
             $('.aay_sugar').val('0.00');
+
+            $('#aay_sugar_total').val('0.00');
+
         });
+
         $('#undoPhhRice').click(function(){
+
             $('.phh_rice').val('0.00');
+
+            $('#phh_rice_total').val('0.00');
+
         });
+
+        $('#undoPhhWheat').click(function(){
+
+            $('.phh_wheat').val('0.00');
+
+            $('#phh_wheat_total').val('0.00');
+
+        });
+
         $('#undoPhhAtta').click(function(){
+
             $('.phh_atta').val('0.00');
+
+            $('#phh_atta_total').val('0.00');
+
         });
+
+
         $('#undoSphhRice').click(function(){
+
             $('.sphh_rice').val('0.00');
+
+            $('#sphh_rice_total').val('0.00');
+
         });
+
+        $('#undoSphhWheat').click(function(){
+
+            $('.sphh_wheat').val('0.00');
+
+            $('#sphh_wheat_total').val('0.00');
+
+        });
+
         $('#undoSphhAtta').click(function(){
+
             $('.sphh_atta').val('0.00');
+
+            $('#sphh_atta_total').val('0.00');
+
         });
+
         $('#undoSphhSugar').click(function(){
+
             $('.sphh_sugar').val('0.00');
+
+            $('#sphh_sugar_total').val('0.00');
+
         });
+
         $('#undoRksy1Rice').click(function(){
+
             $('.rksy1_rice').val('0.00');
+
+            $('#rksy1_rice_total').val('0.00');
         });
+
+        $('#undoRksy1Wheat').click(function(){
+
+            $('.rksy1_wheat').val('0.00');
+
+            $('#rksy1_wheat_total').val('0.00');
+
+        });
+
         $('#undoRksy1Atta').click(function(){
+
             $('.rksy1_atta').val('0.00');
+
+            $('#rksy1_atta_total').val('0.00');
+
         });
+
         $('#undoRksy2Rice').click(function(){
+
             $('.rksy2_rice').val('0.00');
+
+            $('#rksy2_rice_total').val('0.00');
+
         });
+
+        $('#undoRksy2Wheat').click(function(){
+
+            $('.rksy2_wheat').val('0.00');
+
+            $('#rksy2_wheat_total').val('0.00');
+
+        });
+
         $('#undoRksy2Atta').click(function(){
+
             $('.rksy2_atta').val('0.00');
+
+            $('#rksy2_atta_total').val('0.00');
+
         });
 
 
@@ -950,7 +1049,7 @@ $result = mysqli_query($db_connect, $sql);
 
                 total += +$(this).val();
 
-                $(targetId).val(total);
+                $(targetId).val(total.toFixed(2));
 
             });
 
@@ -1085,7 +1184,7 @@ $result = mysqli_query($db_connect, $sql);
                                 <th>RKSY-I<br>Head</th>
                                 <th><span class="inline"> Rice </span> <button type="button" class="anav inline" id="undoRksy1Rice" > <i class="fa fa-undo" style="margin-left: 15px;"> </button></th>
                                 <th><span class="inline"> Wheat </span> <button type="button" class="anav inline" id="undoRksy1Wheat" > <i class="fa fa-undo" style="margin-left: 15px;"> </button></th>
-                                <th><span class="inline"> Atta </span> <button type="button" class="anav inline" id="undoRksy1Wheat" > <i class="fa fa-undo" style="margin-left: 15px;"> </button></th>
+                                <th><span class="inline"> Atta </span> <button type="button" class="anav inline" id="undoRksy1Atta" > <i class="fa fa-undo" style="margin-left: 15px;"> </button></th>
 
                                 <th>RKSY-II<br>Head</th>
                                 <th><span class="inline"> Rice </span> <button type="button" class="anav inline" id="undoRksy2Rice" > <i class="fa fa-undo" style="margin-left: 15px;"> </button></th>
