@@ -16,7 +16,7 @@
             '                                          table, th, td { border: 1px solid black; border-collapse: collapse; }' +
             '                                           th, td { padding: 5px; }' +
             '                                         .border { border: 1px solid black; } ' +
-            '                                         .bottom { bottom: 5px; width: 100%; ' +
+            '                                         .bottom { bottom: 5px; width: 100%; position: fixed ' +
             '                                       ' +
             '                                   } } </style>');
         // WindowObject.document.writeln('<style type="text/css">@media print{p { color: blue; }}');
@@ -27,6 +27,7 @@
         setTimeout(function(){ WindowObject.close();},10);
 
     }
+
 </script>
 
 
