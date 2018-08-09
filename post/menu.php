@@ -158,8 +158,20 @@
 
                         <br><br>
 
-                    </div>
+		    </div>
 
+		    <hr class='hr' style="margin-top: 15px;">	
+
+		    <div>
+
+                        <a class="abtn green" href="../approve/aprv_allot_sheet.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve Allotment Sheet</a>
+
+                        <br><br>
+
+                    </div>
+	
                     <div>
 
                         <a class="abtn green" href="../transactions/view_stock_in_pds.php">
