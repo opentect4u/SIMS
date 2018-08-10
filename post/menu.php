@@ -158,11 +158,11 @@
 
                         <br><br>
 
-		    </div>
+                    </div>
 
-		    <hr class='hr' style="margin-top: 15px;">	
+                    <hr class='hr' style="margin-top: 15px;">
 
-		    <div>
+                    <div>
 
                         <a class="abtn green" href="../approve/aprv_allot_sheet.php">
 
@@ -204,11 +204,29 @@
 
                     <br>
 
-                    <div><a class="abtn green" href="../report/stock_reg_ip.php">
+                    <div>
+
+                        <a class="abtn green" href="../report/stock_reg_ip.php">
+
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock Register</a>
+
                     </div>
 
-                    <br>
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+
+                        <a class="abtn green" href="../report/allot_sheet_report.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+
+                            Allotment Sheet Report
+
+                        </a>
+
+                        <br><br>
+
+                    </div>
 
                 </div>
 

@@ -436,78 +436,78 @@ $result = mysqli_query($db_connect, $sql);
         $('#addRow').click(function () {
 
 		//tableRow();
-	   $('#intro').prepend('<tr>\n' +
-                '\n' +
-                '                                            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>\n' +
-                '                                            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>\n' +
-                '                                            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="aay[]" class="input2 aay" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:100px"></td>\n' +
-                '                                            <td><input type="text" name="aay_wheat[]" class="input2 aay_wheat" style="width:100px"></td>\n' +
-                '                                            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="phh[]" class="input2 phh" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="phh_wheat[]" class="input2 phh_wheat" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_wheat[]" class="input2 sphh_wheat" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="rksy1_wheat[]" class="input2 rksy1_wheat" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_wheat[]" class="input2 rksy2_wheat" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:100px" /></td>\n' +
-                '\n' +
+	   $('#intro').prepend('<tr>
+                '
+                '                                            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>
+                '                                            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>
+                '                                            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>
+                '
+                '                                            <td><input type="number" name="aay[]" class="input2 aay" style="width:100px"/></td>
+                '                                            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:100px"></td>
+                '                                            <td><input type="text" name="aay_wheat[]" class="input2 aay_wheat" style="width:100px"></td>
+                '                                            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:100px" /></td>
+                '                                            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="phh[]" class="input2 phh" style="width:100px"/></td>
+                '                                            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:100px" /></td>
+                '                                            <td><input type="text" name="phh_wheat[]" class="input2 phh_wheat" style="width:100px" /></td>
+                '                                            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_wheat[]" class="input2 sphh_wheat" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:100px" /></td>
+                '                                            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:100px" /></td>
+                '                                            <td><input type="text" name="rksy1_wheat[]" class="input2 rksy1_wheat" style="width:100px" /></td>
+                '                                            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_wheat[]" class="input2 rksy2_wheat" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:100px" /></td>
+                '
                 '                                        </tr>');
 
         });
 
         function tableRow() {
 
-            $('#intro').append('<tr>\n' +
-                '\n' +
-                '                                            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>\n' +
-                '                                            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>\n' +
-                '                                            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="aay[]" class="input2 aay" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:100px"></td>\n' +
-                '                                            <td><input type="text" name="aay_wheat[]" class="input2 aay_wheat" style="width:100px"></td>\n' +
-                '                                            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="phh[]" class="input2 phh" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="phh_wheat[]" class="input2 phh_wheat" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_wheat[]" class="input2 sphh_wheat" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="rksy1_wheat[]" class="input2 rksy1_wheat" style="width:100px" /></td>\n' +
-                '                                            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:100px" /></td>\n' +
-                '\n' +
-                '                                            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_wheat[]" class="input2 rksy2_wheat" style="width:100px"/></td>\n' +
-                '                                            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:100px" /></td>\n' +
-                '\n' +
+            $('#intro').append('<tr>
+                '
+                '                                            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>
+                '                                            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>
+                '                                            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>
+                '
+                '                                            <td><input type="number" name="aay[]" class="input2 aay" style="width:100px"/></td>
+                '                                            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:100px"></td>
+                '                                            <td><input type="text" name="aay_wheat[]" class="input2 aay_wheat" style="width:100px"></td>
+                '                                            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:100px" /></td>
+                '                                            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="phh[]" class="input2 phh" style="width:100px"/></td>
+                '                                            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:100px" /></td>
+                '                                            <td><input type="text" name="phh_wheat[]" class="input2 phh_wheat" style="width:100px" /></td>
+                '                                            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_wheat[]" class="input2 sphh_wheat" style="width:100px"/></td>
+                '                                            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:100px" /></td>
+                '                                            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:100px" /></td>
+                '                                            <td><input type="text" name="rksy1_wheat[]" class="input2 rksy1_wheat" style="width:100px" /></td>
+                '                                            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:100px" /></td>
+                '
+                '                                            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_wheat[]" class="input2 rksy2_wheat" style="width:100px"/></td>
+                '                                            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:100px" /></td>
+                '
                 '                                        </tr>');
         }
 
