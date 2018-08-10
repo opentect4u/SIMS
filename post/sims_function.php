@@ -64,5 +64,19 @@
 		return $qnt;
 	}
 
+	function f_check_balance($allot_balance,$total_balance){
+		if($total_balance > $allot_balance){
+		    throw new Exception("Supplied Values Exceeds Allotment Balance");
+		}
+		return true;
+	}
+	function f_check_allot_no($allot_no,$db){
+		$sql = "select * from td_allot_dtls where allot_no = '$allot_no'";
+		$result = mysqli_query($db,$sql);
+		$count = mysqli_num_rows($result);
+		return $count;
+	}                    
+
+	
 
 ?>
