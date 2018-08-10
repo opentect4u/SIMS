@@ -31,19 +31,20 @@
 			$catg_cd = f_getcatgcd($prodcatg,$db_connect);
 			$qty_bal = f_getallotbal($allotno,$catg_cd,$prod_cd,$db_connect);
 			$tot_bal = f_getquintal($qtyqnt,$qtykg,$qtygm,$db_connect);
-
+		         	
 			/*echo "prod_cd- $prod_cd"."<br>";
 			echo "catg_cd -$catg_cd"."<br>";
 			echo "qty_bal-$qty_bal"."<br>";
 			echo "tot_bal-$tot_bal";*/
 
-			if($tot_bal > $qty_bal){
-				//trigger_error("Total Quantity Exceeds Balance Quantity");
-				$_SESSION['error_flag']=true;
-				Header("Location:../post/balance_error.php");
-			}
-			
+		        try{
+				f_check_balance($qty_bal,$tot_bal);
+			}		
 
+			catch (Exception $e ){
+				echo $e->getMessage();
+				return;
+			}	
 
 			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($allotno)) {
 			    $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
@@ -251,6 +252,7 @@
     });
 
     </script>
+
 
     <body class="body">
 
