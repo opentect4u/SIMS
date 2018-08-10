@@ -50,13 +50,13 @@
 
         $(document).ready(function() {
 
-            var    memo_no        =    $('.validate-input select[name = "memo_no"]');
+            var    memo_no        =    $('.validate-input input[name = "memo_no"]');
 
             $('#form').submit(function(e) {
 
                 var check = true;
 
-                if($(memo_no).val().trim() == '0') {
+                if($(memo_no).val().trim() == '') {
 
                     showValidate(memo_no);
 
@@ -136,21 +136,7 @@
 
                             <div class="wrap-input1 validate-input" data-validate="Memo No is required">
 
-                                <select class="input1" name="memo_no">
-
-                                    <option value="0">Select Memo No.</option>
-
-                                    <?php
-
-                                    while($row=mysqli_fetch_assoc($result)){
-
-                                        echo ("<option value='".$row["memo_no"]."'>".$row["memo_no"]."</option>") ;
-
-                                    }
-
-                                    ?>
-
-                                </select>
+                                <input type="text" class="input1" name="memo_no" placeholder="Memo No" />
 
                                 <span class="shadow-input1"></span>
 

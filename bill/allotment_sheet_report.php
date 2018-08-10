@@ -64,347 +64,606 @@
 
     $result = mysqli_query($db_connect, $sql);
 
-    while ($data = mysqli_fetch_assoc($result)) {
+    if (mysqli_num_rows($result) > 0) {
 
-        array_push($result_array['gen_date'], $data['gen_date']);
-        array_push($result_array['mr_no'], $data['mr_no']);
-        array_push($result_array['delr_name'], $data['delr_name']);
-        array_push($result_array['delr_region'], $data['delr_region']);
-        array_push($result_array['aay_family'], $data['aay_family']);
-        array_push($result_array['aay_rice'], $data['aay_rice']);
-        array_push($result_array['aay_wheat'], $data['aay_wheat']);
-        array_push($result_array['aay_atta'], $data['aay_atta']);
-        array_push($result_array['aay_sugar'], $data['aay_sugar']);
-        array_push($result_array['phh_head'], $data['phh_head']);
-        array_push($result_array['phh_rice'], $data['phh_rice']);
-        array_push($result_array['phh_wheat'], $data['phh_wheat']);
-        array_push($result_array['phh_atta'], $data['phh_atta']);
-        array_push($result_array['sphh_head'], $data['sphh_head']);
-        array_push($result_array['sphh_rice'], $data['sphh_rice']);
-        array_push($result_array['sphh_wheat'], $data['sphh_wheat']);
-        array_push($result_array['sphh_atta'], $data['sphh_atta']);
-        array_push($result_array['sphh_sugar'], $data['sphh_sugar']);
-        array_push($result_array['rksy1_head'], $data['rksy1_head']);
-        array_push($result_array['rksy1_rice'], $data['rksy1_rice']);
-        array_push($result_array['rksy1_wheat'], $data['rksy1_wheat']);
-        array_push($result_array['rksy1_atta'], $data['rksy1_atta']);
-        array_push($result_array['rksy2_head'], $data['rksy2_head']);
-        array_push($result_array['rksy2_rice'], $data['rksy2_rice']);
-        array_push($result_array['rksy2_wheat'], $data['rksy2_wheat']);
-        array_push($result_array['rksy2_atta'], $data['rksy2_atta']);
-    }
+        while ($data = mysqli_fetch_assoc($result)) {
 
-?>
-
-<html>
-
-    <head>
-
-        <title>Synergic Inventory Management Allotment Sheet Report</title>
-
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            array_push($result_array['gen_date'], $data['gen_date']);
+            array_push($result_array['mr_no'], $data['mr_no']);
+            array_push($result_array['delr_name'], $data['delr_name']);
+            array_push($result_array['delr_region'], $data['delr_region']);
+            array_push($result_array['aay_family'], $data['aay_family']);
+            array_push($result_array['aay_rice'], $data['aay_rice']);
+            array_push($result_array['aay_wheat'], $data['aay_wheat']);
+            array_push($result_array['aay_atta'], $data['aay_atta']);
+            array_push($result_array['aay_sugar'], $data['aay_sugar']);
+            array_push($result_array['phh_head'], $data['phh_head']);
+            array_push($result_array['phh_rice'], $data['phh_rice']);
+            array_push($result_array['phh_wheat'], $data['phh_wheat']);
+            array_push($result_array['phh_atta'], $data['phh_atta']);
+            array_push($result_array['sphh_head'], $data['sphh_head']);
+            array_push($result_array['sphh_rice'], $data['sphh_rice']);
+            array_push($result_array['sphh_wheat'], $data['sphh_wheat']);
+            array_push($result_array['sphh_atta'], $data['sphh_atta']);
+            array_push($result_array['sphh_sugar'], $data['sphh_sugar']);
+            array_push($result_array['rksy1_head'], $data['rksy1_head']);
+            array_push($result_array['rksy1_rice'], $data['rksy1_rice']);
+            array_push($result_array['rksy1_wheat'], $data['rksy1_wheat']);
+            array_push($result_array['rksy1_atta'], $data['rksy1_atta']);
+            array_push($result_array['rksy2_head'], $data['rksy2_head']);
+            array_push($result_array['rksy2_rice'], $data['rksy2_rice']);
+            array_push($result_array['rksy2_wheat'], $data['rksy2_wheat']);
+            array_push($result_array['rksy2_atta'], $data['rksy2_atta']);
+        }
 
 
-        <link rel="stylesheet" type="text/css" href="../css/form_design.css">
-        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+        $result_data['prod_catg'] = $result_data['prod_desc'] = $result_data['unit_val'] = [];
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        $result = mysqli_query($db_connect, $sql);
 
-    </head>
-    
-    <script>
-        
-        $(document).ready( function () {
+        $data = mysqli_fetch_assoc($result);
 
-            // Declaring global_var to store allotment scale input....
+        $effective_dt = $result_array['gen_date'][0];
 
-            var global_var, global_var1;
+        unset($sql);
+        unset($data);
+        unset($result);
+
+        $sql = "SELECT MAX(effective_dt) effective_dt FROM m_allot_scale 
+                                                          WHERE effective_dt <= '$effective_dt'";
+
+        $data = mysqli_query($db_connect, $sql);
+
+        $result = mysqli_fetch_assoc($data);
+
+        $effective_dt = $result['effective_dt'];
+
+        unset($sql);
+        unset($data);
+        unset($result);
+
+        $sql = "SELECT prod_catg,
+                           prod_desc,
+                           unit_val FROM m_allot_scale WHERE effective_dt = '$effective_dt'
+                                                       ORDER BY prod_catg, prod_desc";
 
 
-            //Fetching allotment scale details....
+        $data = mysqli_query($db_connect, $sql);
 
-            $.ajax({
+        while ($result = mysqli_fetch_assoc($data)) {
 
-                url:"../fetch/allot_scale_dtls.php",
+            array_push($result_data['prod_catg'], $result['prod_catg']);
 
-                type:"post"
+            array_push($result_data['prod_desc'], $result['prod_desc']);
 
-            }).done( function ( result ) {
+            array_push($result_data['unit_val'], $result['unit_val']);
 
-                global_var = JSON.parse(result);
+        }
 
-                console.log(global_var);
+        $aay_total =
+        $ar_total =
+        $aw_total =
+        $aa_total =
+        $as_total =
+
+        $phh_total =
+        $pr_total =
+        $pw_total =
+        $pa_total =
+
+        $sphh_total =
+        $sr_total =
+        $sw_total =
+        $sa_total =
+        $ss_total =
+
+        $rk1_total =
+        $rr1_total =
+        $rw1_total =
+        $ra1_total =
+
+        $rk2_total =
+        $rr2_total =
+        $rw2_total =
+        $ra2_total = 0.00;
+
+        ?>
+
+        <html>
+
+        <head>
+
+            <title>Synergic Inventory Management Allotment Sheet Report</title>
+
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+            <link rel="stylesheet" type="text/css" href="../css/form_design.css">
+            <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+
+            <!-- jQuery library -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <!-- Latest compiled JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        </head>
+
+        <script>
+
+            $(document).ready(function () {
+
+                $('#print').click(function () {
+
+                    printDiv();
+
+                });
+
+                function printDiv() {
+
+                    var divToPrint = document.getElementById('divToPrint');
+
+                    var WindowObject = window.open('', 'Print-Window');
+                    WindowObject.document.open();
+                    WindowObject.document.writeln('<!DOCTYPE html>');
+                    WindowObject.document.writeln('<html><head><title></title><style type="text/css">');
+
+
+                    WindowObject.document.writeln('@media print { .center { text-align: center;}' +
+                        '                                         .inline { display: inline; }' +
+                        '                                         .underline { text-decoration: underline; }' +
+                        '                                         .left { margin-left: 315px;} ' +
+                        '                                         .right { margin-right: 375px; display: inline; }' +
+                        '                                          table { border-collapse: collapse; }' +
+                        '                                          th, td { border: 1px solid black; border-collapse: collapse; padding: 10px;}' +
+                        '                                           th, td { }' +
+                        '                                         .border { border: 1px solid black; } ' +
+                        '                                         .bottom { bottom: 5px; width: 100%; position: fixed ' +
+                        '                                       ' +
+                        '                                   } } </style>');
+                    // WindowObject.document.writeln('<style type="text/css">@media print{p { color: blue; }}');
+                    WindowObject.document.writeln('</head><body onload="window.print()">');
+                    WindowObject.document.writeln(divToPrint.innerHTML);
+                    WindowObject.document.writeln('</body></html>');
+                    WindowObject.document.close();
+                    setTimeout(function () {
+                        WindowObject.close();
+                    }, 10);
+
+                }
 
             });
 
+        </script>
 
-            //Fetching allotment sheet....
-
-            $.ajax({
-
-                url: "../fetch/allot_sheet_dtls.php",
-
-                data: {
-
-                    memo_no: "<?php echo $memo_no ?>"
-
-                },
-
-                dataType: "json",
-
-                type: "GET"
-
-            }).done(function (result) {
-
-                console.log(result);
-
-                    /*for (var i = 0; i < result.mr_no.length; i++) {
-
-                        tableRow();
-
-                        $('.mr_no').eq(i).val(result.mr_no[i]);
-                        $('.dealer_name').eq(i).val(result.delr_name[i]);
-                        $('.region').eq(i).val(result.delr_region[i]);
-
-                        $('.aay').eq(i).val(result.aay_family[i]);
-                        $('.aay_rice').eq(i).val(result.aay_rice[i]);
-                        $('.aay_wheat').eq(i).val(result.aay_wheat[i]);
-                        $('.aay_atta').eq(i).val(result.aay_atta[i]);
-                        $('.aay_sugar').eq(i).val(result.aay_sugar[i]);
-
-                        $('.phh').eq(i).val(result.phh_head[i]);
-                        $('.phh_rice').eq(i).val(result.phh_rice[i]);
-                        $('.phh_wheat').eq(i).val(result.phh_wheat[i]);
-                        $('.phh_atta').eq(i).val(result.phh_atta[i]);
-
-                        $('.sphh').eq(i).val(result.sphh_head[i]);
-                        $('.sphh_rice').eq(i).val(result.sphh_rice[i]);
-                        $('.sphh_wheat').eq(i).val(result.sphh_wheat[i]);
-                        $('.sphh_atta').eq(i).val(result.sphh_wheat[i]);
-                        $('.sphh_sugar').eq(i).val(result.sphh_sugar[i]);
-
-                        $('.rksy1').eq(i).val(result.rksy1_head[i]);
-                        $('.rksy1_rice').eq(i).val(result.rksy1_rice[i]);
-                        $('.rksy1_wheat').eq(i).val(result.rksy1_wheat[i]);
-                        $('.rksy1_atta').eq(i).val(result.rksy2_wheat[i]);
-
-                        $('.rksy2').eq(i).val(result.rksy2_head[i]);
-                        $('.rksy2_rice').eq(i).val(result.rksy2_rice[i]);
-                        $('.rksy2_wheat').eq(i).val(result.rksy2_wheat[i]);
-                        $('.rksy2_atta').eq(i).val(result.rksy2_wheat[i]);
-                    }*/
-
-            });
-
-
-            function tableRow() {
-
-                $('#intro').append('<tr>
-                    '
-                    '                                            <td><input type="text" name="mr_no[]" class="input2 mr_no" style="width:80px"/></td>
-                    '                                            <td><input type="text" name="dealer_name[]" class="input2 dealer_name" style="width:150px" readonly /></td>
-                    '                                            <td><input type="text" name="region[]" class="input2 region" style="width:150px" readonly/></td>
-                    '
-                    '                                            <td><input type="number" name="aay[]" class="input2 aay" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="aay_rice[]" class="input2 aay_rice" style="width:100px"></td>
-                    '                                            <td><input type="text" name="aay_wheat[]" class="input2 aay_wheat" style="width:100px"></td>
-                    '                                            <td><input type="text" name="aay_atta[]" class="input2 aay_atta" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="aay_sugar[]" class="input2 aay_sugar" style="width:100px" /></td>
-                    '
-                    '                                            <td><input type="number" name="phh[]" class="input2 phh" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="phh_rice[]" class="input2 phh_rice" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="phh_wheat[]" class="input2 phh_wheat" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="phh_atta[]" class="input2 phh_atta" style="width:100px" /></td>
-                    '
-                    '                                            <td><input type="number" name="sphh[]" class="input2 sphh" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="sphh_rice[]" class="input2 sphh_rice" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="sphh_wheat[]" class="input2 sphh_wheat" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="sphh_atta[]" class="input2 sphh_atta" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="sphh_sugar[]" class="input2 sphh_sugar" style="width:100px" /></td>
-                    '
-                    '                                            <td><input type="number" name="rksy1[]" class="input2 rksy1" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="rksy1_rice[]" class="input2 rksy1_rice" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="rksy1_wheat[]" class="input2 rksy1_wheat" style="width:100px" /></td>
-                    '                                            <td><input type="text" name="rksy1_atta[]" class="input2 rksy1_atta" style="width:100px" /></td>
-                    '
-                    '                                            <td><input type="number" name="rksy2[]" class="input2 rksy2" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="rksy2_rice[]" class="input2 rksy2_rice" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="rksy2_wheat[]" class="input2 rksy2_wheat" style="width:100px"/></td>
-                    '                                            <td><input type="text" name="rksy2_atta[]" class="input2 rksy2_atta" style="width:100px" /></td>
-                    '
-                    '                                        </tr>');
-            }
-
-
-        });
-        
-    </script>
-
-    <script>
-
-        $(document).ready(function () {
-
-            $('#print').click(function () {
-
-                printDiv();
-                
-            });
-
-            function printDiv() {
-
-                var divToPrint=document.getElementById('divToPrint');
-
-                var WindowObject=window.open('','Print-Window');
-                WindowObject.document.open();
-                WindowObject.document.writeln('<!DOCTYPE html>');
-                WindowObject.document.writeln('<html><head><title></title><style type="text/css">');
-
-
-                WindowObject.document.writeln('@media print { .center { text-align: center;}' +
-                    '                                         .inline { display: inline; }' +
-                    '                                         .underline { text-decoration: underline; }' +
-                    '                                         .left { margin-left: 315px;} ' +
-                    '                                         .right { margin-right: 375px; display: inline; }' +
-                    '                                          table { border-collapse: collapse; }' +
-                    '                                          th, td { border: 1px solid black; border-collapse: collapse; padding: 10px;}' +
-                    '                                           th, td { }' +
-                    '                                         .border { border: 1px solid black; } ' +
-                    '                                         .bottom { bottom: 5px; width: 100%; position: fixed ' +
-                    '                                       ' +
-                    '                                   } } </style>');
-                // WindowObject.document.writeln('<style type="text/css">@media print{p { color: blue; }}');
-                WindowObject.document.writeln('</head><body onload="window.print()">');
-                WindowObject.document.writeln(divToPrint.innerHTML);
-                WindowObject.document.writeln('</body></html>');
-                WindowObject.document.close();
-                setTimeout(function(){ WindowObject.close();},10);
-
-            }
-
-        });
-
-    </script>
-
-    <body class="body">
+        <body class="body">
 
         <div id="divToPrint">
 
-            <div>
+            <div class="container-contact2" style="margin: 0; width: 100%">
 
-                <p class="center underline" style="font-size: 18px;">
+                <div>
 
-                    ALLOTMENT SHEET OF NFSA (AAY & PHH + SPHH) & RKSY-I & RKSY-II 2nd F.N. FOR JUNE - 2018
+                    <p class="center underline" style="text-align: center; font-size: 18px;">
 
-                </p>
+                        ALLOTMENT SHEET OF NFSA (AAY & PHH + SPHH) & RKSY-I & RKSY-II 2nd F.N. FOR JUNE - 2018
+
+                    </p>
+
+                </div>
+
+                <div class="inline">
+
+                    <p class="inline" style="display: inline;">
+
+                        Memo No.- <?php echo $memoNo; ?>
+
+                    </p>
+
+                    <p class="inline" style="margin-left: 70%; display: inline;">
+
+                        Date:- <?php echo date("d.m.Y", strtotime($result_array['gen_date'][0])); ?>
+
+                    </p>
+
+                </div>
+
+                <br style="line-height: 15px;">
+
+                <div>
+
+                    <p>
+
+                        M/S Laxmi Narayan Stores, M.R. Distributor, Belgram,
+                        Udaynarayanpur, Howrah. You hereby instructed to deliver
+                        M.R. Cereals to the following M.R. Dealers of U.N.Pur as per allocation
+                        payment at Govt. fixed rate against proper cash memo.
+
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <table class="table table-bordered table-hover" style="width: 100%; background-color: aliceblue;">
+
+                        <tr>
+
+                            <td rowspan="2"><b>SCALE</b></td>
+
+                            <?php
+
+                            if ($result_data['unit_val'][1] != 0.00) {
+
+                                echo "<td>AAY RICE</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][3] != 0.00) {
+
+                                echo "<td>AAY WHEAT</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][0] != 0.00) {
+
+                                echo "<td>AAY ATTA</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][2] != 0.00) {
+
+                                echo "<td>AAY SUGAR</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- PHH -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][5] != 0.00) {
+
+                                echo "<td>PHH RICE</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][6] != 0.00) {
+
+                                echo "<td>PHH WHEAT</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][4] != 0.00) {
+
+                                echo "<td>PHH ATTA</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- SPHH -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][14] != 0.00) {
+
+                                echo "<td>SPHH RICE</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][16] != 0.00) {
+
+                                echo "<td>SPHH WHEAT</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][13] != 0.00) {
+
+                                echo "<td>SPHH ATTA</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][15] != 0.00) {
+
+                                echo "<td>SPHH SUGAR</td>";
+
+                            }
+
+                            ?>
+
+
+                            <!-- RKSY-I -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][8] != 0.00) {
+
+                                echo "<td>RKSY-I RICE</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][9] != 0.00) {
+
+                                echo "<td>RKSY-I WHEAT</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][7] != 0.00) {
+
+                                echo "<td>RKSY-I ATTA</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- RKSY-II -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][11] != 0.00) {
+
+                                echo "<td>RKSY-II RICE</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][12] != 0.00) {
+
+                                echo "<td>RKSY-II WHEAT</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][10] != 0.00) {
+
+                                echo "<td>RKSY-II ATTA</td>";
+
+                            }
+
+                            ?>
+
+                        </tr>
+
+                        <tr>
+
+                            <?php
+
+                            if ($result_data['unit_val'][1] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][1] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][3] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][3] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][0] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][0] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][2] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][2] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- PHH -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][5] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][5] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][6] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][6] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][4] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][4] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- SPHH -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][14] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][14] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][16] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][16] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][13] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][1] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][15] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][15] . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <!-- RKSY-I -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][8] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][8] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][9] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][9] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][7] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][7] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <!-- RKSY-II -->
+
+                            <?php
+
+                            if ($result_data['unit_val'][11] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][11] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][12] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][12] . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($result_data['unit_val'][10] != 0.00) {
+
+                                echo "<td>" . $result_data['unit_val'][10] . "</td>";
+
+                            }
+
+                            ?>
+
+                        </tr>
+
+                    </table>
+
+                </div>
 
             </div>
-
-            <div>
-
-                <p class="inline">
-
-                    Memo No.-
-
-                </p>
-
-                <p class="center inline" style="margin-left: 80%">
-
-                    Date:-
-
-                </p>
-
-            </div>
-
-            <br style="line-height: 15px;">
-
-            <div>
-
-                <p>
-
-                    M/S Laxmi Narayan Stores, M.R. Distributor, Belgram,
-                    Udaynarayanpur, Howrah. You hereby instructed to deliver
-                    M.R. Cereals to the following M.R. Dealers of U.N.Pur as per allocation
-                    payment at Govt. fixed rate against proper cash memo.
-
-                </p>
-
-            </div>
-
-            // Allotment scale details..............................
-
-            <div>
-
-                <table class="center" style="width: 100%">
-
-                    <tr>
-
-                        <td rowspan="2"><b>SCALE</b></td>
-
-                        <td>AAY RICE</td>
-
-                        <td>AAY ATTA</td>
-
-
-                        <td>PHH RICE</td>
-
-                        <td>PHH ATTA</td>
-
-
-                        <td>SPHH RICE</td>
-
-                        <td>SPHH ATTA</td>
-
-
-                        <td>RKSY-I RICE</td>
-
-                        <td>RKSY-I WHEAT</td>
-
-
-                        <td>RKSY-II RICE</td>
-
-                        <td>RKSY-II WHEAT</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>100 Kg/Family</td>
-
-                        <td>100 Kg/Family</td>
-
-
-                        <td>100 Kg/Head</td>
-
-                        <td>100 Kg/Head</td>
-
-
-                        <td>100 Kg/Head</td>
-
-                        <td>100 Kg/Head</td>
-
-
-                        <td>100 Kg/Head</td>
-
-                        <td>100 Kg/Head</td>
-
-
-                        <td>100 Kg/Head</td>
-
-                        <td>100 Kg/Head</td>
-
-                    </tr>
-
-                </table>
-
-            </div>
-
 
             <br style="line-height: 15px;">
 
@@ -413,328 +672,302 @@
 
             <div>
 
-                <table id="intro" class="table table-bordered table-hover" style="width: 100%;">
+                <div class="container-contact2" style="margin: 0; width: 100%">
 
-                    <thead style="background-color: #212529; color: #fff; text-align: center;" >
+                    <table id="intro" class="table table-bordered table-hover" style="width: 100%;">
 
-                    <tr>
+                        <thead style="background-color: #212529; color: #fff; text-align: center;">
 
-                        <th>MR<br>NO</th>
+                        <tr>
 
-                        <th>NAME OF<br>DEALER</th>
+                            <th>MR<br>NO</th>
 
-                        <th>ANCHAL</th>
+                            <th>NAME OF<br>DEALER</th>
+
+                            <th>ANCHAL</th>
 
 
-                        <th>AAY<br>FAMILY</th>
+                            <th>AAY<br>FAMILY</th>
 
-                        <?php
+                            <?php
 
-                            if($result_array['aay_rice'][2] != 0.00) {
+                            if ($result_array['aay_rice'][2] != 0.00) {
 
                                 echo "<th>RICE</th>";
 
-                            }
-
-                            else {
+                            } else {
 
                                 echo "<th style='display: none'>RICE</th>";
 
                             }
 
-                        ?>
+                            ?>
 
 
-                        <?php
+                            <?php
 
-                            if($result_array['aay_wheat'][2] != 0.00) {
+                            if ($result_array['aay_wheat'][2] != 0.00) {
 
                                 echo "<th>WHEAT</th>";
 
-                            }
-
-                            else {
+                            } else {
 
                                 echo "<th style='display: none'>WHEAT</th>";
 
                             }
 
-                        ?>
+                            ?>
 
 
-                        <?php
+                            <?php
 
-                            if($result_array['aay_atta'][1] != 0.00){
+                            if ($result_array['aay_atta'][1] != 0.00) {
 
                                 echo "<th>ATTA</th>";
 
-                            }
-
-                            else {
+                            } else {
 
                                 echo "<th style='display: none'>ATTA</th>";
 
                             }
 
-                        ?>
+                            ?>
 
 
-                        <?php
+                            <?php
 
-                            if($result_array['aay_sugar'][2] != 0.00){
+                            if ($result_array['aay_sugar'][2] != 0.00) {
 
                                 echo "<th>SUGAR</th>";
 
-                            }
-
-                            else {
+                            } else {
 
                                 echo "<th style='display: none'>SUGAR</th>";
 
                             }
 
-                        ?>
+                            ?>
 
-                        <th>PHH<br>HEAD</th>
+                            <th>PHH<br>HEAD</th>
+
+                            <?php
+
+                            if ($result_array['phh_rice'][2] != 0.00) {
+
+                                echo "<th>RICE</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>RICE</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['phh_wheat'][2] != 0.00) {
+
+                                echo "<th>WHEAT</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>WHEAT</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['phh_atta'][1] != 0.00) {
+
+                                echo "<th>ATTA</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>ATTA</th>";
+
+                            }
+
+                            ?>
+
+
+                            <th>SPHH<br>HEAD</th>
+
+                            <?php
+
+                            if ($result_array['sphh_rice'][2] != 0.00) {
+
+                                echo "<th>RICE</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>RICE</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['sphh_wheat'][2] != 0.00) {
+
+                                echo "<th>WHEAT</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>WHEAT</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['sphh_atta'][1] != 0.00) {
+
+                                echo "<th>ATTA</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>ATTA</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['sphh_sugar'][2] != 0.00) {
+
+                                echo "<th>SUGAR</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>SUGAR</th>";
+
+                            }
+
+                            ?>
+
+
+                            <th>RKSY-I<br>HEAD</th>
+
+                            <?php
+
+                            if ($result_array['rksy1_rice'][2] != 0.00) {
+
+                                echo "<th>RICE</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>RICE</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['rksy1_wheat'][2] != 0.00) {
+
+                                echo "<th>WHEAT</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>WHEAT</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['rksy1_atta'][1] != 0.00) {
+
+                                echo "<th>ATTA</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>ATTA</th>";
+
+                            }
+
+                            ?>
+
+
+                            <th>RKSY-II<br>HEAD</th>
+
+                            <?php
+
+                            if ($result_array['rksy2_rice'][2] != 0.00) {
+
+                                echo "<th>RICE</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>RICE</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['rksy2_wheat'][2] != 0.00) {
+
+                                echo "<th>WHEAT</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>WHEAT</th>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($result_array['rksy2_atta'][1] != 0.00) {
+
+                                echo "<th>ATTA</th>";
+
+                            } else {
+
+                                echo "<th style='display: none'>ATTA</th>";
+
+                            }
+
+                            ?>
+
+
+                        </tr>
+
+                        </thead>
+
+                        <tbody style="text-align: right; background-color: aliceblue;">
 
                         <?php
 
-                        if($result_array['phh_rice'][2] != 0.00){
-
-                            echo "<th>RICE</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>RICE</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['phh_wheat'][2] != 0.00){
-
-                            echo "<th>WHEAT</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>WHEAT</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['phh_atta'][1] != 0.00){
-
-                            echo "<th>ATTA</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>ATTA</th>";
-
-                        }
-
-                        ?>
-
-
-                        <th>SPHH<br>HEAD</th>
-
-                        <?php
-
-                        if($result_array['sphh_rice'][2] != 0.00){
-
-                            echo "<th>RICE</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>RICE</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['sphh_wheat'][2] != 0.00){
-
-                            echo "<th>WHEAT</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>WHEAT</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['sphh_atta'][1] != 0.00){
-
-                            echo "<th>ATTA</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>ATTA</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['sphh_sugar'][2] != 0.00){
-
-                            echo "<th>SUGAR</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>SUGAR</th>";
-
-                        }
-
-                        ?>
-
-
-                        <th>RKSY-I<br>HEAD</th>
-
-                        <?php
-
-                        if($result_array['rksy1_rice'][2] != 0.00){
-
-                            echo "<th>RICE</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>RICE</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['rksy1_wheat'][2] != 0.00){
-
-                            echo "<th>WHEAT</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>WHEAT</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['rksy1_atta'][1] != 0.00){
-
-                            echo "<th>ATTA</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>ATTA</th>";
-
-                        }
-
-                        ?>
-
-
-                        <th>RKSY-II<br>HEAD</th>
-
-                        <?php
-
-                        if($result_array['rksy2_rice'][2] != 0.00){
-
-                            echo "<th>RICE</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>RICE</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['rksy2_wheat'][2] != 0.00){
-
-                            echo "<th>WHEAT</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>WHEAT</th>";
-
-                        }
-
-                        ?>
-
-
-                        <?php
-
-                        if($result_array['rksy2_atta'][1] != 0.00){
-
-                            echo "<th>ATTA</th>";
-
-                        }
-
-                        else {
-
-                            echo "<th style='display: none'>ATTA</th>";
-
-                        }
-
-                        ?>
-
-
-                    </tr>
-
-                    </thead>
-
-                    <tbody style="text-align: right; background-color: aliceblue;" >
-
-                    <?php
-
-                        for ($i = 0; $i < count($result_array['mr_no']); $i++ ) {
-
-                    ?>
+                        for ($i = 0; $i < count($result_array['mr_no']); $i++) {
+
+                            $aay_total += $result_array['aay_family'][$i];
+                            $phh_total += $result_array['phh_head'][$i];
+                            $sphh_total += $result_array['sphh_head'][$i];
+                            $rk1_total += $result_array['rksy1_head'][$i];
+                            $rk2_total += $result_array['rksy2_head'][$i];
+
+                            ?>
 
                             <tr>
 
@@ -746,15 +979,15 @@
 
                                 <?php
 
-                                if($result_array['aay_rice'][2] != 0.00) {
+                                if ($result_array['aay_rice'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['aay_rice'][$i]."</td>";
+                                    echo "<td>" . $result_array['aay_rice'][$i] . "</td>";
 
-                                }
+                                    $ar_total += $result_array['aay_rice'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['aay_rice'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['aay_rice'][$i] . "</td>";
 
                                 }
 
@@ -763,15 +996,15 @@
 
                                 <?php
 
-                                if($result_array['aay_wheat'][2] != 0.00) {
+                                if ($result_array['aay_wheat'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['aay_wheat'][$i]."</td>";
+                                    echo "<td>" . $result_array['aay_wheat'][$i] . "</td>";
 
-                                }
+                                    $aw_total += $result_array['aay_wheat'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['aay_wheat'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['aay_wheat'][$i] . "</td>";
 
                                 }
 
@@ -779,15 +1012,31 @@
 
                                 <?php
 
-                                if($result_array['aay_atta'][2] != 0.00) {
+                                if ($result_array['aay_atta'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['aay_atta'][$i]."</td>";
+                                    echo "<td>" . $result_array['aay_atta'][$i] . "</td>";
+
+                                    $aa_total += $result_array['aay_atta'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['aay_atta'][$i] . "</td>";
 
                                 }
 
-                                else {
+                                ?>
 
-                                    echo "<td style='display: none'>".$result_array['aay_atta'][$i]."</td>";
+                                <?php
+
+                                if ($result_array['aay_sugar'][2] != 0.00) {
+
+                                    echo "<td>" . $result_array['aay_sugar'][$i] . "</td>";
+
+                                    $as_total += $result_array['aay_sugar'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['aay_atta'][$i] . "</td>";
 
                                 }
 
@@ -797,15 +1046,15 @@
 
                                 <?php
 
-                                if($result_array['phh_rice'][2] != 0.00) {
+                                if ($result_array['phh_rice'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['phh_rice'][$i]."</td>";
+                                    echo "<td>" . $result_array['phh_rice'][$i] . "</td>";
 
-                                }
+                                    $pr_total += $result_array['phh_rice'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['phh_rice'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['phh_rice'][$i] . "</td>";
 
                                 }
 
@@ -813,15 +1062,15 @@
 
                                 <?php
 
-                                if($result_array['phh_wheat'][2] != 0.00) {
+                                if ($result_array['phh_wheat'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['phh_wheat'][$i]."</td>";
+                                    echo "<td>" . $result_array['phh_wheat'][$i] . "</td>";
 
-                                }
+                                    $pw_total += $result_array['phh_wheat'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['phh_wheat'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['phh_wheat'][$i] . "</td>";
 
                                 }
 
@@ -830,15 +1079,15 @@
 
                                 <?php
 
-                                if($result_array['phh_atta'][2] != 0.00) {
+                                if ($result_array['phh_atta'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['phh_atta'][$i]."</td>";
+                                    echo "<td>" . $result_array['phh_atta'][$i] . "</td>";
 
-                                }
+                                    $pa_total += $result_array['phh_atta'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['phh_atta'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['phh_atta'][$i] . "</td>";
 
                                 }
 
@@ -848,32 +1097,15 @@
 
                                 <?php
 
-                                if($result_array['sphh_rice'][2] != 0.00) {
+                                if ($result_array['sphh_rice'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['sphh_rice'][$i]."</td>";
+                                    echo "<td>" . $result_array['sphh_rice'][$i] . "</td>";
 
-                                }
+                                    $sr_total += $result_array['sphh_rice'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['sphh_rice'][$i]."</td>";
-
-                                }
-
-                                ?>
-
-
-                                <?php
-
-                                if($result_array['sphh_wheat'][2] != 0.00) {
-
-                                    echo "<td>".$result_array['sphh_wheat'][$i]."</td>";
-
-                                }
-
-                                else {
-
-                                    echo "<td style='display: none'>".$result_array['sphh_wheat'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['sphh_rice'][$i] . "</td>";
 
                                 }
 
@@ -882,15 +1114,15 @@
 
                                 <?php
 
-                                if($result_array['sphh_atta'][2] != 0.00) {
+                                if ($result_array['sphh_wheat'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['sphh_atta'][$i]."</td>";
+                                    echo "<td>" . $result_array['sphh_wheat'][$i] . "</td>";
 
-                                }
+                                    $sw_total += $result_array['sphh_wheat'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['sphh_atta'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['sphh_wheat'][$i] . "</td>";
 
                                 }
 
@@ -899,15 +1131,32 @@
 
                                 <?php
 
-                                if($result_array['sphh_sugar'][2] != 0.00) {
+                                if ($result_array['sphh_atta'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['sphh_sugar'][$i]."</td>";
+                                    echo "<td>" . $result_array['sphh_atta'][$i] . "</td>";
+
+                                    $sa_total += $result_array['sphh_atta'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['sphh_atta'][$i] . "</td>";
 
                                 }
 
-                                else {
+                                ?>
 
-                                    echo "<td style='display: none'>".$result_array['sphh_sugar'][$i]."</td>";
+
+                                <?php
+
+                                if ($result_array['sphh_sugar'][2] != 0.00) {
+
+                                    echo "<td>" . $result_array['sphh_sugar'][$i] . "</td>";
+
+                                    $ss_total += $result_array['sphh_sugar'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['sphh_sugar'][$i] . "</td>";
 
                                 }
 
@@ -918,32 +1167,15 @@
 
                                 <?php
 
-                                if($result_array['rksy1_rice'][2] != 0.00) {
+                                if ($result_array['rksy1_rice'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['sphh_sugar'][$i]."</td>";
+                                    echo "<td>" . $result_array['rksy1_rice'][$i] . "</td>";
 
-                                }
+                                    $rr1_total += $result_array['rksy1_rice'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['rksy1_rice'][$i]."</td>";
-
-                                }
-
-                                ?>
-
-
-                                <?php
-
-                                if($result_array['rksy1_wheat'][2] != 0.00) {
-
-                                    echo "<td>".$result_array['rksy1_wheat'][$i]."</td>";
-
-                                }
-
-                                else {
-
-                                    echo "<td style='display: none'>".$result_array['rksy1_wheat'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['rksy1_rice'][$i] . "</td>";
 
                                 }
 
@@ -952,54 +1184,297 @@
 
                                 <?php
 
-                                if($result_array['rksy1_atta'][2] != 0.00) {
+                                if ($result_array['rksy1_wheat'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['rksy1_atta'][$i]."</td>";
+                                    echo "<td>" . $result_array['rksy1_wheat'][$i] . "</td>";
 
-                                }
+                                    $rw1_total += $result_array['rksy1_wheat'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['rksy1_atta'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['rksy1_wheat'][$i] . "</td>";
 
                                 }
 
                                 ?>
 
-                                <td><?php echo $result_array['rksy2_head'][$i] ?></td><td><?php echo $result_array['rksy2_head'][$i] ?></td>
 
                                 <?php
 
-                                if($result_array['rksy2_rice'][2] != 0.00) {
+                                if ($result_array['rksy1_atta'][2] != 0.00) {
 
-                                    echo "<td>".$result_array['rksy2_rice'][$i]."</td>";
+                                    echo "<td>" . $result_array['rksy1_atta'][$i] . "</td>";
 
-                                }
+                                    $ra1_total += $result_array['rksy1_atta'][$i];
 
-                                else {
+                                } else {
 
-                                    echo "<td style='display: none'>".$result_array['rksy2_rice'][$i]."</td>";
+                                    echo "<td style='display: none'>" . $result_array['rksy1_atta'][$i] . "</td>";
 
                                 }
 
                                 ?>
 
-                                <td><?php echo $result_array['rksy2_rice'][$i] ?></td>
-                                <td><?php echo $result_array['rksy2_wheat'][$i] ?></td>
-                                <td><?php echo $result_array['rksy2_atta'][$i] ?></td>
+                                <td><?php echo $result_array['rksy2_head'][$i] ?></td>
+
+                                <?php
+
+                                if ($result_array['rksy2_rice'][2] != 0.00) {
+
+                                    echo "<td>" . $result_array['rksy2_rice'][$i] . "</td>";
+
+                                    $rr2_total += $result_array['rksy2_rice'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['rksy2_rice'][$i] . "</td>";
+
+                                }
+
+                                ?>
+
+
+                                <?php
+
+                                if ($result_array['rksy2_wheat'][2] != 0.00) {
+
+                                    echo "<td>" . $result_array['rksy2_wheat'][$i] . "</td>";
+
+                                    $rw2_total += $result_array['rksy2_wheat'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['rksy2_wheat'][$i] . "</td>";
+
+                                }
+
+                                ?>
+
+
+                                <?php
+
+                                if ($result_array['rksy2_atta'][2] != 0.00) {
+
+                                    echo "<td>" . $result_array['rksy2_atta'][$i] . "</td>";
+
+                                    $ra2_total += $result_array['rksy2_atta'][$i];
+
+                                } else {
+
+                                    echo "<td style='display: none'>" . $result_array['rksy2_atta'][$i] . "</td>";
+
+                                }
+
+                                ?>
+
 
                             </tr>
 
-
-                    <?php
+                            <?php
 
                         }
 
-                    ?>
+                        ?>
 
-                    </tbody>
+                        <tr>
 
-                </table>
+                            <td colspan="3">Total:</td>
+
+                            <?php
+
+                            echo "<td>" . $aay_total . "</td>";
+
+                            if ($ar_total != 0.00) {
+
+                                echo "<td>" . $ar_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($aw_total != 0.00) {
+
+                                echo "<td>" . $aw_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($aa_total != 0.00) {
+
+                                echo "<td>" . $aa_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($as_total != 0.00) {
+
+                                echo "<td>" . $as_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            echo "<td>" . $phh_total . "</td>";
+
+                            if ($pr_total != 0.00) {
+
+                                echo "<td>" . $pr_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($pw_total != 0.00) {
+
+                                echo "<td>" . $pw_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            if ($pa_total != 0.00) {
+
+                                echo "<td>" . $pa_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            echo "<td>" . $sphh_total . "</td>";
+
+                            if ($sr_total != 0.00) {
+
+                                echo "<td>" . $sr_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($sw_total != 0.00) {
+
+                                echo "<td>" . $sw_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($sa_total != 0.00) {
+
+                                echo "<td>" . $sa_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($ss_total != 0.00) {
+
+                                echo "<td>" . $ss_total . "</td>";
+
+                            }
+
+                            ?>
+
+
+                            <?php
+
+                            echo "<td>" . $rk1_total . "</td>";
+
+                            if ($rr1_total != 0.00) {
+
+                                echo "<td>" . $rr1_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($rw1_total != 0.00) {
+
+                                echo "<td>" . $rw1_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($ra1_total != 0.00) {
+
+                                echo "<td>" . $ra1_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            echo "<td>" . $rk1_total . "</td>";
+
+                            if ($rr2_total != 0.00) {
+
+                                echo "<td>" . $rr2_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($rw2_total != 0.00) {
+
+                                echo "<td>" . $rw2_total . "</td>";
+
+                            }
+
+                            ?>
+
+                            <?php
+
+                            if ($ra2_total != 0.00) {
+
+                                echo "<td>" . $ra2_total . "</td>";
+
+                            }
+
+                            ?>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
 
             </div>
 
@@ -1008,15 +1483,31 @@
 
         <div class="modal-footer">
 
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-default" href="../report/allot_sheet_report.php"
+               style="color: #fff; background-color: #868e96;  border-color: #868e96;">
 
-            <button class="btn btn-secondary" id="print" type="button">Print</button>
+                Back</a>
+
+            <button class="btn btn-primary" id="print" type="button">Print</button>
 
         </div>
 
-    </body>
+        </body>
 
-</html>
+        </html>
+
+        <?php
+    }
+
+    else {
+
+        echo "Sorry No Data Found for given Memo No";
+
+    }
+
+        ?>
+
+
 
 
 
