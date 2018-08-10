@@ -41,6 +41,7 @@
 					  $_SESSION['allot_scale']=false;
 					  $_SESSION['edit_in']=false;
 					  $_SESSION['approve']=false;
+					  $_SESSION['error_flag']=false;
 
 					  $user_id=$_SESSION['user_id'];
 					  $time = date("Y-m-d h:i:s");

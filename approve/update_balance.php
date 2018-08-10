@@ -78,7 +78,7 @@
 	        $gm_bal  = $gm_bal  + $prod_gm;	
 	}else{
 		$bag_bal = $bag_bal - $prod_bag;
-                $qnt_bal = $qnt_bal - $pord_qnt;
+                $qnt_bal = $qnt_bal - $prod_qnt;
                 $kg_bal  = $kg_bal  - $prod_kg;
                 $gm_bal  = $gm_bal  - $prod_gm;
 

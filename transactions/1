@@ -32,15 +32,13 @@
 			$qty_bal = f_getallotbal($allotno,$catg_cd,$prod_cd,$db_connect);
 			$tot_bal = f_getquintal($qtyqnt,$qtykg,$qtygm,$db_connect);
 
-			/*echo "prod_cd- $prod_cd"."<br>";
-			echo "catg_cd -$catg_cd"."<br>";
-			echo "qty_bal-$qty_bal"."<br>";
-			echo "tot_bal-$tot_bal";*/
+			echo $proc_cd."<br>";
+			echo $catg_cd."<br>";
+			echo $qty_bal."<br>";
+			echo $tot_bal;
 
 			if($tot_bal > $qty_bal){
-				//trigger_error("Total Quantity Exceeds Balance Quantity");
-				$_SESSION['error_flag']=true;
-				Header("Location:../post/balance_error.php");
+				trigger_error("Total Quantity Exceeds Balance Quantity");
 			}
 			
 
@@ -101,7 +99,7 @@
 				$_SESSION['ins_flag']=true;    
 			    	Header("Location:view_stock_in_pds.php");
 			    }	*/
-				
+
 
             }
             else{

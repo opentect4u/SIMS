@@ -91,7 +91,7 @@
                                                     <td style="text-align: center;"><?php echo $prodqty; ?></td>
                         </td>
                         </td>
-                                                    <td style="text-align: center;"><a href="../edit/prhttps://github.com/opentect4u/SIMS.gitod_qty_edit.php?sl_no=<?php echo $slno; ?>"
+                                                    <td style="text-align: center;"><a href="../edit/prod_qty_edit.php?sl_no=<?php echo $slno; ?>"
                                                         <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
                                                 </tr>
 

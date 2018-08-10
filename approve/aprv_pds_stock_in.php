@@ -12,6 +12,7 @@
 		$transcd	=	$_GET['trans_cd'];	
 
 		$sql="Select do_no,
+		     allot_no,		
                      prod_desc,
                      prod_type,
                      prod_catg,
@@ -31,7 +32,8 @@
 		if($result){
 			if(mysqli_num_rows($result) > 0 ){
 			  $row = mysqli_fetch_assoc($result);
-				     $dono   =       $row['do_no'];
+			  	     $dono   =       $row['do_no'];
+			  	     $allotno=	     $row['allot_no'];	
                 		     $pdesc  =       $row['prod_desc'];
                 		     $ptype  =       $row['prod_type'];
                 		     $pcatg  =       $row['prod_catg'];
@@ -116,7 +118,13 @@
                 <tr>
                     <td><div class="alignlabel"><label for="do_no">DO No.:</label></div></td>
                     <td><input type="text" name="do_no" id="do_no" value="<?php echo $dono; ?>" size="50" style="width:150px" readonly ></td>
+		</tr>
+
+		<tr>
+                    <td><div class="alignlabel"><label for="allot_no">Memo No.:</label></div></td>
+                    <td><input type="text" name="allot_no" id="allot_no" value="<?php echo $allotno; ?>" size="50" style="width:400px" readonly ></td>
                 </tr>
+
 
                 <tr>
                     <td><div class="alignlabel"><label for="prod_desc">Product:</label></div></td>
@@ -126,10 +134,12 @@
                 <tr>
                     <td><div class="alignlabel"><label for="prod_catg">Category:</label></div></td>
                     <td><input type="text" name="prod_catg" id="prod_catg" value="<?php echo $pcatg; ?>" size="150" style="width:400px"readonly></td>                </tr>
+	
 		<tr>
                     <td><div class="alignlabel"><label for="prod_type">Type:</label></div></td>
                     <td><input type="text" name="prod_type" id="prod_type" value="<?php echo $ptype;?>"size="150" style="width:400px" readonly></td>
-                </tr> 
+		</tr> 
+
                 <tr>
 
                     <td><div class="alignlabel"><label for="sl_no">Product Code:</label></div></td>

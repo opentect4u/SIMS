@@ -22,7 +22,7 @@
 		$_SESSION['approve']=false;
 	}
 
-	$sql="Select trans_dt,trans_cd,do_no,prod_desc,prod_catg,trans_type,
+	$sql="Select trans_dt,trans_cd,do_no,allot_no,prod_desc,prod_catg,trans_type,
 	      qty_bag,qty_qnt,qty_kg,qty_gm,created_by,created_dt from td_stock_trans_pds
 	      where approval_status='U' order by trans_cd";
 
@@ -87,7 +87,8 @@
 
                             <tr>
                                 <th>Trans Date</th>
-                                <th>DO No.</th>
+				<th>DO No.</th>
+				<th>Allot No.</th>
                                 <th>Product</th>
                                 <th>Category</th>
                                 <th>Transaction Type</th>
@@ -111,16 +112,17 @@
                                 while($row=mysqli_fetch_assoc($result)){
                                     $transdt	=	$row['trans_dt'];
                                     $transcd	=	$row['trans_cd'];
-                                    $dono	=	$row['do_no'];
+				    $dono	=	$row['do_no'];
+				    $allotno	=	$row['allot_no'];
                                     $prodesc	=	$row['prod_desc'];
                                     $prodcatg	=	$row['prod_catg'];
-                                    $trtype   =	$row['trans_type'];
+                                    $trtype   	=	$row['trans_type'];
                                     $bag	=	$row['qty_bag'];
                                     $qnt	=	$row['qty_qnt'];
-                                    $kg	=	$row['qty_kg'];
-                                    $gm	=	$row['qty_gm'];
-                                    $createdby=	$row['created_by'];
-                                    $createddt=	$row['created_dt'];
+                                    $kg		=	$row['qty_kg'];
+                                    $gm		=	$row['qty_gm'];
+                                    $createdby	=	$row['created_by'];
+                                    $createddt	=	$row['created_dt'];
 
                                     if($trtype=='I'){
                                         $transtype='In';
@@ -131,7 +133,8 @@
                                     ?>
                                     <tr>
                                         <td><?php echo date('d/m/Y',strtotime($transdt)); ?></td>
-                                        <td><?php echo $dono; ?></td>
+					<td><?php echo $dono; ?></td>
+					<td><?php echo $allotno; ?></td>
                                         <td><?php echo $prodesc; ?></td>
                                         <td><?php echo $prodcatg; ?></td>
                                         <td><?php echo $transtype; ?></td>
