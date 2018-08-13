@@ -131,20 +131,33 @@
             <div class="content">
 
                 <div class="manue">
+
                     <br>
 
-                    <div><a class="abtn green" href="../transactions/stock_in_pds.php">
+                    <div>
+
+                        <a class="abtn green" href="../transactions/stock_in_pds.php">
+
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In</a>
+
                     </div>
 
                     <hr class='hr' style="margin-top: 15px;">
 
-                    <div><a class="abtn green" href="../transactions/allot_sheet.php">
+                    <div>
+
+                        <a class="abtn green" href="../transactions/allot_sheet.php">
+
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
+
                         <br><br>
+
                     </div>
 
-                    <div><a class="abtn green" href="../transactions/allot_sheet_view.php">
+                    <div>
+
+                        <a class="abtn green" href="../transactions/allot_sheet_view.php">
+
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
                     </div>
 
@@ -156,7 +169,7 @@
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out</a>
 
-                        <br><br>
+                        <br>
 
                     </div>
 
@@ -177,6 +190,28 @@
                         <a class="abtn green" href="../transactions/view_stock_in_pds.php">
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve Stock Transactions</a>
+
+                        <br><br>
+
+                    </div>
+
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/pds_challan_form.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Challan</a>
+
+                        <br><br>
+
+                    </div>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/view_stock_in_pds.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NON PDS Challan</a>
 
                         <br><br>
 

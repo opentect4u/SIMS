@@ -231,7 +231,7 @@
 
                 $(thisAlert).removeClass('alert-validate');
 
-                $(thisAlert).removeClass('alert-data');
+                //$(thisAlert).removeClass('alert-data');
             }
 
         });
@@ -249,6 +249,37 @@
 		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
 
         });
+
+        $('#do_no').change( function () {
+
+            var allotmentNo = $(this).val();
+
+            $.ajax({
+
+                url:"../fetch/checkAllotNo.php",
+
+                data: {
+
+                    allotmentNo : allotmentNo
+
+                },
+
+                type: "GET"
+
+            }).done(function (data) {
+
+                if(data != 1) {
+
+                    alert("Allotment Number Doesn't Match");
+
+                    $('#do_no').val('');
+
+                }
+
+            });
+
+        });
+
     });
 
     </script>

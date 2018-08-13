@@ -213,8 +213,11 @@
                             </span>
 
                             <div class="wrap-input1 validate-input" data-validate="Date is required">
+
                                 <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
+
                                 <span class="shadow-input1"></span>
+
                             </div>
 
 
