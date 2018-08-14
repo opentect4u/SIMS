@@ -10,20 +10,27 @@
 	$start_dt   = '2018-07-24';
 	$end_dt     = '2018-07-27';*/
 
-	    $rep_data['start_dt']           = [];
+	$rep_data['start_dt']           = [];
         $rep_data['bag_opn_bal']        = [];
         $rep_data['qnt_opn_bal']        = [];
         $rep_data['kg_opn_bal']         = [];
         $rep_data['gm_opn_bal']         = [];
-	    $rep_data['do_no']         	    = [];
+	$rep_data['do_no']         	= [];
         $rep_data['qty_bag']            = [];
         $rep_data['qty_qnt']            = [];
         $rep_data['qty_kg']             = [];
-        $rep_data['qty_gm']             = [];
+	$rep_data['qty_gm']             = [];
+	$rep_data['allot_no']		= [];
+	$rep_data['out_bag']            = [];
+	$rep_data['out_qnt']            = [];
+	$rep_data['out_kg']             = [];
+	$rep_data['out_gm']             = [];
+	$rep_data['sht_kg']		= [];
+	$rep_data['sht_gm']		= [];
         $rep_data['bag_bal']            = [];
         $rep_data['qnt_bal']            = [];
         $rep_data['kg_bal']             = [];
-	    $rep_data['gm_bal']             = [];
+	$rep_data['gm_bal']             = [];
 
 	if ($_SERVER['REQUEST_METHOD']=="POST"){
 		$prod_no = $_POST['sl_no'];
@@ -108,17 +115,19 @@
 	unset($select);
 	unset($result);	
 
-	$select = "Select ifnull(sum(qty_bag),0)qty_bag,
-			  ifnull(sum(qty_qnt),0)qty_qnt,
-			  ifnull(sum(qty_kg),0)qty_kg,
-			  ifnull(sum(qty_gm),0)qty_gm,
-			  ifnull(do_no,0)do_no
-                   from   td_stock_trans_pds
-                   where  prod_sl_no = '$prod_no'
-                   and    prod_catg  = '$prod_catg'
-		   and    trans_dt   = '$start_dt'
-		   and    approval_status = 'A'
-		   group by do_no";
+	$select="Select do_no,
+ 	       ifnull(sum(qty_bag),0)qty_bag,
+               ifnull(sum(qty_qnt),0)qty_qnt,
+               ifnull(sum(qty_kg),0)qty_kg,
+               ifnull(sum(qty_gm),0)qty_gm
+        from   td_stock_trans_pds
+        where  prod_sl_no = '$prod_no'
+        and    prod_catg  = '$prod_catg'
+        and    trans_dt   = '$start_dt'
+        and    trans_type =  'I'
+        and    approval_status = 'A'
+	group by do_no";
+	   	
 
 	$result = mysqli_query($db_connect,$select);
 	if($result){
@@ -129,8 +138,62 @@
 			$qty_kg  = $data['qty_kg'];
 			$qty_gm  = $data['qty_gm'];
 			$do_no   = $data['do_no'];
+			$allot_no = '';
+		}else{
+			$qty_bag = 0;
+			$qty_qnt = 0;
+			$qty_kg  = 0;
+			$qty_gm  = 0;	
+			$do_no   = '';
+			$allot_no = '';
+		  }
+	}
+				
+	unset($select);
+	unset($result);
+	
+	$select = "Select allot_no,
+                          ifnull(sum(qty_bag),0)out_bag,
+                          ifnull(sum(qty_qnt),0)out_qnt,
+                          ifnull(sum(qty_kg),0)out_kg,
+                          ifnull(sum(qty_gm),0)out_gm,
+               		  ifnull(sum(sht_kg),0)sht_kg,
+               		  ifnull(sum(sht_gm),0)sht_gm
+        	  from   td_stock_trans_pds
+        	  where  prod_sl_no = '$prod_no'
+        	  and    prod_catg  = '$prod_catg'
+        	  and    trans_dt   = '$start_dt'
+        	  and    trans_type =  'O'
+        	  and    approval_status = 'A'
+		  group by allot_no";
 
-		
+	$result = mysqli_query($db_connect,$select);
+        if($result){
+                if(mysqli_num_rows($result) > 0){
+                        $data = mysqli_fetch_assoc($result);
+                        $out_bag = $data['out_bag'];
+                        $out_qnt = $data['out_qnt'];
+                        $out_kg  = $data['out_kg'];
+                        $out_gm  = $data['out_gm'];
+			$allot_no= $data['allot_no'];
+			$sht_kg  = $data['sht_kg'];
+			$sht_gm  = $data['sht_gm'];
+			$do_no = '';
+                }else{
+                        $out_bag = 0;
+                        $out_qnt = 0;
+                        $out_kg  = 0;
+			$out_gm  = 0;
+			$sht_kg  = 0;
+			$sht_gm  = 0;
+			$do_no   = '';
+			$allot_no= '';
+                  }
+        }
+
+
+
+
 			
 			$max = "select max(trans_cd)transcd
 			        from   td_stock_trans_pds
@@ -154,27 +217,20 @@
 
 			$cls_result = mysqli_query($db_connect,$closing);	
 			if($cls_result){
-				$data = mysqli_fetch_assoc($cls_result);
-				$bag_bal = $data['bag_bal'];
-				$qnt_bal = $data['qnt_bal'];
-				$kg_bal  = $data['kg_bal'];
-				$gm_bal  = $data['gm_bal'];		
+				if(mysqli_num_rows($cls_result) > 0){ 
+					$data = mysqli_fetch_assoc($cls_result);
+					$bag_bal = $data['bag_bal'];
+					$qnt_bal = $data['qnt_bal'];
+					$kg_bal  = $data['kg_bal'];
+					$gm_bal  = $data['gm_bal'];
+				}else{
+					$bag_bal = 0;
+					$qnt_bal = 0;
+					$kg_bal  = 0;
+					$gm_bal  = 0;	
+				}		
 			}
-		}else{
-			$qty_bag = 0;
-			$qty_qnt = 0;
-			$qty_kg  = 0;
-			$qty_gm  = 0;
-			$do_no   = 0;
-
-			$bag_bal = $bag_opn_bal;
-			$qnt_bal = $qnt_opn_bal;
-			$kg_bal  = $kg_opn_bal;
-			$gm_bal	 = $gm_opn_bal;
 			
-		}
-	}
-
 
 	array_push($rep_data['start_dt'], $start_dt); 
 	array_push($rep_data['bag_opn_bal'], $bag_opn_bal);
@@ -186,6 +242,13 @@
 	array_push($rep_data['qty_qnt'], $qty_qnt);
 	array_push($rep_data['qty_kg'], $qty_kg);
 	array_push($rep_data['qty_gm'], $qty_gm);
+	array_push($rep_data['allot_no'],$allot_no);
+	array_push($rep_data['out_bag'],$out_bag);
+        array_push($rep_data['out_qnt'],$out_qnt);
+        array_push($rep_data['out_kg'],$out_kg);
+        array_push($rep_data['out_gm'],$out_gm);
+        array_push($rep_data['sht_kg'],$sht_kg);
+	array_push($rep_data['sht_gm'],$sht_gm);
 	array_push($rep_data['bag_bal'], $bag_bal);
 	array_push($rep_data['qnt_bal'], $qnt_bal);
 	array_push($rep_data['kg_bal'], $kg_bal);
@@ -274,7 +337,14 @@
                                 <th>Received<br>(Bag/Tin)</th>
                                 <th>Received<br>(Quintal)</th>
                                 <th>Received<br>(Kg)</th>
-                                <th>Received<br>(gm)</th>
+				<th>Received<br>(Gm)</th>
+				<th>Allotment No.</th>
+				<th>Sold<br>(Bag/Tin)</th>
+				<th>Sold<br>(Quintal)</th>
+				<th>Sold<br>(Kg)</th>
+				<th>Sold<br>(Gm)</th>
+				<th>Shortage<br>(Kg)</th>
+				<th>Shortage<br>(Gm)</th>
                                 <th>Closing<br>Stock<br>(Bag/Tin)</th>
                                 <th>Closing<br>Stock<br>(Quintal)</th>
                                 <th>Closing<br>Stock<br>(Kg)</th>
@@ -300,7 +370,14 @@
                                     <td><?php echo $rep_data['qty_bag'][$i];?></td>
                                     <td><?php echo $rep_data['qty_qnt'][$i];?></td>
                                     <td><?php echo $rep_data['qty_kg'][$i];?></td>
-                                    <td><?php echo $rep_data['qty_gm'][$i];?></td>
+				    <td><?php echo $rep_data['qty_gm'][$i];?></td>
+				    <td><?php echo $rep_data['allot_no'][$i] ?></td>	
+				    <td><?php echo $rep_data['out_bag'][$i];?></td>
+				    <td><?php echo $rep_data['out_qnt'][$i];?></td>	
+				    <td><?php echo $rep_data['out_kg'][$i];?></td>
+				    <td><?php echo $rep_data['out_gm'][$i];?></td>
+				    <td><?php echo $rep_data['sht_kg'][$i];?></td>
+				    <td><?php echo $rep_data['sht_gm'][$i];?></td>
                                     <td><?php echo $rep_data['bag_bal'][$i];?></td>
                                     <td><?php echo $rep_data['qnt_bal'][$i];?></td>
                                     <td><?php echo $rep_data['kg_bal'][$i];?></td>
