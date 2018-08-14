@@ -64,7 +64,9 @@
     <hr class='hr'>
 
     <div class="container" style="margin-left: 10px">
+
         <div class="row">
+
             <div class="col-lg-4 col-md-6">
 
                 <?php require("../post/menu.php"); ?>
@@ -73,13 +75,29 @@
 
             <div class="col-lg-8 col-md-6">
 
-                <div class="container-contact2" style="margin-top: 50px">
+                <div class="container-contact1">
 
-                            <span class="contact1-form-title" style="text-align: center;">
+                    <div class="contact1-form">
 
-                             List of Products
+                        <span class="contact1-form-title">
 
-                            </span>
+                           Approve Stock Transactions
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-8 col-md-6">
+
+                <div class="container-contact2" style="margin-top: 20px; margin-left: 0;">
 
                     <table class="table table-bordered table-hover">
 
@@ -87,11 +105,11 @@
 
                             <tr>
                                 <th>Trans Date</th>
-				<th>DO No.</th>
-				<th>Allot No.</th>
+                                <th>DO No.</th>
+                                <th>Allot No.</th>
                                 <th>Product</th>
                                 <th>Category</th>
-                                <th>Transaction Type</th>
+                                <th>Transaction<br>Type</th>
                                 <th>Bag/Tin</th>
                                 <th>Quintal</th>
                                 <th>Kg</th>
@@ -112,8 +130,8 @@
                                 while($row=mysqli_fetch_assoc($result)){
                                     $transdt	=	$row['trans_dt'];
                                     $transcd	=	$row['trans_cd'];
-				    $dono	=	$row['do_no'];
-				    $allotno	=	$row['allot_no'];
+                                    $dono	    =	$row['do_no'];
+                                    $allotno	=	$row['allot_no'];
                                     $prodesc	=	$row['prod_desc'];
                                     $prodcatg	=	$row['prod_catg'];
                                     $trtype   	=	$row['trans_type'];
@@ -133,8 +151,8 @@
                                     ?>
                                     <tr>
                                         <td><?php echo date('d/m/Y',strtotime($transdt)); ?></td>
-					<td><?php echo $dono; ?></td>
-					<td><?php echo $allotno; ?></td>
+                                        <td><?php echo $dono; ?></td>
+                                        <td><?php echo $allotno; ?></td>
                                         <td><?php echo $prodesc; ?></td>
                                         <td><?php echo $prodcatg; ?></td>
                                         <td><?php echo $transtype; ?></td>
@@ -162,8 +180,11 @@
                     </table>
 
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="../js/collapsible.js"></script>

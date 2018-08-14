@@ -12,7 +12,7 @@
 		$_SESSION['ins_flag']=false;
 	}
 
-	if($_SESSION['rate_edit'] == true){
+	if(isset($_SESSION['rate_edit']) == true){
 		echo"<script>alert('Rate Successfully Updated')</script>";
 		$_SESSION['rate_edit']=false;
 	}

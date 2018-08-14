@@ -195,28 +195,6 @@
 
                     </div>
 
-                    <hr class='hr' style="margin-top: 15px;">
-
-                    <div>
-
-                        <a class="abtn green" href="../transactions/pds_challan_form.php">
-
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Challan</a>
-
-                        <br><br>
-
-                    </div>
-
-                    <div>
-
-                        <a class="abtn green" href="../transactions/view_stock_in_pds.php">
-
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NON PDS Challan</a>
-
-                        <br><br>
-
-                    </div>
-
                 </div>
 
             </div>
@@ -258,6 +236,28 @@
                             Allotment Sheet Report
 
                         </a>
+
+                        <br><br>
+
+                    </div>
+
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+
+                        <a class="abtn green" href="../report/pds_challan_form.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Challan</a>
+
+                        <br><br>
+
+                    </div>
+
+                    <div>
+
+                        <a class="abtn green" href="#">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NON PDS Challan</a>
 
                         <br><br>
 

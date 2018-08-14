@@ -24,8 +24,8 @@
 			$prodcatg	=	$_POST['prod_catg'];	
 			$remarks	=	$_POST['remarks'];
 			$transcd	=	1;
-                        $user_id=$_SESSION["user_id"];
-			$time=date("Y-m-d h:i:s");
+            $user_id    =   $_SESSION["user_id"];
+			$time       =   date("Y-m-d h:i:s");
 
 			$prod_cd = f_getprodcd($proddesc,$db_connect);
 			$catg_cd = f_getcatgcd($prodcatg,$db_connect);
@@ -37,7 +37,8 @@
 			echo "qty_bal-$qty_bal"."<br>";
 			echo "tot_bal-$tot_bal";*/
 
-		        try{
+		    try{
+
 				f_check_balance($qty_bal,$tot_bal);
 			}		
 
@@ -98,10 +99,7 @@
 
 			    $result=mysqli_query($db_connect,$sql);
 
-			    /*if($result){
-				$_SESSION['ins_flag']=true;    
-			    	Header("Location:view_stock_in_pds.php");
-			    }	*/
+			    header("Location: view_stock_in_pds.php");
 				
 
             }
@@ -118,9 +116,9 @@
         $prod_result = mysqli_query($db_connect, $prod_sql);
 
 
-        $catg_sql	="Select prod_catg from m_prod_catg";
+        $catg_sql	=   "Select prod_catg from m_prod_catg";
 
-        $result_catg	= mysqli_query($db_connect,$catg_sql);
+        $result_catg = mysqli_query($db_connect,$catg_sql);
 		
 
 ?>

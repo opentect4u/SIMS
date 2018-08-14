@@ -1090,7 +1090,7 @@ $result = mysqli_query($db_connect, $sql);
 
                             <select class="input1" name="memoNo" id="memoNo" >
 
-                                <option>Select</option>
+                                <option>Select Allotment No.</option>
 
                                 <?php
 
