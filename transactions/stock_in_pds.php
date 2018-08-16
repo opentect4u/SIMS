@@ -212,7 +212,6 @@
 
                 $(thisAlert).removeClass('alert-validate');
 
-                $(thisAlert).removeClass('alert-data');
             }
 
         });
