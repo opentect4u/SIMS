@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                             $alt_month,
                                                                             $alt_year,
                                                                            '$date',
-                                                                            $mrNo[$i],
+                                                                           '$mrNo[$i]',
                                                                            '$dealer_name[$i]',
                                                                            '$region[$i]',
                                                                             $aay_unit[$i],
@@ -165,11 +165,18 @@ $pattern .= substr(date('Y'), 2, 2);
 
     $(document).ready(function() {
 
-        var memoNo   =   $('.validate-input input[name = "memoNo"]');
+        var memoNo          =   $('.validate-input input[name = "memoNo"]'),
+            effective_dt    =   $('.validate-input input[name = "effective_dt"]');
 
         $('#form').submit(function(e) {
 
             var check = true;
+
+            $('.validate-input .input1').each(function(){
+
+                hideAlertdate(this);
+
+            });
 
             if($(memoNo).val().trim() == '') {
 
@@ -178,11 +185,21 @@ $pattern .= substr(date('Y'), 2, 2);
                 check=false;
             }
 
+            if($(effective_dt).val().trim() == '') {
+
+                showValidate(effective_dt);
+
+                check=false;
+            }
+
             return check;
 
         });
 
-        $('.validate-form .input1').each(function() {
+        showData(memoNo);
+        showData(effective_dt);
+
+        $('.validate-input .input1').each(function() {
 
             $(this).focus(function() {
 
@@ -191,6 +208,14 @@ $pattern .= substr(date('Y'), 2, 2);
             });
 
         });
+
+        function showData(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).addClass('alert-data');
+
+        }
 
         function showValidate(input) {
 
@@ -206,6 +231,14 @@ $pattern .= substr(date('Y'), 2, 2);
             $(thisAlert).removeClass('alert-validate');
         }
 
+        function hideAlertdate(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).removeClass('alert-data');
+
+        }
+
     });
 </script>
 
@@ -214,37 +247,6 @@ $pattern .= substr(date('Y'), 2, 2);
     $(document).ready(function() {
 
         $('.defaultHide').hide();
-
-        $('#form').submit(function(e) {
-            //e.preventDefault();
-            var prod_desc = $('#prod_desc').val(),
-                prod_catg = $('#prod_catg').val(),
-                per_unit  = $('#per_unit').val(),
-                unit_val  = $('#unit_val').val();
-
-            $(".error").remove();
-
-
-            if (prod_desc == 0) {
-                e.preventDefault();
-                $('#prod_desc').after('<span class="error">Invalid Input</span>');
-            }
-
-            if (prod_catg == 0) {
-                e.preventDefault();
-                $('#prod_catg').after('<span class="error">Invalid Input</span>');
-            }
-
-            if(per_unit.length < 1) {
-                e.preventDefault();
-                $('#per_unit').after('<span class="error">Invalid Input</span>');
-            }
-
-            if(unit_val.length < 1) {
-                e.preventDefault();
-                $('#unit_val').after('<span class="error">Invalid Input</span>');
-            }
-        });
 
         $('#effective_dt').on("change", function() {
 
@@ -263,13 +265,6 @@ $pattern .= substr(date('Y'), 2, 2);
                 return false;
             }
         });
-
-        $('#prod_catg').change(function () {
-
-            $('#per_unit').val($(this).find(':selected').attr('data-val'));
-
-        });
-
 
     });
 
@@ -292,8 +287,6 @@ $pattern .= substr(date('Y'), 2, 2);
         }).done( function ( result ) {
 
             global_var = JSON.parse(result);
-
-            console.log(global_var);
 
         });
 
@@ -352,8 +345,6 @@ $pattern .= substr(date('Y'), 2, 2);
                 type: 'POST'
 
             }).done( function(result) {
-
-                console.log(result);
 
                 $('.dealer_name').eq(index_no).val(result.del_name);
 
@@ -916,7 +907,7 @@ $pattern .= substr(date('Y'), 2, 2);
 
                     <div class="contact1-form">
 
-                        <div class="wrap-input1 validate-input" data-validate="Memo No is required">
+                        <div class="wrap-input1 validate-input" data-validate="Memo No is required" data-alert="Momo No." >
 
                             <input type="text" class="input1" name="memoNo" id="memoNo" placeholder="Memo No" />
 
@@ -925,7 +916,7 @@ $pattern .= substr(date('Y'), 2, 2);
                         </div>
 
 
-                        <div class="wrap-input1 validate-input" data-validate="Date is required">
+                        <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Effective Date" >
 
                             <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
 

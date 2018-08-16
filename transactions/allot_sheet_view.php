@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                             $alt_month,
                                                                             $alt_year,
                                                                            '$date',
-                                                                            $mrNo[$i],
+                                                                           '$mrNo[$i]',
                                                                            '$dealer_name[$i]',
                                                                            '$region[$i]',
                                                                             $aay_unit[$i],
@@ -157,7 +157,85 @@ $result = mysqli_query($db_connect, $sql);
 
     $(document).ready(function() {
 
-        $('.defaultHide').hide();
+        var memoNo          =   $('.validate-input select[name = "memoNo"]'),
+            effective_dt    =   $('.validate-input input[name = "effective_dt"]');
+
+        $('#form').submit(function(e) {
+
+            var check = true;
+
+            $('.validate-input .input1').each(function(){
+
+                hideAlertdate(this);
+
+            });
+
+            if($(memoNo).val().trim() == '0') {
+
+                showValidate(memoNo);
+
+                check=false;
+            }
+
+            if($(effective_dt).val().trim() == '') {
+
+                showValidate(effective_dt);
+
+                check=false;
+            }
+
+            return check;
+
+        });
+
+        showData(memoNo);
+        showData(effective_dt);
+
+        $('.validate-input .input1').each(function() {
+
+            $(this).focus(function() {
+
+                hideValidate(this);
+
+            });
+
+        });
+
+        function showData(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).addClass('alert-data');
+
+        }
+
+        function showValidate(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).addClass('alert-validate');
+        }
+
+        function hideValidate(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).removeClass('alert-validate');
+        }
+
+        function hideAlertdate(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).removeClass('alert-data');
+
+        }
+    });
+</script>
+
+<script>
+
+    $(document).ready(function() {
 
         $('#effective_dt').on("change", function() {
 
@@ -174,22 +252,12 @@ $result = mysqli_query($db_connect, $sql);
                 $('#effective_dt').val('');
 
                 return false;
-
             }
-
         });
-
-
-        $('#prod_catg').change(function () {
-
-            $('#per_unit').val($(this).find(':selected').attr('data-val'));
-
-        });
-
 
     });
-</script>
 
+</script>
 
 <script>
 
@@ -1086,11 +1154,11 @@ $result = mysqli_query($db_connect, $sql);
 
                     <div class="contact1-form validate-form">
 
-                        <div class="wrap-input1 validate-input" data-validate="Date is required">
+                        <div class="wrap-input1 validate-input" data-validate="Allotment No. is required" data-alert="Momo No.">
 
                             <select class="input1" name="memoNo" id="memoNo" >
 
-                                <option>Select Allotment No.</option>
+                                <option value="0">Select Allotment No.</option>
 
                                 <?php
 
@@ -1111,7 +1179,7 @@ $result = mysqli_query($db_connect, $sql);
                         </div>
 
 
-                        <div class="wrap-input1 validate-input" data-validate="Date is required">
+                        <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Effective Date" >
 
                             <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
 

@@ -89,11 +89,19 @@
             var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
             var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
+            var    unit_type        =    $('.validate-input input[name = "unit_type"]');
+            var    unit_val         =    $('.validate-input input[name = "unit_val"]');
 
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(effective_dt).val().trim() == '') {
 
@@ -122,7 +130,11 @@
 
             });
 
-
+            showData(effective_dt);
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(unit_type);
+            showData(unit_val);
 
             $('.validate-form .input1').each(function(){
                 $(this).focus(function(){
@@ -142,10 +154,26 @@
 
             }
 
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
+
             function hideValidate(input) {
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -212,7 +240,7 @@
 
                             </span>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Effective Date">
 
                                 <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
 
@@ -221,7 +249,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
                                 <select class="input1" name="prod_desc" id="prod_desc">
 
@@ -242,7 +270,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Product category is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product category is required" data-alert="Product Category">
 
                                 <select class="input1" name="prod_catg" id="prod_catg">
 
@@ -257,19 +285,20 @@
                                         }
 
                                     ?>
+
                                 </select>
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" >
+                            <div class="wrap-input1 validate-input" data-alert="Category Type">
 
                                 <input type="text" class="input1" name="unit_type" id="unit_type" readonly />
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Unit is required">
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required" data-alert="Unit">
 
                                 <input type="text" class="input1" name="unit_val" id="unit_val" value="0.00" placeholder="Scale" />
 

@@ -89,10 +89,18 @@
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
             var    per_unit         =    $('.validate-input select[name = "per_unit"]');
             var    prod_rate        =    $('.validate-input input[name = "prod_rate"]');
+            var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
+            var    prod_type        =    $('.validate-input input[name = "prod_type"]');
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(prod_desc).val().trim() == '0') {
 
@@ -129,7 +137,12 @@
 
             });
 
-
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(per_unit);
+            showData(prod_rate);
+            showData(effective_dt);
+            showData(prod_type);
 
             $('.validate-form .input1').each(function(){
 
@@ -141,7 +154,13 @@
 
             });
 
+            function showData(input) {
 
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
             function showValidate(input) {
 
@@ -158,6 +177,15 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -205,11 +233,11 @@
 
                                 <span class="contact1-form-title">
 
-                                   PDS Product Rate
+                                   Product's Rate
 
                                 </span>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Effective Date" >
 
                                 <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo date("Y-m-d") ?>" />
 
@@ -217,7 +245,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product is required" data-alert="Product Name" >
 
                                 <select name="prod_desc" class="input1" id="prod_desc" >
 
@@ -239,7 +267,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Type" >
 
                                 <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
 
@@ -247,7 +275,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Category is required">
+                            <div class="wrap-input1 validate-input" data-validate="Category is required" data-alert="Category" >
 
                                 <select name="prod_catg" class="input1" id="prod_catg">
 
@@ -269,7 +297,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Unit type is required">
+                            <div class="wrap-input1 validate-input" data-validate="Unit type is required" data-alert="Unit" >
 
                                 <select name="per_unit" class="input1" id="per_unit" >
 
@@ -290,7 +318,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Rate is required">
+                            <div class="wrap-input1 validate-input" data-validate="Rate is required" data-alert="Product Rate" >
 
                                 <input type="text" class="input1" name="prod_rate" id="prod_rate" value="0.00">
 

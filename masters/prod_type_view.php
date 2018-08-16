@@ -47,67 +47,95 @@
 <head>
 
 <body class="body">
-<?php require '../post/nav.php'; ?>
+
+    <?php require '../post/nav.php'; ?>
+
+    <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
+
+    <hr class='hr'>
+
+    <div class="container" style="margin-left: 10px">
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6">
+
+                <?php require("../post/menu.php"); ?>
+
+            </div>
+
+            <div class="col-lg-8 col-md-6">
+
+                <div class="container-contact1">
+
+                    <span class="contact1-form-title" style="text-align: center;">
+
+                     List of Product Types
+
+                    </span>
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead style="background-color: #212529; color: #fff;">
+
+                            <tr>
+
+                                <th scope="col">Sl.No.</th>
+
+                                <th scope="col">Product Type</th>
+
+                                <th scope="col">Options</th>
+
+                            </tr>
+
+                        </thead>
 
 
-<h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
-<hr class='hr'>
-<div class="container" style="margin-left: 10px">
-    <div class="row">
-        <div class="col-lg-4 col-md-6">
+                        <tbody>
 
-            <?php require("../post/menu.php"); ?>
+                            <?php
 
-        </div>
+                            if($result){
 
-        <div class="col-lg-8 col-md-6">
+                                if(mysqli_num_rows($result) > 0){
 
-            <div class="container-contact1">
+                                    while($rtv_data=mysqli_fetch_assoc($result)){
 
-                <span class="contact1-form-title" style="text-align: center;">
-                 List of Product Types
-                </span>
+                                        $slno=$rtv_data['sl_no'];
 
-                <table class="table table-bordered table-hover">
+                                        $prodtype=$rtv_data['prod_type'];
 
-                    <thead style="background-color: #212529; color: #fff;">
+                                        ?>
 
-                        <tr>
-                            <th scope="col">Sl.No.</th>
-                            <th scope="col">Product Type</th>
-                            <th scope="col">Options</th>
-                        </tr>
+                                        <tr scope="row">
 
-                    </thead>
+                                            <td style="text-align: center;"><?php echo $slno; ?></td>
 
+                                            <td style="text-align: center;"><?php echo $prodtype; ?></td>
 
-                    <tbody>
-                        <?php
-                        if($result){
-                            if(mysqli_num_rows($result) > 0){
-                                while($rtv_data=mysqli_fetch_assoc($result)){
-                                    $slno=$rtv_data['sl_no'];
-                                    $prodtype=$rtv_data['prod_type'];
+                                            <td style="text-align: center;"><a href="../edit/prod_type_edit.php?sl_no=<?php echo $slno; ?>">
 
-                                    ?>
-                                    <tr scope="row">
-                                        <td style="text-align: center;"><?php echo $slno; ?></td>
-                                        <td style="text-align: center;"><?php echo $prodtype; ?></td>
-                                        <td style="text-align: center;"><a href="../edit/prod_type_edit.php?sl_no=<?php echo $slno; ?>">
-                                                <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
-                                    </tr>
-                                    <?php
+                                                    <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
+                                        </tr>
+
+                                        <?php
+                                    }
                                 }
                             }
-                        }
-                        ?>
-                    </tbody>
 
-                </table>
+                            ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
-</div>
 
 <script src="../js/collapsible.js"></script>
    

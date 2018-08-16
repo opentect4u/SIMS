@@ -46,10 +46,19 @@
     $(document).ready(function() {
 
         var name = $('.validate-input input[name = "prod_catg"]');
+
         var perunit = $('.validate-input select[name = "per_unit"]');
 
         $('#form').submit(function(e) {
+
             var check = true;
+
+            $('.validate-form .input1').each(function(){
+
+                hideAlertdate(this);
+
+            });
+
             if($(name).val().trim() == '') {
 
                 showValidate(name);
@@ -67,6 +76,9 @@
             return check;
         });
 
+        showData(name);
+        showData(perunit);
+
         $('.validate-form .input1').each(function() {
 
             $(this).focus(function() {
@@ -82,10 +94,26 @@
             $(thisAlert).addClass('alert-validate');
         }
 
+        function showData(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).addClass('alert-data');
+
+        }
+
         function hideValidate(input) {
             var thisAlert = $(input).parent();
 
             $(thisAlert).removeClass('alert-validate');
+        }
+
+        function hideAlertdate(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).removeClass('alert-data');
+
         }
 
     });
@@ -93,55 +121,87 @@
 
     <body class="body">
 
-<?php require '../post/nav.php'; ?>
+        <?php require '../post/nav.php'; ?>
 
-<h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
-<hr class='hr'>
-<div class="container" style="margin-left: 10px">
-    <div class="row">
-        <div class="col-lg-4 col-md-6">
+        <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-            <?php require("../post/menu.php"); ?>
+        <hr class='hr'>
 
-        </div>
-        <div class="col-lg-8 col-md-6">
-            <div class="container-contact1">
-                <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-                        <span class="contact1-form-title">
-                           Product Category
-                        </span>
+        <div class="container" style="margin-left: 10px">
 
-                    <div class="wrap-input1 validate-input" data-validate="Category is required">
-                        <input type="text" class="input1" id="prod_catg" name="prod_catg" placeholder="Category" autofocus>
-                        <span class="shadow-input1"></span>
-                    </div>
+            <div class="row">
 
-                    <div class="wrap-input1 validate-input" data-validate="Unit required">
-                        <select name="per_unit" class="input1" id="per_unit">
-                            <option value="0">Select</option>
-                            <option value="Family">Family</option>
-                            <option value="Head">Head</option>
-                        </select>
-                        <span class="shadow-input1"></span>
-                    </div>
+                <div class="col-lg-4 col-md-6">
 
-                    <div class="container-contact1-form-btn">
-                        <button class="contact1-form-btn">
-                                <span>
-                                    Save
-                                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                    <?php require("../post/menu.php"); ?>
+
+                </div>
+
+                <div class="col-lg-8 col-md-6">
+
+                    <div class="container-contact1">
+
+                        <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
+                                <span class="contact1-form-title">
+
+                                   Product Category
+
                                 </span>
-                        </button>
+
+                            <div class="wrap-input1 validate-input" data-validate="Category is required" data-alert="Category Name">
+
+                                <input type="text" class="input1" id="prod_catg" name="prod_catg" placeholder="Category" autofocus>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-validate="Unit required" data-alert="Category Type">
+
+                                <select name="per_unit" class="input1" id="per_unit">
+
+                                    <option value="0">Select Unit</option>
+
+                                    <option value="Family">Family</option>
+
+                                    <option value="Head">Head</option>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="container-contact1-form-btn">
+
+                                <button class="contact1-form-btn">
+
+                                        <span>
+
+                                            Save
+
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+                                        </span>
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
                     </div>
-                </form>
+
+                </div>
+
             </div>
+
         </div>
-    </div>
-</div>
 
-<script src="../js/collapsible.js"></script>
+        <script src="../js/collapsible.js"></script>
 
-</body>
+    </body>
 
 <html>	 
 				  	

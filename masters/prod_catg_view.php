@@ -62,17 +62,25 @@
                     <div class="container-contact1">
 
                         <span class="contact1-form-title" style="text-align: center;">
+
                          List of Product Category
+
                         </span>
 
                         <table class="table table-bordered table-hover">
 
                             <thead style="background-color: #212529; color: #fff;">
+
                                 <tr>
+
                                     <th>Sl.No.</th>
+
                                     <th>Category</th>
+
                                     <th>Unit</th>
+
                                     <th>Options</th>
+
                                 </tr>
 
                             </thead>
@@ -89,7 +97,7 @@
                                             $prodcatg=$rtv_data['prod_catg'];
                                             $produnit=$rtv_data['per_unit'];
 
-                            ?>
+                                            ?>
                                             <tr>
                                                 <td style="text-align: center;"><?php echo $slno; ?></td>
                                                 <td style="text-align: center;"><?php echo $prodcatg; ?></td>
@@ -97,7 +105,7 @@
                                                 <td style="text-align: center;"><a href="../edit/prod_catg_edit.php?sl_no=<?php echo $slno; ?>" >
                                                         <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a></td>
                                             </tr>
-                            <?php
+                                            <?php
                                         }
                                     }
                                 }
@@ -107,8 +115,11 @@
                         </table>
 
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <script src="../js/collapsible.js"></script>

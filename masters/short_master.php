@@ -76,11 +76,19 @@
             var effective_dt = $('.validate-input input[name = "effective_dt"]');
             var prod_desc = $('.validate-input select[name = "prod_desc"]'),
                 prod_catg = $('.validate-input select[name = "prod_catg"]'),
-                short_flag = $('.validate-input select[name = "short_flag"]');
+                short_flag = $('.validate-input select[name = "short_flag"]'),
+                prod_type = $('.validate-input input[name = "prod_type"]'),
+                short_factor = $('.validate-input input[name = "short_factor"]');
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(effective_dt).val().trim() == '') {
 
@@ -113,6 +121,13 @@
                 return check;
             });
 
+            showData(effective_dt);
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(short_flag);
+            showData(prod_type);
+            showData(short_factor);
+
             $('.validate-form .input1').each(function() {
 
                 $(this).focus(function() {
@@ -120,6 +135,14 @@
                 });
 
             });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
             function showValidate(input) {
 
@@ -132,6 +155,14 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -192,10 +223,12 @@
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <span class="contact1-form-title">
+
                                   Sortage Factor
+
                                 </span>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date required">
+                            <div class="wrap-input1 validate-input" data-validate="Date required" data-alert="Effective Date">
 
                                 <input type="date" id="effective_dt" name="effective_dt" class="input1" effective_dt" value="<?php echo date("Y-m-d");?>" />
 
@@ -203,15 +236,18 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
                                 <select name="prod_desc" id="prod_desc" class="input1">
 
-                                    <option value="0">Select Product</option>
+                                    <option value="0">Select Product Name</option>
+
                                     <?php
 
                                         while($data=mysqli_fetch_assoc($prodesc)){
+
                                             echo "<option value='".$data['prod_desc']."' data-val='".$data['prod_type']."'>".$data['prod_desc']."</option>";
+
                                         }
                                     ?>
                                 </select>
@@ -220,7 +256,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Type" >
 
                                 <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
 
@@ -228,7 +264,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Category is required">
+                            <div class="wrap-input1 validate-input" data-validate="Category is required" data-alert="Product Category">
 
                                 <select id="prod_catg" name="prod_catg" class="input1">
 
@@ -250,12 +286,14 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Flag is required">
+                            <div class="wrap-input1 validate-input" data-validate="Flag is required" data-alert="Shortage Flag">
 
                                 <select id="short_flag" name="short_flag" class="input1">
 
                                     <option Value="0">Select Shortage Flag</option>
+
                                     <option value="Y">Yes</option>
+
                                     <option value="N">No</option>
 
                                 </select>
@@ -264,7 +302,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product type required">
+                            <div class="wrap-input1 validate-input" data-validate="Product type required" data-alert="Shortage Factor">
 
                                 <input type="text" class="input1" id="short_factor" name="short_factor" placeholder="0.0000" />
 
@@ -273,18 +311,29 @@
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
+
                                     <span>
+
                                         Save
+
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                     </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <script src="../js/collapsible.js"></script>

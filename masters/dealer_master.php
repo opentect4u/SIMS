@@ -95,6 +95,12 @@
 
                 var check = true;
 
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
+
                 if($(del_cd).val().trim() == '') {
 
                     showValidate(del_cd);
@@ -117,6 +123,10 @@
                 return check;
             });
 
+            showData(del_cd);
+            showData(del_name);
+            showData(del_reg);
+
             $('.validate-form .input1').each(function() {
 
                 $(this).focus(function() {
@@ -130,12 +140,30 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
             }
 
             function hideValidate(input) {
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -167,10 +195,12 @@
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <span class="contact1-form-title">
+
                                   Dealer Details
+
                                 </span>
 
-                            <div class="wrap-input1 validate-input" data-validate="Dealer code required">
+                            <div class="wrap-input1 validate-input" data-validate="Dealer code required" data-alert="Dealer Code">
 
                                 <input type ="text" class="input1" name="del_cd" id="del_cd" placeholder="Dealer Code" />
 
@@ -178,7 +208,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Dealer name required">
+                            <div class="wrap-input1 validate-input" data-validate="Dealer name required" data-alert="Dealer Name">
 
                                 <input type ="text" class="input1" name="del_name" id="del_name" placeholder="Dealer Name" />
 
@@ -186,7 +216,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product address required">
+                            <div class="wrap-input1 validate-input" data-validate="Product address required" >
 
                                 <textarea class="input1" rows ="5" cols="50" name="del_adr" >Enter Address Here..</textarea>
 
@@ -194,7 +224,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Region required">
+                            <div class="wrap-input1 validate-input" data-validate="Region required" data-alert="Region">
 
                                 <input type ="text" class="input1" name="del_reg" id="del_reg" placeholder="Region" />
 
@@ -202,7 +232,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product type required">
+                            <div class="wrap-input1 validate-input" data-validate="Product type required" data-alert="Product Type">
 
                                 <?php require '../get_param_val.php'; ?>
 
@@ -213,23 +243,35 @@
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
+
                                         <span>
+
                                             Save
+
                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                         </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <script src="../js/collapsible.js"></script>
 
     </body>
+
 </html>
 
 

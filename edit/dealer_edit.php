@@ -98,10 +98,17 @@
 
             var del_name = $('.validate-input input[name = "del_name"]');
             var del_reg = $('.validate-input input[name = "del_reg"]');
+            var del_cd = $('.validate-input input[name = "del_cd"]');
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(del_name).val().trim() == '') {
 
@@ -116,7 +123,12 @@
                 }
 
                 return check;
+
             });
+
+            showData(del_name);
+            showData(del_reg);
+            showData(del_cd);
 
             $('.validate-form .input1').each(function() {
 
@@ -125,6 +137,14 @@
                 });
 
             });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
             function showValidate(input) {
 
@@ -137,6 +157,15 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -167,19 +196,14 @@
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <span class="contact1-form-title">
-                                  Dealer Details
+
+                                  Edit Dealer Details
+
                                 </span>
 
-                            <div class="wrap-input1 validate-input">
+                                <input type="hidden" name="sl_no" value="<?php echo $slno; ?>" readonly />
 
-                                <input type="text" class="input1" name="sl_no" value="<?php echo $slno; ?>" readonly />
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Dealer Code" >
 
                                 <input type="text" class="input1" name="del_cd" value="<?php echo $delcd; ?>" readonly />
 
@@ -188,7 +212,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Dealer Name required">
+                            <div class="wrap-input1 validate-input" data-validate="Dealer Name required" data-alert="Dealer Name">
 
                                 <input type="text" class="input1" id="del_name" name="del_name" value="<?php echo $delname; ?>" />
 
@@ -210,7 +234,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Region is required">
+                            <div class="wrap-input1 validate-input" data-validate="Region is required" data-alert="Region">
 
                                 <input type="text" class="input1" id="del_reg" name="del_reg" value="<?php echo $delreg; ?>" />
 
@@ -219,7 +243,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Dealer code required">
+                            <div class="wrap-input1 validate-input">
 
                                 <input type="text" class="input1" id="del_dist" name="del_dist" value="<?php echo $deldist; ?>" readonly />
 

@@ -60,20 +60,42 @@
 
                 var check = true;
 
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
+
                 if($(name).val().trim() == '') {
 
                     showValidate(name);
+
                     check=false;
+
                 }
 
                 return check;
             });
 
+            showData(name);
+
             $('.validate-form .input1').each(function(){
+
                 $(this).focus(function(){
+
                     hideValidate(this);
+
                 });
+
             });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
             function showValidate(input) {
 
@@ -86,6 +108,15 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -113,28 +144,45 @@
                     <div class="container-contact1">
 
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
                                 <span class="contact1-form-title">
+
                                   Scale Type
+
                                 </span>
 
-                            <div class="wrap-input1 validate-input" data-validate="Unit is required">
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required" data-alert="Bag,Quint...Gram">
+
                                 <input type="text" class="input1" id="prod_qty" name="prod_qty" placeholder="Scale Type" />
+
                                 <span class="shadow-input1"></span>
+
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
+
                                         <span>
+
                                             Save
+
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                         </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <script src="../js/collapsible.js"></script>

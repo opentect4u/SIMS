@@ -42,6 +42,7 @@
 					  $_SESSION['edit_in']=false;
 					  $_SESSION['approve']=false;
 					  $_SESSION['error_flag']=false;
+					  $_SESSION['rate_edit'] = false;
 
 					  $user_id=$_SESSION['user_id'];
 					  $time = date("Y-m-d h:i:s");

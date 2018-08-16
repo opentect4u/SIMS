@@ -70,7 +70,7 @@
 
                             <thead style="background-color: #212529; color: #fff;">
                                 <tr>
-                                    <th>Sl.No.</th>
+                                    <th style="display: none;">Sl.No.</th>
                                     <th>Dealer Code</th>
                                     <th>Dealer Name</th>
                                     <th>Options</th>
@@ -90,7 +90,7 @@
 
                                             ?>
                                             <tr>
-                                                <td style="text-align: center;"><?php echo $slno; ?></td>
+                                                <td style="text-align: center; display: none;"><?php echo $slno; ?></td>
                                                 <td style="text-align: center;"><?php echo $delcd; ?></td>
                                                 <td style="text-align: center;"><?php echo $delname; ?></td>
                                                 <td style="text-align: center;"><a href="../edit/dealer_edit.php?sl_no=<?php echo $slno; ?>" >

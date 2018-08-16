@@ -97,7 +97,91 @@
 
     </head>
 
+    <script>
 
+        $(document).ready(function() {
+
+            var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
+            var    prod_catg        =    $('.validate-input input[name = "prod_catg"]');
+            var    prod_unit        =    $('.validate-input input[name = "prod_unit"]');
+            var    prod_rate        =    $('.validate-input input[name = "prod_rate"]');
+            var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
+            var    prod_type        =    $('.validate-input input[name = "prod_type"]');
+
+            $('#form').submit(function(e) {
+
+                var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
+
+                if($(prod_rate).val() == '') {
+
+                    showValidate(prod_rate);
+
+                    check = false;
+
+                }
+
+                return check;
+
+            });
+
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(prod_unit);
+            showData(prod_rate);
+            showData(effective_dt);
+            showData(prod_type);
+
+            $('.validate-form .input1').each(function(){
+
+                $(this).focus(function(){
+
+                    hideValidate(this);
+
+                });
+
+            });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
+
+            function showValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function hideValidate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
+            }
+
+        });
+
+    </script>
 
     <body class="body">
 
@@ -124,10 +208,12 @@
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <span class="contact1-form-title">
+
                                   Edit Rate
+
                                 </span>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Effective Date" >
 
                                 <input type="date" class="input1" name="effective_dt" id="effective_dt" value="<?php echo $eftdt; ?>" readonly />
 
@@ -135,7 +221,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Name" >
 
                                 <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $prdesc; ?>" readonly />
 
@@ -143,7 +229,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Type" >
 
                                 <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $protype; ?>" readonly />
 
@@ -151,7 +237,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Category" >
 
                                 <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $prdcatg; ?>" readonly />
 
@@ -159,7 +245,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Unit" >
 
                                 <input type="text" class="input1" name="prod_unit" id="prod_unit" value="<?php echo $perunit; ?>" readonly />
 
@@ -167,7 +253,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-validate="Rate is required" data-alert="Product Rate" >
 
                                 <input type="text" class="input1" name="prod_rate" id="prod_rate" value="<?php echo $prorate; ?>" />
 
@@ -179,13 +265,13 @@
 
                                 <button class="contact1-form-btn">
 
-                                        <span>
+                                    <span>
 
-                                            Save
+                                        Save
 
-                                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 
-                                        </span>
+                                    </span>
 
                                 </button>
 
@@ -203,4 +289,5 @@
         <script src="../js/collapsible.js"></script>
 
     </body>
+
 </html>

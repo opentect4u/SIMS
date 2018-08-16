@@ -277,6 +277,52 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 </head>
 
+<script>
+
+    $(document).ready(function() {
+
+        var    trans_dt         =    $('.validate-input input[name = "trans_dt"]');
+        var    trans_cd         =    $('.validate-input input[name = "trans_cd"]');
+        var    do_no            =    $('.validate-input input[name = "do_no"]');
+        var    allot_no         =    $('.validate-input input[name = "allot_no"]');
+        var    prod_type        =    $('.validate-input input[name = "prod_type"]');
+        var    sl_no            =    $('.validate-input input[name = "sl_no"]');
+        var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
+        var    prod_catg        =    $('.validate-input input[name = "prod_catg"]');
+
+        var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
+        var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
+        var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
+        var    qty_gm           =    $('.validate-input input[name = "qty_gm"]');
+
+        showData(trans_dt);
+        showData(trans_cd);
+        showData(do_no);
+        showData(allot_no);
+        showData(prod_desc);
+        showData(prod_catg);
+        showData(prod_type);
+        showData(sl_no);
+
+        showData(qty_bag);
+        showData(qty_qnt);
+        showData(qty_kg);
+        showData(qty_gm);
+
+        function showData(input) {
+
+            var thisAlert = $(input).parent();
+
+            $(thisAlert).addClass('alert-data');
+
+        }
+
+    });
+
+
+</script>
+
+
 <body class="body">
 
 <?php require '../post/nav.php'; ?>
@@ -304,11 +350,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                                 <span class="contact1-form-title">
 
-                                   Allotment Scale Setup
+                                   Approve PDS Stock In/Out
 
                                 </span>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
                         <input type="date" class="input1" name="trans_dt" readonly value="<?php echo date($transdt); ?>" />
 
@@ -316,7 +362,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Transaction Code">
 
                         <input type="text" class="input1" name="trans_cd" readonly value="<?php echo date($transcd); ?>" />
 
@@ -324,7 +370,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Do No">
 
                         <input type="text" class="input1" name="do_no" id="do_no" value="<?php echo $dono; ?>" placeholder="DO No." readonly />
 
@@ -332,7 +378,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Allotment No">
 
                         <input type="text" class="input1" name="allot_no" id="allot_no" value="<?php echo $allotno; ?>" placeholder="MEMO No." readonly />
 
@@ -340,7 +386,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Product Name">
 
                         <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $pdesc; ?>" readonly />
 
@@ -348,7 +394,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Category">
 
                         <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $pcatg; ?>" readonly />
 
@@ -356,7 +402,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Product Type">
 
                         <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $ptype;?>" readonly />
 
@@ -364,7 +410,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Product Sl No.">
 
                         <input type="text" class="input1" name="sl_no" value="<?php echo $pslno; ?>" id="sl_no" readonly />
 
@@ -372,7 +418,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Bag">
 
                         <input type="text" class="input1" name="qty_bag" value="<?php echo $pbag; ?>" readonly />
 
@@ -380,7 +426,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Quintal">
 
                         <input type="text" class="input1" name="qty_qnt" value="<?php echo $pqnt; ?>" readonly />
 
@@ -388,7 +434,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Kg">
 
                         <input type="text" class="input1" name="qty_kg" value="<?php echo $pkg; ?>" readonly />
 
@@ -396,7 +442,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                     </div>
 
-                    <div class="wrap-input1 validate-input">
+                    <div class="wrap-input1 validate-input" data-alert="Gram">
 
                         <input type="text" class="input1" name="qty_gm" value="<?php echo $pgm; ?>" readonly />
 

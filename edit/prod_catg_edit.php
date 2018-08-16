@@ -90,12 +90,19 @@
         $(document).ready( function () {
 
             var name = $('.validate-input input[name = "prod_catg"]'),
+                sl_no = $('.validate-input input[name = "sl_no"]'),
                 per_unit = $('.validate-input select[name = "per_unit"]');
 
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(name).val().trim() == '') {
 
@@ -112,6 +119,10 @@
                 return check;
             });
 
+            showData(name);
+            showData(sl_no);
+            showData(per_unit);
+
             $('.validate-form .input1').each(function(){
                 $(this).focus(function(){
                     hideValidate(this);
@@ -125,10 +136,27 @@
                 $(thisAlert).addClass('alert-validate');
             }
 
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
+
             function hideValidate(input) {
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -160,37 +188,55 @@
                     <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                             <span class="contact1-form-title">
+
                               Edit Product Type
+
                             </span>
 
-                        <div class="wrap-input1 validate-input">
+                        <div class="wrap-input1 validate-input" data-alert="Sl No.">
+
                             <input type="text" class="input1" id="sl_no" name="sl_no" value="<?php echo $slno; ?>" readonly/>
+
                             <span class="shadow-input1"></span>
+
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Product is required">
+                        <div class="wrap-input1 validate-input" data-validate="Product's Category is required" data-alert="Product's Category">
+
                             <input type="text" class="input1" id="prod_catg" name="prod_catg" value="<?php echo $prodcatg; ?>" placeholder="Category"/>
+
                             <span class="shadow-input1"></span>
+
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Product is required">
+                        <div class="wrap-input1 validate-input" data-validate="Product is required" data-alert="Product's Category">
 
                             <select class="input1" name="per_unit" id="per_unit" >
 
                                 <option value="0">Select</option>
+
                                 <option value="Family" <?php echo ($produnit == "Family")?'selected':'';?> >Family</option>
+
                                 <option value="Head" <?php echo ($produnit == "Head")?'selected':'';?> >Head</option>
 
                             </select>
+
                             <span class="shadow-input1"></span>
+
                         </div>
 
                         <div class="container-contact1-form-btn">
+
                             <button class="contact1-form-btn">
+
                                 <span>
+
                                     Save
+
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                 </span>
+
                             </button>
 
                         </div>

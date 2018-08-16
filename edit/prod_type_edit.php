@@ -60,6 +60,7 @@ function test_input($data) {
 
 
 ?>
+
 <html>
 
     <head>
@@ -84,12 +85,20 @@ function test_input($data) {
         
         $(document).ready( function () {
 
-            var name = $('.validate-input input[name = "prod_type"]');
+            var name = $('.validate-input input[name = "prod_type"]'),
+                sl_no = $('.validate-input input[name = "sl_no"]');
+
 
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(name).val().trim() == '') {
 
@@ -99,6 +108,9 @@ function test_input($data) {
 
                 return check;
             });
+
+            showData(name);
+            showData(sl_no);
 
             $('.validate-form .input1').each(function(){
                 $(this).focus(function(){
@@ -113,10 +125,26 @@ function test_input($data) {
                 $(thisAlert).addClass('alert-validate');
             }
 
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
+
             function hideValidate(input) {
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -132,45 +160,70 @@ function test_input($data) {
         <hr class='hr'>
 
         <div class="container" style="margin-left: 10px">
+
             <div class="row">
+
                 <div class="col-lg-4 col-md-6">
 
                     <?php require("../post/menu.php"); ?>
 
                 </div>
+
                 <div class="col-lg-8 col-md-6">
+
                     <div class="container-contact1">
+
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+
                             <span class="contact1-form-title">
+
                               Edit Product Type
+
                             </span>
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Serial No.">
+
                                 <input type="text" class="input1" id="sl_no" name="sl_no" value="<?php echo $slno; ?>" placeholder="Category" readonly/>
+
                                 <span class="shadow-input1"></span>
+
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product is required" data-alert="Product Type" >
+
                                 <input type="text" class="input1" id="prod_type" name="prod_type" value="<?php echo $prodtype; ?>" placeholder="Category">
+
                                 <span class="shadow-input1"></span>
+
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
+
                                         <span>
+
                                             Save
+
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                         </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
-<script src="../js/collapsible.js"></script>
+    <script src="../js/collapsible.js"></script>
 
 </body>
 

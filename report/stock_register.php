@@ -10,7 +10,7 @@
 	$start_dt   = '2018-07-24';
 	$end_dt     = '2018-07-27';*/
 
-	$rep_data['start_dt']           = [];
+	    $rep_data['start_dt']           = [];
         $rep_data['bag_opn_bal']        = [];
         $rep_data['qnt_opn_bal']        = [];
         $rep_data['kg_opn_bal']         = [];
@@ -280,6 +280,53 @@
 
     </head>
 
+    <script>
+
+        $(document).ready(function () {
+
+            $('#print').click(function () {
+
+                printDiv();
+
+            });
+
+            function printDiv() {
+
+                var divToPrint = document.getElementById('divToPrint');
+
+                var WindowObject = window.open('', 'Print-Window');
+                WindowObject.document.open();
+                WindowObject.document.writeln('<!DOCTYPE html>');
+                WindowObject.document.writeln('<html><head><title></title><style type="text/css">');
+
+
+                WindowObject.document.writeln('@media print { .center { text-align: center;}' +
+                    '                                         .inline { display: inline; }' +
+                    '                                         .underline { text-decoration: underline; }' +
+                    '                                         .left { margin-left: 315px;} ' +
+                    '                                         .right { margin-right: 375px; display: inline; }' +
+                    '                                          table { border-collapse: collapse; }' +
+                    '                                          th, td { border: 1px solid black; border-collapse: collapse; padding: 10px;}' +
+                    '                                           th, td { }' +
+                    '                                         .border { border: 1px solid black; } ' +
+                    '                                         .bottom { bottom: 5px; width: 100%; position: fixed ' +
+                    '                                       ' +
+                    '                                   } } </style>');
+                // WindowObject.document.writeln('<style type="text/css">@media print{p { color: blue; }}');
+                WindowObject.document.writeln('</head><body onload="window.print()">');
+                WindowObject.document.writeln(divToPrint.innerHTML);
+                WindowObject.document.writeln('</body></html>');
+                WindowObject.document.close();
+                setTimeout(function () {
+                    WindowObject.close();
+                }, 10);
+
+            }
+
+        });
+
+    </script>
+
     <body class="body">
 
         <?php require '../post/nav.php'; ?>
@@ -315,83 +362,87 @@
 
             </div>
 
-            <div class="row">
+            <div id="divToPrint">
 
-                <div class="col-lg-8 col-md-6">
+                <div class="row">
 
-                    <div class="container-contact2" style="margin-left: 0">
+                    <div class="col-lg-8 col-md-6">
+
+                        <div class="container-contact2" style="margin-left: 0">
 
 
-                        <table class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover" style="width: 100%">
 
-                            <thead style="background-color: #212529; color: #fff;">
-
-                            <tr>
-
-                                <th>Date</th>
-                                <th>Opening<br>Stock<br>(Bag/Tin)</th>
-                                <th>Opening<br>Stock<br>(Quintal)</th>
-                                <th>Opening<br>Stock<br>(Kg)</th>
-                                <th>Opening<br>Stock<br>(Gm)</th>
-                                <th>Do<br>No.</th>
-                                <th>Received<br>(Bag/Tin)</th>
-                                <th>Received<br>(Quintal)</th>
-                                <th>Received<br>(Kg)</th>
-				<th>Received<br>(Gm)</th>
-				<th>Allotment No.</th>
-				<th>Sold<br>(Bag/Tin)</th>
-				<th>Sold<br>(Quintal)</th>
-				<th>Sold<br>(Kg)</th>
-				<th>Sold<br>(Gm)</th>
-				<th>Shortage<br>(Kg)</th>
-				<th>Shortage<br>(Gm)</th>
-                                <th>Closing<br>Stock<br>(Bag/Tin)</th>
-                                <th>Closing<br>Stock<br>(Quintal)</th>
-                                <th>Closing<br>Stock<br>(Kg)</th>
-                                <th>Closing<br>Stock<br>(Gm)</th>
-
-                            </tr>
-
-                            </thead>
-
-                            <tbody style="text-align: right;">
-
-                            <?php
-
-                            for($i=0; $i < count($rep_data['start_dt']); $i++) {?>
+                                <thead style="background-color: #212529; color: #fff;">
 
                                 <tr>
-                                    <td><?php echo date('d/m/Y',strtotime($rep_data['start_dt'][$i])); ?></td>
-                                    <td><?php echo $rep_data['bag_opn_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['qnt_opn_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['kg_opn_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['gm_opn_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['do_no'][$i];?></td>
-                                    <td><?php echo $rep_data['qty_bag'][$i];?></td>
-                                    <td><?php echo $rep_data['qty_qnt'][$i];?></td>
-                                    <td><?php echo $rep_data['qty_kg'][$i];?></td>
-				    <td><?php echo $rep_data['qty_gm'][$i];?></td>
-				    <td><?php echo $rep_data['allot_no'][$i] ?></td>	
-				    <td><?php echo $rep_data['out_bag'][$i];?></td>
-				    <td><?php echo $rep_data['out_qnt'][$i];?></td>	
-				    <td><?php echo $rep_data['out_kg'][$i];?></td>
-				    <td><?php echo $rep_data['out_gm'][$i];?></td>
-				    <td><?php echo $rep_data['sht_kg'][$i];?></td>
-				    <td><?php echo $rep_data['sht_gm'][$i];?></td>
-                                    <td><?php echo $rep_data['bag_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['qnt_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['kg_bal'][$i];?></td>
-                                    <td><?php echo $rep_data['gm_bal'][$i];?></td>
+
+                                    <th>Date</th>
+                                    <th>Opening<br>Stock<br>(Bag/Tin)</th>
+                                    <th>Opening<br>Stock<br>(Quintal)</th>
+                                    <th>Opening<br>Stock<br>(Kg)</th>
+                                    <th>Opening<br>Stock<br>(Gm)</th>
+                                    <th>Do<br>No.</th>
+                                    <th>Received<br>(Bag/Tin)</th>
+                                    <th>Received<br>(Quintal)</th>
+                                    <th>Received<br>(Kg)</th>
+                                    <th>Received<br>(Gm)</th>
+                                    <th>Allotment No.</th>
+                                    <th>Sold<br>(Bag/Tin)</th>
+                                    <th>Sold<br>(Quintal)</th>
+                                    <th>Sold<br>(Kg)</th>
+                                    <th>Sold<br>(Gm)</th>
+                                    <th>Shortage<br>(Kg)</th>
+                                    <th>Shortage<br>(Gm)</th>
+                                    <th>Closing<br>Stock<br>(Bag/Tin)</th>
+                                    <th>Closing<br>Stock<br>(Quintal)</th>
+                                    <th>Closing<br>Stock<br>(Kg)</th>
+                                    <th>Closing<br>Stock<br>(Gm)</th>
+
                                 </tr>
+
+                                </thead>
+
+                                <tbody style="text-align: right;">
+
                                 <?php
 
-                            }
+                                for($i=0; $i < count($rep_data['start_dt']); $i++) {?>
 
-                            ?>
+                                    <tr>
+                                        <td><?php echo date('d/m/Y',strtotime($rep_data['start_dt'][$i])); ?></td>
+                                        <td><?php echo $rep_data['bag_opn_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['qnt_opn_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['kg_opn_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['gm_opn_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['do_no'][$i];?></td>
+                                        <td><?php echo $rep_data['qty_bag'][$i];?></td>
+                                        <td><?php echo $rep_data['qty_qnt'][$i];?></td>
+                                        <td><?php echo $rep_data['qty_kg'][$i];?></td>
+                                        <td><?php echo $rep_data['qty_gm'][$i];?></td>
+                                        <td><?php echo $rep_data['allot_no'][$i] ?></td>
+                                        <td><?php echo $rep_data['out_bag'][$i];?></td>
+                                        <td><?php echo $rep_data['out_qnt'][$i];?></td>
+                                        <td><?php echo $rep_data['out_kg'][$i];?></td>
+                                        <td><?php echo $rep_data['out_gm'][$i];?></td>
+                                        <td><?php echo $rep_data['sht_kg'][$i];?></td>
+                                        <td><?php echo $rep_data['sht_gm'][$i];?></td>
+                                        <td><?php echo $rep_data['bag_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['qnt_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['kg_bal'][$i];?></td>
+                                        <td><?php echo $rep_data['gm_bal'][$i];?></td>
+                                    </tr>
+                                    <?php
 
-                            </tbody>
+                                }
 
-                        </table>
+                                ?>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
 
                     </div>
 
@@ -399,6 +450,16 @@
 
             </div>
 
+        </div>
+
+        <div class="modal-footer">
+
+            <a class="btn btn-default" href="../report/stock_reg_ip.php"
+               style="color: #fff; background-color: #868e96;  border-color: #868e96;">
+
+                Back</a>
+
+            <button class="btn btn-primary" id="print" type="button">Print</button>
 
         </div>
 

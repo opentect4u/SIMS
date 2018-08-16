@@ -111,12 +111,22 @@
 
         $(document).ready(function() {
 
-            var unit_val = $('.validate-input input[name = "unit_val"]');
+            var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
+            var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
+            var    prod_catg        =    $('.validate-input input[name = "prod_catg"]');
+            var    per_unit        =    $('.validate-input input[name = "per_unit"]');
+            var    unit_val         =    $('.validate-input input[name = "unit_val"]');
 
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(unit_val).val().trim() == '') {
 
@@ -128,6 +138,12 @@
 
             });
 
+            showData(effective_dt);
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(per_unit);
+            showData(unit_val);
+
 
             $('.validate-form .input1').each(function() {
 
@@ -138,6 +154,14 @@
                 });
 
             });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
 
             function showValidate(input) {
@@ -151,6 +175,14 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -183,13 +215,13 @@
 
                                 <span class="contact1-form-title">
 
-                                  Edit Allotment Sheet
+                                  Edit Allotment Scale
                                     
                                 </span>
 
                             <input type="hidden" name="sl_no" value="<?php echo $sl_no;?>" />
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Effective Date">
 
                                 <input type="date" class="input1" name="effective_dt" value="<?php echo $eftdt; ?>" readonly />
 
@@ -198,7 +230,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Product Name">
 
                                 <input type="text" class="input1" name="prod_desc" value="<?php echo $proddesc; ?>" readonly />
 
@@ -207,7 +239,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Category">
 
                                 <input type="text" class="input1" id="prod_catg" name="prod_catg" value="<?php echo $prodcatg; ?>"readonly />
 
@@ -216,7 +248,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input">
+                            <div class="wrap-input1 validate-input" data-alert="Category Type">
 
                                 <input type="text" class="input1" id="per_unit" name="per_unit" value="<?php echo $perunit; ?>" readonly />
 
@@ -225,7 +257,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Unit is required">
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required" data-alert="Unit">
 
                                 <input type="text" class="input1" id="unit_val" name="unit_val" value="<?php echo $unitval; ?>" />
 

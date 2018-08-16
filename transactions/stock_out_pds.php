@@ -104,7 +104,9 @@
 
             }
             else{
+
 			    echo "<script>alert('Please Insert Valid Unit, Transaction Failed');</script>";
+
             }
 
         }
@@ -148,6 +150,7 @@
 
         $(document).ready(function() {
 
+            var    trans_dt         =    $('.validate-input input[name = "trans_dt"]');
             var    do_no            =    $('.validate-input input[name = "do_no"]');
             var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
@@ -160,6 +163,12 @@
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-input .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(do_no).val().trim() == '') {
 
@@ -200,6 +209,12 @@
 
             });
 
+            showData(trans_dt);
+            showData(do_no);
+            showData(prod_desc);
+            showData(prod_catg);
+            showData(prod_type);
+            showData(sl_no);
 
             showData(qty_bag);
             showData(qty_qnt);
@@ -230,6 +245,14 @@
                 $(thisAlert).removeClass('alert-validate');
 
                 //$(thisAlert).removeClass('alert-data');
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -314,7 +337,7 @@
 
                                 </span>
 
-                            <div class="wrap-input1 validate-input" >
+                            <div class="wrap-input1 validate-input" data-alert="Transaction Date" >
 
                                 <input type="date" class="input1" name="trans_dt" value="<?php echo date("Y-m-d") ?>" readonly />
 
@@ -322,7 +345,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Allotment Memo No. is required">
+                            <div class="wrap-input1 validate-input" data-validate="Allotment Memo No. is required" data-alert="Allotment No.">
 
                                 <input type="text" class="input1" name="do_no" id="do_no" placeholder="Allotment Number" />
 
@@ -330,7 +353,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product name is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
                                 <select class="input1" name="prod_desc" id="prod_desc">
 
@@ -352,7 +375,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Category is required">
+                            <div class="wrap-input1 validate-input" data-validate="Category is required" data-alert="Category">
 
                                 <select class="input1" name="prod_catg" id="prod_catg" >
 
@@ -374,7 +397,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" >
+                            <div class="wrap-input1 validate-input" data-alert="Product Type">
 
                                 <input type="text" class="input1" name="prod_type" id="prod_type" readonly />
 
@@ -382,7 +405,7 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" >
+                            <div class="wrap-input1 validate-input" data-alert="Product No.">
 
                                 <input type="text" class="input1" name="sl_no" id="sl_no" readonly />
 

@@ -88,11 +88,18 @@
         $(document).ready(function() {
 
             var prod_type = $('.validate-input select[name = "prod_type"]');
+
             var perunit = $('.validate-input input[name = "prod_name"]');
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(perunit).val().trim() == '') {
 
@@ -107,7 +114,11 @@
                 }
 
                 return check;
+
             });
+
+            showData(prod_type);
+            showData(perunit);
 
             $('.validate-form .input1').each(function() {
 
@@ -122,12 +133,30 @@
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).addClass('alert-validate');
+
+            }
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
             }
 
             function hideValidate(input) {
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -159,26 +188,34 @@
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                             <span class="contact1-form-title">
+
                               Add Product
+
                             </span>
 
-                            <div class="wrap-input1 validate-input" data-validate="Product type required">
+                            <div class="wrap-input1 validate-input" data-validate="Product type required" data-alert="Product Type">
 
                                 <select class="input1" name="prod_type" id="prod_type">
 
-                                    <option value="0">Select</option>
+                                    <option value="0">Select Product Type</option>
+
                                     <?php
+
                                         while($row=mysqli_fetch_assoc($prdtype)){
+
                                             echo ("<option value='".$row["prod_type"]."'>".$row["prod_type"]."</option>") ;
+
                                         }
+
                                     ?>
+
                                 </select>
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Name is required">
+                            <div class="wrap-input1 validate-input" data-validate="Product Name is required" data-alert="Product Name">
 
                                 <input type="text" class="input1" id="prod_name" name="prod_name" placeholder="Product Name" />
 
@@ -187,18 +224,29 @@
                             </div>
 
                             <div class="container-contact1-form-btn">
+
                                 <button class="contact1-form-btn">
+
                                     <span>
+
                                         Save
+
                                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                     </span>
+
                                 </button>
+
                             </div>
 
                         </form>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <script src="../js/collapsible.js"></script>

@@ -82,12 +82,19 @@
     <script>
         $(document).ready( function () {
 
-            var name = $('.validate-input input[name = "prod_qty"]');
+            var name = $('.validate-input input[name = "prod_qty"]'),
+                sl_no = $('.validate-input input[name = "sl_no"]');
 
 
             $('#form').submit(function(e) {
 
                 var check = true;
+
+                $('.validate-form .input1').each(function(){
+
+                    hideAlertdate(this);
+
+                });
 
                 if($(name).val().trim() == '') {
 
@@ -98,23 +105,49 @@
                 return check;
             });
 
+            showData(name);
+            showData(sl_no);
+
             $('.validate-form .input1').each(function(){
+
                 $(this).focus(function(){
+
                     hideValidate(this);
+
                 });
+
             });
+
+            function showData(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).addClass('alert-data');
+
+            }
 
             function showValidate(input) {
 
                 var thisAlert = $(input).parent();
                 //console.log(thisAlert);
                 $(thisAlert).addClass('alert-validate');
+
             }
 
             function hideValidate(input) {
+
                 var thisAlert = $(input).parent();
 
                 $(thisAlert).removeClass('alert-validate');
+
+            }
+
+            function hideAlertdate(input) {
+
+                var thisAlert = $(input).parent();
+
+                $(thisAlert).removeClass('alert-data');
+
             }
 
         });
@@ -130,7 +163,9 @@
     <hr class='hr'>
 
     <div class="container" style="margin-left: 10px">
+
         <div class="row">
+
             <div class="col-lg-4 col-md-6">
 
                 <?php require("../post/menu.php"); ?>
@@ -144,37 +179,56 @@
                     <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                         <span class="contact1-form-title">
+
                          Edit Scale Type
+
                         </span>
 
-                        <div class="wrap-input1 validate-input">
+                        <div class="wrap-input1 validate-input" data-alert="Sl No.">
+
                             <input type="text" class="input1" name="sl_no" value="<?php echo $slno; ?>" readonly />
+
                             <span class="shadow-input1"></span>
                         </div>
 
-                        <div class="wrap-input1 validate-input" data-validate="Scale is required">
+                        <div class="wrap-input1 validate-input" data-validate="Scale is required" data-alert="Scale's Name">
+
                             <input type="text" class="input1" id="prod_qty" name="prod_qty" value="<?php echo $prodqty; ?>" />
+
                             <span class="shadow-input1"></span>
+
                         </div>
 
                         <div class="container-contact1-form-btn">
+
                             <button class="contact1-form-btn">
+
                                 <span>
+
                                     Save
+
                                 <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
                                 </span>
+
                             </button>
+
                         </div>
 
                     </form>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
 
     <script src="../js/collapsible.js"></script>
 
     </body>
+
 </html>
 
 
