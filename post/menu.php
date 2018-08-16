@@ -285,7 +285,7 @@
 
                     <br>
 
-                    <div><a class="abtn green" href="user.php">
+                    <div><a class="abtn green" href="../post/user.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add User</a></div>
 
                 <br>
