@@ -162,10 +162,15 @@
                                         <td><?php echo $gm; ?></td>
                                         <td><?php echo $createdby; ?></td>
                                         <td><?php echo date('d/m/Y h:m:i',strtotime($createddt)); ?></td>
-                                        <td><a href="../edit/edit_pds_stock_in.php?trans_dt=<?php echo $transdt;?>&trans_cd=<?php echo $transcd; ?>">
-                                                <i class="fa fa-edit fa-2x" style="color: #006eff"></i></a>
+                                        <td><a href="../edit/edit_pds_stock_in.php?trans_dt=<?php echo $transdt;?>&trans_cd=<?php echo $transcd; ?>"
+                                                style="color: black;"
+                                            >
+                                                <i class="fa fa-edit fa-2x" style="color: #006eff"></i> Edit</a>
 
-                                                <a href="../approve/aprv_pds_stock_in.php?trans_dt=<?php echo $transdt; ?>&trans_cd=<?php echo $transcd; ?>">Approve</td>
+                                            <a href="../approve/aprv_pds_stock_in.php?trans_dt=<?php echo $transdt; ?>&trans_cd=<?php echo $transcd; ?>"
+                                               style="color: black; margin-left: 15px;"
+                                            >
+                                                <i class="fa fa-thumbs-up fa-2x" style="color: #006eff"></i> Approve</a></td>
                                     </tr>
 
                                     <?php

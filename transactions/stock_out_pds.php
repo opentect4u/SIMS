@@ -11,7 +11,8 @@
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
 
-			$transdt	=	$_POST["trans_dt"];
+            $transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
+            $transdt    =   $transdt->format('Y-m-d');
 			$allotno	=	$_POST["do_no"];
 			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
@@ -339,7 +340,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Transaction Date" >
 
-                                <input type="date" class="input1" name="trans_dt" value="<?php echo date("Y-m-d") ?>" readonly />
+                                <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 

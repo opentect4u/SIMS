@@ -1,6 +1,12 @@
 
     <div class="block">
         <div>
+            <button class="collapsible"><?php require("../post/sims_function.php"); ?>
+
+                Application Date: <?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?></button>
+        </div>
+
+        <div>
             <button id="dashbtn" class="collapsible"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Dashboard</button>
         </div>
         <div>
@@ -285,10 +291,25 @@
 
                     <br>
 
-                    <div><a class="abtn green" href="../post/user.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add User</a></div>
+                    <div>
 
-                <br>
+                        <a class="abtn green" href="../post/user.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add User</a>
+
+                    </div>
+
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+
+                        <a class="abtn green" href="../post/software_date.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Software Date</a>
+
+                    </div>
+
+                    <br>
 
                 </div>
 

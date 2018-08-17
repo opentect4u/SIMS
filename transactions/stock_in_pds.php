@@ -4,13 +4,15 @@
 
 	require("../db/db_connect.php");
 	require("../session.php");
+	require("../post/sims_function.php");
 
         $errMsg = '';
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
 
-			$transdt	=	$_POST["trans_dt"];
+			$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
+            $transdt    =   $transdt->format('Y-m-d');
 			$dono		=	$_POST["do_no"];
 			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
@@ -23,8 +25,10 @@
 			$prodcatg	=	$_POST['prod_catg'];	
 			$remarks	=	$_POST['remarks'];
 			$transcd	=	1;
-                        $user_id=$_SESSION["user_id"];
-			$time=date("Y-m-d h:i:s");
+			$user_id    =   $_SESSION["user_id"];
+			$time       =   date("Y-m-d h:i:s");
+
+			var_dump($transdt);
 
 
 			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($dono)) {
@@ -97,14 +101,14 @@
 
         unset($sql);
 
-        $prod_sql = "SELECT sl_no,prod_type,prod_desc FROM m_products ORDER BY sl_no";
+        $prod_sql       =   "SELECT sl_no,prod_type,prod_desc FROM m_products WHERE prod_type = 'PDS' ORDER BY sl_no";
 
-        $prod_result = mysqli_query($db_connect, $prod_sql);
+        $prod_result    =   mysqli_query($db_connect, $prod_sql);
 
 
-        $catg_sql	="Select prod_catg from m_prod_catg";
+        $catg_sql	    =   "Select prod_catg from m_prod_catg";
 
-        $result_catg	= mysqli_query($db_connect,$catg_sql);
+        $result_catg	=   mysqli_query($db_connect,$catg_sql);
 		
 
 ?>
@@ -263,7 +267,6 @@
 
         <?php require '../post/nav.php'; ?>
 
-
         <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
         <hr class='hr'>
@@ -292,7 +295,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
-                                <input type="date" class="input1" name="trans_dt" value="<?php echo date("Y-m-d") ?>" readonly />
+                                <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 

@@ -12,7 +12,7 @@
 		$_SESSION['ins_flag']=false;
 	}
 
-	if(isset($_SESSION['rate_edit']) == true){
+	if($_SESSION['rate_edit'] == true){
 		echo"<script>alert('Rate Successfully Updated')</script>";
 		$_SESSION['rate_edit']=false;
 	}
@@ -106,9 +106,13 @@
                                             <?php
 
                                         }
+
                                     }
+
                                 }
+
                             ?>
+
                             </tbody>
 
                         </table>
@@ -118,7 +122,7 @@
                 </div>
 
             </div>
-            
+
         </div>
 
         <script src="../js/collapsible.js"></script>

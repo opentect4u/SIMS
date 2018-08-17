@@ -6,57 +6,61 @@
 	require("../session.php");
 
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
-			$effectdt	=	$_POST["effective_dt"];
-			$proddesc	=	$_POST["prod_desc"];
-			$prodtype	=	$_POST["prod_type"];
-			$prodcatg	=	$_POST['prod_catg'];
-			$perunit	=	$_POST['per_unit'];	
-			$prodrate	=	$_POST['prod_rate'];
-			$user_id    	= 	$_SESSION["user_id"];
+
+			$effectdt	    =	$_POST["effective_dt"];
+			$prod_id	    =	$_POST["prod_id"];
+			$proddesc	    =	$_POST["prod_desc"];
+			$prodtype	    =	$_POST["prod_type"];
+			$prodcatg_data	=	json_decode($_POST['prod_catg']);
+            $prodcd         =   $prodcatg_data->catg_cd;
+            $prodcatg       =   $prodcatg_data->catg_name;
+			$perunit	    =	$_POST['per_unit'];
+			$prodrate	    =	$_POST['prod_rate'];
+			$user_id        = 	$_SESSION["user_id"];
 
 			$time = date("Y-m-d h:i:s");
 
+
+
 			if(!is_null($effectdt)) {
 
-				echo $prodtype;
-				echo $perunit;
-
 				$sql="insert into m_rate_master(effective_dt,
-								     prod_desc,
-								     prod_type,
-								     prod_catg,
-								     per_unit,
-								     prod_rate,
-								     created_by,
-								     created_dt)
-							      values('$effectdt',
-								     '$proddesc',
-								     '$prodtype',
-								     '$prodcatg',
-								     '$perunit',
-								     '$prodrate',
-								     '$user_id',
-								     '$time'
-							     	      )";
+                                                 prod_cd,
+                                                 prod_desc,
+                                                 prod_type,
+                                                 catg_cd,
+                                                 prod_catg,
+                                                 per_unit,
+                                                 prod_rate,
+                                                 created_by,
+                                                 created_dt)
+                                              values('$effectdt',
+                                                  $prod_id,
+                                                 '$proddesc',
+                                                 '$prodtype',
+                                                  $prodcd,
+                                                 '$prodcatg',
+                                                 '$perunit',
+                                                 '$prodrate',
+                                                 '$user_id',
+                                                 '$time')";
 
-                          $result=mysqli_query($db_connect,$sql);
+				$result=mysqli_query($db_connect,$sql);
 			}
 
 			if($result){
+
 				$_SESSION['ins_flag']=true;
-				Header("Location:rate_master_view.php");
+
+				header("Location: ./rate_master_view.php");
+
 			}
 
 	}
-	$select_catg="Select prod_catg from m_prod_catg ORDER BY prod_catg";
+
+	$select_catg="Select sl_no, prod_catg from m_prod_catg ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
-	$select_prd="Select prod_desc,prod_type from m_products";
-	$prdesc=mysqli_query($db_connect,$select_prd);
-
-
-	$select_unit="Select sl_no,prod_qty from m_prod_qty";
-	$produnit=mysqli_query($db_connect,$select_unit);
 
 
 ?>
@@ -72,6 +76,7 @@
 
         <link rel="stylesheet" type="text/css" href="../css/form_design.css">
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="../css/autocomplete_style.css"
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -79,15 +84,21 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- JQuery Autocomplete -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     </head>
+
+
 
     <script>
 
         $(document).ready(function() {
 
-            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
+            var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
-            var    per_unit         =    $('.validate-input select[name = "per_unit"]');
+            var    per_unit         =    $('.validate-input input[name = "per_unit"]');
             var    prod_rate        =    $('.validate-input input[name = "prod_rate"]');
             var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
             var    prod_type        =    $('.validate-input input[name = "prod_type"]');
@@ -194,14 +205,46 @@
 
     <script>
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-                $('#prod_desc').change(function () {
+            $.ajax({
 
-                $('#prod_type').val($(this).find(':selected').attr('data-val'));
+                url:"../fetch/product_dtls.php",
+                type:"GET"
+
+            }).done(function(data){
+
+                $( "#prod_desc" ).autocomplete({
+
+                    source: JSON.parse(data).product_name,
+
+                    select: function (event, ui) {
+
+                        $("#prod_type").val(JSON.parse(data).product_type[$.inArray(ui.item.value, JSON.parse(data).product_name)])
+                        $("#prod_id").val(JSON.parse(data).product_id[$.inArray(ui.item.value, JSON.parse(data).product_name)])
+
+                    }
+
+                });
 
             });
 
+
+            $.ajax({
+
+                url:"../fetch/unit_details.php",
+                type:"GET"
+
+            }).done(function(data){
+
+                $( "#per_unit" ).autocomplete({
+
+                    source: JSON.parse(data).unit
+
+                });
+
+            });
+            
         });
 
     </script>
@@ -209,7 +252,6 @@
     <body class="body">
 
         <?php require '../post/nav.php'; ?>
-
 
         <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
@@ -247,21 +289,9 @@
 
                             <div class="wrap-input1 validate-input" data-validate="Product is required" data-alert="Product Name" >
 
-                                <select name="prod_desc" class="input1" id="prod_desc" >
+                                <input name="prod_desc" class="input1" id="prod_desc" />
 
-                                    <option value="0">Select Product</option>
-
-                                    <?php
-
-                                        while($row=mysqli_fetch_assoc($prdesc)) {
-
-                                            echo ("<option value=".$row['prod_desc']." data-val=".$row['prod_type'].">".$row['prod_desc']."</option>");
-
-                                        }
-
-                                    ?>
-
-                                </select>
+                                <input type="hidden" name="prod_id" id="prod_id" />
 
                                 <span class="shadow-input1"></span>
 
@@ -283,9 +313,11 @@
 
                                     <?php
 
-                                        while($row=mysqli_fetch_assoc($prdcatg)) {
+                                        while($row=mysqli_fetch_assoc($prdcatg)) {?>
 
-                                            echo("<option value=".$row['prod_catg'].">".$row['prod_catg']."</option>");
+                                            <option value='{"catg_cd":"<?php echo $row['sl_no'];?>","catg_name":"<?php echo $row['prod_catg'];?>"}'><?php echo $row['prod_catg']; ?></option>
+
+                                    <?php
 
                                         }
 
@@ -299,20 +331,7 @@
 
                             <div class="wrap-input1 validate-input" data-validate="Unit type is required" data-alert="Unit" >
 
-                                <select name="per_unit" class="input1" id="per_unit" >
-
-                                    <option value="0">Select Unit Type</option>
-
-                                    <?php
-
-                                        while($row=mysqli_fetch_assoc($produnit)) {
-
-                                            echo ("<option value=".$row['prod_qty'].">".$row['prod_qty']."</option>");
-
-                                        }
-                                    ?>
-
-                                </select>
+                                <input name="per_unit" class="input1" id="per_unit" />
 
                                 <span class="shadow-input1"></span>
 

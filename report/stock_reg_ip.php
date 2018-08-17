@@ -5,7 +5,7 @@
 	require("../db/db_connect.php");
 	require("../session.php");
 
-	$sql = "select sl_no,prod_desc from m_products";
+	$sql = "select sl_no,prod_desc from m_products WHERE prod_type = 'PDS'";
 	$proddesc = mysqli_query($db_connect,$sql);
 
 	$select_catg = "Select prod_catg from m_prod_catg";
@@ -136,7 +136,7 @@
 
                 $(thisAlert).removeClass('alert-validate');
 
-                $(thisAlert).removeClass('alert-data');
+                //$(thisAlert).removeClass('alert-data');
             }
 
         });

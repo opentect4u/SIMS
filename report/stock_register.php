@@ -244,10 +244,10 @@
 	array_push($rep_data['qty_gm'], $qty_gm);
 	array_push($rep_data['allot_no'],$allot_no);
 	array_push($rep_data['out_bag'],$out_bag);
-        array_push($rep_data['out_qnt'],$out_qnt);
-        array_push($rep_data['out_kg'],$out_kg);
-        array_push($rep_data['out_gm'],$out_gm);
-        array_push($rep_data['sht_kg'],$sht_kg);
+    array_push($rep_data['out_qnt'],$out_qnt);
+    array_push($rep_data['out_kg'],$out_kg);
+    array_push($rep_data['out_gm'],$out_gm);
+    array_push($rep_data['sht_kg'],$sht_kg);
 	array_push($rep_data['sht_gm'],$sht_gm);
 	array_push($rep_data['bag_bal'], $bag_bal);
 	array_push($rep_data['qnt_bal'], $qnt_bal);
