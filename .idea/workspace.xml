@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6c18c23-a563-44ba-8324-dbbf30814a34" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/css/autocomplete_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fetch/product_dtls.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fetch/unit_details.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/software_date.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/rate_master.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/rate_master.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masters/rate_master_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/masters/rate_master_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/post/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/stock_reg_ip.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/stock_reg_ip.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/stock_register.php" beforeDir="false" afterPath="$PROJECT_DIR$/report/stock_register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions/stock_in_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/stock_in_pds.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transactions/stock_out_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/stock_out_pds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transactions/view_stock_in_pds.php" beforeDir="false" afterPath="$PROJECT_DIR$/transactions/view_stock_in_pds.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,65 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/post/dashboard.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="321" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="software_date.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/post/software_date.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prod_type.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/masters/prod_type.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="221" column="10" selection-start-line="221" selection-start-column="10" selection-end-line="221" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/post/menu.php">
+      <file leaf-file-name="stock_out_pds.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transactions/stock_out_pds.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="103" lean-forward="true" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/dashboard.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_in_pds.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="297" column="158" selection-start-line="297" selection-start-column="89" selection-end-line="297" selection-end-column="158" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stock_register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/report/stock_register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="469" column="6" lean-forward="true" selection-start-line="469" selection-start-column="6" selection-end-line="469" selection-end-column="6" />
+              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -191,13 +126,13 @@
         <option value="$PROJECT_DIR$/transactions/view_stock_in_pds.php" />
         <option value="$PROJECT_DIR$/report/stock_register.php" />
         <option value="$PROJECT_DIR$/report/stock_reg_ip.php" />
-        <option value="$PROJECT_DIR$/transactions/stock_out_pds.php" />
         <option value="$PROJECT_DIR$/post/nav.php" />
-        <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
         <option value="$PROJECT_DIR$/post/menu.php" />
         <option value="$PROJECT_DIR$/masters/prod_type.php" />
         <option value="$PROJECT_DIR$/post/dashboard.php" />
         <option value="$PROJECT_DIR$/post/software_date.php" />
+        <option value="$PROJECT_DIR$/transactions/stock_in_pds.php" />
+        <option value="$PROJECT_DIR$/transactions/stock_out_pds.php" />
       </list>
     </option>
   </component>
@@ -231,12 +166,12 @@
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="post" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SIMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SIMS" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="transactions" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,12 +239,12 @@
       <workItem from="1534134724016" duration="26049000" />
       <workItem from="1534221629681" duration="25780000" />
       <workItem from="1534394360103" duration="22733000" />
-      <workItem from="1534481351837" duration="26238000" />
+      <workItem from="1534481351837" duration="27106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475924000" />
+    <option name="totallyTimeSpent" value="476792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="989" height="743" extended-state="6" />
@@ -593,13 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transactions/stock_out_pds.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/masters/allot_scale.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -682,31 +610,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/report/stock_register.php">
+    <entry file="file://$PROJECT_DIR$/post/software_date.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="469" column="6" lean-forward="true" selection-start-line="469" selection-start-column="6" selection-end-line="469" selection-end-column="6" />
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
+    <entry file="file://$PROJECT_DIR$/post/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="297" column="158" selection-start-line="297" selection-start-column="89" selection-end-line="297" selection-end-column="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/post/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="103" lean-forward="true" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
+        <state relative-caret-position="273">
+          <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="321" />
         </state>
       </provider>
     </entry>
@@ -717,17 +631,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post/dashboard.php">
+    <entry file="file://$PROJECT_DIR$/post/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="321" />
+        <state relative-caret-position="75">
+          <caret line="5" column="103" lean-forward="true" selection-start-line="5" selection-start-column="103" selection-end-line="5" selection-end-column="103" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/post/software_date.php">
+    <entry file="file://$PROJECT_DIR$/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state>
+          <caret column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/report/stock_register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="469" column="6" lean-forward="true" selection-start-line="469" selection-start-column="6" selection-end-line="469" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transactions/stock_in_pds.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transactions/stock_out_pds.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
         </state>
       </provider>
     </entry>

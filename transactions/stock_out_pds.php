@@ -4,7 +4,6 @@
 
 	require("../db/db_connect.php");
 	require("../session.php");
-	require("../post/sims_function.php");
 
         $errMsg = '';
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
