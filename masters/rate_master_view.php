@@ -114,8 +114,11 @@
                         </table>
 
                     </div>
+
                 </div>
+
             </div>
+            
         </div>
 
         <script src="../js/collapsible.js"></script>
