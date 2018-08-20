@@ -64,8 +64,6 @@
 
             $effective_date = f_getparamval(7, $db_connect);
 
-            echo $effective_date;
-
             ?>
 
         </div>
