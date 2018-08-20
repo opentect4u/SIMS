@@ -18,6 +18,8 @@
 
     }
 
+
+
 ?>
 
 
@@ -58,7 +60,13 @@
 
         <div class="col-lg-4 col-md-6">
 
-            <?php require("../post/menu.php"); ?>
+            <?php require("../post/menu.php");
+
+            $effective_date = f_getparamval(7, $db_connect);
+
+            echo $effective_date;
+
+            ?>
 
         </div>
 
@@ -82,9 +90,11 @@
 
                                name="effective_dt"
 
+                               id="effective_dt"
+
                                value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>"
 
-                               placeholder="DD-MM-yyyy" />
+                               placeholder="DD-MM-YYYY" />
 
                         <span class="shadow-input1"></span>
 
@@ -117,6 +127,32 @@
 </div>
 
 <script src="../js/collapsible.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        $('#effective_dt').on("change", function() {
+
+            var today = new Date("<?php echo $effective_date ?>");
+
+            var to_date = $('#effective_dt').val().split("-").reverse().join("-");
+
+            var mydate = new Date(to_date);
+
+            if (mydate < today) {
+
+                alert("Given date can't be less than Application date!");
+
+                $('#effective_dt').val('');
+
+                return false;
+            }
+        });
+
+    });
+
+</script>
 
 </body>
 
