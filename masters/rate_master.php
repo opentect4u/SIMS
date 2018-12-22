@@ -20,8 +20,6 @@
 
 			$time = date("Y-m-d h:i:s");
 
-
-
 			if(!is_null($effectdt)) {
 
 				$sql="insert into m_rate_master(effective_dt,
@@ -44,6 +42,7 @@
                                                  '$prodrate',
                                                  '$user_id',
                                                  '$time')";
+                                                 //echo $sql; die();
 
 				$result=mysqli_query($db_connect,$sql);
 			}
@@ -61,9 +60,8 @@
 	$select_catg="Select sl_no, prod_catg from m_prod_catg ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
-
-
 ?>
+
 <html>
 	<head>
 
@@ -76,7 +74,7 @@
 
         <link rel="stylesheet" type="text/css" href="../css/form_design.css">
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
-        <link rel="stylesheet" type="text/css" href="../css/autocomplete_style.css"
+        <link rel="stylesheet" type="text/css" href="../css/autocomplete_style.css">
 
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -89,8 +87,6 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     </head>
-
-
 
     <script>
 
@@ -273,11 +269,11 @@
 
                         <form class="contact1-form validate-form" id="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
-                                <span class="contact1-form-title">
+                            <span class="contact1-form-title">
 
-                                   Product's Rate
+                               Product's Rate
 
-                                </span>
+                            </span>
 
                             <div class="wrap-input1 validate-input" data-alert="Effective Date" >
 

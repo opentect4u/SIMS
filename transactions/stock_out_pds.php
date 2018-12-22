@@ -6,6 +6,7 @@
 	require("../session.php");
 
         $errMsg = '';
+
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
@@ -99,8 +100,7 @@
 
 			    $result=mysqli_query($db_connect,$sql);
 
-			    header("Location: view_stock_in_pds.php");
-				
+			    header("Location: view_stock_in_pds.php");	
 
             }
             else{

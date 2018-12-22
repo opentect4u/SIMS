@@ -6,34 +6,90 @@
     require("../db/db_connect.php");
     require("../session.php");
 
-
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        $memo_no = $_POST['memo_no'];
+        $memono = $_POST['memono'];
 
-        $sql = "SELECT mr_no,
-                       delr_name,
-                       delr_region,
-                       gen_date FROM td_allotment_sheet
-                                WHERE memo_no = '$memo_no'";
+        $sql = "SELECT gen_date,
+                       del_cd,
+                       prod_desc,
+                       amount 
+                FROM td_allotment_sheet_np
+                WHERE memono = '$memono'";
+
         //echo $sql; die();
 
-        $result = mysqli_query($db_connect, $sql);
+        $allotment_result = mysqli_query($db_connect, $sql);
+
+        if($allotment_result){
+
+            if(mysqli_num_rows($allotment_result) > 0 ){
+
+                while($row = mysqli_fetch_assoc($allotment_result)){
+                
+                    $gen_date       =       $row['gen_date'];
+                    $del_cd         =       $row['del_cd'];
+                    $prod_desc      =       $row['prod_desc'];
+                    $amount         =       $row['amount'];
+                    
+                }
+                //echo $del_cd; die;
+            }
+
+        }
 
     }
+    
+   /* echo $gen_date;
+    echo $del_cd;
+    echo $prod_desc;
+    echo $amount;
+    die; */
+    
+        //$del_cd	=	$_GET['del_cd'];
+
+        $sql= "SELECT   del_cd,
+                        del_name, 
+                        del_adr, 
+                        del_reg, 
+                        del_dist 
+                    FROM m_dealers 
+                    WHERE del_cd = '$del_cd' ";
+    //echo $sql;
+
+    $dealer_result	=  mysqli_query($db_connect,$sql);
+
+   /* if($dealer_result){
+
+        if(mysqli_num_rows($dealer_result) > 0 ){
+
+               /* echo $del_name;
+                echo $del_adr;
+                echo $del_reg;
+                echo $del_dist; die;
+
+            
+        }
+    } */
+
+    $sql= "SELECT m.del_cd, m.del_name, m.del_reg, MAX(t.gen_date) 
+        FROM m_dealers m, td_allotment_sheet_np t
+        WHERE m.del_cd = t.del_cd
+        AND t.memoNo = '$memono'
+        GROUP BY m.del_cd, m.del_name, m.del_reg";
+
+    $sql_join = mysqli_query($db_connect, $sql);
 
 ?>
 
 <html>
-
-    <head>
+     <head>
 
         <title>Synergic Inventory Management System-PDS Challan</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 
         <link rel="stylesheet" type="text/css" href="../css/form_design.css">
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
@@ -49,9 +105,7 @@
     <style>
 
         h1 {
-
             font-size: 65px;
-
         }
 
     </style>
@@ -88,7 +142,7 @@
 
                         <div class="wrap-input1 validate-input" data-validate="Memo No is required">
 
-                            <input type="text" class="input1" name="memo_no" placeholder="Memo No" />
+                            <input type="text" class="input1" name="memono" placeholder="Memo No" />
 
                             <span class="shadow-input1"></span>
 
@@ -146,33 +200,34 @@
 
                     </thead>
 
-                    <tbody >
+                    <tbody>
 
                     <?php
-
-                        if($_SERVER['REQUEST_METHOD'] == "POST") {
-
-                            while ($data = mysqli_fetch_assoc($result)) {
-
-                                ?>
-
+                        while($row = mysqli_fetch_assoc($sql_join)){
+                
+                            //$del_name          =      $row['del_name'];
+                            //$del_adr           =      $row['del_adr'];
+                            //$del_reg           =      $row['del_reg'];
+                            //$del_dist          =      $row['del_dist'];  
+                    ?>
+                    
                                 <tr>
 
-                                    <td><?php echo $data['mr_no']; ?></td>
+                                    <td><?php echo $row['del_cd']; ?></td>
 
-                                    <td><?php echo $data['delr_name']; ?></td>
+                                    <td><?php echo $row['del_name']; ?></td>
 
-                                    <td><?php echo date('d/m/Y', strtotime($data['gen_date'])); ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($row['gen_date'])); ?></td>
 
-                                    <td><?php echo $data['delr_region']; ?></td>
+                                    <td><?php echo $row['del_reg']; ?></td>
 
                                     <td><button class="btn btn-primary"
 
-                                           id="<?php echo urlencode($data['mr_no']); ?>"
+                                            id="<?php echo urlencode($row['del_cd']); ?>"
+                                            date="<?php echo urlencode($row['gen_date']); ?>"
+                                            memono= "<?php echo urlencode($memono); ?>" >
 
-                                           date="<?php echo urlencode($data['gen_date']); ?>"
-
-                                        > Print <i class="fa fa-print fa-lg" aria-hidden="true"></i>
+                                        Print <i class="fa fa-print fa-lg" aria-hidden="true"></i>
 
                                         </button>
 
@@ -180,13 +235,7 @@
 
                                 </tr>
 
-                                <?php
-
-                            }
-
-                        }
-
-                    ?>
+                    <?php } ?>
 
                     </tbody>
 
@@ -198,7 +247,6 @@
 
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="pdsChallan" role="dialog">
 
         <div class="modal-dialog modal-lg">
@@ -224,6 +272,8 @@
 
     <script src="../js/collapsible.js"></script>
 
+    </body>
+
     <script>
 
         $(document).ready(function(){
@@ -233,7 +283,7 @@
                 var id = $(this).attr('id'),
                     date = $(this).attr('date');
 
-                $.get("../bill/pds_bill.php", { mr_no: id, date: date, memo_no : "<?php echo $memo_no;?>" })
+                $.get("../bill/non_pds_bill.php", { del_cd: id, gen_date: date, memo_no : "<?php echo $memo_no;?>" })
                 
                 .done(function (data) {
 
@@ -249,6 +299,11 @@
 
     </script>
 
-    </body>
+    <?php
+        $_SESSION['memono']         =   $memono;
+        $_SESSION['gen_date']       =   $gen_date;
+        $_SESSION['del_cd']         =   $del_cd;
+        
+    ?>
 
 </html>

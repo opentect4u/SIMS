@@ -8,22 +8,24 @@
       $prodtypeErr="";
 
     if($_SERVER['REQUEST_METHOD']=="GET"){
-      	$transdt	=	$_GET['trans_dt'];
-	    $transcd	=	$_GET['trans_cd'];
+
+      	$trans_dt	=	$_GET['trans_dt'];
+	    $trans_cd	=	$_GET['trans_cd'];
 	
-        $sql="Select do_no,
+            $sql="Select do_no,
                         prod_desc,
-                        prod_type,
-                        prod_catg,
+                        prod_type,                  
                         prod_sl_no,
-                        qty_bag,
-                        qty_qnt,
+                        qty_bags_tin,
+                        qty_cs,
                         qty_kg,
-                        qty_gm,
+                        qty_pieces,
                         remarks 
-                        from td_stock_trans_pds
-            where trans_dt = '$transdt'
-            and   trans_cd = $transcd"; 
+                        from td_stock_trans_np
+            where trans_dt = '$trans_dt'
+            and   trans_cd = $trans_cd"; 
+
+            //echo $sql; die();
 
         $result=mysqli_query($db_connect,$sql);
 
@@ -32,62 +34,61 @@
 
                 while($row=mysqli_fetch_assoc($result)){
 
-                    $dono	=	$row['do_no'];
-                    $pdesc	=	$row['prod_desc'];
-                    $ptype 	=	$row['prod_type'];
-                    $pcatg	=	$row['prod_catg'];
-                    $pslno	=	$row['prod_sl_no'];
-                    $pbag	=	$row['qty_bag'];
-                    $pqnt	=	$row['qty_qnt'];
-                    $pkg	=	$row['qty_kg'];
-                    $pgm	=	$row['qty_gm'];
-                    $rkms	=	$row['remarks'];	
-
+                    $do_no	        =	$row['do_no'];
+                    $prod_desc	    =	$row['prod_desc'];
+                    $prod_type 	    =	$row['prod_type'];
+                    $prod_sl_no	    =	$row['prod_sl_no'];
+                    $qty_bags_tin	=	$row['qty_bags_tin'];
+                    $qty_cs	        =	$row['qty_cs'];
+                    $qty_kg	        =	$row['qty_kg'];
+                    $qty_pieces	    =	$row['qty_pieces'];
+                    $remarks	    =	$row['remarks'];	
                 }	
             }
         }	
 
     }
-           
+           //echo $prod_type; die();
 
     if($_SERVER['REQUEST_METHOD']=="POST"){
 
-        $prod_bag	=	0;
-        $prod_qnt	=	0;
-        $prod_kg	=	0;
-        $prod_gm	=	0;
+        $qty_bags_tin	=	0;
+        $qty_cs	        =	0;
+        $qty_kg	        =	0;
+        $qty_pieces	    =	0;
 
-
-        $transdt	=	test_input($_POST['trans_dt']);
-        $prod_bag	=	test_input($_POST['qty_bag']);
-        $prod_qnt	=	test_input($_POST['qty_qnt']);
-        $prod_kg 	=	test_input($_POST['qty_kg']);
-        $prod_gm 	=	test_input($_POST['qty_gm']);
-        $transcd	=	test_input($_POST['trans_cd']);
-        $remarks	=	test_input($_POST['remarks']);
+        $trans_dt	    =	test_input($_POST['trans_dt']);
+        $qty_bags_tin	=	test_input($_POST['qty_bags_tin']);
+        $qty_cs	        =	test_input($_POST['qty_cs']);
+        $qty_kg 	    =	test_input($_POST['qty_kg']);
+        $qty_pieces 	=	test_input($_POST['qty_pieces']);
+        $trans_cd	    =	test_input($_POST['trans_cd']);
+        $remarks	    =	test_input($_POST['remarks']);
 
         $user	=	$_SESSION['user_id'];
         $time	=	date("Y-m-d h:i:s");
 
-        if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
+        if(!is_null($qty_bags_tin) && !is_null($qty_cs) && !is_null($qty_kg) && !is_null($qty_pieces) && isset($user)){
             
-            $update="Update td_stock_trans_pds
-                 set qty_bag = '$prod_bag',
-                     qty_qnt = '$prod_qnt',
-                     qty_kg  = '$prod_kg',
-                     qty_gm  = '$prod_gm',
-                     remarks = '$remarks',
-                     modified_by = '$user',
-                     modified_dt = '$time'
-                  where trans_dt = '$transdt'
-                  and   trans_cd = '$transcd'";
+            $update="Update td_stock_trans_np
+                set qty_bags_tin        = '$qty_bags_tin',
+                    qty_cs              = '$qty_cs',
+                    qty_kg              = '$qty_kg',
+                    qty_pieces          = '$qty_pieces',
+                    remarks             = '$remarks',
+                    modified_by         = '$user',
+                    modified_dt         = '$time'
+                where trans_dt          = '$trans_dt'
+                and   trans_cd          = '$trans_cd'";
 
+                //echo $update; die();
+                    
             $result	= mysqli_query($db_connect,$update);
         }
 
             if($result){
                 $_SESSION['edit_in']="true";
-                Header("Location:../transactions/view_stock_in_pds.php");
+                Header("Location:../transactions/view_stock_in_np.php");
             }
     }
 
@@ -98,15 +99,13 @@
         return $data;
 
     }
-
 	
 ?>
 
 <html>
+    <head>
 
-	<head>
-
-		<title>Synergic Inventory Management System-Add Stock</title>
+        <title>Synergic Inventory Management System-Add Stock</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -130,28 +129,25 @@
             var    do_no            =    $('.validate-input input[name = "do_no"]');
             var    allot_no         =    $('.validate-input input[name = "allot_no"]');
             var    prod_type        =    $('.validate-input input[name = "prod_type"]');
-            var    sl_no            =    $('.validate-input input[name = "sl_no"]');
+            var    prod_sl_no       =    $('.validate-input input[name = "prod_sl_no"]');
             var    prod_desc        =    $('.validate-input input[name = "prod_desc"]');
-            var    prod_catg        =    $('.validate-input input[name = "prod_catg"]');
-
-            var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
-            var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
+            //var    prod_catg        =    $('.validate-input input[name = "prod_catg"]');
+            var    qty_bags_tin     =    $('.validate-input input[name = "qty_bags_tin"]');
+            var    qty_cs           =    $('.validate-input input[name = "qty_cs"]');
             var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
-            var    qty_gm           =    $('.validate-input input[name = "qty_gm"]');
+            var    qty_pieces       =    $('.validate-input input[name = "qty_pieces"]');
 
             showData(trans_dt);
             showData(trans_cd);
             showData(do_no);
             showData(allot_no);
             showData(prod_desc);
-            showData(prod_catg);
             showData(prod_type);
-            showData(sl_no);
-
-            showData(qty_bag);
-            showData(qty_qnt);
+            showData(prod_sl_no);
+            showData(qty_bags_tin);
+            showData(qty_cs);
             showData(qty_kg);
-            showData(qty_gm);
+            showData(qty_pieces);
 
             function showData(input) {
 
@@ -163,9 +159,7 @@
 
         });
 
-
     </script>
-
 
     <body class="body">
 
@@ -193,13 +187,13 @@
 
                                 <span class="contact1-form-title">
 
-                                  Edit PDS Stock In/Out
+                                  Edit NON PDS Stock In
 
                                 </span>
 
                             <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
-                                <input type="date" class="input1" name="trans_dt" readonly value="<?php echo date($transdt); ?>" />
+                                <input type="date" class="input1" name="trans_dt" readonly value="<?php echo date($trans_dt); ?>" />
 
                                 <span class="shadow-input1"></span>
 
@@ -207,7 +201,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Transaction Code">
 
-                                <input type="text" class="input1" name="trans_cd" readonly value="<?php echo date($transcd); ?>" />
+                                <input type="text" class="input1" name="trans_cd" readonly value="<?php echo date($trans_cd); ?>" />
 
                                 <span class="shadow-input1"></span>
 
@@ -215,7 +209,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Do No">
 
-                                <input type="text" name="do_no" class="input1" id="do_no" value="<?php echo $dono; ?>" readonly />
+                                <input type="text" name="do_no" class="input1" id="do_no" value="<?php echo $do_no; ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 
@@ -223,15 +217,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Product Name">
 
-                                <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $pdesc; ?>" readonly />
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-alert="Category">
-
-                                <input type="text" class="input1" name="prod_catg" id="prod_catg" value="<?php echo $pcatg; ?>" readonly />
+                                <input type="text" class="input1" name="prod_desc" id="prod_desc" value="<?php echo $prod_desc; ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 
@@ -240,7 +226,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Product Type">
 
-                                <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $ptype;?>" readonly />
+                                <input type="text" class="input1" name="prod_type" id="prod_type" value="<?php echo $prod_type;?>" readonly />
 
                                 <span class="shadow-input1"></span>
 
@@ -249,7 +235,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Product Serial No.">
 
-                                <input type="text" class="input1" name="sl_no" value="<?php echo $pslno; ?>" id="sl_no" readonly />
+                                <input type="text" class="input1" name="prod_sl_no" value="<?php echo $prod_sl_no; ?>" id="prod_sl_no" readonly />
 
                                 <span class="shadow-input1"></span>
 
@@ -258,16 +244,16 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Bag/Tin" >
 
-                                <input type="text" class="input1" id="qty_bag" name="qty_bag" value="<?php echo $pbag; ?>" />
+                                <input type="text" class="input1" id="qty_bags_tin" name="qty_bags_tin" value="<?php echo $qty_bags_tin; ?>" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-alert="Quint" >
+                            <div class="wrap-input1 validate-input" data-alert="C/S" >
 
-                                <input type="text" class="input1" name="qty_qnt" value="<?php echo $pqnt; ?>" />
+                                <input type="text" class="input1" name="qty_cs" value="<?php echo $qty_cs; ?>" />
 
                                 <span class="shadow-input1"></span>
 
@@ -276,15 +262,15 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Kgs." >
 
-                                <input type="text" class="input1" name="qty_kg" size="150" value="<?php echo $pkg; ?>" />
+                                <input type="text" class="input1" name="qty_kg" size="150" value="<?php echo $qty_kg; ?>" />
 
                                 <span class="shadow-input1"></span>
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-alert="Grs." >
+                            <div class="wrap-input1 validate-input" data-alert="Pieces" >
 
-                                <input type="text" class="input1" name="qty_gm" value="<?php echo $pgm; ?>" />
+                                <input type="text" class="input1" name="qty_pieces" value="<?php echo $qty_pieces; ?>" />
 
                                 <span class="shadow-input1"></span>
 
@@ -293,7 +279,7 @@
 
                             <div class="wrap-input1 validate-input">
 
-                                <textarea class="input1" name="remarks" ><?php echo $rkms; ?></textarea>
+                                <textarea class="input1" name="remarks" ><?php echo $remarks; ?></textarea>
 
                                 <span class="shadow-input1"></span>
 

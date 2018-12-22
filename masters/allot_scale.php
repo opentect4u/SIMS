@@ -12,7 +12,7 @@
 			$prodcatg	=	$_POST['prod_catg'];
 			$perunit	=	$_POST['unit_type'];	
 			$unitval	=	$_POST['unit_val'];
-			$user_id    	= 	$_SESSION["user_id"];
+			$user_id    = 	$_SESSION["user_id"];
 
 			$time = date("Y-m-d h:i:s");
 
@@ -53,9 +53,14 @@
 	$select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
-	/*$select_prd="Select prod_desc from m_products";*/
+    /*$select_prd="Select prod_desc from m_products";*/
+    // For PDS ->
 	$select_prd="select sl_no,prod_desc from m_products where prod_type ='PDS'";
 	$prddesc=mysqli_query($db_connect,$select_prd);
+
+    // For NON PDS ->
+    $select_prd_np="select sl_no,prod_desc from m_products where prod_type ='NON PDS'";
+	$prddesc_np=mysqli_query($db_connect,$select_prd);
 
 
 ?>
@@ -87,9 +92,9 @@
         $(document).ready(function() {
 
             var    effective_dt     =    $('.validate-input input[name = "effective_dt"]');
-            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
             var    unit_type        =    $('.validate-input input[name = "unit_type"]');
+            var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    unit_val         =    $('.validate-input input[name = "unit_val"]');
 
 
@@ -131,9 +136,9 @@
             });
 
             showData(effective_dt);
-            showData(prod_desc);
             showData(prod_catg);
             showData(unit_type);
+            showData(prod_desc);
             showData(unit_val);
 
             $('.validate-form .input1').each(function(){
@@ -249,6 +254,34 @@
                             </div>
 
 
+                            <div class="wrap-input1 validate-input" data-validate="Product category is required" data-alert="Product Category">
+
+                                <select class="input1" name="prod_catg" id="prod_catg">
+
+                                    <option value="0">Select Category</option>
+
+                                        <?php
+
+                                            while($row=mysqli_fetch_assoc($prdcatg)){
+
+                                                echo ("<option value='".$row["prod_catg"]."' data-val='".$row['per_unit']."'>".$row["prod_catg"]."</option>") ;
+
+                                            }
+
+                                        ?>
+
+                                </select>
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+
+                            <div class="wrap-input1 validate-input" data-alert="Category Type">
+
+                                <input type="text" class="input1" name="unit_type" id="unit_type" readonly />
+
+                            </div>
+
                             <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
                                 <select class="input1" name="prod_desc" id="prod_desc">
@@ -270,35 +303,7 @@
                             </div>
 
 
-                            <div class="wrap-input1 validate-input" data-validate="Product category is required" data-alert="Product Category">
-
-                                <select class="input1" name="prod_catg" id="prod_catg">
-
-                                    <option value="0">Select Category</option>
-
-                                    <?php
-
-                                        while($row=mysqli_fetch_assoc($prdcatg)){
-
-                                            echo ("<option value='".$row["prod_catg"]."' data-val='".$row['per_unit']."'>".$row["prod_catg"]."</option>") ;
-
-                                        }
-
-                                    ?>
-
-                                </select>
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-alert="Category Type">
-
-                                <input type="text" class="input1" name="unit_type" id="unit_type" readonly />
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-validate="Unit is required" data-alert="Unit">
+                            <div class="wrap-input1 validate-input" data-validate="Unit is required" data-alert="Scale Unit">
 
                                 <input type="text" class="input1" name="unit_val" id="unit_val" value="0.00" placeholder="Scale" />
 

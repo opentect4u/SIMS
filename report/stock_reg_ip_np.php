@@ -1,27 +1,12 @@
 <?php
-
-	ini_set("display_errors","1");
+    ini_set("display_errors","1");
 	error_reporting("E_ALL");
 	
 	require("../db/db_connect.php");
 	require("../session.php");
 
-	$sql = "select sl_no,prod_desc from m_products WHERE prod_type = 'PDS'";
-	$proddesc = mysqli_query($db_connect,$sql);
-
-	$select_catg = "Select prod_catg from m_prod_catg";
-	$prodcatg    = mysqli_query($db_connect,$select_catg);
-
-	/*if($_SERVER['REQUEST_METHOD']=="GET"){
-		$sl_no 		= $_GET['sl_no'];
-		$prod_catg	= $_GET['prod_catg'];	
-		$start_dt	= $_GET['start_dt'];
-		$end_dt		= $_GET['end_dt'];
-		
-	//Header("Location:stock_register.php");
-
-		
-	}*/
+	$sql = "select sl_no,prod_desc from m_products WHERE prod_type = 'NON PDS'";
+    $prod_desc = mysqli_query($db_connect,$sql);
 
 ?>
 
@@ -51,7 +36,7 @@
         $(document).ready(function() {
 
             var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
-            var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
+            var    sl_no        =    $('.validate-input select[name = "sl_no"]');
 
             var    start_dt         =    $('.validate-input input[name = "start_dt"]');
             var    end_dt           =    $('.validate-input input[name = "end_dt"]');
@@ -68,12 +53,12 @@
 
                 }
 
-                if($(prod_catg).val() == '0') {
+               /* if($(prod_catg).val() == '0') {
 
                     showValidate(prod_catg);
 
                     check=false;
-                }
+                } */
 
                 if($(start_dt).val().trim() == '') {
 
@@ -107,8 +92,6 @@
                 });
 
             });
-
-
 
             function showValidate(input) {
 
@@ -154,7 +137,6 @@
 
     </script>
 
-
     <body class="body">
 
         <?php require '../post/nav.php'; ?>
@@ -178,7 +160,7 @@
 
                     <div class="container-contact1">
 
-                        <form class="contact1-form validate-form" id="form" action="stock_register.php" method="POST">
+                        <form class="contact1-form validate-form" id="form" action="stock_register_np.php" method="POST">
 
                                 <span class="contact1-form-title">
 
@@ -194,7 +176,7 @@
 
                                     <?php
 
-                                        while($data=mysqli_fetch_assoc($proddesc)){
+                                        while($data=mysqli_fetch_assoc($prod_desc)){
 
                                             echo "<option value='".$data['prod_desc']."' data-val='".$data['sl_no']."'>".$data['prod_desc']."</option>";
 
@@ -208,31 +190,9 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
+                            <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="sl_no" >
 
                                 <input type="text" class="input1" name="sl_no" id="sl_no" readonly />
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
-
-                                <select class="input1" name="prod_catg" id="prod_catg">
-
-                                    <option value="0">Select Category</option>
-
-                                    <?php
-
-                                        while($data=mysqli_fetch_assoc($prodcatg)){
-
-                                            echo "<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>";
-
-                                        }
-
-                                    ?>
-
-                                </select>
 
                                 <span class="shadow-input1"></span>
 

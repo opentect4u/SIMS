@@ -94,7 +94,7 @@
 
     function f_get_param_val($param_no, $db_connect) {
 
-        $sql = "SELECT param_value FROM m_params WHERE paran_no = $param_no";
+        $sql = "SELECT param_value FROM m_params WHERE param_no = $param_no";
 
         $result = mysqli_query($db_connect, $sql);
 
@@ -122,9 +122,7 @@
                  + $data['rw2_tot']
                  + $data['ra2_tot'];
 
-
 ?>
-
 
 <style>
 

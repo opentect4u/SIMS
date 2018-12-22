@@ -1,7 +1,7 @@
 
     <div class="block">
         <div>
-            <button class="collapsible"><?php require("../post/sims_function.php"); ?>
+            <button class="collapsible"><?php require_once("../post/sims_function.php"); ?>
 
                 Application Date: <?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?></button>
         </div>
@@ -43,13 +43,13 @@
 
                     <div>
                         <a class="abtn green" href="../masters/prod_qty.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Scale</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Unit</a>
                         <br><br>
                     </div>
 
                     <div>
                         <a class="abtn green" href="../masters/prod_qty_view.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Scale</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Unit</a>
                     </div>
 
                     <hr class='hr' style="margin-top: 15px;">
@@ -67,7 +67,7 @@
 
                     <hr class='hr' style="margin-top: 15px;">
 
-                    <div>
+                    <!--<div>
                         <a class="abtn green" href="../masters/short_master.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Shortage Parameters</a>
                         <br><br>
@@ -78,7 +78,7 @@
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Shortage Parameters</a>
                     </div>
 
-                    <hr class='hr' style="margin-top: 15px;">
+                    <hr class='hr' style="margin-top: 15px;"> -->
 
                     <div><a class="abtn green" href="../masters/dealer_master.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Dealer</a>
@@ -92,7 +92,7 @@
 
                     <hr class='hr' style="margin-top: 15px;">
 
-                    <div><a class="abtn green" href="../masters/allot_scale.php">
+                   <!-- <div><a class="abtn green" href="../masters/allot_scale.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Scale</a>
                         <br><br>
                     </div>
@@ -102,20 +102,64 @@
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Scale</a>
                     </div>
 
-                    <hr class='hr' style="margin-top: 15px;">
+                    <hr class='hr' style="margin-top: 15px;">-->
 
                     <div>
                         <a class="abtn green" href="../masters/rate_master.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Product Rate</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Rate</a>
                         <br><br>
                     </div>
 
                     <div>
                         <a class="abtn green" href="../masters/rate_master_view.php">
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Rate</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View PDS Rate</a>
                     </div>
 
-                    <br>
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+                        <a class="abtn green" href="../masters/rate_master_np.php">
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NON PDS Rate</a>
+                            <br><br>
+                    </div>
+                    
+                    <div>
+                        <a class="abtn green" href="../masters/rate_master_np_view.php">
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View NP Rate</a>
+                        <br><br>
+                    </div>
+
+                    <hr class='hr' style="margin-top: 15px;">
+
+                    <div>
+                        <a class="abtn green" href="../masters/short_master.php">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Shortage Parameters</a>
+                        <br><br>
+                    </div>
+
+                    <div>
+                        <a class="abtn green" href="../masters/short_master_view.php">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Shortage Parameters</a>
+                    </div>
+                    
+                    <hr class='hr' style="margin-top: 15px;">
+                    
+                     <div>
+
+                        <a class="abtn green" href="../masters/allot_scale.php">
+
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Scale</a>
+                        <br><br>
+
+                    </div>
+
+                    <div>
+
+                        <a class="abtn green" href="../masters/allot_scale_view.php">
+
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Scale</a>
+
+                    </div>
 
                 </div>
 
@@ -123,12 +167,121 @@
 
         </div>
 
+        <div>
+            <button class="collapsible">
+
+                <i class="fa fa-cube fa-fw" aria-hidden="true"></i>PDS TRANSATION
+
+                <i class="fa fa-angle-down pull-right"></i>
+
+            </button>
+
+            <div class= "content" >
+                <div class= "menue">
+
+                   <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/stock_in_pds.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In PDS</a>
+
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/allot_sheet.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Allotment Sheet</a>
+
+                       
+
+                    </div>
+
+                    <br>
+                    <div>
+
+                        <a class="abtn green" href="../transactions/allot_sheet_view.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View PDS Allotment Sheet</a>
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/stock_out_pds.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out PDS</a>
+
+
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../approve/aprv_allot_sheet.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Apprv PDS Allotment Sheet</a>
+
+                    </div>
+                    <br>
+
+                    
+                    <div>
+
+                        <a class="abtn green" href="../transactions/view_stock_in_pds.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Apprv PDS Stock Trans</a>
+
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+
+        </div> 
+
+       <!-- <div>
+            <button class="collapsible">
+
+                <i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>Manage NON PDS
+
+                <i class="fa fa-angle-down pull-right"></i>
+
+            </button>
+
+            <div class= "content">
+
+                <div class= "menue">
+
+                    <br>
+
+                    <div>
+                        <a class="abtn green" href="../masters/rate_master_np.php">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Product Rate</a>
+                        <br><br>
+                    </div>
+
+                    <div>
+                        <a class="abtn green" href="../masters/rate_master_np_view.php">
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Rate</a>
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+            
+        </div>-->
 
         <div>
 
             <button class="collapsible">
 
-                <i class="fa fa-cube fa-fw" aria-hidden="true"></i>Transaction
+                <i class="fa fa-cube fa-fw" aria-hidden="true"></i>NP Transaction
 
                 <i class="fa fa-angle-down pull-right"></i>
 
@@ -137,69 +290,60 @@
             <div class="content">
 
                 <div class="manue">
-
                     <br>
 
                     <div>
 
-                        <a class="abtn green" href="../transactions/stock_in_pds.php">
+                        <a class="abtn green" href="../transactions/stock_in_np.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In</a>
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock In NON PDS</a>
 
                     </div>
-
-                    <hr class='hr' style="margin-top: 15px;">
+                    <br>
 
                     <div>
 
-                        <a class="abtn green" href="../transactions/allot_sheet.php">
+                        <a class="abtn green" href="../transactions/allot_sheet_np.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Sheet</a>
-
-                        <br><br>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NP Allotment Sheet</a>
 
                     </div>
+                    <br>
 
                     <div>
 
-                        <a class="abtn green" href="../transactions/allot_sheet_view.php">
+                        <a class="abtn green" href="../transactions/view_allot_sheet_np.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Sheet</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View NP Allotment Sheet</a>
                     </div>
 
-                    <hr class='hr' style="margin-top: 15px;">
+                    <br>
+                    <div>
+
+                        <a class="abtn green" href="../transactions/stock_out_np.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out NON PDS</a>
+
+                    </div>
+                    <br>
 
                     <div>
 
-                        <a class="abtn green" href="../transactions/stock_out_pds.php">
+                        <a class="abtn green" href="../transactions/view_stock_in_np.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock out</a>
-
-                        <br>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve NP Stock In</a>
 
                     </div>
-
-                    <hr class='hr' style="margin-top: 15px;">
+                    <br>
 
                     <div>
 
-                        <a class="abtn green" href="../approve/aprv_allot_sheet.php">
+                        <a class="abtn green" href="../transactions/view_stock_out_np.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve Allotment Sheet</a>
-
-                        <br><br>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve NP Stock Out</a>
 
                     </div>
-	
-                    <div>
-
-                        <a class="abtn green" href="../transactions/view_stock_in_pds.php">
-
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Approve Stock Transactions</a>
-
-                        <br><br>
-
-                    </div>
+                    <br>
 
                 </div>
 
@@ -227,7 +371,16 @@
 
                         <a class="abtn green" href="../report/stock_reg_ip.php">
 
-                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Stock Register</a>
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Stock Register</a>
+
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../report/stock_reg_ip_np.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NP Stock Register</a>
 
                     </div>
 
@@ -239,11 +392,19 @@
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
 
-                            Allotment Sheet Report
+                            PDS Allotment Sheet Report
 
                         </a>
 
                         <br><br>
+                        
+                        <a class="abtn green" href="../report/allot_sheet_report_np.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+
+                            NP Allotment Sheet Report
+
+                        </a>
 
                     </div>
 
@@ -261,7 +422,7 @@
 
                     <div>
 
-                        <a class="abtn green" href="#">
+                        <a class="abtn green" href= "../report/np_challan_form.php">
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>NON PDS Challan</a>
 
@@ -275,7 +436,7 @@
 
         </div>
 
-        <div>
+ <!--       <div>
 
             <button class="collapsible">
 
@@ -297,7 +458,7 @@
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add User</a>
 
-                    </div>
+                    </div> 
 
                     <hr class='hr' style="margin-top: 15px;">
 
@@ -315,15 +476,15 @@
 
             </div>
 
-        </div>
+        </div> -->
 
-        <div>
+       <!-- <div>
 
             <button id="loutbtn" class="collapsible">
 
                 <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>Logout</button>
 
-        </div>
+        </div> -->
 
     </div>
 

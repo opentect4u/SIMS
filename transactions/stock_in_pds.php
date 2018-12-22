@@ -39,9 +39,8 @@
 
 			    if (mysqli_num_rows($result) > 0) {
 			        $data = mysqli_fetch_assoc($result);
-                    		$transcd += $data['trans_cd'];
-                		}
-
+                    $transcd += $data['trans_cd'];
+                }
 
 			    $sql="insert into td_stock_trans_pds (trans_dt,
                                                      trans_cd,
@@ -105,12 +104,10 @@
 
         $prod_result    =   mysqli_query($db_connect, $prod_sql);
 
-
         $catg_sql	    =   "Select prod_catg from m_prod_catg";
 
         $result_catg	=   mysqli_query($db_connect,$catg_sql);
 		
-
 ?>
 <html>
 
@@ -250,16 +247,16 @@
 
     <script>
 
-	$(document).ready(function() {
+        $(document).ready(function() {
 
-        $('#prod_desc').change(function () {
+            $('#prod_desc').change(function () {
 
-		  $('#prod_type').val($(this).find(':selected').attr('data-val'));
+            $('#prod_type').val($(this).find(':selected').attr('data-val'));
 
-		  $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
+            $('#sl_no').val($(this).find(':selected').attr('prod-cd'));
 
+            });
         });
-    });
 
     </script>
 
