@@ -6,14 +6,15 @@
     require("../db/db_connect.php");
     require("../session.php");
 
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") 
+    {
 
         $memono = $_POST['memono'];
 
         $sql = "SELECT gen_date,
-                       del_cd,
-                       prod_desc,
-                       amount 
+                    del_cd,
+                    prod_desc,
+                    amount 
                 FROM td_allotment_sheet_np
                 WHERE memono = '$memono'";
 
@@ -21,65 +22,16 @@
 
         $allotment_result = mysqli_query($db_connect, $sql);
 
-        if($allotment_result){
+        $sql= "SELECT m.del_cd, m.del_name, m.del_reg, MAX(t.gen_date) gen_date
+            FROM m_dealers m, td_allotment_sheet_np t
+            WHERE m.del_cd = t.del_cd
+            AND t.memoNo = '$memono'
+            GROUP BY m.del_cd, m.del_name, m.del_reg";
 
-            if(mysqli_num_rows($allotment_result) > 0 ){
-
-                while($row = mysqli_fetch_assoc($allotment_result)){
-                
-                    $gen_date       =       $row['gen_date'];
-                    $del_cd         =       $row['del_cd'];
-                    $prod_desc      =       $row['prod_desc'];
-                    $amount         =       $row['amount'];
-                    
-                }
-                //echo $del_cd; die;
-            }
-
-        }
-
+        $sql_join = mysqli_query($db_connect, $sql);
     }
+
     
-   /* echo $gen_date;
-    echo $del_cd;
-    echo $prod_desc;
-    echo $amount;
-    die; */
-    
-        //$del_cd	=	$_GET['del_cd'];
-
-        $sql= "SELECT   del_cd,
-                        del_name, 
-                        del_adr, 
-                        del_reg, 
-                        del_dist 
-                    FROM m_dealers 
-                    WHERE del_cd = '$del_cd' ";
-    //echo $sql;
-
-    $dealer_result	=  mysqli_query($db_connect,$sql);
-
-   /* if($dealer_result){
-
-        if(mysqli_num_rows($dealer_result) > 0 ){
-
-               /* echo $del_name;
-                echo $del_adr;
-                echo $del_reg;
-                echo $del_dist; die;
-
-            
-        }
-    } */
-
-    $sql= "SELECT m.del_cd, m.del_name, m.del_reg, MAX(t.gen_date) 
-        FROM m_dealers m, td_allotment_sheet_np t
-        WHERE m.del_cd = t.del_cd
-        AND t.memoNo = '$memono'
-        GROUP BY m.del_cd, m.del_name, m.del_reg";
-
-    $sql_join = mysqli_query($db_connect, $sql);
-
 ?>
 
 <html>
@@ -174,6 +126,79 @@
 
     </div>
 
+ <?php
+
+        //$del_name          =      $row['del_name'];
+        //$del_adr           =      $row['del_adr'];
+        //$del_reg           =      $row['del_reg'];
+        //$del_dist          =      $row['del_dist'];  
+    /*
+        if($allotment_result)
+        {
+
+            if(mysqli_num_rows($allotment_result) > 0 )
+            {
+
+                while($row = mysqli_fetch_assoc($allotment_result))
+                {
+                
+                    $gen_date       =       $row['gen_date'];
+                    $del_cd         =       $row['del_cd'];
+                    $prod_desc      =       $row['prod_desc'];
+                    $amount         =       $row['amount'];
+                    
+                }
+                //echo $del_cd; die;
+            }
+
+        }
+
+        
+        
+    /* echo $gen_date;
+        echo $del_cd;
+        echo $prod_desc;
+        echo $amount;
+        die; */
+        
+            //$del_cd	=	$_GET['del_cd'];
+
+        /*    $sql= "SELECT   del_cd,
+                            del_name, 
+                            del_adr, 
+                            del_reg, 
+                            del_dist 
+                        FROM m_dealers 
+                        WHERE del_cd = '$del_cd' ";
+        //echo $sql;
+
+        $dealer_result	=  mysqli_query($db_connect,$sql);
+
+    /* if($dealer_result){
+
+            if(mysqli_num_rows($dealer_result) > 0 ){
+
+                /* echo $del_name;
+                    echo $del_adr;
+                    echo $del_reg;
+                    echo $del_dist; die;
+
+                
+            }
+        } */
+
+    /*  $sql= "SELECT m.del_cd, m.del_name, m.del_reg, MAX(t.gen_date) 
+            FROM m_dealers m, td_allotment_sheet_np t
+            WHERE m.del_cd = t.del_cd
+            AND t.memoNo = '$memono'
+            GROUP BY m.del_cd, m.del_name, m.del_reg";
+
+        $sql_join = mysqli_query($db_connect, $sql);
+
+        */
+?>
+
+
     <div class="row" >
 
         <div class="col-lg-12 col-md-6">
@@ -202,32 +227,27 @@
 
                     <tbody>
 
-                    <?php
-                        while($row = mysqli_fetch_assoc($sql_join)){
-                
-                            //$del_name          =      $row['del_name'];
-                            //$del_adr           =      $row['del_adr'];
-                            //$del_reg           =      $row['del_reg'];
-                            //$del_dist          =      $row['del_dist'];  
-                    ?>
-                    
+                        <?php if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+                            while ($data = mysqli_fetch_assoc($sql_join)) { ?>
+
                                 <tr>
 
-                                    <td><?php echo $row['del_cd']; ?></td>
+                                    <td><?php echo $data['del_cd']; ?></td>
 
-                                    <td><?php echo $row['del_name']; ?></td>
+                                    <td><?php echo $data['del_name']; ?></td>
 
-                                    <td><?php echo date('d/m/Y', strtotime($row['gen_date'])); ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($data['gen_date'])); ?></td>
 
-                                    <td><?php echo $row['del_reg']; ?></td>
+                                    <td><?php echo $data['del_reg']; ?></td>
 
                                     <td><button class="btn btn-primary"
 
-                                            id="<?php echo urlencode($row['del_cd']); ?>"
-                                            date="<?php echo urlencode($row['gen_date']); ?>"
+                                            id="<?php echo urlencode($data['del_cd']); ?>"
+                                            date="<?php echo urlencode($data['gen_date']); ?>"
                                             memono= "<?php echo urlencode($memono); ?>" >
 
-                                        Print <i class="fa fa-print fa-lg" aria-hidden="true"></i>
+                                            Print <i class="fa fa-print fa-lg" aria-hidden="true"></i>
 
                                         </button>
 
@@ -235,7 +255,9 @@
 
                                 </tr>
 
-                    <?php } ?>
+                            <?php } ?>
+
+                        <?php }?>
 
                     </tbody>
 
@@ -283,7 +305,7 @@
                 var id = $(this).attr('id'),
                     date = $(this).attr('date');
 
-                $.get("../bill/non_pds_bill.php", { del_cd: id, gen_date: date, memo_no : "<?php echo $memo_no;?>" })
+                $.get("../bill/non_pds_bill.php", { del_cd: id, gen_date: date, memono : "<?php echo $memono;?>" })
                 
                 .done(function (data) {
 
@@ -300,9 +322,10 @@
     </script>
 
     <?php
-        $_SESSION['memono']         =   $memono;
-        $_SESSION['gen_date']       =   $gen_date;
-        $_SESSION['del_cd']         =   $del_cd;
+    
+       // $_SESSION['memono']         =       $memono;
+        //$_SESSION['gen_date']       =       $gen_date;
+       // $_SESSION['del_cd']         =       $del_cd; 
         
     ?>
 

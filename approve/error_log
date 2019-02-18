@@ -1,0 +1,9 @@
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: memo_no in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 177
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 178
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: alt_year in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 179
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: mth in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 180
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: created_by in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 181
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: created_dt in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 182
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: modified_dt in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 183
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: memo_no in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 186
+[24-Dec-2018 08:01:43 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/approve/aprv_allot_sheet.php on line 186

@@ -27,21 +27,12 @@
  
         $sql= "UPDATE td_allotment_sheet_np SET amount= '$amount', prod_desc= '$prod_desc'      
         WHERE memoNo= '$memoNo' AND gen_date= '$gen_date' AND del_cd= '$del_cd' ";
+        
+    
         $result= mysqli_query($db_connect, $sql);
 
-        echo $sql;
- 
-        echo "<script>
-                function alert_function()
-                {
-                    alert('Successfully Updated');
-                    window.location.href='view_allot_sheet_np.php';
-                } 
-                alert_function();
-
-            </script>";
          
-            header("Location: view_allot_sheet_np.php"); 
+           header("Location: view_allot_sheet_np.php"); 
     } 
 
     /*else
@@ -309,6 +300,3 @@
     </body>
     
 </html>
-
-
-

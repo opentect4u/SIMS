@@ -35,7 +35,7 @@
                                                  '$prod_desc',
                                                  '$prod_type', 
                                                  '$unit',
-                                                 '$prod_rate',
+                                                 $prod_rate,
                                                  '$user_id',
                                                  '$time')";
 

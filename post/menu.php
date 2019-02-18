@@ -6,9 +6,12 @@
                 Application Date: <?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?></button>
         </div>
 
-        <div>
-            <button id="dashbtn" class="collapsible"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Dashboard</button>
-        </div>
+       <!-- <div>
+            <button id="dashbtn" class="collapsible" onclick="redirect()">
+                
+                <i class="fa fa-home fa-fw" aria-hidden="true"></i>Dashboard
+            </button>
+        </div>-->
         <div>
             <button class="collapsible">
                 <i class="fa fa-asterisk fa-fw" aria-hidden="true"></i>Master
@@ -180,6 +183,14 @@
                 <div class= "menue">
 
                    <br>
+                   <div>
+
+                        <a class="abtn green" href="../transactions/opn_bal_pds.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Open Balance</a>
+
+                    </div>
+                    <br>
 
                     <div>
 
@@ -290,6 +301,14 @@
             <div class="content">
 
                 <div class="manue">
+                    <br>
+                    <div>
+
+                        <a class="abtn green" href="../transactions/opn_bal_np.php">
+
+                        <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Open Balance NON PDS</a>
+
+                    </div>
                     <br>
 
                     <div>
@@ -436,7 +455,7 @@
 
         </div>
 
- <!--       <div>
+       <div>
 
             <button class="collapsible">
 
@@ -476,7 +495,7 @@
 
             </div>
 
-        </div> -->
+        </div> 
 
        <!-- <div>
 
@@ -487,4 +506,3 @@
         </div> -->
 
     </div>
-

@@ -1,114 +1,135 @@
 <?php
-	ini_set("display_errors","1");
-	error_reporting(E_ALL);
 
-	require("../db/db_connect.php");
-	require("../session.php");
+ini_set("display_errors","1");
+error_reporting(E_ALL);
 
+require("../db/db_connect.php");
+require("../session.php");
 
-        $errMsg = '';
-	if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    $errMsg = '';
 
-            //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
+    if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
-			//$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-            $transdt    =  date('Y-m-d');
-			$dono		=	$_POST["do_no"];
-			$prodslno	=	$_POST["sl_no"];
-			$proddesc	=	$_POST["prod_desc"];
-			$transtype	=	"I";
-			$qtybag		=	$_POST['qty_bag'];
-			$qtyqnt		=	$_POST['qty_qnt'];	
-			$qtykg		=	$_POST['qty_kg'];
-			$qtygm		=	$_POST['qty_gm'];	
-			$prodtype	=	$_POST['prod_type'];
-			$prodcatg	=	$_POST['prod_catg'];	
-			$remarks	=	$_POST['remarks'];
-			$transcd	=	1;
-			$user_id    =   $_SESSION["user_id"];
-			$time       =   date("Y-m-d h:i:s");
+        //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
 
-			//var_dump($transdt);
+        //$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
+        //$transdt    =  date('Y-m-d');
+        $trans_dt   =   $_POST['trans_dt'];
+        $prodslno	=	$_POST["sl_no"];
+        $proddesc	=	$_POST["prod_desc"];
+        
+        $qtybag		=	$_POST['qty_bag'];
+        $qtyqnt		=	$_POST['qty_qnt'];	
+        $qtykg		=	$_POST['qty_kg'];
+        $qtygm		=	$_POST['qty_gm'];	
+        
+        $prodcatg	=	$_POST['prod_catg'];	
+        
+        $user_id    =   $_SESSION["user_id"];
+        $time       =   date("Y-m-d h:i:s");
 
-
-			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($dono)) {
-			    $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
-                                                      WHERE trans_dt = '$transdt'";
-
-			    $result = mysqli_query($db_connect, $sql);
-
-			    if (mysqli_num_rows($result) > 0) {
-			        $data = mysqli_fetch_assoc($result);
-                    $transcd += $data['trans_cd'];
-                }
-
-			    $sql="insert into td_stock_trans_pds (trans_dt,
-                                                     trans_cd,
-                                                     do_no,
-                                                     prod_sl_no,
-                                                     prod_desc,
-                                                     prod_type,
-                                                     prod_catg,
-                                                     trans_type,
-                                                     qty_bag,
-                                                     qty_qnt,
-                                                     qty_kg,
-                                                     qty_gm,
-                                                     remarks,
-                                                     approval_status,			
-                                                     created_by,
-                                                     created_dt,
-                                                     sht_kg,
-                                                     sht_gm)
-                                                     
-                                              values('$transdt',
-                                                     '$transcd',
-                                                     '$dono',
-                                                     '$prodslno',
-                                                     '$proddesc',
-                                                     '$prodtype',
-                                                     '$prodcatg',
-                                                     '$transtype',
-                                                      $qtybag,
-                                                      $qtyqnt,
-                                                      $qtykg,
-                                                      $qtygm,
-                                                     '$remarks',
-                                                     'U',									     
-                                                     '$user_id',
-                                                     '$time',
-                                                          0,
-                                                          0)";
-
-			    $result=mysqli_query($db_connect,$sql);
-
-			    if($result){
-				$_SESSION['ins_flag']=true;    
-			    	Header("Location:view_stock_in_pds.php");
-			    }	
+        //var_dump($transdt);
 
 
+        if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0) {
+            $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
+                                                  WHERE trans_dt = '$trans_dt'";
+            //echo $sql; die;
+
+            $result = mysqli_query($db_connect, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $data = mysqli_fetch_assoc($result);
+                $trans_cd = $data['trans_cd']+1;
+                //echo $trans_cd; die;
             }
 
-            else {
+            $sql="insert into td_stock_trans_pds (trans_dt,
+                                        trans_cd,
+                                        do_no,
+                                        prod_sl_no,
+                                        prod_desc,
+                                        prod_type,
+                                        prod_catg,
+                                        trans_type,
 
-			    echo "<script>alert('Please Insert Valid Unit, Transaction Failed');</script>";
+                                        qty_bag,
+                                        qty_qnt,
+                                        qty_kg,
+                                        qty_gm,
 
-            }
-            
+                                        bag_bal,
+                                        qnt_bal,
+                                        kg_bal,
+                                        gm_bal,
+
+                                        remarks,
+                                        approval_status,          
+                                        created_by,
+                                        created_dt,
+                                        sht_kg,
+                                        sht_gm)
+
+                                        values('2019-02-01',
+                                            '$trans_cd',
+                                            'opening/1',
+                                            '$prodslno',
+                                            '$proddesc',
+                                            'PDS',
+                                            '$prodcatg',
+                                            'I',
+                                            $qtybag,
+                                            $qtyqnt,
+                                            $qtykg,
+                                            $qtygm,
+
+                                            $qtybag,
+                                            $qtyqnt,
+                                            $qtykg,
+                                            $qtygm,
+
+                                            'Opening Balance',
+                                            'A',						     
+                                            '$user_id',
+                                            '$time',
+                                            0,
+                                            0)";
+                                                
+                                            //echo $sql; die;      
+
+            $result=mysqli_query($db_connect,$sql);
+
+            /*if($result){
+            $_SESSION['ins_flag']=true;    
+                Header("Location:opn_bal_pds.php");
+            }	*/
+
         }
 
-        unset($sql);
+        else {
 
-        $prod_sql       =   "SELECT sl_no,prod_type,prod_desc FROM m_products WHERE prod_type = 'PDS' ORDER BY sl_no";
+            echo "<script>alert('Transaction Failed');</script>";
 
-        $prod_result    =   mysqli_query($db_connect, $prod_sql);
+        }
+       
+        
+    }
 
-        $catg_sql	    =   "Select prod_catg from m_prod_catg";
+    unset($sql);
 
-        $result_catg	=   mysqli_query($db_connect,$catg_sql);
-		
+    $prod_sql       =   "SELECT sl_no,prod_type,prod_desc FROM m_products WHERE prod_type = 'PDS' ORDER BY sl_no";
+
+    $prod_result    =   mysqli_query($db_connect, $prod_sql);
+
+    $catg_sql	    =   "Select prod_catg from m_prod_catg";
+
+    $result_catg	=   mysqli_query($db_connect,$catg_sql);
+
+
 ?>
+
+
+
 <html>
 
 	<head>
@@ -286,25 +307,17 @@
 
                                 <span class="contact1-form-title">
 
-                                   Stock In
+                                   Opening PDS Stock
 
                                 </span>
 
-                            <div class="wrap-input1 validate-input" data-alert="Transaction Date">
+                          <!--  <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
 
-                                <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
-
-                            <div class="wrap-input1 validate-input" data-validate="DO No. is required" data-alert="Do No.">
-
-                                <input type="text" class="input1" name="do_no" id="do_no" placeholder="DO Number" />
+                                <input type=date class="input1" name="trans_dt" id="trans_dt" value="<?php echo date("Y-m-d");?>" />
 
                                 <span class="shadow-input1"></span>
 
-                            </div>
+                            </div> -->
 
                             <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
@@ -398,15 +411,6 @@
 
                             </div>
 
-                            <div class="wrap-input1 validate-input" data-validate="Date is required">
-
-                                <textarea class="input1" name="remarks" >Enter Remarks If Any..
-
-                                </textarea>
-
-                                <span class="shadow-input1"></span>
-
-                            </div>
 
                             <div class="container-contact1-form-btn">
 

@@ -1,0 +1,39 @@
+[24-Dec-2018 08:13:31 UTC] PHP Notice:  Use of undefined constant prod_type_edit - assumed 'prod_type_edit' in /home/opentech4uco/public_html/sims/edit/prod_type_edit.php on line 48
+[24-Dec-2018 08:13:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_type_edit.php on line 49
+[24-Dec-2018 08:16:12 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_catg_edit.php on line 55
+[24-Dec-2018 08:16:16 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_catg_edit.php on line 55
+[24-Dec-2018 08:18:33 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_qty_edit.php on line 50
+[24-Dec-2018 08:19:02 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_qty_edit.php on line 50
+[24-Dec-2018 09:03:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_edit.php on line 56
+[24-Dec-2018 09:04:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_edit.php on line 56
+[24-Dec-2018 09:04:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_edit.php on line 56
+[24-Dec-2018 09:07:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 61
+[24-Dec-2018 09:07:25 UTC] PHP Notice:  Undefined variable: delcd in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 208
+[24-Dec-2018 09:07:47 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 61
+[24-Dec-2018 09:07:47 UTC] PHP Notice:  Undefined variable: delcd in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 208
+[24-Dec-2018 09:09:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 61
+[24-Dec-2018 09:09:24 UTC] PHP Notice:  Undefined variable: delcd in /home/opentech4uco/public_html/sims/edit/dealer_edit.php on line 208
+[24-Dec-2018 09:23:06 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_edit.php on line 56
+[24-Dec-2018 09:23:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/session.php:11) in /home/opentech4uco/public_html/sims/edit/prod_edit.php on line 56
+[24-Dec-2018 09:41:41 UTC] PHP Notice:  Undefined index: per_unit in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 50
+[24-Dec-2018 09:41:41 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/edit/rate_edit.php:50) in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 72
+[24-Dec-2018 09:41:41 UTC] PHP Notice:  Undefined variable: prdesc in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 226
+[24-Dec-2018 09:41:41 UTC] PHP Notice:  Undefined variable: protype in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 234
+[24-Dec-2018 09:41:41 UTC] PHP Notice:  Undefined variable: prdcatg in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 242
+[24-Dec-2018 09:41:41 UTC] PHP Notice:  Undefined variable: prorate in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 258
+[24-Dec-2018 09:48:52 UTC] PHP Notice:  Undefined index: per_unit in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 50
+[24-Dec-2018 09:48:52 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/edit/rate_edit.php:50) in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 72
+[24-Dec-2018 09:48:52 UTC] PHP Notice:  Undefined variable: prdesc in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 226
+[24-Dec-2018 09:48:52 UTC] PHP Notice:  Undefined variable: protype in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 234
+[24-Dec-2018 09:48:52 UTC] PHP Notice:  Undefined variable: prdcatg in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 242
+[24-Dec-2018 09:48:52 UTC] PHP Notice:  Undefined variable: prorate in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 258
+[24-Dec-2018 09:50:01 UTC] PHP Notice:  Undefined index: per_unit in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 50
+[24-Dec-2018 09:50:01 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/edit/rate_edit.php:50) in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 72
+[24-Dec-2018 09:50:01 UTC] PHP Notice:  Undefined variable: prdesc in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 226
+[24-Dec-2018 09:50:01 UTC] PHP Notice:  Undefined variable: protype in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 234
+[24-Dec-2018 09:50:01 UTC] PHP Notice:  Undefined variable: prdcatg in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 242
+[24-Dec-2018 09:50:01 UTC] PHP Notice:  Undefined variable: prorate in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 258
+[24-Dec-2018 09:53:09 UTC] PHP Notice:  Undefined variable: prdesc in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 226
+[24-Dec-2018 09:53:09 UTC] PHP Notice:  Undefined variable: protype in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 234
+[24-Dec-2018 09:53:09 UTC] PHP Notice:  Undefined variable: prdcatg in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 242
+[24-Dec-2018 09:53:09 UTC] PHP Notice:  Undefined variable: prorate in /home/opentech4uco/public_html/sims/edit/rate_edit.php on line 258

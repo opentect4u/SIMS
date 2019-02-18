@@ -46,7 +46,7 @@
 
 					  $user_id=$_SESSION['user_id'];
 					  $time = date("Y-m-d h:i:s");
-					  $terminalname=$_SERVER['REMOTE_ADDR'];
+					  $terminalname=$_SERVER["REMOTE_ADDR"];
 
 					  $audit="insert into t_audit_trail(login_dt,user_id,terminal_name)
 				                  values('$time','$user_id','$terminalname')";
@@ -60,7 +60,7 @@
 					     $_SESSION['sl_no']=$row["sl_no"];	 
 				         }	
 				
-				mysqli_close($sql);
+			//	mysqli_close($result);
 
               		        header("Location:post/dashboard.php");
 				}	

@@ -1,0 +1,17 @@
+[24-Dec-2018 10:25:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[24-Dec-2018 10:25:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[24-Dec-2018 10:25:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[24-Dec-2018 10:25:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[24-Dec-2018 10:25:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[24-Dec-2018 11:33:28 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/opentech4uco/public_html/sims/bill/non_pds_bill.php:34) in /home/opentech4uco/public_html/sims/session.php on line 3
+[24-Dec-2018 11:35:50 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/opentech4uco/public_html/sims/bill/non_pds_bill.php:34) in /home/opentech4uco/public_html/sims/session.php on line 3
+[26-Dec-2018 05:39:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 05:39:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 05:39:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 05:39:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 05:39:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 06:09:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 06:09:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 06:09:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 06:09:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101
+[26-Dec-2018 06:09:45 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/bill/pds_bill.php on line 101

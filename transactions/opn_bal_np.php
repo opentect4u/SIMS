@@ -6,7 +6,8 @@
 	require("../db/db_connect.php");
     require("../session.php");
     
-        $errMsg = '';
+    $errMsg = '';
+
 
     $prod_sql       =   "SELECT sl_no,prod_type,prod_desc FROM m_products WHERE prod_type = 'NON PDS' ORDER BY sl_no";
     $prod_result    =   mysqli_query($db_connect, $prod_sql);
@@ -15,10 +16,10 @@
 
         //var_dump($_POST["sl_no"]);
 
-        $trans_dt	    =	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-        $trans_dt       =   $trans_dt->format('Y-m-d');
-        $dono		    =	$_POST["do_no"];
-        $prod_type      =   $_POST["prod_type"];
+        $trans_dt   =   $_POST['trans_dt'];
+        
+        //$dono		    =	$_POST["do_no"];
+        //$prod_type      =   $_POST["prod_type"];
         $prod_sl_no     =   $_POST["sl_no"];
         $trans_type	    =	"I";
         $prod_desc      =   $_POST["prod_desc"];
@@ -26,12 +27,13 @@
         $qty_cs         =   $_POST["qty_cs"];
         $qty_kg         =   $_POST["qty_kg"];
         $qty_pieces     =   $_POST["qty_pieces"];
-        $remarks	    =	$_POST['remarks'];
+        //$remarks	    =	$_POST['remarks'];
         $trans_cd	    =	1;
         $user_id        =   $_SESSION["user_id"];
         $time           =   date("Y-m-d h:i:s");
      
-        if(array_sum(array($qty_bag_tin, $qty_cs, $qty_kg, $qty_pieces)) > 0 && !is_null($dono)) {
+        
+        if(array_sum(array($qty_bag_tin, $qty_cs, $qty_kg, $qty_pieces)) > 0) {
 
             $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_np
                                                 WHERE trans_dt = '$trans_dt'";
@@ -50,53 +52,75 @@
                                                      prod_desc,
                                                      prod_type,
                                                      trans_type,
+
                                                      qty_bags_tin,
                                                      qty_cs,
                                                      qty_kg,
                                                      qty_pieces,
+
+                                                     bag_tin_bal,
+                                                     cs_bal,
+                                                     kg_bal,
+                                                     pieces_bal,
+
                                                      remarks,
                                                      approval_status,			
                                                      created_by,
                                                      created_dt)
 
-                                                values('$trans_dt',
+                                                values('2019-02-01',
                                                      '$trans_cd',
-                                                     '$dono',
+                                                     'opening/1',
                                                       $prod_sl_no,
                                                      '$prod_desc',
-                                                     '$prod_type',
-                                                     '$trans_type',
+                                                     'NON PDS',
+                                                     'I',
+
                                                       $qty_bag_tin,
                                                       $qty_cs,
                                                       $qty_kg,
                                                       $qty_pieces,
-                                                     '$remarks',
-                                                     'U',									     
+                                                     
+
+                                                      $qty_bag_tin,
+                                                      $qty_cs,
+                                                      $qty_kg,
+                                                      $qty_pieces,
+
+                                                     'Opening Balance',
+                                                     'A',									     
                                                      '$user_id',
                                                      '$time')";
                  
+                                                    //echo $sql; die;
+
                 $result=mysqli_query($db_connect,$sql);
 
                 //echo $sql; die();
 
-			    if($result){
+			  /*  if($result){
 				$_SESSION['ins_flag']=true;    
-			    	Header("Location:view_stock_in_np.php");
-			    }	
-        }
+			    	Header("Location:opn_bal_np.php");
+                }	 */
+                
+        }   
 
         else {
 
             echo "<script>alert('Please Insert Valid Unit, Transaction Failed');</script>";
 
         }
+
     }
+
 
     unset($sql);
 
     $prod_sql       =   "SELECT sl_no,prod_type,prod_desc FROM m_products WHERE prod_type = 'NON PDS' ORDER BY sl_no";
 
     $prod_result    =   mysqli_query($db_connect, $prod_sql);
+
+
 ?>
 
 <html>
@@ -264,30 +288,18 @@
 
                                 <span class="contact1-form-title">
 
-                                    Stock In NON PDS
+                                    Opening NP Stock
 
                                 </span>
-                                <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
-                                    <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
+                            <!--    <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
 
-                                    <span class="shadow-input1"></span>
-
-                                </div>
-                                <div class="wrap-input1 validate-input" data-validate="DO No. is required" data-alert="Do No.">
-
-                                    <input type="text" class="input1" name="do_no" id="do_no" placeholder="DO Number" />
+                                    <input type=date class="input1" name="trans_dt" id="trans_dt" value="<?php echo date("Y-m-d");?>" />
 
                                     <span class="shadow-input1"></span>
 
-                                </div>
-                                <div class="wrap-input1 validate-input" data-alert="Product Type">
-
-                                    <input type="text" class="input1" name="prod_type" value= "NON PDS" id="prod_type" readonly />
-
-                                    <span class="shadow-input1"></span>
-
-                                </div>
+                                </div> -->
+                                
                                 <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 
                                     <select class="input1" name="prod_desc" id="prod_desc">
@@ -346,13 +358,7 @@
                                     <span class="shadow-input1"></span>
 
                                 </div>
-                                <div class="wrap-input1 validate-input" data-validate="Date is required">
-
-                                    <textarea class="input1" name="remarks" >Enter Remarks If Any..
-                                    </textarea>
-                                    <span class="shadow-input1"></span>
-
-                                </div>
+                                
                                 <div class="container-contact1-form-btn">
 
                                     <button class="contact1-form-btn">

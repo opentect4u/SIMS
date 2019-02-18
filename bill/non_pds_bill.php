@@ -37,17 +37,17 @@
     error_reporting("E_ALL");
 
     require("../db/db_connect.php");
-    require("../session.php");
+    //require("../session.php");
 
-    $memono     =   $_SESSION['memono'];
-    $gen_date   =   $_SESSION['gen_date'];
+    //$memono     =   $_SESSION['memono'];
+    //$gen_date   =   $_SESSION['gen_date'];
 
     //var_dump($memono);
 
     if ($_SERVER['REQUEST_METHOD'] == "GET"){
         
-        //$memono         =   $_GET['memono'];
-       // $gen_date       =   $_GET['gen_date'];
+        $memono         =   $_GET['memono'];
+        $gen_date       =   $_GET['gen_date'];
         $del_cd         =   $_GET['del_cd'];
        // $del_name       =   $_GET['del_name'];
         //$del_reg        =   $_GET['del_reg'];

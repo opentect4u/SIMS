@@ -128,27 +128,28 @@
             for ($i=0; $i< count($prod_desc); $i++)
             {
                 
-               // echo $prod_desc[$i].'<br>';
-              //  echo $amount[$i].'<br>';
-            
-            /*$memoNo       =     $_POST["memoNo"];
-            $effective_dt =     $_POST["effective_dt"];
-            $del_cd       =     $_POST["del_cd"];
-            $prod_desc    =     
-            $amount       =     $_POST["amount"];
-            $prod_count   =     count($prod_desc);
-            $amount_count =     count($amount);
-           // echo $prod_count; 
-           // echo $amount_count;
-           //echo $prod_desc;
-           //echo $amount;
+                // echo $prod_desc[$i].'<br>';
+                //  echo $amount[$i].'<br>';
+                
+                /*$memoNo       =     $_POST["memoNo"];
+                $effective_dt =     $_POST["effective_dt"];
+                $del_cd       =     $_POST["del_cd"];
+                $prod_desc    =     
+                $amount       =     $_POST["amount"];
+                $prod_count   =     count($prod_desc);
+                $amount_count =     count($amount);
+                // echo $prod_count; 
+                // echo $amount_count;
+                //echo $prod_desc;
+                //echo $amount;
 
-           $Prod_Desc = implode(' ', $prod_desc);
-           $Amount = implode(' ', $amount);
+                $Prod_Desc = implode(' ', $prod_desc);
+                $Amount = implode(' ', $amount);
 
-           // var_dump($prod_desc);
-            //var_dump($amount);*/
+                // var_dump($prod_desc);
+                //var_dump($amount);*/
            
+
                 $sql="insert into td_allotment_sheet_np(memoNo,
                                                 gen_date,
                                                 del_cd,
@@ -160,14 +161,16 @@
                                                 '$prod_desc[$i]',
                                                 $amount[$i])";                        
                 $result=mysqli_query($db_connect,$sql);	
+
                 //echo $sql; 
             
-            //echo $sql; die();
+                //echo $sql; die();
 
-           /* if($result){
-				$_SESSION['ins_flag']=true;
-                Header("Location:allot_sheet_view_np.php");
-            }*/
+                /*if($result){
+                    $_SESSION['ins_flag']=true;
+                    Header("Location:allot_sheet_view_np.php");
+                }*/
+
             }
         
         }
