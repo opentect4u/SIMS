@@ -13,8 +13,8 @@ require("../session.php");
         //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
 
         //$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-        //$transdt    =  date('Y-m-d');
-        $trans_dt   =   $_POST['trans_dt'];
+        $trans_dt    =  '2019-02-01';
+        //$trans_dt   =   $_POST['trans_dt'];
         $prodslno	=	$_POST["sl_no"];
         $proddesc	=	$_POST["prod_desc"];
         
@@ -70,7 +70,7 @@ require("../session.php");
                                         sht_kg,
                                         sht_gm)
 
-                                        values('2019-02-01',
+                                        values('$trans_dt',
                                             '$trans_cd',
                                             'opening/1',
                                             '$prodslno',
@@ -103,6 +103,10 @@ require("../session.php");
             $_SESSION['ins_flag']=true;    
                 Header("Location:opn_bal_pds.php");
             }	*/
+
+            //redirect("open_bal_pds.php");
+            
+            Header("Location:opn_bal_pds.php");
 
         }
 
@@ -311,13 +315,13 @@ require("../session.php");
 
                                 </span>
 
-                          <!--  <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
+                         <!--   <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
 
-                                <input type=date class="input1" name="trans_dt" id="trans_dt" value="<?php echo date("Y-m-d");?>" />
+                                <input type= date class="input1" name="trans_dt" id="trans_dt" value="<?php //echo date("Y-m-d");?>" />
 
                                 <span class="shadow-input1"></span>
 
-                            </div> -->
+                            </div>  -->
 
                             <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 

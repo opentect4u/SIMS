@@ -16,7 +16,7 @@
 
         //var_dump($_POST["sl_no"]);
 
-        $trans_dt   =   $_POST['trans_dt'];
+        $trans_dt   =   '2019-02-01';;
         
         //$dono		    =	$_POST["do_no"];
         //$prod_type      =   $_POST["prod_type"];
@@ -68,7 +68,7 @@
                                                      created_by,
                                                      created_dt)
 
-                                                values('2019-02-01',
+                                                values('$trans_dt',
                                                      '$trans_cd',
                                                      'opening/1',
                                                       $prod_sl_no,
@@ -103,6 +103,8 @@
 			    	Header("Location:opn_bal_np.php");
                 }	 */
                 
+            Header("Location:opn_bal_np.php");
+
         }   
 
         else {
@@ -292,13 +294,13 @@
 
                                 </span>
 
-                            <!--    <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
+                               <!-- <div class="wrap-input1 validate-input" data-validate="Date is required" data-alert="Date">
 
-                                    <input type=date class="input1" name="trans_dt" id="trans_dt" value="<?php echo date("Y-m-d");?>" />
+                                    <input type=date class="input1" name="trans_dt" id="trans_dt" value="<?php// echo date("Y-m-d");?>" />
 
                                     <span class="shadow-input1"></span>
 
-                                </div> -->
+                                </div>  -->
                                 
                                 <div class="wrap-input1 validate-input" data-validate="Product name is required" data-alert="Product Name">
 

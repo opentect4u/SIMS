@@ -125,6 +125,9 @@
             $prod_count     =     count($prod_desc);
             $amount_count   =     count($amount);
 
+            $user_id  = $_SESSION['user_id'];
+
+
             for ($i=0; $i< count($prod_desc); $i++)
             {
                 
@@ -154,12 +157,19 @@
                                                 gen_date,
                                                 del_cd,
                                                 prod_desc,
-                                                amount)
+                                                amount,
+                                                created_by,
+                                                created_dt)
                                         values('$memoNo',
                                                 '$effective_dt',
                                                 '$del_cd',
                                                 '$prod_desc[$i]',
-                                                $amount[$i])";                        
+                                                $amount[$i],
+                                                '$user_id',
+                                                '$effective_dt')";    
+                                                
+                    //echo $sql; die;
+
                 $result=mysqli_query($db_connect,$sql);	
 
                 //echo $sql; 
@@ -170,6 +180,8 @@
                     $_SESSION['ins_flag']=true;
                     Header("Location:allot_sheet_view_np.php");
                 }*/
+
+                Header("Location:view_allot_sheet_np.php");
 
             }
         
