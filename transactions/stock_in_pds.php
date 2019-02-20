@@ -104,7 +104,7 @@
 
         $prod_result    =   mysqli_query($db_connect, $prod_sql);
 
-        $catg_sql	    =   "Select prod_catg from m_prod_catg";
+        $catg_sql	    =   "Select prod_catg from m_prod_catg WHERE prod_catg != 'SPHH'";
 
         $result_catg	=   mysqli_query($db_connect,$catg_sql);
 		

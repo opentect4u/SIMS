@@ -57,7 +57,7 @@
 
 	}
 
-	$select_catg="Select sl_no, prod_catg from m_prod_catg ORDER BY prod_catg";
+	$select_catg="Select sl_no, prod_catg from m_prod_catg WHERE prod_catg != 'SPHH' ORDER BY prod_catg ";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
 ?>

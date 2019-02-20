@@ -32,7 +32,7 @@
 
                     <hr class='hr' style="margin-top: 15px;">
 
-                    <div><a class="abtn green" href="../masters/prod_catg.php">
+                  <!--  <div><a class="abtn green" href="../masters/prod_catg.php">
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Add Category</a>
                         <br><br>
                     </div>
@@ -42,7 +42,7 @@
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Product Category</a>
                     </div>
 
-                    <hr class='hr' style="margin-top: 15px;">
+                    <hr class='hr' style="margin-top: 15px;"> -->
 
                     <div>
                         <a class="abtn green" href="../masters/prod_qty.php">
@@ -147,21 +147,21 @@
                     
                     <hr class='hr' style="margin-top: 15px;">
                     
-                     <div>
+                    <!-- <div>
 
                         <a class="abtn green" href="../masters/allot_scale.php">
 
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Allotment Scale</a>
                         <br><br>
 
-                    </div>
+                    </div> -->
 
                     <div>
 
                         <a class="abtn green" href="../masters/allot_scale_view.php">
 
                         <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View Allotment Scale</a>
-
+                        <br><br>
                     </div>
 
                 </div>

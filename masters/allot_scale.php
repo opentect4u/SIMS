@@ -50,7 +50,7 @@
 			}
 
 	}
-	$select_catg="Select prod_catg, per_unit from m_prod_catg ORDER BY prod_catg";
+	$select_catg="Select prod_catg, per_unit from m_prod_catg WHERE prod_catg != 'SPHH' ORDER BY prod_catg";
 	$prdcatg=mysqli_query($db_connect,$select_catg);
 
     /*$select_prd="Select prod_desc from m_products";*/
