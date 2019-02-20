@@ -207,7 +207,14 @@
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>PDS Allotment Sheet</a>
 
-                       
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/apy_allot_sheet.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>APY Allotment Sheet</a>
 
                     </div>
 
@@ -217,6 +224,14 @@
                         <a class="abtn green" href="../transactions/allot_sheet_view.php">
 
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View PDS Allotment Sheet</a>
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../transactions/apy_allot_sheet_view.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>View APY Allotment Sheet</a>
                     </div>
                     <br>
 
@@ -412,6 +427,16 @@
                             <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
 
                             PDS Allotment Sheet Report
+
+                        </a>
+
+                        <br><br>
+
+                        <a class="abtn green" href="../report/apy_allot_sheet.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+
+                            APY Allotment Sheet Report
 
                         </a>
 
