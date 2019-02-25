@@ -305,7 +305,7 @@ $result = mysqli_query($db_connect, $sql);
                 type: "GET"
 
             }).done(function (result) {
-
+                //console.log(result.gen_date[0]);
                 console.log(result);
 
                 if(result) {

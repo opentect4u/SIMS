@@ -1,257 +1,304 @@
 <?php
-ini_set("display_errors","1");
-error_reporting("E_ALL");
 
-require("../db/db_connect.php");
-require("../session.php");
-require("../post/sims_function.php");
+    ini_set("display_errors","1");
+    error_reporting("E_ALL");
 
+    require("../db/db_connect.php");
+    require("../session.php");
+    require_once("../post/sims_function.php");
 
-$prodtypeErr="";
+    $prodtypeErr="";
 
-if($_SERVER['REQUEST_METHOD']=="GET"){
+    if($_SERVER['REQUEST_METHOD']=="GET"){
 
-    $transdt	=	$_GET['trans_dt'];
-    $transcd	=	$_GET['trans_cd'];
+        $transdt	=	$_GET['trans_dt'];
+        $transcd	=	$_GET['trans_cd'];
 
-    $sql="Select do_no,
-		         allot_no,		
-                 prod_desc,
-                 prod_type,
-                 prod_catg,
-                 prod_sl_no,
-                 qty_bag,
-                 qty_qnt,
-                 qty_kg,
-                 qty_gm,
-		         remarks,
-		         approval_status
-                 from td_stock_trans_pds
-                 where trans_dt = '$transdt'
-	             and trans_cd = $transcd";
+        $sql="Select do_no,
+                    allot_no,		
+                    prod_desc,
+                    prod_type,
+                    prod_catg,
+                    prod_sl_no,
+                    qty_bag,
+                    qty_qnt,
+                    qty_kg,
+                    qty_gm,
+                    remarks,
+                    approval_status
+                    from td_stock_trans_pds
+                    where trans_dt = '$transdt'
+                    and trans_cd = $transcd";
 
-    $result	=  mysqli_query($db_connect,$sql);
+        $result	=  mysqli_query($db_connect,$sql);
 
-    if($result){
+        if($result){
 
-        if(mysqli_num_rows($result) > 0 ){
+            if(mysqli_num_rows($result) > 0 ){
 
-            $row = mysqli_fetch_assoc($result);
+                $row = mysqli_fetch_assoc($result);
 
-            $dono    =       $row['do_no'];
-            $allotno =	     $row['allot_no'];
-            $pdesc   =       $row['prod_desc'];
-            $ptype   =       $row['prod_type'];
-            $pcatg   =       $row['prod_catg'];
-            $pslno   =       $row['prod_sl_no'];
-            $pbag    =       $row['qty_bag'];
-            $pqnt    =       $row['qty_qnt'];
-            $pkg     =       $row['qty_kg'];
-            $pgm     =       $row['qty_gm'];
-            $rkms    =       $row['remarks'];
-            $aprv    =	     $row['approval_status'];
+                $dono    =       $row['do_no'];
+                $allotno =	     $row['allot_no'];
+                $pdesc   =       $row['prod_desc'];
+                $ptype   =       $row['prod_type'];
+                $pcatg   =       $row['prod_catg'];
+                $pslno   =       $row['prod_sl_no'];
+                $pbag    =       $row['qty_bag'];
+                $pqnt    =       $row['qty_qnt'];
+                $pkg     =       $row['qty_kg'];
+                $pgm     =       $row['qty_gm'];
+                $rkms    =       $row['remarks'];
+                $aprv    =	     $row['approval_status'];
 
-            if($aprv=='U'){
+                if($aprv=='U'){
 
-                $status="Unapproved";
+                    $status="Unapproved";
 
-            }else{
-                $status="Approved";
+                }else{
+                    $status="Approved";
+                }
             }
         }
+
     }
 
-}
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+        
+        $prod_bag	=	$_POST['qty_bag'];
+        $prod_qnt	=	$_POST['qty_qnt'];
+        $prod_kg	=	$_POST['qty_kg'];
+        $prod_gm	=	$_POST['qty_gm'];
+        $status		=	$_POST['approval_status'];
+        $user		=	$_SESSION['user_id'];
+        $time		=	date("Y-m-d h:m:i");
+        $transdt	=	$_POST['trans_dt'];
+        $transcd	=	$_POST['trans_cd'];
+        $slno		=	$_POST['sl_no'];
+        $prod_desc  =   $_POST['prod_desc'];
+        $prodcatg	=	$_POST['prod_catg'];
+        $allotno    =   $_POST['allot_no'];
+        $do_no      =   $_POST['do_no'];
 
-if($_SERVER['REQUEST_METHOD']=="POST"){
+        
+        if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
+            
+            if($status=="Unapproved") {
+                
+                if ($allotno != 0) {
+                     
+                    $category_cd = f_getcatgcd($prodcatg, $db_connect);
 
-    $prod_bag	=	$_POST['qty_bag'];
-    $prod_qnt	=	$_POST['qty_qnt'];
-    $prod_kg	=	$_POST['qty_kg'];
-    $prod_gm	=	$_POST['qty_gm'];
-    $status		=	$_POST['approval_status'];
-    $user		=	$_SESSION['user_id'];
-    $time		=	date("Y-m-d h:m:i");
-    $transdt	=	$_POST['trans_dt'];
-    $transcd	=	$_POST['trans_cd'];
-    $slno		=	$_POST['sl_no'];
-    $prod_desc  =   $_POST['prod_desc'];
-    $prodcatg	=	$_POST['prod_catg'];
-    $allotno    =   $_POST['allot_no'];
-
-    if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
-
-        if($status=="Unapproved") {
-
-            if (isset($allotno)) {
-
-                $category_cd = f_getcatgcd($prodcatg, $db_connect);
-
-                $total_qty_curr   = f_getquintal($prod_qnt,$prod_kg,$prod_gm,$db_connect);
-
-                unset($sql);
-                unset($result);
-
-                $sql = "SELECT balance_qty 
-          
-                               FROM td_allot_dtls  
-                               
-                                           WHERE allot_no = '$allotno'
-                                           AND   catg_cd  = $category_cd
-                                           AND   prod_cd  = $slno";
-
-
-
-                $result =   mysqli_query($db_connect, $sql);
-
-                $data   =   mysqli_fetch_assoc($result);
-
-                if($total_qty_curr < $data['balance_qty']) {
+                    $total_qty_curr   = f_getquintal($prod_qnt,$prod_kg,$prod_gm,$db_connect);
 
                     unset($sql);
                     unset($result);
 
-                    $balance_qty = $data['balance_qty'] - $total_qty_curr;
+                    $sql = "SELECT balance_qty 
+            
+                                FROM td_allot_dtls_pds  
+                                
+                                            WHERE allot_no = '$allotno'
+                                            AND   catg_cd  = $category_cd
+                                            AND   prod_cd  = $slno";
+
+                    
+                    $result =   mysqli_query($db_connect, $sql);
+
+                    $data   =   mysqli_fetch_assoc($result);
+
+                    if($total_qty_curr < $data['balance_qty']) {
+
+                        unset($sql);
+                        unset($result);
+
+                        $balance_qty = $data['balance_qty'] - $total_qty_curr;
 
 
 
-                    $sql = "UPDATE td_allot_dtls SET balance_qty = $balance_qty,
-                                                     prod_qty    = $total_qty_curr
-                                                 WHERE allot_no  = '$allotno'
-                                                 AND   catg_cd   = $category_cd
-                                                 AND   prod_cd   = $slno";
+                        $sql = "UPDATE td_allot_dtls_pds SET balance_qty = $balance_qty,
+                                                          prod_qty  = $total_qty_curr
+                                                    WHERE allot_no  = '$allotno'
+                                                    AND   catg_cd   = $category_cd
+                                                    AND   prod_cd   = $slno";
 
-                    mysqli_query($db_connect, $sql);
+                        mysqli_query($db_connect, $sql);
 
-                    unset($sql);
-                    unset($result);
+                        unset($sql);
+                        unset($result);
 
-                    require("update_balance.php");
+                        require("update_balance.php");
 
-                }
-
-                elseif($total_qty_curr == $data['balance_qty']) {
-
-                    $cur_bag = 0;
-
-                    unset($sql);
-                    unset($result);
-
-                    $sql = "UPDATE td_allot_dtls SET balance_qty = 0.00,
-                                                     prod_qty    = $total_qty_curr
-                                                 WHERE allot_no  = '$allotno'
-                                                 AND   catg_cd   = $category_cd
-                                                 AND   prod_cd   = $slno";
-
-                    mysqli_query($db_connect, $sql);
-
-                    unset($sql);
-                    unset($result);
-
-                    $total_qty = 0.00;
-
-                    $sql = "SELECT qty_bag,
-                                   qty_qnt,
-                                   qty_kg,
-                                   qty_gm
-                                          FROM td_stock_trans_pds
-                                          WHERE allot_no = '$allotno'
-                                          AND   prod_sl_no = $slno
-                                          AND   prod_catg  = '$prodcatg'";
-
-                    $result = mysqli_query($db_connect, $sql);
-
-                    while ($cur_data = mysqli_fetch_assoc($result)) {
-
-                        $total_qty += f_getquintal($cur_data['qty_qnt'], $cur_data['qty_kg'], $cur_data['qty_gm'], $db_connect);
-
-                        $cur_bag = $cur_data['qty_bag'];
+                        $_SESSION['approve']="true";
+                        header("Location:../transactions/view_stock_in_pds.php");
 
                     }
 
-                    unset($sql);
+                    elseif($total_qty_curr == $data['balance_qty']) {
+
+                        $cur_bag = 0;
+
+                        unset($sql);
+                        unset($result);
+
+                        $sql = "UPDATE td_allot_dtls_pds SET balance_qty = 0.00,
+                                                        prod_qty    = $total_qty_curr
+                                                    WHERE allot_no  = '$allotno'
+                                                    AND   catg_cd   = $category_cd
+                                                    AND   prod_cd   = $slno";
+                    
+
+                        mysqli_query($db_connect, $sql);
+
+                        unset($sql);
+                        unset($result);
+
+                        $total_qty = 0.00;
+
+                        $sql = "SELECT qty_bag,
+                                    qty_qnt,
+                                    qty_kg,
+                                    qty_gm
+                                            FROM td_stock_trans_pds
+                                            WHERE allot_no = '$allotno'
+                                            AND   prod_sl_no = $slno
+                                            AND   prod_catg  = '$prodcatg'";
+                    
+
+                        $result = mysqli_query($db_connect, $sql);
+
+                        while ($cur_data = mysqli_fetch_assoc($result)) {
+
+                            $total_qty += f_getquintal($cur_data['qty_qnt'], $cur_data['qty_kg'], $cur_data['qty_gm'], $db_connect);
+
+                            $cur_bag = $cur_data['qty_bag'];
+
+                        }
+
+                        unset($sql);
+                        unset($result);
+
+                        $sql = "SELECT max(trans_dt) trans_dt,
+                                    max(trans_cd) trans_cd,
+                                    bag_bal,
+                                    qnt_bal,
+                                    kg_bal,
+                                    gm_bal
+                                        FROM td_stock_trans_pds
+                                        WHERE allot_no = '$allotno'
+                                        AND   approval_status = 'A'
+                                        AND   prod_sl_no = $slno
+                                        AND   prod_catg  = '$prodcatg'
+                                        GROUP BY trans_dt, trans_cd 
+                                        ORDER BY trans_dt, trans_cd DESC LIMIT 1";
+
+                        $result = mysqli_query($db_connect, $sql);
+
+                        $closing_data = mysqli_fetch_assoc($result);
+
+                        $total_closing = f_getquintal($closing_data['qnt_bal'],$closing_data['kg_bal'],$closing_data['gm_bal'],$db_connect);
+
+                        unset($sql);
+                        unset($result);
+
+                        $sql = "SELECT short_factor FROM m_shortage
+                                                    WHERE prod_catg = '$prodcatg'
+                                                    AND   prod_desc = '$prod_desc'";
+
+                        $result = mysqli_query($db_connect, $sql);
+
+                        $srt_factor = mysqli_fetch_assoc($result);
+
+                        $srt_factor = $srt_factor['short_factor'];
+
+                        $shortage = round(($total_qty * $srt_factor), 2);
+
+                        $cur_qnt = $total_closing - ($total_qty_curr + $shortage);
+
+
+                        $in_total = explode('.', (string) $cur_qnt);
+
+
+                        $total_bag = $closing_data['bag_bal'] - $cur_bag;
+
+                        $gm_bal = 0.00;
+
+
+                        unset($sql);
+                        unset($result);
+
+                        $sql = "UPDATE td_stock_trans_pds SET sht_kg  = $shortage,
+                                                            bag_bal = $total_bag,
+                                                            qnt_bal = $in_total[0],
+                                                            kg_bal  = $in_total[1],
+                                                            gm_bal  = $gm_bal,
+                                                            approval_status = 'A',
+                                                            approved_by = '$user',
+                                                            approved_dt = '$time'
+                                                        WHERE allot_no = '$allotno'
+                                                        AND   prod_sl_no = $slno
+                                                        AND   prod_catg  = '$prodcatg'
+                                                        AND   trans_dt   = '$transdt'
+                                                        AND   trans_cd   =  $transcd";
+                    
+
+                        mysqli_query($db_connect, $sql);
+
+                        $_SESSION['approve']="true";
+                        header("Location:../transactions/view_stock_in_pds.php");
+
+                    }
+
+                }
+                //For StockIn Approve
+                else if($do_no != NULL){
+                    
                     unset($result);
+                    unset($data);
+                    $sql = "SELECT ifnull(bag_bal, 0) bag_bal,
+                                   ifnull(qnt_bal, 0) qnt_bal,
+                                   ifnull(kg_bal, 0) kg_bal,
+                                   ifnull(gm_bal, 0) gm_bal,
+                                   max(trans_dt) trans_dt FROM td_stock_trans_pds 
+                            WHERE prod_catg = '$prodcatg' AND prod_sl_no = $slno
+                            AND approval_status = 'A'
+                            AND trans_dt < '$transdt'
+                            GROUP BY bag_bal, qnt_bal, kg_bal, gm_bal
+                            ORDER BY trans_dt DESC LIMIT 1";
+                    
+                    $result =   mysqli_query($db_connect, $sql);
+                    
+                    $data   =   mysqli_fetch_assoc($result);
 
-                    $sql = "SELECT max(trans_dt) trans_dt,
-                                   max(trans_cd) trans_cd,
-                                   bag_bal,
-                                   qnt_bal,
-                                   kg_bal,
-                                   gm_bal
-                                          FROM td_stock_trans_pds
-                                          WHERE allot_no = '$allotno'
-                                          AND   approval_status = 'A'
-                                          AND   prod_sl_no = $slno
-                                          AND   prod_catg  = '$prodcatg'
-                                          GROUP BY trans_dt, trans_cd 
-                                          ORDER BY trans_dt, trans_cd DESC LIMIT 1";
+                    $sql = "UPDATE td_stock_trans_pds SET   bag_opn = ".(isset($data['bag_bal'])? $data['bag_bal'] : 0).",
+                                                            qnt_opn = ".(isset($data['qnt_bal'])? $data['qnt_bal'] : 0) .",
+                                                            kg_opn  = ".(isset($data['kg_bal'])? $data['kg_bal'] : 0) .",
+                                                            gm_opn  = ".(isset($data['gm_bal'])? $data['gm_bal'] : 0) .",
+                                                            bag_bal = ".((float) $prod_bag + (float) $data['bag_bal']).",
+                                                            qnt_bal = ".((float) $prod_qnt + (float) $data['qnt_bal']).",
+                                                            kg_bal  = ".((float) $prod_kg  + (float) $data['kg_bal']).",
+                                                            gm_bal  = ".((float) $prod_gm  + (float) $data['gm_bal']).",                                                         
+                                                            approval_status = 'A',
+                                                            approved_by = '$user',
+                                                            approved_dt = '$time'
+                                                        WHERE do_no = '$do_no'
+                                                        AND   prod_sl_no = $slno
+                                                        AND   prod_catg  = '$prodcatg'
+                                                        AND   trans_dt   = '$transdt'
+                                                        AND   trans_cd   =  $transcd";
+                    
+                        
+                        mysqli_query($db_connect, $sql);
 
-                    $result = mysqli_query($db_connect, $sql);
-
-                    $closing_data = mysqli_fetch_assoc($result);
-
-                    $total_closing = f_getquintal($closing_data['qnt_bal'],$closing_data['kg_bal'],$closing_data['gm_bal'],$db_connect);
-
-                    unset($sql);
-                    unset($result);
-
-                    $sql = "SELECT short_factor FROM m_shortage
-                                                WHERE prod_catg = '$prodcatg'
-                                                AND   prod_desc = '$prod_desc'";
-
-                    $result = mysqli_query($db_connect, $sql);
-
-                    $srt_factor = mysqli_fetch_assoc($result);
-
-                    $srt_factor = $srt_factor['short_factor'];
-
-                    $shortage = round(($total_qty * $srt_factor), 2);
-
-                    $cur_qnt = $total_closing - ($total_qty_curr + $shortage);
-
-
-                    $in_total = explode('.', (string) $cur_qnt);
-
-
-                    $total_bag = $closing_data['bag_bal'] - $cur_bag;
-
-                    $gm_bal = 0.00;
-
-
-                    unset($sql);
-                    unset($result);
-
-                    $sql = "UPDATE td_stock_trans_pds SET sht_kg  = $shortage,
-                                                          bag_bal = $total_bag,
-                                                          qnt_bal = $in_total[0],
-                                                          kg_bal  = $in_total[1],
-                                                          gm_bal  = $gm_bal,
-                                                          approval_status = 'A',
-                                                          approved_by = '$user',
-                                                          approved_dt = '$time'
-                                                      WHERE allot_no = '$allotno'
-                                                      AND   prod_sl_no = $slno
-                                                      AND   prod_catg  = '$prodcatg'
-                                                      AND   trans_dt   = '$transdt'
-                                                      AND   trans_cd   =  $transcd";
-
-                    mysqli_query($db_connect, $sql);
-
-                    $_SESSION['approve']="true";
-                    Header("Location:../transactions/view_stock_in_pds.php");
-
+                        $_SESSION['approve']="true";
+                        header("Location:../transactions/view_stock_in_pds.php");
                 }
 
             }
-
+            
         }
-    }
-    if($apprv){
-        $_SESSION['approve']="true";
-        Header("Location:../transactions/view_stock_in_pds.php");
-    }
 
-}
+    }
 
 ?>
 
@@ -325,12 +372,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
 <body class="body">
 
-<?php require '../post/nav.php'; ?>
+    <?php require '../post/nav.php'; ?>
 
+    <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
-<h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
-
-<hr class='hr'>
+    <hr class='hr'>
 
 <div class="container" style="margin-left: 10px">
 

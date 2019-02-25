@@ -16,6 +16,7 @@
                        delr_region,
                        gen_date FROM td_allotment_sheet
                                 WHERE memo_no = '$memo_no'";
+        //echo $sql; die();
 
         $result = mysqli_query($db_connect, $sql);
 
@@ -58,7 +59,6 @@
     <body class="body">
 
     <?php require '../post/nav.php'; ?>
-
 
     <h1 class='elegantshadow'>Laxmi Narayan Stores</h1>
 
@@ -244,8 +244,9 @@
                 });
 
             });
-            
+
         });
+
     </script>
 
     </body>

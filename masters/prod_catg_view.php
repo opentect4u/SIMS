@@ -85,7 +85,6 @@
 
                             </thead>
 
-
                             <tbody>
 
                             <?php

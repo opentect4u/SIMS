@@ -1,6 +1,6 @@
 <?php
 	ini_set("display_errors","1");
-        error_reporting(E_ALL);
+    error_reporting(E_ALL);
 
         require("../db/db_connect.php");
         require("../session.php");
@@ -81,7 +81,7 @@
 
                         <span class="contact1-form-title">
 
-                           Approve Stock Transactions
+                           Approve PDS Stock Transactions
 
                         </span>
 
@@ -127,6 +127,7 @@
                         <?php
                         if($result){
                             if(mysqli_num_rows($result) > 0){
+
                                 while($row=mysqli_fetch_assoc($result)){
                                     $transdt	=	$row['trans_dt'];
                                     $transcd	=	$row['trans_cd'];
@@ -135,10 +136,10 @@
                                     $prodesc	=	$row['prod_desc'];
                                     $prodcatg	=	$row['prod_catg'];
                                     $trtype   	=	$row['trans_type'];
-                                    $bag	=	$row['qty_bag'];
-                                    $qnt	=	$row['qty_qnt'];
-                                    $kg		=	$row['qty_kg'];
-                                    $gm		=	$row['qty_gm'];
+                                    $bag	    =	$row['qty_bag'];
+                                    $qnt	    =	$row['qty_qnt'];
+                                    $kg		    =	$row['qty_kg'];
+                                    $gm		    =	$row['qty_gm'];
                                     $createdby	=	$row['created_by'];
                                     $createddt	=	$row['created_dt'];
 

@@ -7,48 +7,50 @@
 
       $prodtypeErr="";
 
-      if($_SERVER['REQUEST_METHOD']=="GET"){
+    if($_SERVER['REQUEST_METHOD']=="GET"){
       	$transdt	=	$_GET['trans_dt'];
-	$transcd	=	$_GET['trans_cd'];
+	    $transcd	=	$_GET['trans_cd'];
 	
-	$sql="Select do_no,
-		     prod_desc,
-                     prod_type,
-                     prod_catg,
-                     prod_sl_no,
-                     qty_bag,
-                     qty_qnt,
-                     qty_kg,
-                     qty_gm,
-                     remarks 
-                     from td_stock_trans_pds
-	       where trans_dt = '$transdt'
-	       and   trans_cd = $transcd"; 
+        $sql="Select do_no,
+                        prod_desc,
+                        prod_type,
+                        prod_catg,
+                        prod_sl_no,
+                        qty_bag,
+                        qty_qnt,
+                        qty_kg,
+                        qty_gm,
+                        remarks 
+                        from td_stock_trans_pds
+            where trans_dt = '$transdt'
+            and   trans_cd = $transcd"; 
 
-	$result=mysqli_query($db_connect,$sql);
+        $result=mysqli_query($db_connect,$sql);
 
-	if($result){
-		if(mysqli_num_rows($result) > 0){
+        if($result){
+            if(mysqli_num_rows($result) > 0){
 
-		while($row=mysqli_fetch_assoc($result)){
-	  	$dono	=	$row['do_no'];
-		$pdesc	=	$row['prod_desc'];
-		$ptype 	=	$row['prod_type'];
-		$pcatg	=	$row['prod_catg'];
-		$pslno	=	$row['prod_sl_no'];
-		$pbag	=	$row['qty_bag'];
-		$pqnt	=	$row['qty_qnt'];
-		$pkg	=	$row['qty_kg'];
-		$pgm	=	$row['qty_gm'];
-		$rkms	=	$row['remarks'];	
-	  	}	
-	  }
-	}	
+                while($row=mysqli_fetch_assoc($result)){
 
-      }
+                    $dono	=	$row['do_no'];
+                    $pdesc	=	$row['prod_desc'];
+                    $ptype 	=	$row['prod_type'];
+                    $pcatg	=	$row['prod_catg'];
+                    $pslno	=	$row['prod_sl_no'];
+                    $pbag	=	$row['qty_bag'];
+                    $pqnt	=	$row['qty_qnt'];
+                    $pkg	=	$row['qty_kg'];
+                    $pgm	=	$row['qty_gm'];
+                    $rkms	=	$row['remarks'];	
+
+                }	
+            }
+        }	
+
+    }
            
 
-      if($_SERVER['REQUEST_METHOD']=="POST"){
+    if($_SERVER['REQUEST_METHOD']=="POST"){
 
         $prod_bag	=	0;
         $prod_qnt	=	0;
@@ -68,6 +70,7 @@
         $time	=	date("Y-m-d h:i:s");
 
         if(!is_null($prod_bag) && !is_null($prod_qnt) && !is_null($prod_kg) && !is_null($prod_gm) && isset($user)){
+            
             $update="Update td_stock_trans_pds
                  set qty_bag = '$prod_bag',
                      qty_qnt = '$prod_qnt',
@@ -80,12 +83,13 @@
                   and   trans_cd = '$transcd'";
 
             $result	= mysqli_query($db_connect,$update);
-            }
+        }
+
             if($result){
                 $_SESSION['edit_in']="true";
                 Header("Location:../transactions/view_stock_in_pds.php");
             }
-      }
+    }
 
 	function test_input($data) {
 

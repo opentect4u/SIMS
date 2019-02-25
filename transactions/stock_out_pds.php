@@ -6,6 +6,7 @@
 	require("../session.php");
 
         $errMsg = '';
+
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
@@ -99,8 +100,7 @@
 
 			    $result=mysqli_query($db_connect,$sql);
 
-			    header("Location: view_stock_in_pds.php");
-				
+			    header("Location: view_stock_in_pds.php");	
 
             }
             else{
@@ -118,7 +118,7 @@
         $prod_result = mysqli_query($db_connect, $prod_sql);
 
 
-        $catg_sql	=   "Select prod_catg from m_prod_catg";
+        $catg_sql	=   "Select prod_catg from m_prod_catg WHERE prod_catg != 'SPHH' ";
 
         $result_catg = mysqli_query($db_connect,$catg_sql);
 		

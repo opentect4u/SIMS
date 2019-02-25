@@ -584,7 +584,6 @@ $pattern .= substr(date('Y'), 2, 2);
 
         });
 
-
         // RKSY-I unit-value setup....
 
         $('#intro').on('change', '.rksy1', function(){

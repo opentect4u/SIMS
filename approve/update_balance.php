@@ -1,4 +1,5 @@
 <?php
+
 	ini_set("display_errors","1");
 	error_reporting("E_ALL");
 
@@ -14,6 +15,7 @@
 		   and    trans_cd        = '$transcd'";
 	
 	$result = mysqli_query($db_connect,$select);
+
 	if($result){
 		$row	=	mysqli_fetch_assoc($result);
 		$trans_type	=	$row['trans_type'];
@@ -75,7 +77,8 @@
 		$bag_bal = $bag_bal + $prod_bag;
 		$qnt_bal = $qnt_bal + $prod_qnt;
 		$kg_bal  = $kg_bal  + $prod_kg;
-	        $gm_bal  = $gm_bal  + $prod_gm;	
+		$gm_bal  = $gm_bal  + $prod_gm;	
+		
 	}else{
 		$bag_bal = $bag_bal - $prod_bag;
                 $qnt_bal = $qnt_bal - $prod_qnt;
@@ -92,14 +95,14 @@
 
 		$update = "Update td_stock_trans_pds
 			   Set    approval_status = 'A',
-				  bag_bal = $bag_bal,
-				  qnt_bal= $qnt_bal,
-				  kg_bal= $kg_bal,
-				  gm_bal = $gm_bal,	
-                                  approved_by     = '$user',
-                                  approved_dt     = '$time'
-                           where  trans_dt        = '$transdt'
-                          and    trans_cd        =  $transcd";
+				  bag_bal 			= $bag_bal,
+				  qnt_bal			= $qnt_bal,
+				  kg_bal			= $kg_bal,
+				  gm_bal 			= $gm_bal,	
+                approved_by     	= '$user',
+                approved_dt     	= '$time'
+                where  trans_dt     = '$transdt'
+                and    trans_cd     =  $transcd";
 
              //   echo $update;	                
 		

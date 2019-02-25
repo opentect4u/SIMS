@@ -147,7 +147,7 @@
 
                                 <span class="contact1-form-title">
 
-                                  Scale Type
+                                  Unit Type
 
                                 </span>
 

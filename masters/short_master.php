@@ -45,7 +45,7 @@
 		 where prod_type = 'PDS'";
 	$prodesc=mysqli_query($db_connect,$select);
 
-	$select_catg = "Select prod_catg from m_prod_catg";
+	$select_catg = "Select prod_catg from m_prod_catg Where prod_catg != 'SPHH' ";
 	$prodcatg    = mysqli_query($db_connect,$select_catg);
 
 ?>

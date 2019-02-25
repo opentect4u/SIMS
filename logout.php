@@ -12,7 +12,7 @@
 
 
 	if(session_destroy()){
-		header("Location:../SIMS/index.php");
+		header("Location:../sims/index.php");
 	  }
 ?>
 

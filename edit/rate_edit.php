@@ -43,11 +43,11 @@
 			if(empty($_POST['prod_rate'])){
 			  $prodtypeErr = "Invalid Input";	
 			}else{
-			      $eftdt    =       test_input($_POST['effective_dt']);	
+			      $eftdt    =   test_input($_POST['effective_dt']);	
 			      $proddesc	=	test_input($_POST["prod_desc"]);
 			      $prodtype	=	test_input($_POST["prod_type"]);
 			      $prodcatg	=	test_input($_POST['prod_catg']);
-			      $perunit	=	test_input($_POST['per_unit']);	
+			      $perunit	=	test_input($_POST['prod_unit']);	
 			      $prodrate	=	test_input($_POST['prod_rate']);
 			 }    
 			      $user_id  = 	$_SESSION["user_id"];    

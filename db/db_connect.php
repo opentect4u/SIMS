@@ -1,4 +1,5 @@
 <?php
+
 	$servername = "localhost";
 	$username   = "root";
 	$password   = "teachers";
@@ -13,7 +14,7 @@
 	}
 
 	ini_set('session.gc_maxlifetime', 28800);
-	/*ini_set("display_errors","1");
-    error_reporting(E_ALL);*/
+	ini_set("display_errors","1");
+    error_reporting(E_ALL);
 
-?>	
+?>

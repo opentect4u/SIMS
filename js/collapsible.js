@@ -23,11 +23,11 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
-document.getElementById("loutbtn").onclick = function() {
+/*document.getElementById("loutbtn").onclick = function() {
 
     location.href = "../logout.php";
 
-}
+}*/
 
 document.getElementById("dashbtn").onclick = function() {
 

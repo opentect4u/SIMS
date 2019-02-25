@@ -1,0 +1,155 @@
+[24-Dec-2018 10:20:07 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 10:20:07 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 10:21:59 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 10:21:59 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 10:22:02 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:10 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:22:10 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 10:22:19 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:22:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:22:25 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 10:23:06 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:23:11 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 10:23:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 10:23:27 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 10:23:49 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 10:23:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 10:23:51 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 10:23:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 10:24:01 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 10:24:01 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 11:38:31 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 11:38:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 11:38:40 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 11:38:40 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 11:39:04 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 9
+[24-Dec-2018 11:39:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:9) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 26
+[24-Dec-2018 11:41:06 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:21) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 23
+[24-Dec-2018 11:41:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php:21) in /home/opentech4uco/public_html/sims/transactions/delete_allot_sheet_np.php on line 23
+[24-Dec-2018 11:43:28 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 28
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:36 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 11:43:36 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 269
+[24-Dec-2018 11:43:40 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 28
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:43:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 44
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 215
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 232
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 260
+[24-Dec-2018 11:43:57 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 269
+[24-Dec-2018 11:44:04 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 256
+[24-Dec-2018 11:44:52 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 245
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 28
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:45:04 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 33
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 204
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 212
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 221
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 245
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 249
+[24-Dec-2018 11:45:04 UTC] PHP Notice:  Array to string conversion in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 258
+[24-Dec-2018 11:46:40 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[24-Dec-2018 11:46:46 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 206
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 214
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[24-Dec-2018 11:46:54 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 251
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:16 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 35
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 206
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 214
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[24-Dec-2018 11:47:16 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 251
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[24-Dec-2018 11:47:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 35
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 206
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 214
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[24-Dec-2018 11:47:20 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 251
+[24-Dec-2018 11:47:42 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[26-Dec-2018 05:41:10 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined index: prod_desc[] in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 25
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 29
+[26-Dec-2018 05:41:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php:11) in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 35
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 206
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 214
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: del_row in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 223
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[26-Dec-2018 05:41:21 UTC] PHP Notice:  Undefined variable: prod_sl_no in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 251
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 14
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 15
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: prod_desc in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 16
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 17
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: memoNo in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 47
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: gen_date in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 48
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: prod_desc in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 49
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Undefined index: del_cd in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 50
+[26-Dec-2018 06:05:24 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 67
+[26-Dec-2018 06:05:24 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
+[26-Dec-2018 06:06:41 UTC] PHP Notice:  Use of undefined constant php - assumed 'php' in /home/opentech4uco/public_html/sims/transactions/edit_allot_sheet_np.php on line 247
