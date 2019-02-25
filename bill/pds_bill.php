@@ -79,10 +79,14 @@
                    
                    ta.rksy2_atta rksy2_atta,
                    ta.ra2_unit ra2_unit,
-                   ta.ra2_tot ra2_tot
+                   ta.ra2_tot ra2_tot,
+
+                   tp.apy_rice
                    
                    FROM m_dealers md,
-                        td_allotment_sheet ta 
+                        td_allotment_sheet ta LEFT JOIN td_apy_allot_sheet tp 
+
+                        ON ta.mr_no = tp.mr_no AND ta.memo_no = tp.memo_no
                         
                    WHERE  md.del_cd = $mr_no
                    AND    md.del_cd = ta.mr_no
@@ -91,6 +95,7 @@
     $result = mysqli_query($db_connect, $sql);
 
     $data = mysqli_fetch_assoc($result);
+    $param_no = 1;
 
     function f_get_param_val($param_no, $db_connect) {
 
@@ -105,22 +110,17 @@
     }
 
     $total_price = $data['ar_tot']
-                 + $data['aw_tot']
                  + $data['aa_tot']
                  + $data['as_tot']
                  + $data['pr_tot']
-                 + $data['pw_tot']
                  + $data['pa_tot']
                  + $data['sr_tot']
-                 + $data['sw_tot']
                  + $data['sa_tot']
                  + $data['ss_tot']
                  + $data['rr1_tot']
                  + $data['rw1_tot']
-                 + $data['ra1_tot']
                  + $data['rr2_tot']
-                 + $data['rw2_tot']
-                 + $data['ra2_tot'];
+                 + $data['rw2_tot'];
 
 
 ?>
@@ -335,7 +335,7 @@
 
                 <tr>
 
-                    <td rowspan="4" style="text-align: center;">AAY</td>
+                    <td rowspan="3" style="text-align: center;">AAY</td>
 
                     <td style="text-align: center;">Rice</td>
 
@@ -344,18 +344,6 @@
                     <td><?php echo ($data['ar_unit'] == '0.00')?'': $data['ar_unit']; ?></td>
 
                     <td><?php echo ($data['ar_tot'] == '0.00')?'': $data['ar_tot']; ?></td>
-
-                </tr>
-
-                <tr>
-
-                    <td style="text-align: center;">Wheat</td>
-
-                    <td><?php echo ($data['aay_wheat'] == '0.00')?'': $data['aay_wheat']; ?></td>
-
-                    <td><?php echo ($data['aw_unit'] == '0.00')?'': $data['aw_unit']; ?></td>
-
-                    <td><?php echo ($data['aw_tot'] == '0.00')?'': $data['aw_tot']; ?></td>
 
                 </tr>
 
@@ -383,11 +371,9 @@
 
                 </tr>
 
-
-
                 <tr>
 
-                    <td rowspan="3" style="text-align: center;">PHH</td>
+                    <td rowspan="2" style="text-align: center;">PHH</td>
 
                     <td style="text-align: center;">Rice</td>
 
@@ -396,18 +382,6 @@
                     <td><?php echo ($data['pr_unit'] == '0.00')?'': $data['pr_unit']; ?></td>
 
                     <td><?php echo ($data['pr_tot'] == '0.00')?'': $data['pr_tot']; ?></td>
-
-                </tr>
-
-                <tr>
-
-                    <td style="text-align: center;">Wheat</td>
-
-                    <td><?php echo ($data['phh_wheat'] == '0.00')?'': $data['phh_wheat']; ?></td>
-
-                    <td><?php echo ($data['pw_unit'] == '0.00')?'': $data['pw_unit']; ?></td>
-
-                    <td><?php echo ($data['pw_tot'] == '0.00')?'': $data['pw_tot']; ?></td>
 
                 </tr>
 
@@ -423,11 +397,9 @@
 
                 </tr>
 
-
-
                 <tr>
 
-                    <td rowspan="4" style="text-align: center;">SPHH</td>
+                    <td rowspan="3" style="text-align: center;">SPHH</td>
 
                     <td style="text-align: center;">Rice</td>
 
@@ -436,18 +408,6 @@
                     <td><?php echo ($data['sr_unit'] == '0.00')?'': $data['sr_unit']; ?></td>
 
                     <td><?php echo ($data['sr_tot'] == '0.00')?'': $data['sr_tot']; ?></td>
-
-                </tr>
-
-                <tr>
-
-                    <td style="text-align: center;">Wheat</td>
-
-                    <td><?php echo ($data['sphh_wheat'] == '0.00')?'': $data['sphh_wheat']; ?></td>
-
-                    <td><?php echo ($data['sw_unit'] == '0.00')?'': $data['sw_unit']; ?></td>
-
-                    <td><?php echo ($data['sw_tot'] == '0.00')?'': $data['sw_tot']; ?></td>
 
                 </tr>
 
@@ -479,7 +439,7 @@
 
                 <tr>
 
-                    <td rowspan="3" style="text-align: center;">RKSY-I</td>
+                    <td rowspan="2" style="text-align: center;">RKSY-I</td>
 
                     <td style="text-align: center;">Rice</td>
 
@@ -505,20 +465,7 @@
 
                 <tr>
 
-                    <td style="text-align: center;">Atta</td>
-
-                    <td><?php echo ($data['rksy1_atta'] == '0.00')?'': $data['rksy1_atta']; ?></td>
-
-                    <td><?php echo ($data['ra1_unit'] == '0.00')?'': $data['ra1_unit']; ?></td>
-
-                    <td><?php echo ($data['ra1_tot'] == '0.00')?'': $data['ra1_tot']; ?></td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td rowspan="3" style="text-align: center;">RKSY-II</td>
+                    <td rowspan="2" style="text-align: center;">RKSY-II</td>
 
                     <td style="text-align: center;">Rice</td>
 
@@ -544,45 +491,17 @@
 
                 <tr>
 
-                    <td style="text-align: center;">Atta</td>
+                    <td style="text-align: center;">APY</td>
 
-                    <td><?php echo ($data['rksy2_atta'] == '0.00')?'': $data['rksy2_atta']; ?></td>
+                    <td style="text-align: center;">Rice</td>
 
-                    <td><?php echo ($data['ra2_unit'] == '0.00')?'': $data['ra2_unit']; ?></td>
-
-                    <td><?php echo ($data['ra2_tot'] == '0.00')?'': $data['ra2_tot']; ?></td>
-
-                </tr>
-
-
-
-                <tr>
-
-                    <td rowspan="2" style="text-align: center;">ADDI</td>
-
-                    <td style="text-align: center;">AAY</td>
-
-                    <td></td>
+                    <td><?php echo ($data['apy_rice'] == '0.00')?'': $data['rksy2_rice']; ?></td>
 
                     <td></td>
 
                     <td></td>
 
                 </tr>
-
-                <tr>
-
-                    <td style="text-align: center;">APL & BPL</td>
-
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
-
-                </tr>
-
-
 
                 <tr>
 

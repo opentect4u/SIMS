@@ -50,9 +50,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     unset($sql);
 
+    $sql = "";
+
     for ($i = 0; $i < count($mrNo); $i++) {
 
-        $sql = "INSERT INTO td_allotment_sheet ( memo_no,
+        $sql .= "INSERT INTO td_allotment_sheet ( memo_no,
                                                  alt_month,
                                                  alt_year,
                                                  gen_date,
@@ -112,11 +114,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                                                                             $rksy2_wheat[$i],
                                                                             $rksy2_atta[$i],
                                                                            '$user_name',
-                                                                           '$sysDate')";
+                                                                           '$sysDate');";
 
-
-        mysqli_query($db_connect, $sql);
+        //mysqli_query($db_connect, $sql);
     }
+
+    mysqli_multi_query($db_connect, $sql);
 
     echo "<script>alert('Allotment Sheet Updated');</script>";
 
