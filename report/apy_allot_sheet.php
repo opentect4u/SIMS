@@ -6,19 +6,23 @@
     require("../db/db_connect.php");
     require("../session.php");
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
-        $_SESSION['memo_no'] = $_POST['memo_no'];
+        $memo_no = $_POST['memo_no'];
+        //echo $memono; die;
 
-        header("Location: ../bill/allotment_sheet_report.php");
+        $_SESSION['memo_no'] =   $memo_no;
 
+        $sql = "SELECT COUNT(1) FROM td_apy_allot_sheet
+                                WHERE memo_no = '$memo_no'";
+
+        $result = mysqli_query($db_connect, $sql); 
+
+        if($result){  
+
+            header("Location: ../bill/allot_sheet_report_apy.php");
+        }
     }
-
-
-    $sql = "SELECT DISTINCT memo_no FROM td_allotment_sheet
-                                    WHERE approval_status = 'A'";
-
-    $result = mysqli_query($db_connect, $sql);
 
 ?>
 

@@ -6,7 +6,57 @@
     require("../db/db_connect.php");
     require("../session.php");
 
-?>
+    
+        if ($_SERVER["REQUEST_METHOD"]=="POST"){
+            
+            
+            $memoNo         =     $_POST["memoNo"];
+            $effective_dt   =     $_POST["effective_dt"];
+            $del_cd         =     $_POST["del_cd"];
+            $prod_desc      =     $_POST["prod_desc"];
+            $amount         =     $_POST["amount"];
+            $prod_count     =     count($prod_desc);
+            $amount_count   =     count($amount);
+
+            $user_id  = $_SESSION['user_id'];
+
+
+            for ($i=0; $i< count($prod_desc); $i++)
+            {
+                
+
+                $sql="insert into td_allotment_sheet_np(memoNo,
+                                                gen_date,
+                                                del_cd,
+                                                prod_desc,
+                                                amount,
+                                                created_by,
+                                                created_dt)
+                                        values('$memoNo',
+                                                '$effective_dt',
+                                                '$del_cd',
+                                                '$prod_desc[$i]',
+                                                $amount[$i],
+                                                '$user_id',
+                                                '$effective_dt')";    
+                                                
+                    
+                $result=mysqli_query($db_connect,$sql);	
+
+                
+            }
+
+                
+            if($result){
+                $_SESSION['ins_flag']=true;
+                Header("Location:view_allot_sheet_np.php");
+
+            }
+        
+        }
+    
+    ?>
+    
 
 <html>
     <head>
@@ -31,38 +81,7 @@
 
     </head>
 
-   <!-- <script>  
-        
-        $(document).ready(function(){
-
-            $('#del_name').change(function(){
-            
-                $.get(
-                        $del_name = $_GET['del_name'];
-                        $select_del= "SELECT del_cd FROM m_dealers WHERE del_name = '$del_name'";
-                        $result=mysqli_query($db_connect,$select_del);
-
-                        $data = mysqli_fetch_assoc($result);
-                        echo $data['del_cd'];
-                        
-                    {
-                        "del_name": $(this).val()
-
-                    }
-                )
-
-                .done(function(data){
-                // $.each(JSON.parse(data), function( index, value )
-                //console.log(data);
-                    $('#del_cd').val(data); 
-                    
-                });
-        
-            });
-
-        });
-
-    </script> -->
+   
 
     <script>
 
@@ -112,82 +131,7 @@
 
     </script>
     
-    <?php
-        if ($_SERVER["REQUEST_METHOD"]=="POST"){
-            
-            //echo "<pre>";
-            //var_dump();
-            $memoNo         =     $_POST["memoNo"];
-            $effective_dt   =     $_POST["effective_dt"];
-            $del_cd         =     $_POST["del_cd"];
-            $prod_desc      =     $_POST["prod_desc"];
-            $amount         =     $_POST["amount"];
-            $prod_count     =     count($prod_desc);
-            $amount_count   =     count($amount);
-
-            $user_id  = $_SESSION['user_id'];
-
-
-            for ($i=0; $i< count($prod_desc); $i++)
-            {
-                
-                // echo $prod_desc[$i].'<br>';
-                //  echo $amount[$i].'<br>';
-                
-                /*$memoNo       =     $_POST["memoNo"];
-                $effective_dt =     $_POST["effective_dt"];
-                $del_cd       =     $_POST["del_cd"];
-                $prod_desc    =     
-                $amount       =     $_POST["amount"];
-                $prod_count   =     count($prod_desc);
-                $amount_count =     count($amount);
-                // echo $prod_count; 
-                // echo $amount_count;
-                //echo $prod_desc;
-                //echo $amount;
-
-                $Prod_Desc = implode(' ', $prod_desc);
-                $Amount = implode(' ', $amount);
-
-                // var_dump($prod_desc);
-                //var_dump($amount);*/
-           
-
-                $sql="insert into td_allotment_sheet_np(memoNo,
-                                                gen_date,
-                                                del_cd,
-                                                prod_desc,
-                                                amount,
-                                                created_by,
-                                                created_dt)
-                                        values('$memoNo',
-                                                '$effective_dt',
-                                                '$del_cd',
-                                                '$prod_desc[$i]',
-                                                $amount[$i],
-                                                '$user_id',
-                                                '$effective_dt')";    
-                                                
-                    //echo $sql; die;
-
-                $result=mysqli_query($db_connect,$sql);	
-
-                //echo $sql; 
-            
-                //echo $sql; die();
-
-                /*if($result){
-                    $_SESSION['ins_flag']=true;
-                    Header("Location:allot_sheet_view_np.php");
-                }*/
-
-                Header("Location:view_allot_sheet_np.php");
-
-            }
-        
-        }
     
-    ?>
 
     <body class="body">
 

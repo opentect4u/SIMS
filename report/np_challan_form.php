@@ -12,9 +12,9 @@
         $memono = $_POST['memono'];
 
         $sql = "SELECT gen_date,
-                    del_cd,
-                    prod_desc,
-                    amount 
+                        del_cd,
+                        prod_desc,
+                        amount 
                 FROM td_allotment_sheet_np
                 WHERE memono = '$memono'";
 

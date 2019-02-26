@@ -3,7 +3,8 @@
 	error_reporting(E_ALL);
 
 	require("../db/db_connect.php");
-	require("../session.php");
+    require("../session.php");
+    require("../post/sims_function.php");
 
         $errMsg = '';
 
@@ -11,8 +12,8 @@
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
 
-            $transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-            $transdt    =   $transdt->format('Y-m-d');
+            //$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
+            $transdt    =   date('Y-m-d');
 			$allotno	=	$_POST["do_no"];
 			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
@@ -31,7 +32,7 @@
 			$prod_cd = f_getprodcd($proddesc,$db_connect);
 			$catg_cd = f_getcatgcd($prodcatg,$db_connect);
 			$qty_bal = f_getallotbal($allotno,$catg_cd,$prod_cd,$db_connect);
-			$tot_bal = f_getquintal($qtyqnt,$qtykg,$qtygm,$db_connect);
+			$tot_bal = f_getquintal($qtyqnt,$qtykg,$qtygm,$db_connect); 
 		         	
 			/*echo "prod_cd- $prod_cd"."<br>";
 			echo "catg_cd -$catg_cd"."<br>";
@@ -154,7 +155,7 @@
             var    do_no            =    $('.validate-input input[name = "do_no"]');
             var    prod_desc        =    $('.validate-input select[name = "prod_desc"]');
             var    prod_catg        =    $('.validate-input select[name = "prod_catg"]');
-
+            var    alloted_qnt      =    $('.validate-input input[name = "alloted_qnt"]');
             var    qty_bag          =    $('.validate-input input[name = "qty_bag"]');
             var    qty_qnt          =    $('.validate-input input[name = "qty_qnt"]');
             var    qty_kg           =    $('.validate-input input[name = "qty_kg"]');
@@ -215,7 +216,7 @@
             showData(prod_catg);
             showData(prod_type);
             showData(sl_no);
-
+            showData(alloted_qnt);
             showData(qty_bag);
             showData(qty_qnt);
             showData(qty_kg);
@@ -413,13 +414,21 @@
 
                             </div>
 
+                            <div class="wrap-input1 validate-input" data-alert="alloted_qnt" >
+
+                                <input type="text" class="input1" id="alloted_qnt" name="alloted_qnt" value="0.00" placeholder="Alloted Qnt" readonly />
+
+                                <span class="shadow-input1"></span>
+
+                            </div>
+                            
                             <div class="wrap-input1 validate-input" data-alert="Bag/Tin" >
 
                                 <input type="text" class="input1" name="qty_bag" value="0.00" placeholder="Bag" />
 
                                 <span class="shadow-input1"></span>
 
-                            </div>
+                            </div> 
 
                             <div class="wrap-input1 validate-input" data-alert="Quint" >
 
@@ -443,7 +452,7 @@
 
                                 <span class="shadow-input1"></span>
 
-                            </div>
+                            </div> 
 
                             <div class="wrap-input1 validate-input" data-validate="Date is required">
 
@@ -486,3 +495,44 @@
 	</body>
 
 </html>
+
+
+<script>
+
+    $(document).ready(function()
+                    {
+                        $('#prod_catg').change(
+                                function()
+                                {
+                                    var prod_catg = $(this).val();
+                                    var do_no = $('#do_no').val();
+                                    var prod_desc = $('#prod_desc').val();
+
+                                    /*console.log(prod_catg);
+                                    console.log(do_no);
+                                    console.log(prod_desc); */
+
+                                    $.ajax({
+
+                                        url:"../fetch/stockOut_pds_amount.php",
+
+                                        data:{
+                                            prod_catg : prod_catg,
+                                            do_no : do_no,
+                                            prod_desc : prod_desc
+                                        },
+                                        type: "GET"
+
+                                    }).done(function (data){
+
+                                        var total_qnt = JSON.parse(data);
+    
+                                        $('#alloted_qnt').val(total_qnt);
+
+                                    });
+
+                                }
+                        );
+                    });
+
+</script>

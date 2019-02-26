@@ -123,7 +123,7 @@
 
 <script src="../js/collapsible.js"></script>
 
-<script>
+<!-- <script>
 
     $(document).ready(function() {
 
@@ -147,7 +147,7 @@
 
     });
 
-</script>
+</script> -->
 
 </body>
 

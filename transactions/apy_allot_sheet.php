@@ -68,9 +68,6 @@
 
 
 
-
-
-
 <body class="body">
 
 <?php require '../post/nav.php'; ?>

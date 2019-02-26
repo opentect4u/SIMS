@@ -15,8 +15,10 @@
 
         //var_dump($_POST["sl_no"]);
 
-        $trans_dt	    =	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-        $trans_dt       =   $trans_dt->format('Y-m-d');
+        //$trans_dt	    =	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
+        //$trans_dt       =   $trans_dt->format('Y-m-d');
+
+        $trans_dt       =   $_POST["trans_dt"];
         $dono		    =	$_POST["do_no"];
         $prod_type      =   $_POST["prod_type"];
         $prod_sl_no     =   $_POST["sl_no"];
@@ -269,7 +271,7 @@
                                 </span>
                                 <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
-                                    <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
+                                    <input type="text" class="input1" name="trans_dt" value="<?php echo date("y-m-d", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
 
                                     <span class="shadow-input1"></span>
 

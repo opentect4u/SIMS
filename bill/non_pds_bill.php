@@ -177,51 +177,46 @@
 
     <div>
 
-      <!--  <table style="width: 100%;">
-
-            <thead style="text-align: center;" > -->
-
-           <!-- <tr>
-
-                <th>Date</th>
-                <th>Memo No.</th>
-                <th width="5%">Name of<br>Commo.</th>
-                <th>Ammount of<br> Commo.</th>
-                <th>Rate per <br>Unit</th>
-                <th>Total Price</th>
-
-            </tr> -->
-
             <?php
-                 echo "<table style= 'margin-left:36px'>
-                 <tr align= center>
-                 <th>Date</th>
-                 <th>Memo No.</th>
-                 <th>Name of<br>Commo.</th>
-                 <th>Ammount of<br> Commo.</th>
-                 <th>Rate per <br>Unit</th>
-                 <th>Total Price</th>
-                 </tr>";
+                echo "<table style= 'width: 100%;'>";
+                    echo "<thead style = 'text-align: center'>";
+                    echo "<tr align= center>
+                            <th>Date</th>
+                            <th>Memo No.</th>
+                            <th>Name of<br>Commo.</th>
+                            <th>Ammount of<br> Commo.</th>
+                            <th>Rate per <br>Unit</th>
+                            <th>Total Price</th>
+                        </tr>";
+                    echo "</thead>";
             ?>
 
         <?php
+            
+            $sql_count = "SELECT count(amount) FROM td_allotment_sheet_np WHERE memono = '$memono' 
+                        AND del_cd = '$del_cd' AND gen_date = '$gen_date' ";
 
+            $result = mysqli_query($db_connect, $sql_count);
+            
+            
             $sql = "SELECT gen_date,
                         del_cd,
                         prod_desc,
-                        amount 
+                        amount
+                        
                     FROM td_allotment_sheet_np
-                    WHERE memono = '$memono' AND del_cd = '$del_cd'";
+                    WHERE memono = '$memono' AND del_cd = '$del_cd' AND gen_date = '$gen_date' ";
+
+                //echo $sql; die;
 
             $allotment_result = mysqli_query($db_connect, $sql);
 
+            $tot_price_array = [];
+
             while($row = mysqli_fetch_assoc($allotment_result)){
 
-                    //$array[] = $row;
-                    //echo $row['prod_desc'];
-                    //count($row);
-                    //echo  count($row);
-
+                    
+                    
                     $prod_desc       =       $row['prod_desc'];
 
                     $sql_join= "SELECT t.gen_date, t.del_cd, t.amount, t.prod_desc, t.memono,
@@ -234,29 +229,57 @@
                     // var_dump($sql_join);
 
                     while($row = mysqli_fetch_array($union_result)){
-                        echo "<tr>";
-                        echo "<td>" . $row['gen_date'] . "</td>";
-                        echo "<td>" . $row['memono'] . "</td>";
-                        echo "<td>" . $row['prod_desc'] ."</td>";
-                        echo "<td>" . $row['amount'] .' '. $row['per_unit'] . "</td>";
-                        echo "<td>" . $row['prod_rate'] . "</td>";
-                        echo "<td>" . $row['price'] . "</td>";
-                        echo "<tr>";
+
+                        $tot_price = $row['price'];
+
+                        //$new_tot_price =   $tot_price;
+                        echo "<tbody style = 'text-align: center'>";
+                            echo "<tr>";
+                            echo "<td>" . $row['gen_date'] . "</td>";
+                            echo "<td>" . $row['memono'] . "</td>";
+                            echo "<td>" . $row['prod_desc'] ."</td>";
+                            echo "<td>" . $row['amount'] .' '. $row['per_unit'] . "</td>";
+                            echo "<td>" . $row['prod_rate'] . "</td>";
+                            echo "<td>" . $tot_price . "</td>";
+                            echo "<tr>";
+                        echo "</tbody>";
                     }
+                    
+                    array_push($tot_price_array, $tot_price);
+                    //$new_tot_price = $new_tot_price + $tot_price;
+                    
             } 
+            
+            //print_r($tot_price_array);
+            $total_price = 0;
+
+            for($i=0; $i< count($tot_price_array); $i++)
+            {
+
+                $total_price += $tot_price_array[$i];
+            }
+
+            //echo $total_price;
+
+            echo "<tfooter style = 'text-align: center'>";
+
+                echo "<tr>
+                        <td colspan='5' style='text-align: center;'>
+                            <strong>TOTAL:</strong>
+                        </td>
+                        <td style='text-align: center;'>
+                                $total_price
+                        </td>
+                    </tr> ";
+
+            echo "</tfooter>";
+
             echo "</table>";
 
-            /* $sql_join= "SELECT t.gen_date, t.del_cd, t.amount, p.per_unit, p.prod_rate 
-                        FROM td_allotment_sheet_np t, m_rate_master_np p 
-                        WHERE t.prod_desc = p.prod_desc AND p.prod_desc = 'OIL' AND t.del_cd = $del_cd 
-                        AND t.memono = '$memono'"; 
-                
-                $union_result= mysqli_query($db_connect, $sql_join);
-
-                dar_dump($sql_union);*/
 
         ?>
 
+       
     </div>
 
     <br style="line-height: 50px;">

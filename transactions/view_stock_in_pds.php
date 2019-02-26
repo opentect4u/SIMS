@@ -2,20 +2,20 @@
 	ini_set("display_errors","1");
     error_reporting(E_ALL);
 
-        require("../db/db_connect.php");
-        require("../session.php");
+    require("../db/db_connect.php");
+    require("../session.php");
 
-        $prodtypeErr= "";
+    $prodtypeErr= "";
 
-        if($_SESSION['ins_flag']==true){
-                echo "<script>alert('Save Successful')</script>";
-                $_SESSION['ins_flag']=false;
-        }
+    if($_SESSION['ins_flag']==true){
+            echo "<script>alert('Save Successful')</script>";
+            $_SESSION['ins_flag']=false;
+    }
 
-        if($_SESSION['edit_in'] == true){
-                echo"<script>alert('Update Successful')</script>";
-                $_SESSION['edit_in']=false;
-	}
+    if($_SESSION['edit_in'] == true){
+            echo"<script>alert('Update Successful')</script>";
+            $_SESSION['edit_in']=false;
+    }
 
 	if($_SESSION['approve'] == true){
 		echo "<script>alert('Approve Successful')</script>";

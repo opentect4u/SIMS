@@ -389,6 +389,44 @@
 
             <button class="collapsible">
 
+                <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>Dealer Account
+
+                <i class="fa fa-angle-down pull-right"></i>
+
+            </button>
+            <div class="content">
+
+                <div class="manue">
+
+                    <br>
+                    <div>
+
+                        <a class="abtn green" href="../transactions/del_payment.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Dealer Payment</a>
+
+                    </div>
+                    <br>
+
+                    <div>
+
+                        <a class="abtn green" href="../report/del_pay_report.php">
+
+                            <i class="fa fa-plus fa-fw" aria-hidden="true"></i>Dealer Ledger</a>
+
+                    </div>
+                    <br>
+
+                </div>
+            
+            </div>
+
+        </div>
+
+        <div>
+
+            <button class="collapsible">
+
                 <i class="fa fa-file-text fa-fw" aria-hidden="true"></i>Reports
 
                 <i class="fa fa-angle-down pull-right"></i>
