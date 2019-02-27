@@ -97,10 +97,10 @@
 
 /*SPHH Rice Update*/
 
-		$sphh_rice      = f_getrate(3,1,$db_connect);
+		//$phh_rice      = f_getrate(3,1,$db_connect);
                 $sr_sql = "update td_allotment_sheet
-                           set    sr_unit  = $sphh_rice,
-				  sr_tot   = sphh_rice * $sphh_rice
+                           set    sr_unit  = $phh_rice,
+				  sr_tot   = sphh_rice * $phh_rice
 			    where  gen_date         = '$gendt'
                            and    memo_no          = '$memono'
                            and    approval_status  = 'U'";
@@ -109,10 +109,10 @@
 
 /*SPHH Wheat Update*/
 
-		$sphh_wheat     = f_getrate(3,2,$db_connect);
+		//$phh_wheat     = f_getrate(3,2,$db_connect);
 		$sw_sql = "update td_allotment_sheet
-                           set    sw_unit  = $sphh_wheat,
-				  sw_tot   = sphh_wheat * $sphh_wheat
+                           set    sw_unit  = $phh_wheat,
+				  sw_tot   = sphh_wheat * $phh_wheat
 			    where  gen_date         = '$gendt'
                            and    memo_no          = '$memono'
                            and    approval_status  = 'U'";
@@ -121,10 +121,10 @@
 
 /*SPHH Atta Update*/
 
-		$sphh_atta      = f_getrate(3,3,$db_connect);
+		//$phh_atta      = f_getrate(3,3,$db_connect);
 		$sa_sql = "update td_allotment_sheet
-                           set    sa_unit  = $sphh_atta,
-				  sa_tot   = sphh_atta * $sphh_atta
+                           set    sa_unit  = $phh_atta,
+				  sa_tot   = sphh_atta * $phh_atta
 			    where  gen_date         = '$gendt'
                            and    memo_no          = '$memono'
                            and    approval_status  = 'U'";
@@ -133,10 +133,10 @@
 
 /*SPHH Sugar Update*/		
 
-		$sphh_sugar     = f_getrate(3,4,$db_connect);
+		//$phh_sugar     = f_getrate(3,4,$db_connect);
 		$ss_sql = "update td_allotment_sheet
-                           set    ss_unit  = $sphh_sugar,
-				  ss_tot   = sphh_sugar * $sphh_sugar
+                           set    ss_unit  = $phh_sugar,
+				  ss_tot   = sphh_sugar * $phh_sugar
 			    where  gen_date         = '$gendt'
                            and    memo_no          = '$memono'
                            and    approval_status  = 'U'";
@@ -239,90 +239,90 @@
 	     $row    = mysqli_fetch_assoc($result);
 
 	     $aay_rice_tot 	= $row['aay_rice'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',1,1,$aay_rice_tot,$aay_rice_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $aay_wheat_tot	= $row['aay_wheat'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',1,2,$aay_wheat_tot,$aay_wheat_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $aay_atta_tot      = $row['aay_atta'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',1,3,$aay_atta_tot,$aay_atta_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $aay_sugar_tot     = $row['aay_sugar'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',1,4,$aay_sugar_tot,$aay_sugar_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
 	     $phh_rice_tot      = $row['phh_rice'];	
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',2,1,$phh_rice_tot,$phh_rice_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);	
 
 	     $phh_wheat_tot     = $row['phh_wheat'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',2,2,$phh_wheat_tot,$phh_wheat_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 	
 
 	     $phh_atta_tot	= $row['phh_atta'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',2,3,$phh_atta_tot,$phh_atta_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
 
 	     $sphh_rice_tot     = $row['sphh_rice'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',3,1,$sphh_rice_tot,$sphh_rice_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
 	     $sphh_wheat_tot    = $row['sphh_wheat']; 
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',3,2,$sphh_wheat_tot,$sphh_wheat_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 	
 	     $sphh_atta_tot     = $row['sphh_atta'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',3,3,$sphh_atta_tot,$sphh_atta_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
 	     $sphh_sugar_tot    = $row['sphh_sugar'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',3,4,$sphh_sugar_tot,$sphh_sugar_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
    	
 	     $rksy1_rice_tot    = $row['rksy1_rice'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',4,1,$rksy1_rice_tot,$rksy1_rice_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 	
 	     $rksy1_wheat_tot   = $row['rksy1_wheat'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',4,2,$rksy1_wheat_tot,$rksy1_wheat_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $rksy1_atta_tot    = $row['rksy1_atta'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',4,3,$rksy1_atta_tot,$rksy1_atta_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert); 
 
 	     $rksy2_rice_tot    = $row['rksy2_rice'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',5,1,$rksy2_rice_tot,$rksy2_rice_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $rksy2_wheat_tot   = $row['rksy2_wheat'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',5,2,$rksy2_wheat_tot,$rksy2_wheat_tot,'O')";
 	     $in_result = mysqli_query($db_connect,$insert);
 
 	     $rksy2_atta_tot    = $row['rksy2_atta'];
-	     $insert = "insert into td_allot_dtls(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
+	     $insert = "insert into td_allot_dtls_pds(trans_dt,allot_no,catg_cd,prod_cd,prod_qty,balance_qty,allot_status)
                         values('$gendt','$memono',5,3,$rksy2_atta_tot,$rksy2_atta_tot,'O')";
              $in_result = mysqli_query($db_connect,$insert);
 
