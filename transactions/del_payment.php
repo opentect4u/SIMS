@@ -219,6 +219,7 @@
                             <input type="hidden" class="input1" name="trans_cd" id="trans_cd" value="<?php echo $trans_cd + 1 ; ?>" />
 
                             <div class="wrap-input1 validate-input" data-validate="Dealer Name is required" data-alert="Dealer Name" >
+                            
 
                                 <select class="input1" name="del_cd" id="del_cd" required>
                                                 
