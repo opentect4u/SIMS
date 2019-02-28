@@ -61,6 +61,7 @@
             showData(start_dt);
             showData(end_dt);                
             
+            
             function showValidate(input) {
 
                 var thisAlert = $(input).parent();
@@ -68,6 +69,7 @@
                 $(thisAlert).addClass('alert-validate');
 
             }
+
 
             function showData(input) {
 
@@ -77,6 +79,7 @@
 
             }
 
+
             function hideValidate(input) {
 
                 var thisAlert = $(input).parent();
@@ -85,6 +88,7 @@
 
                 //$(thisAlert).removeClass('alert-data');
             }
+
 
             function hideAlertdate(input) {
 

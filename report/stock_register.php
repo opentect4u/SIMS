@@ -34,10 +34,20 @@
 		$rep_data['gm_bal']             = [];
 
 	if ($_SERVER['REQUEST_METHOD']=="POST"){
+
 		$prod_no 	= 	$_POST['sl_no'];
 		$prod_catg 	= 	$_POST['prod_catg'];
 		$start_dt 	= 	$_POST['start_dt'];
 		$end_dt 	= 	$_POST['end_dt'];
+
+		//echo $prod_catg; die;
+
+		/*if($prod_catg == "PHH")
+		{
+			$prod_catg = "PHH & SPHH";
+		} */
+
+
 	}
 
 	$prod = "select prod_desc from m_products where sl_no = '$prod_no'";
@@ -54,9 +64,11 @@
 				   and	 prod_catg  =  '$prod_catg'
                    and   approval_status = 'A'";
 
-        $no     = mysqli_query($db_connect,$Sql);
+	//echo $Sql; die;
 
-		$count  = mysqli_num_rows($no);
+	$no     = mysqli_query($db_connect,$Sql);
+
+	$count  = mysqli_num_rows($no);
 
 		//echo $count; die;
 		

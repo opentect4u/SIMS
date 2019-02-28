@@ -9,19 +9,12 @@
 	$sql = "select sl_no,prod_desc from m_products WHERE prod_type = 'PDS'";
 	$proddesc = mysqli_query($db_connect,$sql);
 
-	$select_catg = "Select prod_catg from m_prod_catg";
-	$prodcatg    = mysqli_query($db_connect,$select_catg);
+	$select_catg = "Select prod_catg from m_prod_catg WHERE prod_catg != 'SPHH'";
+    $prodcatg    = mysqli_query($db_connect,$select_catg);
 
-	/*if($_SERVER['REQUEST_METHOD']=="GET"){
-		$sl_no 		= $_GET['sl_no'];
-		$prod_catg	= $_GET['prod_catg'];	
-		$start_dt	= $_GET['start_dt'];
-		$end_dt		= $_GET['end_dt'];
-		
-	//Header("Location:stock_register.php");
-
-		
-	}*/
+    //$data=mysqli_fetch_assoc($prodcatg);
+    //var_dump($prodcatg); die;
+    
 
 ?>
 
@@ -226,7 +219,7 @@
 
                                         while($data=mysqli_fetch_assoc($prodcatg)){
 
-                                            echo "<option value=".$data['prod_catg'].">".$data['prod_catg']."</option>";
+                                            echo "<option value='".$data['prod_catg']."'>".$data['prod_catg']."</option>";
 
                                         }
 

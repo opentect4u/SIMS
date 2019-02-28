@@ -1,12 +1,11 @@
 <?php
-	
 	/*require("../db/db_connect.php");
 	require("../session.php");*/
 
 	function f_getparamval($value,$db){
 		$sql = "select param_value
 			from   m_params
-			where  paran_no = $value";
+			where  param_no = $value";
 
 		$result = mysqli_query($db,$sql);
 		$data   = mysqli_fetch_assoc($result);

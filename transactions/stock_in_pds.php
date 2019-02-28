@@ -10,9 +10,12 @@
 	if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
             //$qtybag = $qtyqnt = $qtykg = $qtygm = 0.00;
+            
+            $originalDate = $_POST["trans_dt"];
 
-			//$transdt	=	DateTime::createFromFormat('d-m-Y', $_POST["trans_dt"]);
-            $transdt    =  date('Y-m-d');
+            $myDateTime = DateTime::createFromFormat('d-m-Y', $originalDate);
+            $transdt = $myDateTime->format('y-m-d');
+
 			$dono		=	$_POST["do_no"];
 			$prodslno	=	$_POST["sl_no"];
 			$proddesc	=	$_POST["prod_desc"];
@@ -29,7 +32,8 @@
 			$time       =   date("Y-m-d h:i:s");
 
 			//var_dump($transdt);
-
+            //echo $newDate;
+            //die;
 
 			if(array_sum(array($qtybag, $qtyqnt, $qtykg, $qtygm)) > 0 && !is_null($dono)) {
 			    $sql = "SELECT MAX(trans_cd) trans_cd FROM td_stock_trans_pds
@@ -292,7 +296,7 @@
 
                             <div class="wrap-input1 validate-input" data-alert="Transaction Date">
 
-                                <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-Y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
+                                <input type="text" class="input1" name="trans_dt" value="<?php echo date("d-m-y", strtotime(f_getparamval(7, $db_connect))) ?>" readonly />
 
                                 <span class="shadow-input1"></span>
 
